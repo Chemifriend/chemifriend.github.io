@@ -29,16 +29,15 @@
       <div class="nav-dropdown">
         <a href="{{ base_path }}product.html" class="{{ 'active' if active == 'product' }}">Product</a>
         <div class="mega-menu">
-          {% for area in business_areas %}
+          {% for b in brands %}
           <div class="mega-col">
-            <a class="mega-brand" href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/index.html">
-              {% if area.로고파일 %}<img src="{{ base_path }}static/logos/{{ area.로고파일.split(',')[0].strip() }}" alt="{{ area.회사명 }}">{% else %}{{ area.회사명 }}{% endif %}
+            <a class="mega-brand" href="{{ base_path }}product/{{ b.id }}/index.html">
+              {% if b.로고 %}<img src="{{ base_path }}static/logos/{{ b.로고 }}" alt="{{ b.회사명 }}">{% else %}{{ b.회사명 }}{% endif %}
             </a>
-            {% set fam = family_slugs.get(area.슬러그) %}
-            {% if fam %}
+            {% if b.제품군 %}
             <ul class="mega-list">
-              {% for page_name, fslug in fam.items() %}
-              <li><a href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/{{ fslug }}/index.html">{{ page_name }}</a></li>
+              {% for f in b.제품군 %}
+              <li><a href="{{ base_path }}product/{{ b.id }}/{{ f.id }}/index.html">{{ f.이름 }}</a></li>
               {% endfor %}
             </ul>
             {% endif %}

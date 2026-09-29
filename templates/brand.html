@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <nav class="breadcrumb">
-  <a href="{{ base_path }}product.html">Product</a> <span>/</span> <span>{{ area.회사명 }}</span>
+  <a href="{{ base_path }}product.html">Product</a> <span>/</span> <span>{{ brand.회사명 }}</span>
 </nav>
 
 <section class="section brand-hero">
   <div class="section-inner brand-hero-inner">
     <div class="brand-hero-logo">
-      {% if area.로고파일 %}
-        <img src="{{ base_path }}static/logos/{{ area.로고파일.split(',')[0].strip() }}" alt="{{ area.회사명 }}">
+      {% if brand.로고 %}
+        <img src="{{ base_path }}static/logos/{{ brand.로고 }}" alt="{{ brand.회사명 }}">
       {% else %}
         <span class="brand-card-icon" style="width:60px;height:60px;border-radius:16px;">
           <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -19,11 +19,11 @@
       {% endif %}
     </div>
     <div class="brand-hero-text">
-      {% if intro.국가 and intro.설립연도 %}<span class="brand-card-badge">{{ intro.국가 }} · {{ intro.설립연도 }}</span>{% endif %}
-      <h1>{{ area.회사명 }}</h1>
-      {% if intro.영문슬로건 %}<p class="brand-slogan">"{{ intro.영문슬로건 }}"</p>{% endif %}
-      {% if intro.한국어소개 %}<p class="brand-desc">{{ intro.한국어소개 }}</p>{% endif %}
-      {% set slug = area.슬러그 %}{% include "_brand_contact.html" %}
+      {% if brand.국가 and brand.설립연도 %}<span class="brand-card-badge">{{ brand.국가 }} · {{ brand.설립연도 }}</span>{% endif %}
+      <h1>{{ brand.회사명 }}</h1>
+      {% if brand.영문슬로건 %}<p class="brand-slogan">"{{ brand.영문슬로건 }}"</p>{% endif %}
+      {% if brand.한국어소개 %}<p class="brand-desc">{{ brand.한국어소개 }}</p>{% endif %}
+      {% set cb = brand %}{% include "_brand_contact.html" %}
     </div>
   </div>
 </section>
@@ -34,11 +34,11 @@
       <span class="section-tag">Product Lines</span>
       <h2 class="section-title">취급 제품군</h2>
     </div>
-    {% if pages %}
+    {% if brand.제품군 %}
     <div class="family-grid">
-      {% for page_name, groups in pages.items() %}
-      <a class="family-card" href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/{{ fam_slugs[page_name] }}/index.html">
-        <h3>{{ page_name }}</h3>
+      {% for f in brand.제품군 %}
+      <a class="family-card" href="{{ base_path }}product/{{ brand.id }}/{{ f.id }}/index.html">
+        <h3>{{ f.이름 }}</h3>
       </a>
       {% endfor %}
     </div>

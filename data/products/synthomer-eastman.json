@@ -1,0 +1,1656 @@
+{
+  "제품군": [
+    {
+      "id": "hydrocarbon-resin",
+      "이름": "Hydrocarbon Resin",
+      "소그룹": [
+        {
+          "이름": "PICCO / C9 (Aromatic Resins)",
+          "스펙항목": [
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "picco-a10",
+              "품명": "Picco A10",
+              "용도": "Tackifying plasticizer, printing inks",
+              "스펙": {
+                "Softening Point R&B ℃": "Liquid",
+                "Color Gardner": "9",
+                "Molecular Weight Distribution (Mw)": "750"
+              }
+            },
+            {
+              "id": "picco-a100",
+              "품명": "Picco A100",
+              "용도": "Adhesives, rubber, ink, flooring",
+              "스펙": {
+                "Softening Point R&B ℃": "101",
+                "Color Gardner": "9",
+                "Molecular Weight Distribution (Mw)": "930"
+              }
+            },
+            {
+              "id": "picco-a120",
+              "품명": "Picco A120",
+              "용도": "Adhesives, paint & varnish, bitumen",
+              "스펙": {
+                "Softening Point R&B ℃": "125",
+                "Color Gardner": "8",
+                "Molecular Weight Distribution (Mw)": "1,200"
+              }
+            },
+            {
+              "id": "picco-a120-pi",
+              "품명": "Picco A120 PI",
+              "용도": "Viscosity specification for printing inks",
+              "스펙": {
+                "Softening Point R&B ℃": "120",
+                "Color Gardner": "6",
+                "Molecular Weight Distribution (Mw)": "1,200"
+              }
+            },
+            {
+              "id": "picco-a130",
+              "품명": "Picco A130",
+              "용도": "",
+              "스펙": {
+                "Softening Point R&B ℃": "135",
+                "Color Gardner": "6",
+                "Molecular Weight Distribution (Mw)": "1,200"
+              }
+            },
+            {
+              "id": "picco-a140",
+              "품명": "Picco A140",
+              "용도": "",
+              "스펙": {
+                "Softening Point R&B ℃": "142",
+                "Color Gardner": "8",
+                "Molecular Weight Distribution (Mw)": "1,650"
+              }
+            },
+            {
+              "id": "picco-a140-pi",
+              "품명": "Picco A140 PI",
+              "용도": "",
+              "스펙": {
+                "Softening Point R&B ℃": "138",
+                "Color Gardner": "6",
+                "Molecular Weight Distribution (Mw)": "1,700"
+              }
+            },
+            {
+              "id": "picco-ar85",
+              "품명": "Picco AR85",
+              "용도": "Solvent based pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "87",
+                "Color Gardner": "9",
+                "Molecular Weight Distribution (Mw)": "710"
+              }
+            },
+            {
+              "id": "picco-ar100",
+              "품명": "Picco AR100",
+              "용도": "",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "8",
+                "Molecular Weight Distribution (Mw)": "800"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "PICCOTAC / C5 (Aliphatic Resins from USA)",
+          "스펙항목": [
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "piccotac-1020",
+              "품명": "Piccotac 1020",
+              "용도": "Tackifier, plasticize",
+              "스펙": {
+                "Softening Point R&B ℃": "5",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "1,380"
+              }
+            },
+            {
+              "id": "piccotac-1095",
+              "품명": "Piccotac 1095",
+              "용도": "Tackifier, plasticize",
+              "스펙": {
+                "Softening Point R&B ℃": "94",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "1,700"
+              }
+            },
+            {
+              "id": "piccotac-1098",
+              "품명": "Piccotac 1098",
+              "용도": "Pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "2,150"
+              }
+            },
+            {
+              "id": "piccotac-1100",
+              "품명": "Piccotac 1100",
+              "용도": "Hot melt, roadmarking",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "2,900"
+              }
+            },
+            {
+              "id": "piccotac-1115",
+              "품명": "Piccotac 1115",
+              "용도": "Hot melt pressure sensitive",
+              "스펙": {
+                "Softening Point R&B ℃": "110",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "3,800"
+              }
+            },
+            {
+              "id": "piccotac-9105",
+              "품명": "Piccotac 9105",
+              "용도": "Hot melt adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "105",
+                "Color Gardner": "2",
+                "Molecular Weight Distribution (Mw)": "3,200"
+              }
+            },
+            {
+              "id": "piccotac-9095",
+              "품명": "Piccotac 9095",
+              "용도": "Hot melt & solvent based pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "94",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "1,900"
+              }
+            },
+            {
+              "id": "piccotac-8095",
+              "품명": "Piccotac 8095",
+              "용도": "",
+              "스펙": {
+                "Softening Point R&B ℃": "95",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "2,200"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "C5 (Aliphatic Resins from Europe)",
+          "스펙항목": [
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "piccotac-7590-n",
+              "품명": "Piccotac 7590-N",
+              "용도": "High quality hot melt adhesives, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "91",
+                "Color Gardner": "2",
+                "Molecular Weight Distribution (Mw)": "1,700"
+              }
+            },
+            {
+              "id": "piccotac-1095-n",
+              "품명": "Piccotac 1095-N",
+              "용도": "Tackifier, plasticize",
+              "스펙": {
+                "Softening Point R&B ℃": "97",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "1,900"
+              }
+            },
+            {
+              "id": "piccotac-1100-e",
+              "품명": "Piccotac 1100-E",
+              "용도": "Hot melt, roadmarking",
+              "스펙": {
+                "Softening Point R&B ℃": "101",
+                "Color Gardner": "4",
+                "Molecular Weight Distribution (Mw)": "2,700"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "EASTOTAC / H2C5 (Hydrogenated Hydrocarbon Resins)",
+          "스펙항목": [
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "eastotac-c-100r",
+              "품명": "Eastotac C-100R",
+              "용도": "Packaging, nonwovens, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "1.5",
+                "Molecular Weight Distribution (Mw)": "1,100"
+              }
+            },
+            {
+              "id": "eastotac-c-100l",
+              "품명": "Eastotac C-100L",
+              "용도": "Packaging, nonwovens, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,100"
+              }
+            },
+            {
+              "id": "eastotac-c-100w",
+              "품명": "Eastotac C-100W",
+              "용도": "Packaging, nonwovens, glue sticks, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,000"
+              }
+            },
+            {
+              "id": "eastotac-c-100xf",
+              "품명": "Eastotac C-100XF",
+              "용도": "Packaging, nonwovens, glue sticks, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,000"
+              }
+            },
+            {
+              "id": "eastotac-c-115r",
+              "품명": "Eastotac C-115R",
+              "용도": "Packaging, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "115",
+                "Color Gardner": "1.5",
+                "Molecular Weight Distribution (Mw)": "1,150"
+              }
+            },
+            {
+              "id": "eastotac-c-115l",
+              "품명": "Eastotac C-115L",
+              "용도": "Packaging, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "115",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,100"
+              }
+            },
+            {
+              "id": "eastotac-c-115w",
+              "품명": "Eastotac C-115W",
+              "용도": "Packaging, glue sticks, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "115",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,050"
+              }
+            },
+            {
+              "id": "eastotac-h-100r",
+              "품명": "Eastotac H-100R",
+              "용도": "Packaging, nonwovens, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "1.5",
+                "Molecular Weight Distribution (Mw)": "1,050"
+              }
+            },
+            {
+              "id": "eastotac-h-100l",
+              "품명": "Eastotac H-100L",
+              "용도": "Packaging, nonwovens, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,000"
+              }
+            },
+            {
+              "id": "eastotac-h-100w",
+              "품명": "Eastotac H-100W",
+              "용도": "Packaging, nonwovens, glue sticks, assembly, hot melt pressure sensitive dhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,000"
+              }
+            },
+            {
+              "id": "eastotac-h-115r",
+              "품명": "Eastotac H-115R",
+              "용도": "Packaging, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "115",
+                "Color Gardner": "1.5",
+                "Molecular Weight Distribution (Mw)": "1,050"
+              }
+            },
+            {
+              "id": "eastotac-h-115l",
+              "품명": "Eastotac H-115L",
+              "용도": "Packaging, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "115",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,000"
+              }
+            },
+            {
+              "id": "eastotac-h-115w",
+              "품명": "Eastotac H-115W",
+              "용도": "Packaging, glue sticks, assembly, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "115",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "950"
+              }
+            },
+            {
+              "id": "eastotac-h-130r",
+              "품명": "Eastotac H-130R",
+              "용도": "Packaging, assembly",
+              "스펙": {
+                "Softening Point R&B ℃": "130",
+                "Color Gardner": "1.5",
+                "Molecular Weight Distribution (Mw)": "1,050"
+              }
+            },
+            {
+              "id": "eastotac-h-130l",
+              "품명": "Eastotac H-130L",
+              "용도": "Packaging, assembly",
+              "스펙": {
+                "Softening Point R&B ℃": "130",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,050"
+              }
+            },
+            {
+              "id": "eastotac-h-130w",
+              "품명": "Eastotac H-130W",
+              "용도": "Packaging, assembly",
+              "스펙": {
+                "Softening Point R&B ℃": "130",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,000"
+              }
+            },
+            {
+              "id": "eastotac-h-142r",
+              "품명": "Eastotac H-142R",
+              "용도": "Packaging, assembly",
+              "스펙": {
+                "Softening Point R&B ℃": "142",
+                "Color Gardner": "1.5",
+                "Molecular Weight Distribution (Mw)": "1,050"
+              }
+            },
+            {
+              "id": "eastotac-h-142w",
+              "품명": "Eastotac H-142W",
+              "용도": "Packaging, assembly",
+              "스펙": {
+                "Softening Point R&B ℃": "142",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "950"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "REGALITE / H2C9 (Hydrogenated Hydrocarbon Resins)",
+          "스펙항목": [
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "regalite-r1010",
+              "품명": "Regalite R1010",
+              "용도": "Tackifier, plasticizer",
+              "스펙": {
+                "Softening Point R&B ℃": "Liquid",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "ㅡ"
+              }
+            },
+            {
+              "id": "regalite-r1090",
+              "품명": "Regalite R1090",
+              "용도": "Hot melt adhesives, hot melt pressure sensitive adhesives, coatings, sealants",
+              "스펙": {
+                "Softening Point R&B ℃": "88",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "700"
+              }
+            },
+            {
+              "id": "regalite-r1100",
+              "품명": "Regalite R1100",
+              "용도": "Hot melt adhesives, hot melt pressure sensitive adhesives, coatings, sealants",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "900"
+              }
+            },
+            {
+              "id": "regalite-r1100-cg",
+              "품명": "Regalite R1100 CG",
+              "용도": "Cosmetics",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "900"
+              }
+            },
+            {
+              "id": "regalite-s1100",
+              "품명": "Regalite S1100",
+              "용도": "Hot melt adhesives, hot melt pressure sensitive adhesives, coatings, sealants",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "700"
+              }
+            },
+            {
+              "id": "regalite-r1125",
+              "품명": "Regalite R1125",
+              "용도": "Hot melt adhesives, coatings, sealants, plastic modification",
+              "스펙": {
+                "Softening Point R&B ℃": "123",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,300"
+              }
+            },
+            {
+              "id": "regalite-r9100",
+              "품명": "Regalite R9100",
+              "용도": "Hot melt adhesives, glue sticks",
+              "스펙": {
+                "Softening Point R&B ℃": "99",
+                "Molecular Weight Distribution (Mw)": "850"
+              }
+            },
+            {
+              "id": "regalite-c8010",
+              "품명": "Regalite C8010",
+              "용도": "Tackifier, plasticizer",
+              "스펙": {
+                "Softening Point R&B ℃": "Liquid",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "ㅡ"
+              }
+            },
+            {
+              "id": "regalite-r7100",
+              "품명": "Regalite R7100",
+              "용도": "Hot melt adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "102",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "600"
+              }
+            },
+            {
+              "id": "regalite-s7125",
+              "품명": "Regalite S7125",
+              "용도": "High temperature hot melt adhesives, amorphous polyolefin based hot melt adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "122",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "800"
+              }
+            },
+            {
+              "id": "regalite-c6100",
+              "품명": "Regalite C6100",
+              "용도": "Packaging, nonwovens , glue sticks, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "610"
+              }
+            },
+            {
+              "id": "regalite-c6100sd",
+              "품명": "Regalite C6100SD",
+              "용도": "Packaging, nonwovens , glue sticks, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "610"
+              }
+            },
+            {
+              "id": "regalite-c6100l",
+              "품명": "Regalite C6100L",
+              "용도": "Packaging, nonwovens , glue sticks, hot melt pressure sensitive adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "480"
+              }
+            },
+            {
+              "id": "regalite-s5100",
+              "품명": "Regalite S5100",
+              "용도": "Hot melt adhesives & hot melt pressure sensitive adhesives, glue sticks",
+              "스펙": {
+                "Softening Point R&B ℃": "97",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "600"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "REGALITE ULTRA PURE / H2C9 Low VOC version",
+          "스펙항목": [
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "regalite-ultrapure-5100",
+              "품명": "Regalite UltraPure 5100",
+              "용도": "Hot melt adhesives & hot melt pressure sensitive adhesives, glue sticks",
+              "스펙": {
+                "Softening Point R&B ℃": "97",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "600"
+              }
+            },
+            {
+              "id": "regalite-ultrapure-7100",
+              "품명": "Regalite UltraPure 7100",
+              "용도": "Hot melt adhesives",
+              "스펙": {
+                "Softening Point R&B ℃": "102",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "600"
+              }
+            },
+            {
+              "id": "regalite-ultrapure-1100",
+              "품명": "Regalite UltraPure 1100",
+              "용도": "Hot melt adhesives, hot melt pressure sensitive adhesives, coatings, sealants",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "900"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "PICCOTEX, ENDEX, PLASTOLYN / (Pure Monomer Resins)",
+          "스펙항목": [
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "endex-155",
+              "품명": "Endex 155",
+              "용도": "Reinforcing resin for block copolymers",
+              "스펙": {
+                "Softening Point R&B ℃": "153",
+                "Color Gardner": "5",
+                "Molecular Weight Distribution (Mw)": "6,950"
+              }
+            },
+            {
+              "id": "endex-160",
+              "품명": "Endex 160",
+              "용도": "Reinforcing resin for block copolymers",
+              "스펙": {
+                "Softening Point R&B ℃": "159",
+                "Color Gardner": "8",
+                "Molecular Weight Distribution (Mw)": "8,600"
+              }
+            },
+            {
+              "id": "kristalex-1120",
+              "품명": "Kristalex 1120",
+              "용도": "Hot melt adhesives, bookbinding, packaging",
+              "스펙": {
+                "Softening Point R&B ℃": "119",
+                "Color Gardner": "7",
+                "Molecular Weight Distribution (Mw)": "2,800"
+              }
+            },
+            {
+              "id": "kristalex-3070",
+              "품명": "Kristalex 3070",
+              "용도": "Hot melt adhesives, bookbinding, packaging",
+              "스펙": {
+                "Softening Point R&B ℃": "70",
+                "Color Gardner": "7",
+                "Molecular Weight Distribution (Mw)": "950"
+              }
+            },
+            {
+              "id": "kristalex-3085",
+              "품명": "Kristalex 3085",
+              "용도": "Hot melt adhesives, bookbinding, packaging",
+              "스펙": {
+                "Softening Point R&B ℃": "85",
+                "Color Gardner": "4",
+                "Molecular Weight Distribution (Mw)": "1,150"
+              }
+            },
+            {
+              "id": "kristalex-3100",
+              "품명": "Kristalex 3100",
+              "용도": "Hot melt adhesives, bookbinding, packaging",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "5",
+                "Molecular Weight Distribution (Mw)": "1,500"
+              }
+            },
+            {
+              "id": "kristalex-3115",
+              "품명": "Kristalex 3115",
+              "용도": "Hot melt adhesives, bookbinding, packaging",
+              "스펙": {
+                "Softening Point R&B ℃": "115",
+                "Color Gardner": "10",
+                "Molecular Weight Distribution (Mw)": "2,500"
+              }
+            },
+            {
+              "id": "kristalex-5140",
+              "품명": "Kristalex 5140",
+              "용도": "Plastic modification, coatings, sealants",
+              "스펙": {
+                "Softening Point R&B ℃": "139",
+                "Color Gardner": "4",
+                "Molecular Weight Distribution (Mw)": "4,900"
+              }
+            },
+            {
+              "id": "kristalex-f85",
+              "품명": "Kristalex F85",
+              "용도": "Hot melt adhesives, bookbinding, packaging",
+              "스펙": {
+                "Softening Point R&B ℃": "86",
+                "Color Gardner": "<1 c",
+                "Molecular Weight Distribution (Mw)": "1,200"
+              }
+            },
+            {
+              "id": "kristalex-f100",
+              "품명": "Kristalex F100",
+              "용도": "Hot melt adhesives, bookbinding, packaging",
+              "스펙": {
+                "Softening Point R&B ℃": "99",
+                "Color Gardner": "<1 c",
+                "Molecular Weight Distribution (Mw)": "1,400"
+              }
+            },
+            {
+              "id": "kristalex-f115",
+              "품명": "Kristalex F115",
+              "용도": "Hot melt adhesives, bookbinding, packaging",
+              "스펙": {
+                "Softening Point R&B ℃": "117",
+                "Color Gardner": "<1 c",
+                "Molecular Weight Distribution (Mw)": "2,050"
+              }
+            },
+            {
+              "id": "piccolastic-a5",
+              "품명": "Piccolastic A5",
+              "용도": "Adhesives, coatings, plastic modification",
+              "스펙": {
+                "Softening Point R&B ℃": "5",
+                "Color Gardner": "2 c",
+                "Molecular Weight Distribution (Mw)": "350"
+              }
+            },
+            {
+              "id": "piccolastic-a75",
+              "품명": "Piccolastic A75",
+              "용도": "Adhesives, coatings, plastic modification",
+              "스펙": {
+                "Softening Point R&B ℃": "74",
+                "Color Gardner": "1 c",
+                "Molecular Weight Distribution (Mw)": "1,300"
+              }
+            },
+            {
+              "id": "piccolastic-d125",
+              "품명": "Piccolastic D125",
+              "용도": "Adhesives, plastic modification",
+              "스펙": {
+                "Softening Point R&B ℃": "126",
+                "Color Gardner": "2 c",
+                "Molecular Weight Distribution (Mw)": "37,400"
+              }
+            },
+            {
+              "id": "piccotex-75",
+              "품명": "Piccotex 75",
+              "용도": "Hot melt adhesives, food packaging, coatings",
+              "스펙": {
+                "Softening Point R&B ℃": "75",
+                "Color Gardner": "6",
+                "Molecular Weight Distribution (Mw)": "1,100"
+              }
+            },
+            {
+              "id": "piccotex-100",
+              "품명": "Piccotex 100",
+              "용도": "Hot melt adhesives, food packaging, coatings",
+              "스펙": {
+                "Softening Point R&B ℃": "98",
+                "Color Gardner": "6",
+                "Molecular Weight Distribution (Mw)": "2,200"
+              }
+            },
+            {
+              "id": "piccotex-120",
+              "품명": "Piccotex 120",
+              "용도": "Hot melt adhesives, food packaging, coatings",
+              "스펙": {
+                "Softening Point R&B ℃": "118",
+                "Color Gardner": "5",
+                "Molecular Weight Distribution (Mw)": "3,500"
+              }
+            },
+            {
+              "id": "piccotex-lc",
+              "품명": "Piccotex LC",
+              "용도": "Hot melt adhesives, food packaging, coatings",
+              "스펙": {
+                "Softening Point R&B ℃": "91",
+                "Color Gardner": "8",
+                "Molecular Weight Distribution (Mw)": "1,350"
+              }
+            },
+            {
+              "id": "plastolyn-r1140",
+              "품명": "Plastolyn R1140",
+              "용도": "Aliphatic resin - Plastic modification, film modification.",
+              "스펙": {
+                "Softening Point R&B ℃": "140",
+                "Color Gardner": "<1 c",
+                "Molecular Weight Distribution (Mw)": "2,000"
+              }
+            },
+            {
+              "id": "plastolyn-240",
+              "품명": "Plastolyn 240",
+              "용도": "Aromatic resins - Plastic modification, contact adhesives, footwear, reinforcing resin",
+              "스펙": {
+                "Softening Point R&B ℃": "121",
+                "Color Gardner": "11",
+                "Molecular Weight Distribution (Mw)": "3,800"
+              }
+            },
+            {
+              "id": "plastolyn-290",
+              "품명": "Plastolyn 290",
+              "용도": "Aromatic resins - Plastic modification, contact adhesives, footwear, reinforcing resin",
+              "스펙": {
+                "Softening Point R&B ℃": "140",
+                "Color Gardner": "13",
+                "Molecular Weight Distribution (Mw)": "5,200"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "KRISTALEX LV, PLASTOLYN LV / Pure Monomer Resins Low Voc Versions",
+          "스펙항목": [
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "kristalex-3100lv",
+              "품명": "Kristalex 3100LV",
+              "용도": "Adhesives/sealants-B&C, Automotive, Labels non food contact, Packaging tape, Rubber modification, Tape non food contact",
+              "스펙": {
+                "Softening Point R&B ℃": "100",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "1,450"
+              }
+            },
+            {
+              "id": "kristalex-3115lv",
+              "품명": "Kristalex 3115LV",
+              "용도": "Adhesives/sealants-B&C, Automotive, Labels non food contact, Packaging tape Rubber modification, Tape non food contact",
+              "스펙": {
+                "Softening Point R&B ℃": "120",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "2,100"
+              }
+            },
+            {
+              "id": "kristalex-5140lv",
+              "품명": "Kristalex 5140LV",
+              "용도": "Adhesives/sealants-B&C, Bookbinding, Carpet construction, Case and carton closures, Casting wax, Commerical printing inks, Concrete, Film modification, Hygiene adhesives, Labels non food contact, Marine, Packaging components non food contact, Packaging tape, Polymer modification, Protective coatings, Roofing Solvent borne packaging adhesives, Specialty tape, Tape non food contact, Tires",
+              "스펙": {
+                "Softening Point R&B ℃": "140",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "4,650"
+              }
+            },
+            {
+              "id": "plastolyn-290lv",
+              "품명": "Plastolyn 290LV",
+              "용도": "",
+              "스펙": {
+                "Softening Point R&B ℃": "140",
+                "Color Gardner": "<1",
+                "Molecular Weight Distribution (Mw)": "3,700"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "REGALREZ / H2PMR (Hydrogenated Hydrocarbon Resins)",
+          "스펙항목": [
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "regalrez-1018",
+              "품명": "Regalrez 1018",
+              "용도": "Tackifier, plasticizer",
+              "스펙": {
+                "Softening Point R&B ℃": "19",
+                "Color Gardner": "6",
+                "Molecular Weight Distribution (Mw)": "350"
+              }
+            },
+            {
+              "id": "regalrez-1094",
+              "품명": "Regalrez 1094",
+              "용도": "High stability tackifiers –adhesives and sealants Plastic modification",
+              "스펙": {
+                "Softening Point R&B ℃": "95",
+                "Color Gardner": "2",
+                "Molecular Weight Distribution (Mw)": "850"
+              }
+            },
+            {
+              "id": "regalrez-1126",
+              "품명": "Regalrez 1126",
+              "용도": "High stability tackifiers –adhesives and sealants Plastic modification",
+              "스펙": {
+                "Softening Point R&B ℃": "124",
+                "Color Gardner": "2",
+                "Molecular Weight Distribution (Mw)": "1,250"
+              }
+            },
+            {
+              "id": "regalrez-1139",
+              "품명": "Regalrez 1139",
+              "용도": "High stability tackifiers –adhesives and sealants Plastic modification",
+              "스펙": {
+                "Softening Point R&B ℃": "141",
+                "Color Gardner": "2",
+                "Molecular Weight Distribution (Mw)": "3,100"
+              }
+            },
+            {
+              "id": "regalrez-3102",
+              "품명": "Regalrez 3102",
+              "용도": "High stability tackifiers –adhesives and sealants Plastic modification",
+              "스펙": {
+                "Softening Point R&B ℃": "102",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "1,450"
+              }
+            },
+            {
+              "id": "regalrez-6108",
+              "품명": "Regalrez 6108",
+              "용도": "High stability tackifiers –adhesives and sealants Plastic modification",
+              "스펙": {
+                "Softening Point R&B ℃": "108",
+                "Color Gardner": "3",
+                "Molecular Weight Distribution (Mw)": "1,400"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apao-amorphous-polyolefins",
+      "이름": "APAO (Amorphous Polyolefins)",
+      "소그룹": [
+        {
+          "이름": "EASTOFLEX / Propylene Homopolymers",
+          "스펙항목": [
+            "Viscosity @190 ℃",
+            "Softening Point R&B ℃",
+            "Glass Transition ℃"
+          ],
+          "제품": [
+            {
+              "id": "eastoflex-p1010pl",
+              "품명": "Eastoflex P1010PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "1000",
+                "Softening Point R&B ℃": "155",
+                "Glass Transition ℃": "-10"
+              }
+            },
+            {
+              "id": "eastoflex-p1023pl",
+              "품명": "Eastoflex P1023PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "2300",
+                "Softening Point R&B ℃": "155",
+                "Glass Transition ℃": "-10"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Polypropylene/Propylene－Ethylene Copolymer Mixtures",
+          "스펙항목": [
+            "Viscosity @190 ℃",
+            "Softening Point R&B ℃",
+            "Glass Transition ℃"
+          ],
+          "제품": [
+            {
+              "id": "eastoflex-m1010pl",
+              "품명": "Eastoflex M1010PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "1,000",
+                "Softening Point R&B ℃": "153",
+                "Glass Transition ℃": "–19"
+              }
+            },
+            {
+              "id": "eastoflex-m1018pl",
+              "품명": "Eastoflex M1018PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "1,800",
+                "Softening Point R&B ℃": "155",
+                "Glass Transition ℃": "–15"
+              }
+            },
+            {
+              "id": "eastoflex-m1020pl",
+              "품명": "Eastoflex M1020PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "2,000",
+                "Softening Point R&B ℃": "153",
+                "Glass Transition ℃": "–21"
+              }
+            },
+            {
+              "id": "eastoflex-m1030pl",
+              "품명": "Eastoflex M1030PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "3,000",
+                "Softening Point R&B ℃": "155",
+                "Glass Transition ℃": "–12"
+              }
+            },
+            {
+              "id": "eastoflex-m1058pl",
+              "품명": "Eastoflex M1058PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "5,800",
+                "Softening Point R&B ℃": "155",
+                "Glass Transition ℃": "–15"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Propylene－Ethylene Copolymers",
+          "스펙항목": [
+            "Viscosity @190 ℃",
+            "Softening Point R&B ℃",
+            "Glass Transition ℃"
+          ],
+          "제품": [
+            {
+              "id": "eastoflex-e1016pl",
+              "품명": "Eastoflex E1016PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "1,600",
+                "Softening Point R&B ℃": "140",
+                "Glass Transition ℃": "–25"
+              }
+            },
+            {
+              "id": "eastoflex-e1045pl",
+              "품명": "Eastoflex E1045PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "4,500",
+                "Softening Point R&B ℃": "140",
+                "Glass Transition ℃": "–22"
+              }
+            },
+            {
+              "id": "eastoflex-e1060pl",
+              "품명": "Eastoflex E1060PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "5,700",
+                "Softening Point R&B ℃": "140",
+                "Glass Transition ℃": "–20"
+              }
+            },
+            {
+              "id": "eastoflex-e1200pl",
+              "품명": "Eastoflex E1200PL",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "17,000",
+                "Softening Point R&B ℃": "143",
+                "Glass Transition ℃": "–22"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "AERAFIN",
+          "스펙항목": [
+            "Viscosity @190 ℃",
+            "Softening Point R&B ℃",
+            "Glass Transition ℃"
+          ],
+          "제품": [
+            {
+              "id": "aerafin-17",
+              "품명": "Aerafin 17",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "1,500",
+                "Softening Point R&B ℃": "125",
+                "Glass Transition ℃": "-38"
+              }
+            },
+            {
+              "id": "aerafin-35",
+              "품명": "Aerafin 35",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "3,300",
+                "Softening Point R&B ℃": "120",
+                "Glass Transition ℃": "-40"
+              }
+            },
+            {
+              "id": "aerafin-180",
+              "품명": "Aerafin 180",
+              "용도": "",
+              "스펙": {
+                "Viscosity @190 ℃": "18,000",
+                "Softening Point R&B ℃": "120",
+                "Glass Transition ℃": "-38"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "EASTMAN G POLYMER / Functionalized Polyolefins",
+          "스펙항목": [
+            "Polymer Type",
+            "Softening Point R&B ℃",
+            "Acid No (mg KOH/g)",
+            "Viscosity @190 ℃",
+            "Molecular Weight Distribution (Mw)"
+          ],
+          "제품": [
+            {
+              "id": "eastman-g-3003",
+              "품명": "Eastman G 3003",
+              "용도": "",
+              "스펙": {
+                "Polymer Type": "Ma-PP",
+                "Softening Point R&B ℃": "158",
+                "Acid No (mg KOH/g)": "9",
+                "Viscosity @190 ℃": "60,000",
+                "Molecular Weight Distribution (Mw)": "52,000"
+              }
+            },
+            {
+              "id": "eastman-g-3015",
+              "품명": "Eastman G 3015",
+              "용도": "",
+              "스펙": {
+                "Polymer Type": "Ma-PP",
+                "Softening Point R&B ℃": "156",
+                "Acid No (mg KOH/g)": "15",
+                "Viscosity @190 ℃": "25,000",
+                "Molecular Weight Distribution (Mw)": "47,000"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "EASTMAN AQ POLYMER / Water Dispersed Polymer",
+          "스펙항목": [
+            "Structure",
+            "Odor",
+            "Viscosity @177 ℃",
+            "Hydroxyl number"
+          ],
+          "제품": [
+            {
+              "id": "aq-1950",
+              "품명": "AQ 1950",
+              "용도": "",
+              "스펙": {
+                "Structure": "Branched",
+                "Odor": "Slight",
+                "Viscosity @177 ℃": "95,000",
+                "Hydroxyl number": "57"
+              }
+            },
+            {
+              "id": "aq-38s",
+              "품명": "AQ 38S",
+              "용도": "",
+              "스펙": {
+                "Structure": "Linear",
+                "Odor": "None",
+                "Viscosity @177 ℃": "9,700 Poise @200 ℃",
+                "Hydroxyl number": "<10"
+              }
+            },
+            {
+              "id": "aq-55s",
+              "품명": "AQ 55S",
+              "용도": "",
+              "스펙": {
+                "Structure": "Linear",
+                "Odor": "None",
+                "Viscosity @177 ℃": "42,000 Poise @200 ℃",
+                "Hydroxyl number": "<10"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rosin",
+      "이름": "ROSIN",
+      "소그룹": [
+        {
+          "이름": "Polymerized Rosin",
+          "스펙항목": [
+            "Chemical type",
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Acid Number"
+          ],
+          "제품": [
+            {
+              "id": "poly-pale",
+              "품명": "Poly-Pale",
+              "용도": "Adhesive, sealants, solder flux",
+              "스펙": {
+                "Chemical type": "Partially dimerized rosin",
+                "Softening Point R&B ℃": "103",
+                "Color Gardner": "8",
+                "Acid Number": "155"
+              }
+            },
+            {
+              "id": "dymerex",
+              "품명": "Dymerex",
+              "용도": "Adhesive, sealants, inks",
+              "스펙": {
+                "Chemical type": "Dimerized gum rosin",
+                "Softening Point R&B ℃": "145",
+                "Color Gardner": "9",
+                "Acid Number": "145"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Hydrogenated Rosins",
+          "스펙항목": [
+            "Chemical type",
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Acid Number"
+          ],
+          "제품": [
+            {
+              "id": "staybelite-resin-e",
+              "품명": "Staybelite Resin-E",
+              "용도": "Adhesive, coatings, solder flux",
+              "스펙": {
+                "Chemical type": "Partially hydrogenated gum rosin",
+                "Softening Point R&B ℃": "80",
+                "Color Gardner": "5",
+                "Acid Number": "162"
+              }
+            },
+            {
+              "id": "foralyn-e",
+              "품명": "Foralyn-E",
+              "용도": "",
+              "스펙": {
+                "Chemical type": "Hydrogenated gum rosin"
+              }
+            },
+            {
+              "id": "foral-ax-e",
+              "품명": "Foral AX-E",
+              "용도": "Adhesive, coatings, solder flux",
+              "스펙": {
+                "Chemical type": "Fully Hydrogenated gum rosin",
+                "Softening Point R&B ℃": "81",
+                "Color Gardner": "1",
+                "Acid Number": "165"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Rosin ester",
+          "스펙항목": [
+            "Chemical type",
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Acid Number"
+          ],
+          "제품": [
+            {
+              "id": "permalyn-5095",
+              "품명": "Permalyn 5095",
+              "용도": "Hot melt adhesive",
+              "스펙": {
+                "Chemical type": "Glycerol ester of rosin",
+                "Softening Point R&B ℃": "92",
+                "Color Gardner": "3",
+                "Acid Number": "8"
+              }
+            },
+            {
+              "id": "permalyn-5110",
+              "품명": "Permalyn 5110",
+              "용도": "Hot melt adhesive, Adhesive, sealants, inks, Packaging component films, etc",
+              "스펙": {
+                "Chemical type": "Pentaerythritol ester of rosin",
+                "Softening Point R&B ℃": "106",
+                "Color Gardner": "6",
+                "Acid Number": "14"
+              }
+            },
+            {
+              "id": "permalyn-6110",
+              "품명": "Permalyn 6110",
+              "용도": "Hot melt adhesive, Adhesive, sealants, inks, Packaging component films, etc",
+              "스펙": {
+                "Chemical type": "Pentaerythritol ester of rosin",
+                "Softening Point R&B ℃": "110",
+                "Color Gardner": "<1",
+                "Acid Number": "13"
+              }
+            },
+            {
+              "id": "permalyn-8110",
+              "품명": "Permalyn 8110",
+              "용도": "Hot melt adhesive, Adhesive, sealants, inks, Packaging component films, etc",
+              "스펙": {
+                "Chemical type": "Pentaerythritol ester of rosin",
+                "Softening Point R&B ℃": "118",
+                "Color Gardner": "6",
+                "Acid Number": "10"
+              }
+            },
+            {
+              "id": "foralyn-90",
+              "품명": "Foralyn 90",
+              "용도": "Hot melt adhesive, solvent based adhesives",
+              "스펙": {
+                "Chemical type": "Glycerol ester of hydrogenated rosin",
+                "Softening Point R&B ℃": "89",
+                "Color Gardner": "1",
+                "Acid Number": "9"
+              }
+            },
+            {
+              "id": "foralyn-110",
+              "품명": "Foralyn 110",
+              "용도": "Hot melt adhesive, solvent based adhesives",
+              "스펙": {
+                "Chemical type": "Glycerol ester of hydrogenated rosin",
+                "Softening Point R&B ℃": "109",
+                "Color Gardner": "2",
+                "Acid Number": "14"
+              }
+            },
+            {
+              "id": "eastman-ester-gum-8d",
+              "품명": "Eastman Ester gum 8D",
+              "용도": "Chewing gum",
+              "스펙": {
+                "Chemical type": "Deodorized rosin ester",
+                "Softening Point R&B ℃": "93",
+                "Acid Number": "7"
+              }
+            },
+            {
+              "id": "staybelite-ester-5-e",
+              "품명": "Staybelite Ester 5-E",
+              "용도": "Chewing gum",
+              "스펙": {
+                "Chemical type": "Partially hydrogenated rosin ester",
+                "Softening Point R&B ℃": "85",
+                "Color Gardner": "6",
+                "Acid Number": "8"
+              }
+            },
+            {
+              "id": "staybelite-ester-10-e",
+              "품명": "Staybelite Ester 10-E",
+              "용도": "Chewing gum",
+              "스펙": {
+                "Chemical type": "Partially hydrogenated rosin ester",
+                "Softening Point R&B ℃": "86",
+                "Color Gardner": "6",
+                "Acid Number": "8"
+              }
+            },
+            {
+              "id": "foral-85-e",
+              "품명": "Foral 85-E",
+              "용도": "Hot melt adhesive, solvent based adhesives",
+              "스펙": {
+                "Chemical type": "Highly hydrogenated rosin ester",
+                "Softening Point R&B ℃": "86",
+                "Color Gardner": "2",
+                "Acid Number": "9"
+              }
+            },
+            {
+              "id": "pentalyn-h-e",
+              "품명": "Pentalyn H-E",
+              "용도": "Pressure sensititive adhesives",
+              "스펙": {
+                "Chemical type": "Partially hydrogenated rosin ester",
+                "Softening Point R&B ℃": "108",
+                "Color Gardner": "8",
+                "Acid Number": "14"
+              }
+            },
+            {
+              "id": "forla-105-e",
+              "품명": "Forla 105-E",
+              "용도": "Hot melt adhesive, solvent based adhesives",
+              "스펙": {
+                "Chemical type": "Highly hydrogenated rosin ester",
+                "Softening Point R&B ℃": "106",
+                "Color Gardner": "5",
+                "Acid Number": "14"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Cosmetics Grade",
+          "스펙항목": [
+            "Chemical type",
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Acid Number"
+          ],
+          "제품": [
+            {
+              "id": "foral-85-e-cg",
+              "품명": "Foral 85-E CG",
+              "용도": "cosmetics",
+              "스펙": {
+                "Chemical type": "Highly hydrogenated rosin ester",
+                "Softening Point R&B ℃": "86",
+                "Color Gardner": "2",
+                "Acid Number": "9"
+              }
+            },
+            {
+              "id": "foral-105-e-cg",
+              "품명": "Foral 105-E CG",
+              "용도": "cosmetics",
+              "스펙": {
+                "Chemical type": "Highly hydrogenated rosin ester",
+                "Softening Point R&B ℃": "106",
+                "Color Gardner": "5",
+                "Acid Number": "14"
+              }
+            },
+            {
+              "id": "forlayn-5020f-cg",
+              "품명": "Forlayn 5020F CG",
+              "용도": "cosmetics",
+              "스펙": {
+                "Chemical type": "Partially hydrogenated rosin ester",
+                "Softening Point R&B ℃": "Liquid",
+                "Color Gardner": "3 C",
+                "Acid Number": "6"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Rosin Alcohol & special derivatives",
+          "스펙항목": [
+            "Chemical type",
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Acid Number"
+          ],
+          "제품": [
+            {
+              "id": "abitole-e",
+              "품명": "Abitole-E",
+              "용도": "Tackifier, Plasticizer",
+              "스펙": {
+                "Chemical type": "Technical hydrobietyl alcohol",
+                "Softening Point R&B ℃": "Liquid",
+                "Color Gardner": "3",
+                "Acid Number": "6"
+              }
+            },
+            {
+              "id": "forlayn-5020f",
+              "품명": "Forlayn 5020F",
+              "용도": "Cosmetics, perfumery, tackifier, plasticizer",
+              "스펙": {
+                "Chemical type": "Partially hydrogenated rosin ester",
+                "Softening Point R&B ℃": "Liquid",
+                "Color Gardner": "3 C",
+                "Acid Number": "6"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Dresinate Rosins Soaps",
+          "스펙항목": [
+            "Chemical type",
+            "Softening Point R&B ℃",
+            "Color Gardner",
+            "Acid Number"
+          ],
+          "제품": [
+            {
+              "id": "dresinate-91",
+              "품명": "Dresinate 91",
+              "용도": "Used as an emulsifier ingredient in solvent cleaners and soluble oils for metal cleaning. Provides highly stable emulsions over a wide range of water hardness when used in combination with petroleum sulfonates in soluble oil formulations.",
+              "스펙": {
+                "Chemical type": "Potassium",
+                "Softening Point R&B ℃": "88",
+                "Color Gardner": "ㅡ",
+                "Acid Number": "15"
+              }
+            },
+            {
+              "id": "dresinate-tx",
+              "품명": "Dresinate TX",
+              "용도": "It is designed mainly as an emulsifier promoting detergent or cleaning activity, particularly in highly built industrial metal cleaners.",
+              "스펙": {
+                "Chemical type": "Sodium",
+                "Softening Point R&B ℃": "96",
+                "Color Gardner": "ㅡ",
+                "Acid Number": "15"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Rosin Ester Dispersions",
+          "스펙항목": [
+            "Chemical type",
+            "Softening Point R&B ℃",
+            "pH",
+            "Viscosity"
+          ],
+          "제품": [
+            {
+              "id": "tacolyn-1070",
+              "품명": "Tacolyn 1070",
+              "용도": "It enhances specific adhesion to polyolefin substrates and recycled corrugated board. It promotes cohesive strength and offers good moisture resistance when used in pressure sensitive adhesives. It may be used in clear film label applications due to its good color retention and oxidation resistance.",
+              "스펙": {
+                "Chemical type": "Modified hydrocarbon",
+                "Softening Point R&B ℃": "70",
+                "pH": "10",
+                "Viscosity": "1,400"
+              }
+            },
+            {
+              "id": "tacolyn-3100",
+              "품명": "Tacolyn 3100",
+              "용도": "It is highly hydrogenated and promotes high temperature performance in waterborne pressure sensitive adhesives",
+              "스펙": {
+                "Chemical type": "Hydrogenated rosin ester",
+                "Softening Point R&B ℃": "70",
+                "pH": "10",
+                "Viscosity": "900"
+              }
+            },
+            {
+              "id": "tacolyn-3400",
+              "품명": "Tacolyn 3400",
+              "용도": "It is recommended for use in food packaging applications such as closures, lidding, and cold seal adhesives, as well as pressure sensitive adhesives that contact food. It is also used in adhesives applications requiring higher temperature strength such as in high temperature masking tapes, packaging tapes, and contact adhesives",
+              "스펙": {
+                "Chemical type": "Hydrogenated rosin ester",
+                "Softening Point R&B ℃": "92",
+                "pH": "10",
+                "Viscosity": "400"
+              }
+            },
+            {
+              "id": "tacolyn-3570",
+              "품명": "Tacolyn 3570",
+              "용도": "Adhesives/sealants-B&C, Carpet construction, Case and carton closures , Concrete, Flooring, Labels non food contact, Paints & coatings, Polymer modification, Protective coatings, Specialty tape, Tape non food contact, Waterborne, p\\ackaging adhesives",
+              "스펙": {
+                "Chemical type": "Hydrogenated rosin ester",
+                "Softening Point R&B ℃": "67",
+                "pH": "7",
+                "Viscosity": "250"
+              }
+            },
+            {
+              "id": "tacolyn-5002",
+              "품명": "Tacolyn 5002",
+              "용도": "It is recommended for water-based contact adhesives where fast break properties are required as in foam to foam bonding applications.",
+              "스펙": {
+                "Chemical type": "Modified hydrocarbon",
+                "Softening Point R&B ℃": "70",
+                "pH": "10.5",
+                "Viscosity": "1,000"
+              }
+            },
+            {
+              "id": "tacolyn-5003",
+              "품명": "Tacolyn 5003",
+              "용도": "It is recommended as a single tackifier for anionic polychloroprene latex polymers used in contact adhesive applications.",
+              "스펙": {
+                "Chemical type": "Modified hydrocarbon",
+                "Softening Point R&B ℃": "130",
+                "pH": "11",
+                "Viscosity": "1,000"
+              }
+            },
+            {
+              "id": "tacolyn-5070",
+              "품명": "Tacolyn 5070",
+              "용도": "It is ideal for “low peel” applications, as it imparts peel strength in small increments relative to resination level. It also exhibits good storage and mechanical stability.",
+              "스펙": {
+                "Chemical type": "Aliphatic hydrocarbon",
+                "Softening Point R&B ℃": "70",
+                "pH": "4",
+                "Viscosity": "100"
+              }
+            },
+            {
+              "id": "tacolyn-5085",
+              "품명": "Tacolyn 5085",
+              "용도": "It is recommended as a tackifier for isoprene rubber and natural rubber latex polymers used in tape applications promoting high peel and cohesive strength.",
+              "스펙": {
+                "Chemical type": "Aliphatic hydrocarbon",
+                "Softening Point R&B ℃": "82",
+                "pH": "10",
+                "Viscosity": "1,300"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

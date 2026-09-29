@@ -2,37 +2,37 @@
 {% block content %}
 <nav class="breadcrumb">
   <a href="{{ base_path }}product.html">Product</a> <span>/</span>
-  <a href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/index.html">{{ area.회사명 }}</a> <span>/</span>
-  <span>{{ page_name }}</span>
+  <a href="{{ base_path }}product/{{ brand.id }}/index.html">{{ brand.회사명 }}</a> <span>/</span>
+  <span>{{ family.이름 }}</span>
 </nav>
 
 <section class="section page-header">
   <div class="section-inner">
-    <p class="section-eyebrow">{{ area.회사명 }}</p>
-    <h1>{{ page_name }}</h1>
+    <p class="section-eyebrow">{{ brand.회사명 }}</p>
+    <h1>{{ family.이름 }}</h1>
   </div>
 </section>
 
 <section class="section product-detail">
   <div class="section-inner">
-    {% for group in groups %}
+    {% for group in family.소그룹 %}
     <div class="product-group">
-      {% if group.label %}<h3 class="product-group-label">{{ group.label }}</h3>{% endif %}
+      {% if group.이름 %}<h3 class="product-group-label">{{ group.이름 }}</h3>{% endif %}
       <div class="table-scroll">
         <table class="spec-table">
           <thead>
             <tr>
               <th class="col-name">품명</th>
               <th class="col-app">Application</th>
-              {% for col in group.spec_columns %}<th>{{ col }}</th>{% endfor %}
+              {% for col in group.스펙항목 %}<th>{{ col }}</th>{% endfor %}
             </tr>
           </thead>
           <tbody>
-            {% for item in group.rows %}
+            {% for item in group.제품 %}
             <tr>
-              <td class="col-name"><a href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/{{ fslug }}/{{ item.sku_slug }}.html">{{ item.품명 }}</a></td>
+              <td class="col-name"><a href="{{ base_path }}product/{{ brand.id }}/{{ family.id }}/{{ item.id }}.html">{{ item.품명 }}</a></td>
               <td class="col-app">{{ item.용도 }}</td>
-              {% for col in group.spec_columns %}<td>{{ item.spec.get(col, '') }}</td>{% endfor %}
+              {% for col in group.스펙항목 %}<td>{{ item.스펙.get(col, '') }}</td>{% endfor %}
             </tr>
             {% endfor %}
           </tbody>
@@ -40,7 +40,7 @@
       </div>
     </div>
     {% endfor %}
-    {% set slug = area.슬러그 %}{% include "_brand_contact.html" %}
+    {% set cb = brand %}{% include "_brand_contact.html" %}
   </div>
 </section>
 {% endblock %}

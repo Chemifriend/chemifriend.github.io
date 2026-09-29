@@ -1,23 +1,21 @@
 <div class="brand-grid">
-  {% for area in business_areas %}
-  {% set slug = brand_slug_of[area.슬러그] %}
-  {% set intro = brand_intro.get(area.슬러그, {}) %}
-  <a class="brand-card" href="{{ base_path }}product/{{ slug }}/index.html">
+  {% for b in brands %}
+  <a class="brand-card" href="{{ base_path }}product/{{ b.id }}/index.html">
     <div>
       <div class="brand-card-header">
-        {% if area.로고파일 %}
-        <img class="brand-card-logo" src="{{ base_path }}static/logos/{{ area.로고파일.split(',')[0].strip() }}" alt="{{ area.회사명 }}">
+        {% if b.로고 %}
+        <img class="brand-card-logo" src="{{ base_path }}static/logos/{{ b.로고 }}" alt="{{ b.회사명 }}">
         {% else %}
-        <span class="brand-card-wordmark">{{ area.회사명 }}</span>
+        <span class="brand-card-wordmark">{{ b.회사명 }}</span>
         {% endif %}
-        {% if intro.국가 and intro.설립연도 %}
-        <span class="brand-card-badge">{{ intro.국가 }} · {{ intro.설립연도 }}</span>
+        {% if b.국가 and b.설립연도 %}
+        <span class="brand-card-badge">{{ b.국가 }} · {{ b.설립연도 }}</span>
         {% else %}
         <span class="brand-card-badge">Global Sourcing</span>
         {% endif %}
       </div>
-      {% if intro.영문슬로건 %}<p class="brand-card-slogan">"{{ intro.영문슬로건 }}"</p>{% endif %}
-      {% if family_summary.get(area.슬러그) %}<p class="brand-card-summary">취급 제품: {{ family_summary[area.슬러그] }}</p>{% endif %}
+      {% if b.영문슬로건 %}<p class="brand-card-slogan">"{{ b.영문슬로건 }}"</p>{% endif %}
+      {% if b.요약 %}<p class="brand-card-summary">취급 제품: {{ b.요약 }}</p>{% endif %}
     </div>
     <span class="brand-card-cta">제품군 스펙 보기 →</span>
   </a>

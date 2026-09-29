@@ -1,0 +1,922 @@
+{
+  "제품군": [
+    {
+      "id": "additive",
+      "이름": "Additive",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "silane",
+              "품명": "Silane",
+              "용도": "Adhesion promoter, crosslinking agent",
+              "스펙": {
+                "제품 List": "SiSiB PC series"
+              }
+            },
+            {
+              "id": "silicone-master-batch",
+              "품명": "Silicone Master Batch",
+              "용도": "Silicone M/B for Plastic compounding",
+              "스펙": {
+                "제품 List": "SiSiB MB series"
+              }
+            },
+            {
+              "id": "silicone-microspheres-resin",
+              "품명": "Silicone Microspheres Resin",
+              "용도": "Polymethylsilsesquioxane",
+              "스펙": {
+                "제품 List": "SiSiB PMS series"
+              }
+            },
+            {
+              "id": "silicone-gum",
+              "품명": "Silicone Gum",
+              "용도": "Rubber, Sealants",
+              "스펙": {
+                "제품 List": "SiSiB SG series"
+              }
+            },
+            {
+              "id": "silicone-additives",
+              "품명": "Silicone Additives",
+              "용도": "PU additives",
+              "스펙": {
+                "제품 List": "Addsil series"
+              }
+            },
+            {
+              "id": "silicone-fluids",
+              "품명": "Silicone Fluids",
+              "용도": "Silicone oil",
+              "스펙": {
+                "제품 List": "SiSiB MF, PF, OF series"
+              }
+            },
+            {
+              "id": "tmdd",
+              "품명": "TMDD",
+              "용도": "WB wetting additives",
+              "스펙": {
+                "제품 List": "Surfadol-series"
+              }
+            },
+            {
+              "id": "intermediate",
+              "품명": "Intermediate",
+              "용도": "Neutralizer, solubilizer and stabilizer",
+              "스펙": {
+                "제품 List": "Tris amino"
+              }
+            },
+            {
+              "id": "water-sacvanger",
+              "품명": "Water sacvanger",
+              "용도": "PU water scavanger",
+              "스펙": {
+                "제품 List": "TMOA"
+              }
+            },
+            {
+              "id": "mercaptan",
+              "품명": "Mercaptan",
+              "용도": "Catalyst for polymerization",
+              "스펙": {
+                "제품 List": "MMP"
+              }
+            },
+            {
+              "id": "catalyst",
+              "품명": "Catalyst",
+              "용도": "Catalyst for polymerization",
+              "스펙": {
+                "제품 List": "TMAC"
+              }
+            },
+            {
+              "id": "additives-for-af-coatings",
+              "품명": "Additives for AF coatings",
+              "용도": "Sea Nine 211 대응",
+              "스펙": {
+                "제품 List": "DCOIT 30%"
+              }
+            },
+            {
+              "id": "zineb-90",
+              "품명": "Zineb 90%",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Economic grade of Zineb 95%"
+              }
+            },
+            {
+              "id": "zineb-95",
+              "품명": "Zineb 95%",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Zineb Tech 95% 대응"
+              }
+            },
+            {
+              "id": "zinc-pyrithione",
+              "품명": "Zinc Pyrithione",
+              "용도": "",
+              "스펙": {
+                "제품 List": "ZPT"
+              }
+            },
+            {
+              "id": "copper-pyrithione",
+              "품명": "Copper Pyrithione",
+              "용도": "",
+              "스펙": {
+                "제품 List": "CPT"
+              }
+            },
+            {
+              "id": "sodium-pyrithione",
+              "품명": "Sodium Pyrithione",
+              "용도": "",
+              "스펙": {
+                "제품 List": "SPT"
+              }
+            },
+            {
+              "id": "cuprous-thiocyanate",
+              "품명": "Cuprous Thiocyanate",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Economic grade for AF coatings"
+              }
+            },
+            {
+              "id": "tralopyril",
+              "품명": "Tralopyril",
+              "용도": "",
+              "스펙": {
+                "제품 List": "None-copper AF coatings, Econea 대응"
+              }
+            },
+            {
+              "id": "photo-initiator",
+              "품명": "Photo Initiator",
+              "용도": "UV coatings",
+              "스펙": {
+                "제품 List": "2-EAQ"
+              }
+            },
+            {
+              "id": "oranic-peroxide",
+              "품명": "Oranic peroxide",
+              "용도": "Initiator, curing agent, crosslinking",
+              "스펙": {
+                "제품 List": "Trigonox B"
+              }
+            },
+            {
+              "id": "trigonox-k-80",
+              "품명": "Trigonox K-80",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Initiator, curing agent, crosslinking"
+              }
+            },
+            {
+              "id": "trigonox-k-90",
+              "품명": "Trigonox K-90",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Initiator, curing agent, crosslinking"
+              }
+            },
+            {
+              "id": "perkadox-bc-ff",
+              "품명": "Perkadox BC-FF",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Initiator, curing agent, crosslinking"
+              }
+            },
+            {
+              "id": "enox-tbpb",
+              "품명": "Enox TBPB",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Initiator, curing agent, crosslinking"
+              }
+            },
+            {
+              "id": "flame-retardant",
+              "품명": "Flame retardant",
+              "용도": "FR paints, green film, FR plastics",
+              "스펙": {
+                "제품 List": "Zinc Borate"
+              }
+            },
+            {
+              "id": "zinc-borate-anhydrous",
+              "품명": "Zinc Borate Anhydrous",
+              "용도": "",
+              "스펙": {
+                "제품 List": "FR paints, green film, FR plastics"
+              }
+            },
+            {
+              "id": "zinc-stannate",
+              "품명": "Zinc Stannate",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Smoke suppresant"
+              }
+            },
+            {
+              "id": "zinc-hydroxy-stannate",
+              "품명": "Zinc Hydroxy Stannate",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Smoke suppresant"
+              }
+            },
+            {
+              "id": "curing-promoter",
+              "품명": "Curing promoter",
+              "용도": "Curing promoter for unsaturated polyester resin",
+              "스펙": {
+                "제품 List": "N,N-Dimethyl Aniline (DMA)"
+              }
+            },
+            {
+              "id": "n-n-dimethyl-para-toluidine-dmpt",
+              "품명": "N,N-Dimethyl-para-toluidine (DMPT)",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Curing promoter for unsaturated polyester resin"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pigment",
+      "이름": "Pigment",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "titanium-dioxide",
+              "품명": "Titanium Dioxide",
+              "용도": "Flip-flop effect pigments",
+              "스펙": {
+                "제품 List": "MT-700HD"
+              }
+            },
+            {
+              "id": "mt-500hd",
+              "품명": "MT-500HD",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Flip-flop effect pigments"
+              }
+            },
+            {
+              "id": "mt-100hd",
+              "품명": "MT-100HD",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Flip-flop effect pigments"
+              }
+            },
+            {
+              "id": "jr-1000",
+              "품명": "JR-1000",
+              "용도": "",
+              "스펙": {
+                "제품 List": "IR reflectant pigments"
+              }
+            },
+            {
+              "id": "cooper-oxide",
+              "품명": "Cooper oxide",
+              "용도": "AF coatings",
+              "스펙": {
+                "제품 List": "Copper Oxide 97%"
+              }
+            },
+            {
+              "id": "zinc-oxide",
+              "품명": "Zinc Oxide",
+              "용도": "UV shielding pigments",
+              "스펙": {
+                "제품 List": "MZY-303S"
+              }
+            },
+            {
+              "id": "mzy-505s",
+              "품명": "MZY-505S",
+              "용도": "",
+              "스펙": {
+                "제품 List": "UV shielding pigments"
+              }
+            },
+            {
+              "id": "cobalt-oxide",
+              "품명": "Cobalt Oxide",
+              "용도": "pigments for glass",
+              "스펙": {
+                "제품 List": "Cobalt Oxide"
+              }
+            },
+            {
+              "id": "glass-flake",
+              "품명": "Glass Flake",
+              "용도": "Filler for marine coatings",
+              "스펙": {
+                "제품 List": "C-90N"
+              }
+            },
+            {
+              "id": "c-150n",
+              "품명": "C-150N",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Filler for marine coatings"
+              }
+            },
+            {
+              "id": "c-400n",
+              "품명": "C-400N",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Filler for marine coatings"
+              }
+            },
+            {
+              "id": "cristobalite",
+              "품명": "Cristobalite",
+              "용도": "Filler for marine, industrial coatings",
+              "스펙": {
+                "제품 List": "Cristolbrite series"
+              }
+            },
+            {
+              "id": "fused-silica",
+              "품명": "Fused Silica",
+              "용도": "Filler for industrial coatings, epoxy adhesives",
+              "스펙": {
+                "제품 List": "Fused Silica RG-series"
+              }
+            },
+            {
+              "id": "colloidal-silica",
+              "품명": "Colloidal Silica",
+              "용도": "Inorganic binder, polishing materials",
+              "스펙": {
+                "제품 List": "JN-series"
+              }
+            },
+            {
+              "id": "wollastonite",
+              "품명": "Wollastonite",
+              "용도": "Filler for anticorrosive, Scratech resistant, chipping",
+              "스펙": {
+                "제품 List": "W-series"
+              }
+            },
+            {
+              "id": "dye",
+              "품명": "DYE",
+              "용도": "Can coatings, food related coatings",
+              "스펙": {
+                "제품 List": "Yellow No5"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solvent-resin",
+      "이름": "Solvent & Resin",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "solvent",
+              "품명": "Solvent",
+              "용도": "Solvent for paints, adhesives, electronics",
+              "스펙": {
+                "제품 List": "NEP"
+              }
+            },
+            {
+              "id": "resin",
+              "품명": "Resin",
+              "용도": "AF coatings",
+              "스펙": {
+                "제품 List": "Zinc Acrylate SPC resin"
+              }
+            },
+            {
+              "id": "silyl-acrylate-spc-resin",
+              "품명": "Silyl Acrylate SPC resin",
+              "용도": "",
+              "스펙": {
+                "제품 List": "AF coatings"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monomer",
+      "이름": "Monomer",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "monomer",
+              "품명": "Monomer",
+              "용도": "Ether methacrylate",
+              "스펙": {
+                "제품 List": "MEMA"
+              }
+            },
+            {
+              "id": "thfma",
+              "품명": "THFMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ether methacrylate"
+              }
+            },
+            {
+              "id": "1-3-bddma",
+              "품명": "1,3-BDDMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ether methacrylate"
+              }
+            },
+            {
+              "id": "1-4-bddma",
+              "품명": "1,4-BDDMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ether methacrylate"
+              }
+            },
+            {
+              "id": "npgdma",
+              "품명": "NPGDMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ether methacrylate"
+              }
+            },
+            {
+              "id": "dmaema",
+              "품명": "DMAEMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Specailty methacrylates"
+              }
+            },
+            {
+              "id": "deaema",
+              "품명": "DEAEMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Specailty methacrylates"
+              }
+            },
+            {
+              "id": "tbaema",
+              "품명": "TBAEMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Specailty methacrylates"
+              }
+            },
+            {
+              "id": "ehma",
+              "품명": "EHMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Alkyl/Aryl methacrylates"
+              }
+            },
+            {
+              "id": "chma",
+              "품명": "CHMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Alkyl/Aryl methacrylates"
+              }
+            },
+            {
+              "id": "phma",
+              "품명": "PhMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Alkyl/Aryl methacrylates"
+              }
+            },
+            {
+              "id": "bma",
+              "품명": "BMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Alkyl/Aryl methacrylates"
+              }
+            },
+            {
+              "id": "bzma",
+              "품명": "BZMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Alkyl/Aryl methacrylates"
+              }
+            },
+            {
+              "id": "iboma",
+              "품명": "IBOMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Alkyl/Aryl methacrylates"
+              }
+            },
+            {
+              "id": "mea",
+              "품명": "MEA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ether acrylate"
+              }
+            },
+            {
+              "id": "thfa",
+              "품명": "THFA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ether acrylate"
+              }
+            },
+            {
+              "id": "dmaea",
+              "품명": "DMAEA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Specailty acrylates"
+              }
+            },
+            {
+              "id": "iba",
+              "품명": "IBA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Specailty acrylates"
+              }
+            },
+            {
+              "id": "tba",
+              "품명": "TBA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Specailty acrylates"
+              }
+            },
+            {
+              "id": "iboa",
+              "품명": "IBOA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Specailty acrylates"
+              }
+            },
+            {
+              "id": "ema",
+              "품명": "EMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Specailty acrylates"
+              }
+            },
+            {
+              "id": "hpa",
+              "품명": "HPA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Hydroxyester"
+              }
+            },
+            {
+              "id": "hema",
+              "품명": "HEMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Hydroxyester"
+              }
+            },
+            {
+              "id": "hpma",
+              "품명": "HPMA",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Hydroxyester"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "global-trading-partner-other-supplier",
+      "이름": "Global Trading Partner & Other Supplier",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List",
+            ""
+          ],
+          "제품": [
+            {
+              "id": "other-supplier",
+              "품명": "Other Supplier",
+              "용도": "JAPAN",
+              "스펙": {
+                "제품 List": "Sumitomo Shoji",
+                "": "Catalist"
+              }
+            },
+            {
+              "id": "ac-catalist",
+              "품명": "AC Catalist",
+              "용도": "Catalist",
+              "스펙": {
+                "제품 List": "USA"
+              }
+            },
+            {
+              "id": "clariant",
+              "품명": "Clariant",
+              "용도": "Licocene PPMA",
+              "스펙": {
+                "제품 List": "France"
+              }
+            },
+            {
+              "id": "dupont",
+              "품명": "DUPONT",
+              "용도": "EVA",
+              "스펙": {
+                "제품 List": "USA"
+              }
+            },
+            {
+              "id": "flow-polymer",
+              "품명": "Flow Polymer",
+              "용도": "Performance additives and dispersions",
+              "스펙": {
+                "제품 List": "USA"
+              }
+            },
+            {
+              "id": "hos-technik",
+              "품명": "HOS-Technik",
+              "용도": "High performance material",
+              "스펙": {
+                "제품 List": "Germany"
+              }
+            },
+            {
+              "id": "neville-chemical",
+              "품명": "NEVILLE Chemical",
+              "용도": "Hydrocarbon Resin",
+              "스펙": {
+                "제품 List": "USA"
+              }
+            },
+            {
+              "id": "pinopine",
+              "품명": "PINOPINE",
+              "용도": "Rosin and Rosin Ester",
+              "스펙": {
+                "제품 List": "Portugal"
+              }
+            },
+            {
+              "id": "everspring-chemical",
+              "품명": "Everspring Chemical",
+              "용도": "Polymer additive",
+              "스펙": {
+                "제품 List": "Taiwan"
+              }
+            },
+            {
+              "id": "finite-fiber",
+              "품명": "Finite Fiber",
+              "용도": "Nylon Fiber",
+              "스펙": {
+                "제품 List": "USA"
+              }
+            },
+            {
+              "id": "lg-h-h",
+              "품명": "LG H&H",
+              "용도": "Glycerin",
+              "스펙": {
+                "제품 List": "KOREA"
+              }
+            },
+            {
+              "id": "dongguan-lingchuang-technical-eco-materials-ltd",
+              "품명": "Dongguan Lingchuang Technical Eco-materials Ltd",
+              "용도": "친환경 가소제",
+              "스펙": {
+                "제품 List": "ATBC"
+              }
+            },
+            {
+              "id": "global-trading-partner",
+              "품명": "Global Trading Partner",
+              "용도": "China",
+              "스펙": {
+                "제품 List": "Univar China"
+              }
+            },
+            {
+              "id": "cbc",
+              "품명": "CBC",
+              "용도": "",
+              "스펙": {
+                "제품 List": "JAPAN"
+              }
+            },
+            {
+              "id": "hb-chemical",
+              "품명": "HB Chemical",
+              "용도": "",
+              "스펙": {
+                "제품 List": "USA"
+              }
+            },
+            {
+              "id": "brenntag",
+              "품명": "Brenntag",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Europe"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "surfactants",
+      "이름": "Surfactants",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "defoaming-wetting-agents",
+              "품명": "Defoaming Wetting Agents",
+              "용도": "Surfactant",
+              "스펙": {
+                "제품 List": "Toynol FS-204"
+              }
+            },
+            {
+              "id": "toynol-fs-204e",
+              "품명": "Toynol FS-204E",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Surfactant"
+              }
+            },
+            {
+              "id": "toynol-fs-204bc",
+              "품명": "Toynol FS-204BC",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Surfactant"
+              }
+            },
+            {
+              "id": "toynol-fs-204pg",
+              "품명": "Toynol FS-204PG",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Surfactant"
+              }
+            },
+            {
+              "id": "toynol-fs-204h",
+              "품명": "Toynol FS-204H",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Surfactant"
+              }
+            },
+            {
+              "id": "toynol-fs-204pa",
+              "품명": "Toynol FS-204PA",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "low-foam-wetting-agents",
+              "품명": "Low Foam Wetting Agents",
+              "용도": "Surfactant",
+              "스펙": {
+                "제품 List": "Toynol FS-6502"
+              }
+            },
+            {
+              "id": "toynol-fs-620",
+              "품명": "Toynol FS-620",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Surfactant"
+              }
+            },
+            {
+              "id": "toynol-fs-640",
+              "품명": "Toynol FS-640",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Surfactant"
+              }
+            },
+            {
+              "id": "toynol-fs-660",
+              "품명": "Toynol FS-660",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Surfactant"
+              }
+            },
+            {
+              "id": "toynol-fs-683",
+              "품명": "Toynol FS-683",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "super-wetting-agents",
+              "품명": "Super Wetting Agents",
+              "용도": "Surfactant",
+              "스펙": {
+                "제품 List": "Toynol Superwet 320"
+              }
+            },
+            {
+              "id": "toynol-superwet-340",
+              "품명": "Toynol Superwet 340",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "molecular-defoamers",
+              "품명": "Molecular Defoamers",
+              "용도": "Deafoamer",
+              "스펙": {
+                "제품 List": "Toynol DF-80D"
+              }
+            },
+            {
+              "id": "toynol-df-80l",
+              "품명": "Toynol DF-80L",
+              "용도": "",
+              "스펙": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

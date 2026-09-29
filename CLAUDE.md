@@ -16,45 +16,42 @@
 
 완료:
 - 기존 사이트 콘텐츠 전체 이식 (회사정보, CEO 인사말, 연혁, 조직도, 사업영역)
-- 기존 Product 게시판 스크래핑 → 제품 572개 (`scrape_products.py`, 결과는 content.xlsx "제품상세" 시트)
+- 기존 Product 게시판 스크래핑 → 제품 572개 (현재 data/products/*.json)
 - 4단 구조 정적 사이트 생성: 메인 / Product 허브 / 브랜드 / 제품군 스펙표 / 개별 제품(SKU) — 총 598페이지
 - 디자인: 로고 초록 `#6aac00` 포인트 + 다크 네이비. 헤더 메가메뉴(브랜드 → 제품군)
 - SEO: 페이지별 title/description, canonical, sitemap.xml, robots.txt 자동 생성
 
 **아직 안 한 것 (= 다음 작업):**
 1. GitHub Pages 배포 — 저장소·워크플로우 준비 완료, 사용자 push 대기 (아래 "배포 구조")
-2. 데이터 저장 방식 변경 + 관리자 페이지 제작 (아래 "확정된 다음 방향" 참고)
+2. 관리자 페이지 제작 (데이터 JSON 전환·검사는 완료. 아래 "확정된 다음 방향" 참고)
 3. 도메인 DNS 전환 → 확인 후 기존 호스팅 해지
 4. Google Search Console 등록 + sitemap 제출
 
 ## 폴더 구조
 
 ```
-content/content.xlsx   현재 데이터 원본 (다음 단계에서 JSON으로 이전 예정)
-templates/             Jinja2 템플릿 (base, index, product_hub, brand, product_family, product_sku, contact, _brand_tiles)
-static/style.css       전체 스타일
-static/logos/          로고 (파트너사 로고는 내부 여백을 트리밍한 버전. cf-icon.jpg = 케미프렌드 아이콘 마크)
-build.py               xlsx → docs/ 정적 HTML 생성
-scrape_products.py     기존 사이트 Product 게시판 스크래퍼 (기존 사이트가 살아있는 동안만 동작)
-deploy.bat             git add/commit/push (Python 있으면 로컬 빌드 검사 먼저). 관리자 페이지 생기면 폐기
-.github/workflows/     deploy.yml — push 시 Actions가 build.py 실행 → Pages 배포
-docs/                  로컬 빌드 결과물 (.gitignore — 저장소에 안 올라감)
+data/                  콘텐츠 원본 (JSON) — 관리자 페이지가 이 파일들을 커밋
+  company.json         회사정보 키-값 (CEO_인사말_본문은 빈 줄 두 개로 문단 구분)
+  history.json         연혁 [{연월 YYYY.MM, 내용}]
+  org.json             departments[{id, 이름(영문), 이름(한글), 설명}] + people[{id, 부서, 이름(한글/영문), 직급(/영문), 구분, 담당분야, 이메일(공개)}]
+  brands.json          제조사 [{id, 회사명, 로고, 노출, 기타묶음, 국가, 설립연도, 영문슬로건, 한국어소개, 제품요약, 문의_영업팀전체, 문의담당[{사람, 분야(한글), 분야(영문)}]}]
+  products/<브랜드id>.json  {제품군: [{id, 이름, 소그룹: [{이름, 스펙항목[], 제품: [{id, 품명, 용도, 스펙{항목: 값}}]}]}]}
+templates/             Jinja2 템플릿
+static/                style.css, logos/
+build.py               검사(validate) → 가공(prepare) → docs/ 생성. `--check`는 검사만
+.github/workflows/     deploy.yml — main push 시 Actions가 build.py 실행 → Pages 배포
+deploy.bat             로컬 검사 후 git push (관리자 페이지 생기면 폐기)
+docs/                  빌드 결과물 (.gitignore)
 ```
 
-## content.xlsx 시트 구조
-
-- 회사정보: 항목/내용 (키-값). CEO_인사말_본문은 빈 줄 두 개로 문단 구분
-- 연혁: 연월/내용
-- 부서: 부서(영문, 키)/부서(한글)/설명 — 설명이 비면 소속원의 담당 브랜드로 자동 표시
-- 조직원: 부서/이름(한글)/이름(영문)/직급/직급(영문)/구분(CS 등)/담당분야/이메일(공개)
-  - **이 파일은 공개 저장소에 올라감 → 전화번호·비공개 이메일 절대 입력 금지.** 이메일은 노출 대상(남성 영업직)만
-  - 직급 영문: 대표이사 CEO / 부사장 Vice President / 이사 Director / 부장 General Manager / 차장 Deputy General Manager / 과장 Manager / 대리 Assistant Manager
-- 브랜드담당: 슬러그/담당자(한글이름 또는 "전체")/분야(한글)/분야(영문) → 브랜드·제품군·SKU·Contact 페이지 문의 담당 블록
-  - "전체" = 이메일(공개) 있는 전원에게 가는 mailto (Others 브랜드)
-- 사업영역: 회사명/슬러그/로고파일 — 슬러그는 URL과 제품상세 카테고리 매칭 키. **대소문자까지 정확히 일치해야 함** (예: `SYNTHOMER-eastman`)
-- 브랜드소개: 슬러그/영문슬로건/한국어소개/국가/설립연도/제품요약(카드에 표시되는 한글 요약)
-- 제품상세: 카테고리/페이지명(제품군)/소그룹/품명/용도/제품형태/기타스펙
-  - 기타스펙은 `키: 값; 키: 값` 문자열 → build.py가 파싱해서 제품군별 동적 컬럼으로 표시
+- **id 규칙**: 브랜드·제품군·제품 id = URL. 한 번 정하면 바꾸지 않음 (이름을 바꿔도 id 유지). 형식은 소문자·숫자·한글·하이픈
+- 표시 순서 = JSON 배열 순서
+- 노출 false 제조사는 페이지 자체를 만들지 않음 (데이터 보존 = 소프트 삭제)
+- 기타묶음 true(Others)는 로고 없이 이름 표시, 히어로 "글로벌 파트너십" 수에서 제외
+- 스펙항목에 없는 키를 제품 스펙에 넣으면 검사 오류
+- **data/는 공개 저장소 → 전화번호·비공개 이메일 금지** (검사에서 휴대폰 번호 패턴 차단). 이메일은 노출 대상(남성 영업직)만
+- 직급 영문: 대표이사 CEO / 부사장 Vice President / 이사 Director / 부장 General Manager / 차장 Deputy General Manager / 과장 Manager / 대리 Assistant Manager
+- 2026-09-29 content.xlsx → JSON 이전 완료 (xlsx·scrape_products.py는 git 이력에만 남음). 이전 전후 HTML 동일 검증함
 
 ## 반드시 지킬 사실관계 / 규칙
 
@@ -89,7 +86,7 @@ docs/                  로컬 빌드 결과물 (.gitignore — 저장소에 안 
 - 제조사도 추가·수정·삭제 가능해야 함
 
 설계안 (사용자와 합의한 내용):
-- 데이터 원본을 xlsx에서 저장소 안 JSON 파일(`data/`)로 이전. build.py는 JSON을 읽도록 수정
+- ~~데이터 원본을 JSON(`data/`)으로 이전~~ 완료 (2026-09-29)
 - 관리자 페이지는 GitHub API로 JSON/로고 파일을 커밋 → GitHub Actions가 build.py 실행 후 Pages 배포
 - 인증: 이 저장소 하나만 쓰기 가능한 fine-grained 토큰을 최초 1회 입력 (브라우저 저장). 담당자 바뀌면 재발급
 - 제조사 관리: 카드 목록, 추가/수정, 로고 드래그앤드롭(브라우저에서 여백 자동 트리밍), 순서 변경, 노출 Y/N(숨김 = 소프트 삭제)
@@ -106,8 +103,7 @@ docs/                  로컬 빌드 결과물 (.gitignore — 저장소에 안 
 
 ## 알려진 이슈 / 확인 필요
 
-- 이영욱 이메일 미확인 → Synthomer 담당 블록에 메일 링크 없음. 이주영 부장 이메일 노출 여부 미정(현재 비노출). 문정은 대리는 명단에서 제외(사용자 확인 필요)
-- 메인 히어로 버튼 2개("취급 제품군 스펙 확인", "원료 소싱 문의") 사용자가 별로라고 함 — A 짧은 한글 / B 영문 / C 삭제(추천) 중 결정 대기
+- 이주영 부장(Synthomer 담당) 이메일 비노출 상태 — 노출 원하면 org.json에 추가
 - 히어로 아래 영문 슬로건 "With futurism, Environmentally, friendly chemical company"는 회사 공식 문구라 유지 중이지만 문법이 어색함. 변경은 사용자 결정
 - 문의 폼 없음 (현재 mailto 링크만)
 - CEO 인사말 본문에 "SYNTHOMER(Eastman)", "SOLVAY" 표기가 남아 있음 (사이트 다른 곳은 Synthomer/Syensqo). 대표 명의 문구라 수정은 사용자 결정
@@ -120,6 +116,7 @@ docs/                  로컬 빌드 결과물 (.gitignore — 저장소에 안 
 - README 명령어 `py`/`py -m pip`로 통일, 시트 수·섹션 번호 정정, build.py 설명 URL 구조 정정
 - Contact 페이지의 임의 주소(info@) 버튼 제거 → 브랜드별 문의 담당 목록으로 대체
 - 조직도 개편(2026-09 명단, 한/영 병기, 영업3팀 폐지, CS는 영업팀 소속 표기)
+- 메인 히어로 버튼 2개 삭제 (사용자 결정)
 - 디자인 리뉴얼(“AI 템플릿 느낌” 제거) — style.css 전면 교체, 콘텐츠 변경 없음. 모바일 헤더 겹침 해결(메뉴 2줄 배치)
 
 ## 개발 환경 / 주의사항

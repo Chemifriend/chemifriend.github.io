@@ -1,10 +1,9 @@
-{# 브랜드 문의 담당자. 사용 전 slug 변수 지정: {% set slug = area.슬러그 %} — 데이터는 content.xlsx "브랜드담당" 시트 #}
-{% set contacts = brand_contacts.get(slug, []) %}
-{% if contacts %}
+{# 브랜드 문의 담당자. 사용 전 cb 변수에 브랜드 지정: {% set cb = brand %} — 데이터: data/brands.json 문의담당 #}
+{% if cb.contacts %}
 <div class="brand-contact">
   <p class="brand-contact-label">문의 담당 <span>Contact</span></p>
   <ul class="brand-contact-list">
-    {% for c in contacts %}
+    {% for c in cb.contacts %}
     {% if c.전체 %}
     <li>
       <div class="bc-name">영업팀 <span>Sales Team</span></div>

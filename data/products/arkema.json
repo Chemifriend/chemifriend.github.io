@@ -1,0 +1,1116 @@
+{
+  "제품군": [
+    {
+      "id": "additives-wax",
+      "이름": "Additives & Wax",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "rheology-additives",
+              "품명": "Rheology Additives",
+              "용도": "Marine coatings",
+              "스펙": {
+                "제품 List": "Crayvallac LV"
+              }
+            },
+            {
+              "id": "crayvallac-optima",
+              "품명": "Crayvallac Optima",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings"
+              }
+            },
+            {
+              "id": "crayvallac-ultra",
+              "품명": "Crayvallac Ultra",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings"
+              }
+            },
+            {
+              "id": "crayvallac-extra",
+              "품명": "Crayvallac Extra",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings, solder paste, adhesives"
+              }
+            },
+            {
+              "id": "crayvallac-super",
+              "품명": "Crayvallac Super",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings, solder paste, adhesives"
+              }
+            },
+            {
+              "id": "crayvallac-sf",
+              "품명": "Crayvallac SF",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings"
+              }
+            },
+            {
+              "id": "crayvallac-mt",
+              "품명": "Crayvallac MT",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings, solder paste, adhesives"
+              }
+            },
+            {
+              "id": "crayvallac-antisettle-cvp",
+              "품명": "Crayvallac Antisettle CVP",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings, powder coatings"
+              }
+            },
+            {
+              "id": "crayvallac-pc",
+              "품명": "Crayvallac PC",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder coatings"
+              }
+            },
+            {
+              "id": "crayvallac-slt",
+              "품명": "Crayvallac SLT",
+              "용도": "",
+              "스펙": {
+                "제품 List": "MS-Sealants, Adhesives"
+              }
+            },
+            {
+              "id": "crayvallac-slx",
+              "품명": "Crayvallac SLX",
+              "용도": "",
+              "스펙": {
+                "제품 List": "MS-Sealants, Adhesives"
+              }
+            },
+            {
+              "id": "crayvallac-sl",
+              "품명": "Crayvallac SL",
+              "용도": "",
+              "스펙": {
+                "제품 List": "MS-Sealants, Adhesives"
+              }
+            },
+            {
+              "id": "crayvallac-60p",
+              "품명": "Crayvallac 60P",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings, sealants"
+              }
+            },
+            {
+              "id": "crayvallac-la-150",
+              "품명": "Crayvallac LA-150",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings, Industrial coatings"
+              }
+            },
+            {
+              "id": "crayvallac-la-250",
+              "품명": "Crayvallac LA-250",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings, Industrial coatings"
+              }
+            },
+            {
+              "id": "crayvallac-la-350",
+              "품명": "Crayvallac LA-350",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marine coatings, Industrial coatings"
+              }
+            },
+            {
+              "id": "flow-and-levelling-additives",
+              "품명": "Flow, and levelling Additives",
+              "용도": "Auto, industrial, Coil, Can coatings",
+              "스펙": {
+                "제품 List": "Crayvallac Flow-200"
+              }
+            },
+            {
+              "id": "crayvallac-flow-100",
+              "품명": "Crayvallac Flow-100",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder coatings, industrial coatings"
+              }
+            },
+            {
+              "id": "crayvallac-flow-400",
+              "품명": "Crayvallac Flow-400",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder coatings, industrial coatings"
+              }
+            },
+            {
+              "id": "crayvallac-a-620-a2",
+              "품명": "Crayvallac A-620-A2",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Auto, Refinish, industrial, deco coatings"
+              }
+            },
+            {
+              "id": "crayvallac-a-2201-m",
+              "품명": "Crayvallac A-2201-M",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Auto, Refinish, industrial, deco coatings"
+              }
+            },
+            {
+              "id": "crayvallac-a-72-a2-60",
+              "품명": "Crayvallac A-72-A2-60",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Auto, Refinish, industrial, deco coatings"
+              }
+            },
+            {
+              "id": "crayvallac-a-2678-m",
+              "품명": "Crayvallac A-2678-M",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Acrylic emulsion, PUD, Alkyd"
+              }
+            },
+            {
+              "id": "surface-modifiers",
+              "품명": "Surface Modifiers",
+              "용도": "Industrial, wood coatings",
+              "스펙": {
+                "제품 List": "Crayvallac WN-1110"
+              }
+            },
+            {
+              "id": "crayvallac-wn-1135",
+              "품명": "Crayvallac WN-1135",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder, industrial, UV coatings"
+              }
+            },
+            {
+              "id": "crayvallac-wn-1265",
+              "품명": "Crayvallac WN-1265",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder, wood coatings"
+              }
+            },
+            {
+              "id": "crayvallac-wn-1150",
+              "품명": "Crayvallac WN-1150",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder coatings"
+              }
+            },
+            {
+              "id": "crayvallac-wn-1220",
+              "품명": "Crayvallac WN-1220",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ink, wood coatings"
+              }
+            },
+            {
+              "id": "crayvallac-wn-1442",
+              "품명": "Crayvallac WN-1442",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ink, industrial, powder coatings"
+              }
+            },
+            {
+              "id": "crayvallac-wn-1495",
+              "품명": "Crayvallac WN-1495",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ink, industrial, powder coatings"
+              }
+            },
+            {
+              "id": "crayvallac-wn-2950",
+              "품명": "Crayvallac WN-2950",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, can, coil, UV coatings, Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wn-3025",
+              "품명": "Crayvallac WN-3025",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Wood, can, coil coatings, Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wn-1875",
+              "품명": "Crayvallac WN-1875",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Wood, UV coatings"
+              }
+            },
+            {
+              "id": "crayvallac-wn-1810",
+              "품명": "Crayvallac WN-1810",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Coal, can coatings, Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wf-1000",
+              "품명": "Crayvallac WF-1000",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wf-1000nf",
+              "품명": "Crayvallac WF-1000NF",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wf-1039",
+              "품명": "Crayvallac WF-1039",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder coatings"
+              }
+            },
+            {
+              "id": "crayvallac-wf-3200",
+              "품명": "Crayvallac WF-3200",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder, wood, can, coil coatings, Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wf-3200nf",
+              "품명": "Crayvallac WF-3200NF",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder, wood, can, coil coatings, Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wf-3290",
+              "품명": "Crayvallac WF-3290",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, coil coatings, Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wf-6010",
+              "품명": "Crayvallac WF-6010",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrail, wood, can, coil coatings, Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wf-6010nf",
+              "품명": "Crayvallac WF-6010NF",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrail, wood, can, coil coatings, Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wf-9200",
+              "품명": "Crayvallac WF-9200",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Ink"
+              }
+            },
+            {
+              "id": "crayvallac-wf-9710",
+              "품명": "Crayvallac WF-9710",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Heat-seal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resins",
+      "이름": "Resins",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "acrylic-resins",
+              "품명": "Acrylic Resins",
+              "용도": "Marince, industrial coatings",
+              "스펙": {
+                "제품 List": "Synocure 886 S 70 MY"
+              }
+            },
+            {
+              "id": "synocure-862-x-60-my",
+              "품명": "Synocure 862 X 60 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-225-ba-50-my",
+              "품명": "Synocure 225 BA 50 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-854-ba-80-my",
+              "품명": "Synocure 854 BA 80 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-561-x-60-my",
+              "품명": "Synocure 561 X 60 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-878-n-60-my",
+              "품명": "Synocure 878 N 60 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-867-s-57-my",
+              "품명": "Synocure 867 S 57 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-867-ba-60-my",
+              "품명": "Synocure 867 BA 60 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-570-x-65-my",
+              "품명": "Synocure 570 X 65 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-9237-s-70-my",
+              "품명": "Synocure 9237 S 70 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-9279-s-70-my",
+              "품명": "Synocure 9279 S 70 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-886-eep-75-my",
+              "품명": "Synocure 886 EEP 75 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-9201-s-75-my",
+              "품명": "Synocure 9201 S 75 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-874-n-40-my",
+              "품명": "Synocure 874 N 40 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "synocure-874-x-40-my",
+              "품명": "Synocure 874 X 40 MY",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Marince, industrial coatings"
+              }
+            },
+            {
+              "id": "alkyd-and-polyester",
+              "품명": "Alkyd, and Polyester",
+              "용도": "Deco, wood, industrial, coil coatings",
+              "스펙": {
+                "제품 List": "Synolac Series"
+              }
+            },
+            {
+              "id": "unithane-series",
+              "품명": "Unithane Series",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Deco, wood, industrial, coil coatings"
+              }
+            },
+            {
+              "id": "reafree-series",
+              "품명": "Reafree Series",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Powder coatings"
+              }
+            },
+            {
+              "id": "acrylic-emulsion",
+              "품명": "Acrylic emulsion",
+              "용도": "WB coatings, adhesives",
+              "스펙": {
+                "제품 List": "Encor Series"
+              }
+            },
+            {
+              "id": "curing-agent",
+              "품명": "Curing agent",
+              "용도": "Amine",
+              "스펙": {
+                "제품 List": "DEAPA"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coatex",
+      "이름": "Coatex",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "coatex-acrylic-thickner",
+              "품명": "Coatex Acrylic Thickner",
+              "용도": "Industrial, decorative paints, adhesives",
+              "스펙": {
+                "제품 List": "Viscoatex 46"
+              }
+            },
+            {
+              "id": "viscoatex-330",
+              "품명": "Viscoatex 330",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints, textured coatings, adhesives"
+              }
+            },
+            {
+              "id": "viscoatex-730",
+              "품명": "Viscoatex 730",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints, textured coatings, adhesives"
+              }
+            },
+            {
+              "id": "thixol-53l",
+              "품명": "Thixol 53L",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, textured coatings, pigments paste, wood-stains"
+              }
+            },
+            {
+              "id": "coatex-associative-acrylic-thickner",
+              "품명": "Coatex Associative acrylic Thickner",
+              "용도": "Industrial, decorative paints",
+              "스펙": {
+                "제품 List": "Rheotech 2000"
+              }
+            },
+            {
+              "id": "rheotech-2800",
+              "품명": "Rheotech 2800",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints"
+              }
+            },
+            {
+              "id": "rheotech-3800",
+              "품명": "Rheotech 3800",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints"
+              }
+            },
+            {
+              "id": "rheotech-3900",
+              "품명": "Rheotech 3900",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints"
+              }
+            },
+            {
+              "id": "rheotech-4800",
+              "품명": "Rheotech 4800",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints"
+              }
+            },
+            {
+              "id": "rheotech-m02",
+              "품명": "Rheotech M02",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints"
+              }
+            },
+            {
+              "id": "rheotech-m03",
+              "품명": "Rheotech M03",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints"
+              }
+            },
+            {
+              "id": "coatex-urethane-thickner",
+              "품명": "Coatex Urethane Thickner",
+              "용도": "Industrial, deco, anti-corrosive paints",
+              "스펙": {
+                "제품 List": "Coapur 6050"
+              }
+            },
+            {
+              "id": "coapur-975w",
+              "품명": "Coapur 975W",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints"
+              }
+            },
+            {
+              "id": "coapur-830w",
+              "품명": "Coapur 830W",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco, anti-corrosive paints"
+              }
+            },
+            {
+              "id": "coapur-817w",
+              "품명": "Coapur 817W",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco, anti-corrosive paints"
+              }
+            },
+            {
+              "id": "coapur-520w",
+              "품명": "Coapur 520W",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, decorative paints"
+              }
+            },
+            {
+              "id": "coapur-3025",
+              "품명": "Coapur 3025",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco, wood paints"
+              }
+            },
+            {
+              "id": "coapur-3020",
+              "품명": "Coapur 3020",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco, wood paints"
+              }
+            },
+            {
+              "id": "coapur-2025",
+              "품명": "Coapur 2025",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco, wood paints"
+              }
+            },
+            {
+              "id": "coapur-2020w",
+              "품명": "Coapur 2020W",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco, wood paints"
+              }
+            },
+            {
+              "id": "coapur-2501",
+              "품명": "Coapur 2501",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco, wood paints"
+              }
+            },
+            {
+              "id": "coapur-xs-83",
+              "품명": "Coapur XS 83",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco, heavy-duty, anti-corrosive paints"
+              }
+            },
+            {
+              "id": "coapur-xs-71",
+              "품명": "Coapur XS 71",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco, heavy-duty, anti-corrosive paints"
+              }
+            },
+            {
+              "id": "coapur-xs-22",
+              "품명": "Coapur XS 22",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Alkyd emulsion paints"
+              }
+            },
+            {
+              "id": "coatex-dispersants",
+              "품명": "Coatex Dispersants",
+              "용도": "Paints, and coatings containing ZnO",
+              "스펙": {
+                "제품 List": "Coadis A 122"
+              }
+            },
+            {
+              "id": "coadis-br-3",
+              "품명": "Coadis BR 3",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Deco, silicate paints containing Fe2O3, TiO2"
+              }
+            },
+            {
+              "id": "coadis-br-40",
+              "품명": "Coadis BR 40",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Deco, silicate paints containing Fe2O3, TiO2"
+              }
+            },
+            {
+              "id": "coadis-123k",
+              "품명": "Coadis 123K",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Deco, textured coatings containing organic pigments"
+              }
+            },
+            {
+              "id": "coadis-144a",
+              "품명": "Coadis 144A",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Deco paints containing TiO2"
+              }
+            },
+            {
+              "id": "coadis-173",
+              "품명": "Coadis 173",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Roof coatings, sealants containing ZnO"
+              }
+            },
+            {
+              "id": "coadis-335a",
+              "품명": "Coadis 335A",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Tarafic coating, road marking"
+              }
+            },
+            {
+              "id": "coadis-352n",
+              "품명": "Coadis 352N",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Tarafic coating, road marking"
+              }
+            },
+            {
+              "id": "coadis-br-85",
+              "품명": "Coadis BR 85",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Gloss aklyd emulsion, TiO2 optimization"
+              }
+            },
+            {
+              "id": "coadis-615",
+              "품명": "Coadis 615",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Water resistance, anti-corrosive paints, pigments paste"
+              }
+            },
+            {
+              "id": "coadis-790",
+              "품명": "Coadis 790",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Industrial, deco paints, pigments paste"
+              }
+            },
+            {
+              "id": "ecodis-p-90",
+              "품명": "Ecodis P 90",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Water resistant flat paints, and thick film coatings"
+              }
+            },
+            {
+              "id": "ecodis-p-50",
+              "품명": "Ecodis P 50",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Odourless flat paints, thick film coatings, silicate paints"
+              }
+            },
+            {
+              "id": "ecodis-p-30",
+              "품명": "Ecodis P 30",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Odourless flat paints, thick film coatings, silicate paints"
+              }
+            },
+            {
+              "id": "ecodis-p-500hr",
+              "품명": "Ecodis P 500HR",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Odourless flat paints, thick film coatings, silicate paints"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nanostrength",
+      "이름": "Nanostrength",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "standard-un-treated-mam-range",
+              "품명": "Standard, Un-treated MAM range",
+              "용도": "Adhesive formulations (PSA or hot melts)",
+              "스펙": {
+                "제품 List": "M75ST"
+              }
+            },
+            {
+              "id": "m65st",
+              "품명": "M65ST",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Adhesive formulations (e.g. hot melts), modification and compatibilization of thermoplastic elastomers (TPE), impact modifier, etc."
+              }
+            },
+            {
+              "id": "m53",
+              "품명": "M53",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Provide good transparency when blended to PMMA. Can be used for adhesive formulations, modifications and compatibilisation of TPE materials, modification of PMMA, toughening of low polarity epoxy systems (Jeffamine, MDEA hardener)"
+              }
+            },
+            {
+              "id": "m52",
+              "품명": "M52",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "m51",
+              "품명": "M51",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "m22",
+              "품명": "M22",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Provides good compatibility with acrylic and methacrylic polymers allowing high transparencies. Toughener of epoxy systems with Jeffamine, MDEA hardnerer"
+              }
+            },
+            {
+              "id": "standard-un-treated-sas-range",
+              "품명": "Standard, Un-treated SAS range",
+              "용도": "Adhesive formulations (PSA or hot melts)",
+              "스펙": {
+                "제품 List": "S55ST"
+              }
+            },
+            {
+              "id": "hydrophilic-non-reactive-group",
+              "품명": "Hydrophilic & non-reactive group",
+              "용도": "High viscosity systems or solvent based epoxy systems",
+              "스펙": {
+                "제품 List": "M65N"
+              }
+            },
+            {
+              "id": "m52n",
+              "품명": "M52N",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Medium softness and viscosity grade, general purpose grade, suitable in many epoxy systems."
+              }
+            },
+            {
+              "id": "d51n",
+              "품명": "D51N",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Diblock version. Recommended for low viscosity epoxy systems"
+              }
+            },
+            {
+              "id": "m22n",
+              "품명": "M22N",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Polar matrixes, especially in epoxy system"
+              }
+            },
+            {
+              "id": "reactive-acid-group",
+              "품명": "Reactive acid group",
+              "용도": "Methacrylate adhesive formulations",
+              "스펙": {
+                "제품 List": "M65AST"
+              }
+            },
+            {
+              "id": "m75mst",
+              "품명": "M75MST",
+              "용도": "",
+              "스펙": {
+                "제품 List": "PSA or hot melts adhesive formulations"
+              }
+            },
+            {
+              "id": "s55mst",
+              "품명": "S55MST",
+              "용도": "",
+              "스펙": {
+                "제품 List": "PSA or hot melts adhesive formulations"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piezotech",
+      "이름": "Piezotech",
+      "소그룹": [
+        {
+          "이름": "Product",
+          "스펙항목": [
+            "제품 List"
+          ],
+          "제품": [
+            {
+              "id": "piezotech-fc",
+              "품명": "Piezotech FC",
+              "용도": "(P(VDF-TrFE) copolymer for Printed Organic Electronics, Smart Textiles and Plastronics",
+              "스펙": {
+                "제품 List": "FC20"
+              }
+            },
+            {
+              "id": "fc25",
+              "품명": "FC25",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "fc30",
+              "품명": "FC30",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "fc45",
+              "품명": "FC45",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "fc50",
+              "품명": "FC50",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "piezotech-rt",
+              "품명": "Piezotech RT",
+              "용도": "(P(VDF-TrFE-CTFE/CFE) terpolymer for Printed Organic Electronics, Smart Textiles and Plastronics",
+              "스펙": {
+                "제품 List": "RT TS"
+              }
+            },
+            {
+              "id": "rt-fs",
+              "품명": "RT FS",
+              "용도": "",
+              "스펙": {}
+            },
+            {
+              "id": "piezotech-fc-25-ink",
+              "품명": "Piezotech FC 25 ink",
+              "용도": "Ink-jet",
+              "스펙": {
+                "제품 List": "Ink I"
+              }
+            },
+            {
+              "id": "ink-l",
+              "품명": "Ink L",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Spin-coating Slot-die"
+              }
+            },
+            {
+              "id": "ink-h",
+              "품명": "Ink H",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Spin-coating Solvent-casting"
+              }
+            },
+            {
+              "id": "ink-p",
+              "품명": "Ink P",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Screen-printing"
+              }
+            },
+            {
+              "id": "piezotech-rt-t-ink",
+              "품명": "Piezotech RT T ink",
+              "용도": "Ink-jet",
+              "스펙": {
+                "제품 List": "Ink I"
+              }
+            },
+            {
+              "id": "ink-l-2",
+              "품명": "Ink L",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Spin-coating Slot-die"
+              }
+            },
+            {
+              "id": "ink-h-2",
+              "품명": "Ink H",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Spin-coating Solvent-casting"
+              }
+            },
+            {
+              "id": "ink-p-2",
+              "품명": "Ink P",
+              "용도": "",
+              "스펙": {
+                "제품 List": "Screen-printing"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

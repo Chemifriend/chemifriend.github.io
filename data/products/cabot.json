@@ -1,0 +1,1655 @@
+{
+  "제품군": [
+    {
+      "id": "carbon-black",
+      "이름": "Carbon Black",
+      "소그룹": [
+        {
+          "이름": "High Color Carbon Black",
+          "스펙항목": [
+            "OAN",
+            "I2No.",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "black-pearls-1300",
+              "품명": "Black Pearls 1300",
+              "용도": "Coatings",
+              "스펙": {
+                "OAN": "87 - 99",
+                "I2No.": "615 - 715",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-1400",
+              "품명": "Black Pearls 1400",
+              "용도": "Coatings",
+              "스펙": {
+                "OAN": "76 - 88",
+                "I2No.": "600 - 682",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "emperor-1600",
+              "품명": "Emperor 1600",
+              "용도": "High jetness solvent based coatings",
+              "스펙": {
+                "OAN": "N/A",
+                "I2No.": "N/A",
+                "형태": "Soft bead"
+              }
+            },
+            {
+              "id": "emperor-1800",
+              "품명": "Emperor 1800",
+              "용도": "Highest jetness in water-based or polar solvent coating",
+              "스펙": {
+                "OAN": "N/A",
+                "I2No.": "N/A",
+                "형태": "Soft bead"
+              }
+            },
+            {
+              "id": "emperor-2000",
+              "품명": "Emperor 2000",
+              "용도": "Highest jetness in water-based or polar solvent coating",
+              "스펙": {
+                "OAN": "N/A",
+                "I2No.": "N/A",
+                "형태": "Soft bead"
+              }
+            },
+            {
+              "id": "monarch-1300",
+              "품명": "Monarch 1300",
+              "용도": "Coatings",
+              "스펙": {
+                "OAN": "94 - 106",
+                "I2No.": "615 - 715",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-1400",
+              "품명": "Monarch 1400",
+              "용도": "Coatings",
+              "스펙": {
+                "OAN": "84 - 96",
+                "I2No.": "600 - 682",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-1500",
+              "품명": "Monarch 1500",
+              "용도": "Coatings",
+              "스펙": {
+                "OAN": "81 - 96",
+                "I2No.": "610 - 700",
+                "형태": "Fluffy"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Medium Color Carbon Black",
+          "스펙항목": [
+            "OAN",
+            "I2No.",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "black-pearls-800",
+              "품명": "Black Pearls 800",
+              "용도": "Plastics, Coatings",
+              "스펙": {
+                "OAN": "62 - 74",
+                "I2No.": "238 - 278",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-880",
+              "품명": "Black Pearls 880",
+              "용도": "Plastics, Coatings",
+              "스펙": {
+                "OAN": "98 - 112",
+                "I2No.": "238 - 278",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-900",
+              "품명": "Black Pearls 900",
+              "용도": "Plastics, Coatings",
+              "스펙": {
+                "OAN": "58 - 70",
+                "I2No.": "238 - 278",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-1000",
+              "품명": "Black Pearls 1000",
+              "용도": "Plastics, Coatings",
+              "스펙": {
+                "OAN": "100 - 120",
+                "I2No.": "472 - 556",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "emperor-1200",
+              "품명": "Emperor 1200",
+              "용도": "Automotive, coil and high-end industrial solvent-based coatings , Powder coating",
+              "스펙": {
+                "OAN": "N/A",
+                "I2No.": "N/A",
+                "형태": "Soft bead"
+              }
+            },
+            {
+              "id": "monarch-800",
+              "품명": "Monarch 800",
+              "용도": "Plastics, Coatings, Inks",
+              "스펙": {
+                "OAN": "68 - 80",
+                "I2No.": "238 - 278",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-880",
+              "품명": "Monarch 880",
+              "용도": "Plastics, Coatings, Inks",
+              "스펙": {
+                "OAN": "104 - 120",
+                "I2No.": "238 - 278",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-900",
+              "품명": "Monarch 900",
+              "용도": "Plastics, Coatings, Inks",
+              "스펙": {
+                "OAN": "64 - 76",
+                "I2No.": "238 - 278",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-1000",
+              "품명": "Monarch 1000",
+              "용도": "Plastics, Coatings, Inks",
+              "스펙": {
+                "OAN": "100 - 120",
+                "I2No.": "472 - 556",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-1100",
+              "품명": "Monarch 1100",
+              "용도": "Plastics, Coatings, Inks",
+              "스펙": {
+                "형태": "Fluffy"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Regular Color Carbon Black",
+          "스펙항목": [
+            "OAN",
+            "I2No.",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "black-pearls-l",
+              "품명": "Black Pearls L",
+              "용도": "Adhesive, Coatings, Inks, Pinting Toner",
+              "스펙": {
+                "OAN": "55 - 65",
+                "I2No.": "158 - 198",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-2",
+              "품명": "Black Pearls 2",
+              "용도": "Plastic moldings, Wire & Cable",
+              "스펙": {
+                "OAN": "116 - 126",
+                "I2No.": "39 - 47",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-130",
+              "품명": "Black Pearls 130",
+              "용도": "Plastic moldings, sheets, films",
+              "스펙": {
+                "OAN": "66 - 74",
+                "I2No.": "24 - 32",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-280",
+              "품명": "Black Pearls 280",
+              "용도": "Plastic moldings, sheets, films, Pipes(Non P type)",
+              "스펙": {
+                "OAN": "113 - 125",
+                "I2No.": "38 - 48",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-430",
+              "품명": "Black Pearls 430",
+              "용도": "Plastic moldings, sheets, films",
+              "스펙": {
+                "OAN": "72",
+                "I2No.": "80",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-460",
+              "품명": "Black Pearls 460",
+              "용도": "Plastic moldings, sheets, films",
+              "스펙": {
+                "OAN": "97 - 107",
+                "I2No.": "77 - 87",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-570",
+              "품명": "Black Pearls 570",
+              "용도": "Plastic moldings, sheets, films",
+              "스펙": {
+                "OAN": "114",
+                "I2No.": "110",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-717",
+              "품명": "Black Pearls 717",
+              "용도": "Plastics moldings, Coatings",
+              "스펙": {
+                "OAN": "47 - 63",
+                "I2No.": "173 - 193",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-4350",
+              "품명": "Black Pearls 4350",
+              "용도": "Food contact plastics (FDA Grade)",
+              "스펙": {
+                "OAN": "66 - 74",
+                "I2No.": "109 - 123",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-4560i",
+              "품명": "Black Pearls 4560i",
+              "용도": "Synthetic Fiber",
+              "스펙": {
+                "OAN": "105 - 115",
+                "I2No.": "120 - 130",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "elftex-tp",
+              "품명": "Elftex TP",
+              "용도": "Pressure Pipe (P type)",
+              "스펙": {
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "elftex-p100",
+              "품명": "Elftex P100",
+              "용도": "Pressure Pipe (P type)",
+              "스펙": {
+                "OAN": "96 - 112",
+                "I2No.": "71 - 87",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "mogul-h",
+              "품명": "Mogul H",
+              "용도": "Coatings, Inks, Toners",
+              "스펙": {
+                "OAN": "97 - 107",
+                "I2No.": "117 - 137",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "mogul-e",
+              "품명": "Mogul E",
+              "용도": "UV curable inks & Coatings",
+              "스펙": {
+                "OAN": "43 - 55",
+                "I2No.": "46 - 69",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "mogul-l",
+              "품명": "Mogul L",
+              "용도": "Adhesive, Coatings, Inks, Pinting Toner",
+              "스펙": {
+                "OAN": "57 - 67",
+                "I2No.": "158 - 198",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "monarch-120",
+              "품명": "Monarch 120",
+              "용도": "Adhesive, Coatings, Inks, Plastics, Sealant & Silicone Elastomer",
+              "스펙": {
+                "OAN": "62 - 72",
+                "I2No.": "25 - 35",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-280",
+              "품명": "Monarch 280",
+              "용도": "Adhesive, Coatings, Inks, Plastics, Sealant & Silicone Elastomer",
+              "스펙": {
+                "OAN": "113 - 125",
+                "I2No.": "38 - 48",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-430",
+              "품명": "Monarch 430",
+              "용도": "Adhesive, Coatings, Inks, Plastics, Sealant & Silicone Elastomer",
+              "스펙": {
+                "OAN": "70 - 80",
+                "I2No.": "77 - 87",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-460",
+              "품명": "Monarch 460",
+              "용도": "Adhesive, Coatings, Inks, Plastics, Sealant & Silicone Elastomer",
+              "스펙": {
+                "OAN": "98 - 108",
+                "I2No.": "76 - 88",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-570",
+              "품명": "Monarch 570",
+              "용도": "Adhesive, Coatings, Inks, Plastics, Sealant & Silicone Elastomer",
+              "스펙": {
+                "OAN": "109 - 119",
+                "I2No.": "115 - 127",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-580a100",
+              "품명": "Monarch 580A100",
+              "용도": "Adhesive, Coatings, Inks, Plastics, Sealant & Silicone Elastomer",
+              "스펙": {
+                "OAN": "110 - 130",
+                "I2No.": "195 - 235",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-717",
+              "품명": "Monarch 717",
+              "용도": "Adhesive, Coatings, Inks, Plastics, Sealant & Silicone Elastomer",
+              "스펙": {
+                "OAN": "173 - 193",
+                "I2No.": "47 - 62",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "monarch-4750",
+              "품명": "Monarch 4750",
+              "용도": "Food contact plastics (FDA Grade)",
+              "스펙": {
+                "OAN": "117 - 127",
+                "I2No.": "253 - 263",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "regal-99r",
+              "품명": "Regal 99R",
+              "용도": "Inks",
+              "스펙": {
+                "OAN": "61 - 69",
+                "I2No.": "58 - 68",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "regal-250r",
+              "품명": "Regal 250R",
+              "용도": "Inks",
+              "스펙": {
+                "OAN": "42 - 50",
+                "I2No.": "62 - 74",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "regal-300",
+              "품명": "Regal 300",
+              "용도": "Inks",
+              "스펙": {
+                "OAN": "72",
+                "I2No.": "82",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "regal-330r",
+              "품명": "Regal 330R",
+              "용도": "Inks, Pinting Toner",
+              "스펙": {
+                "OAN": "60 - 70",
+                "I2No.": "90 - 100",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "regal-350r",
+              "품명": "Regal 350R",
+              "용도": "Adhesive, Coatings, Inks",
+              "스펙": {
+                "OAN": "42 - 50",
+                "I2No.": "50 - 60",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "regal-400r",
+              "품명": "Regal 400R",
+              "용도": "Adhesive, Coatings, Inks, Pinting Toner",
+              "스펙": {
+                "OAN": "66 - 76",
+                "I2No.": "111 - 139",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "regal-660r",
+              "품명": "Regal 660R",
+              "용도": "Adhesive, Coatings, Inks",
+              "스펙": {
+                "OAN": "61 - 69",
+                "I2No.": "116 - 126",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "vulcan-9a32",
+              "품명": "Vulcan 9A32",
+              "용도": "Plastic Film, Sheet, Pipe, Cable jacket",
+              "스펙": {
+                "OAN": "110 - 118",
+                "I2No.": "130 - 142",
+                "형태": "Pellets"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Rubber Black",
+          "스펙항목": [
+            "OAN",
+            "I2No.",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "spheron-so-lp",
+              "품명": "Spheron SO-LP",
+              "용도": "Rubber compounds that require a very low PAH",
+              "스펙": {
+                "OAN": "121",
+                "I2No.": "43",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-soa",
+              "품명": "Spheron SOA",
+              "용도": "Automotive weather stripping, Hoses and extruded profiles",
+              "스펙": {
+                "OAN": "121",
+                "I2No.": "43",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-so-1a",
+              "품명": "Spheron SO-1A",
+              "용도": "Automotive weather stripping, Hoses and extruded profiles",
+              "스펙": {
+                "OAN": "111",
+                "I2No.": "43",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-1416",
+              "품명": "Spheron 1416",
+              "용도": "Turbocharger and brake hoses, Construction and building profiles, Automotive door seals, Membranes",
+              "스펙": {
+                "OAN": "129",
+                "I2No.": "56",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-4000",
+              "품명": "Spheron 4000",
+              "용도": "Injection and compression molded rubber seals and gaskets, Pipe and hose liners, Turbo charger hoses Very high hardness extruded Automotive door seals",
+              "스펙": {
+                "OAN": "51",
+                "I2No.": "31",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-4700",
+              "품명": "Spheron 4700",
+              "용도": "Automotive door seals, Injection and compression molded rubber seals",
+              "스펙": {
+                "OAN": "65",
+                "I2No.": "31",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-5000",
+              "품명": "Spheron 5000",
+              "용도": "Automotive weather stripping and door seals , Extruded hoses and profiles, Molded rubber parts",
+              "스펙": {
+                "OAN": "120",
+                "I2No.": "27",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-6000",
+              "품명": "Spheron 6000",
+              "용도": "Automotive weather stripping, Hoses and extruded profiles",
+              "스펙": {
+                "OAN": "92",
+                "I2No.": "20",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-6400",
+              "품명": "Spheron 6400",
+              "용도": "Rubber parts with high electrical resistivity specifications, Automotive coolant and industrial/consumer hoses Automotive weather stripping, door seals and extruded profiles",
+              "스펙": {
+                "OAN": "95",
+                "I2No.": "16",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-5000a",
+              "품명": "Spheron 5000A",
+              "용도": "Molded rubber parts, Automotive weather stripping, Hoses and extruded profiles",
+              "스펙": {
+                "OAN": "120",
+                "I2No.": "27",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-6000a",
+              "품명": "Spheron 6000A",
+              "용도": "Automotive coolant, hydraulic and industrial/consumer hoses, Automotive weather stripping",
+              "스펙": {
+                "OAN": "92",
+                "I2No.": "20",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "spheron-6400a",
+              "품명": "Spheron 6400A",
+              "용도": "Automotive weather stripping, Hoses and extruded profiles",
+              "스펙": {
+                "OAN": "95",
+                "I2No.": "16",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "sterling-ns-n774",
+              "품명": "Sterling NS (N774)",
+              "용도": "Industrial Rubber Products, Tires",
+              "스펙": {
+                "OAN": "72",
+                "I2No.": "29",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "sterling-so-n550",
+              "품명": "Sterling SO (N550)",
+              "용도": "Industrial Rubber Products, Tires",
+              "스펙": {
+                "OAN": "121",
+                "I2No.": "43",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "sterling-so-1-n539",
+              "품명": "Sterling SO-1 (N539)",
+              "용도": "Industrial Rubber Products, Tires",
+              "스펙": {
+                "OAN": "111",
+                "I2No.": "43",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "sterling-v-n660",
+              "품명": "Sterling V (N660)",
+              "용도": "Industrial Rubber Products, Tires",
+              "스펙": {
+                "OAN": "90",
+                "I2No.": "36",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "sterling-vh-n650",
+              "품명": "Sterling VH (N650)",
+              "용도": "Industrial Rubber Products, Tires",
+              "스펙": {
+                "OAN": "122",
+                "I2No.": "36",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "sterling-105-n683",
+              "품명": "Sterling 105 (N683)",
+              "용도": "Industrial Rubber Products, Tires",
+              "스펙": {
+                "OAN": "133",
+                "I2No.": "35",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "sterling-1120",
+              "품명": "Sterling 1120",
+              "용도": "Engine mount components, Body mounts, High hardness molded goods, Dynamic parts requiring good flex life, FKM, H-NBR polymer based rubber parts",
+              "스펙": {
+                "OAN": "35",
+                "I2No.": "21",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "regal-srf-n772",
+              "품명": "Regal SRF (N772)",
+              "용도": "Gaskets, seals, windscreen wiper blades, engine mountings and hose linings, Tire tube and inner-liner compounds",
+              "스펙": {
+                "OAN": "65",
+                "I2No.": "30",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-j-n375",
+              "품명": "Vulcan J (N375)",
+              "용도": "Tires, Industrial rubber product applications",
+              "스펙": {
+                "OAN": "114",
+                "I2No.": "90",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-m-n339",
+              "품명": "Vulcan M (N339)",
+              "용도": "Tires, Industrial rubber product applications",
+              "스펙": {
+                "OAN": "120",
+                "I2No.": "90",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-3h-n347",
+              "품명": "Vulcan 3H (N347)",
+              "용도": "Tires",
+              "스펙": {
+                "OAN": "124",
+                "I2No.": "90",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-7h-n234",
+              "품명": "Vulcan 7H (N234)",
+              "용도": "Treads of premium passenger car tires, truck tires and solid tires, Truck tire re-treads, Conveyor belts",
+              "스펙": {
+                "OAN": "125",
+                "I2No.": "120",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-10h-n134",
+              "품명": "Vulcan 10H (N134)",
+              "용도": "Treads of passenger, truck and OTR tires, Truck tire re-treads, High performance passenger and light truck tires",
+              "스펙": {
+                "OAN": "127",
+                "I2No.": "142",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-3-n330",
+              "품명": "Vulcan 3 (N330)",
+              "용도": "Tires, Film, Ink, Tires, Industrial Rubber Product",
+              "스펙": {
+                "OAN": "102",
+                "I2No.": "82",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-6-n220",
+              "품명": "Vulcan 6 (N220)",
+              "용도": "Tires, Film, Tires",
+              "스펙": {
+                "OAN": "114",
+                "I2No.": "121",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-1345",
+              "품명": "Vulcan 1345",
+              "용도": "Tires, Industrial Rubber Product",
+              "스펙": {
+                "OAN": "110",
+                "I2No.": "124",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-1380",
+              "품명": "Vulcan 1380",
+              "용도": "Anti-Vibration parts for cars, trucks and OTR vehicles, Belts, Solid Tires",
+              "스펙": {
+                "OAN": "143",
+                "I2No.": "76",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-1391",
+              "품명": "Vulcan 1391",
+              "용도": "Anti-Vibration parts for cars, trucks and OTR vehicles, Belts, Solid Tires",
+              "스펙": {
+                "OAN": "134",
+                "I2No.": "202",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-1436",
+              "품명": "Vulcan 1436",
+              "용도": "Anti-Vibration parts for cars, trucks and off-the-road vehicles , Solid tires, Belts",
+              "스펙": {
+                "OAN": "143",
+                "I2No.": "97",
+                "형태": "Pellets"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Conductive",
+          "스펙항목": [
+            "OAN",
+            "I2No.",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "vulcan-p",
+              "품명": "Vulcan P",
+              "용도": "Conductive, ESD, Wire & Cable, Pipe",
+              "스펙": {
+                "OAN": "116",
+                "I2No.": "172",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-xc200",
+              "품명": "Vulcan XC200",
+              "용도": "Conductive, ESD, Wire & Cable",
+              "스펙": {
+                "OAN": "110 - 121",
+                "I2No.": "40 - 52",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-xc305",
+              "품명": "Vulcan XC305",
+              "용도": "Conductive, ESD, Wire & Cable",
+              "스펙": {
+                "OAN": "131",
+                "I2No.": "72",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-xc500",
+              "품명": "Vulcan XC500",
+              "용도": "Conductive, ESD, Wire & Cable",
+              "스펙": {
+                "OAN": "143-153",
+                "I2No.": "68 - 80",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-xc605",
+              "품명": "Vulcan XC605",
+              "용도": "Conductive, ESD, Wire & Cable",
+              "스펙": {
+                "OAN": "148",
+                "I2No.": "90",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-xc68",
+              "품명": "Vulcan XC68",
+              "용도": "Conductive, ESD, Wire & Cable",
+              "스펙": {
+                "OAN": "118 - 128",
+                "I2No.": "63 - 73",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-xc72",
+              "품명": "Vulcan XC72",
+              "용도": "Conductive, ESD, Wire & Cable",
+              "스펙": {
+                "OAN": "164 - 184",
+                "I2No.": "233 - 273",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-xc72r",
+              "품명": "Vulcan XC72R",
+              "용도": "Conductive, ESD, Wire & Cable",
+              "스펙": {
+                "OAN": "182 - 202",
+                "I2No.": "235 - 271",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "vulcan-xcmax",
+              "품명": "Vulcan XCmax",
+              "용도": "Conductive, ESD, Wire & Cable",
+              "스펙": {
+                "OAN": "280 - 360",
+                "I2No.": "1250 - 1550",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "black-pearls-2000",
+              "품명": "Black Pearls 2000",
+              "용도": "Antistatic, Conductive",
+              "스펙": {
+                "OAN": "300 - 360",
+                "I2No.": "1330 - 1494",
+                "형태": "Pellets"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "High resistivity",
+          "스펙항목": [
+            "OAN",
+            "I2No.",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "tpk1099r",
+              "품명": "TPK1099R",
+              "용도": "High resistivity in Display",
+              "스펙": {
+                "OAN": "37",
+                "I2No.": "57",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "tpk1104r",
+              "품명": "TPK1104R",
+              "용도": "High resistivity in Display",
+              "스펙": {
+                "OAN": "37",
+                "I2No.": "57",
+                "형태": "Fluffy"
+              }
+            },
+            {
+              "id": "tpk1227r",
+              "품명": "TPK1227R",
+              "용도": "High resistivity in Display",
+              "스펙": {
+                "OAN": "N/A",
+                "I2No.": "N/A",
+                "형태": "Fluffy"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fumed-metal-oxide",
+      "이름": "Fumed Metal Oxide",
+      "소그룹": [
+        {
+          "이름": "Hydrophilic Fumed Silica",
+          "스펙항목": [
+            "Surface Chemistry",
+            "BET Surface Area(m2/g)",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "cab-o-sil-eh5",
+              "품명": "CAB-O-SIL EH5",
+              "용도": "Adhesives, Coatings, Composites, Cosmetics, Inks, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "380",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-eh5f",
+              "품명": "CAB-O-SIL EH5F",
+              "용도": "Food",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "380",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-h5",
+              "품명": "CAB-O-SIL H5",
+              "용도": "Adhesives, Coatings, Composites, Cosmetics, Inks, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "320",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-h300",
+              "품명": "CAB-O-SIL H300",
+              "용도": "Adhesives, Coatings, Composites, Cosmetics, Inks, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "300",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-m5",
+              "품명": "CAB-O-SIL M5",
+              "용도": "Adhesives, Coatings, Composites, Cosmetics, Inks, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "200",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-m5f",
+              "품명": "CAB-O-SIL M5F",
+              "용도": "Food",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "200",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-m5p",
+              "품명": "CAB-O-SIL M5P",
+              "용도": "Pharmaceuticals",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "200",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-m5dp",
+              "품명": "CAB-O-SIL M5DP",
+              "용도": "Pharmaceuticals",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "200",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-lm150",
+              "품명": "CAB-O-SIL LM150",
+              "용도": "Adhesives, Coatings, Composites, Inks, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "150",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-lm130",
+              "품명": "CAB-O-SIL LM130",
+              "용도": "Adhesives, Coatings, Composites, Inks, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "130",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-l90",
+              "품명": "CAB-O-SIL L90",
+              "용도": "Adhesives, Coatings, Composites, Inks, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "90",
+                "형태": "Powder"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Hydrophobic Fumed Silica",
+          "스펙항목": [
+            "Surface Chemistry",
+            "BET Surface Area(m2/g)",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "cab-o-sil-tsubond",
+              "품명": "CAB-O-SIL TSUBOND",
+              "용도": "Adhesives, Coatings, Composites, Inks",
+              "스펙": {
+                "Surface Chemistry": "PDMS",
+                "BET Surface Area(m2/g)": "105~135",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-ts720",
+              "품명": "CAB-O-SIL TS720",
+              "용도": "Adhesives, Coatings, Composites, Inks, Lubricants, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "PDMS",
+                "BET Surface Area(m2/g)": "105~135",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-ts710",
+              "품명": "CAB-O-SIL TS710",
+              "용도": "Adhesives, Coatings, Composites, Inks, Lubricants, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "PDMS",
+                "BET Surface Area(m2/g)": "80~125",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-ts622",
+              "품명": "CAB-O-SIL TS622",
+              "용도": "Adhesives, Coatings, Composites, Inks, Lubricants, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "DiMeDi",
+                "BET Surface Area(m2/g)": "175~215",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-ts610",
+              "품명": "CAB-O-SIL TS610",
+              "용도": "Adhesives, Coatings, Composites, Inks, Lubricants, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "DiMeDi",
+                "BET Surface Area(m2/g)": "105~145",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-ts5022",
+              "품명": "CAB-O-SIL TS5022",
+              "용도": "Adhesives, Coatings, Composites, Inks, Lubricants, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "220~280",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-ts530",
+              "품명": "CAB-O-SIL TS530",
+              "용도": "Adhesives, Coatings, Composites, Inks, Lubricants, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "205~245",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-ct1111g",
+              "품명": "CAB-O-SIL CT1111G",
+              "용도": "Powder coatings",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "205~245",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-ct1221",
+              "품명": "CAB-O-SIL CT1221",
+              "용도": "Powder coatings",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "180~250",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-ts382",
+              "품명": "CAB-O-SIL TS382",
+              "용도": "Adhesives, Coatings, Composites, Inks, Lubricants, Silicone Elasstomer",
+              "스펙": {
+                "Surface Chemistry": "OTMS",
+                "BET Surface Area(m2/g)": "100~200",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-810g",
+              "품명": "CAB-O-SIL TG-810G",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "220",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-811f",
+              "품명": "CAB-O-SIL TG-811F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "230",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-815f",
+              "품명": "CAB-O-SIL TG-815F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ/PDMS",
+                "BET Surface Area(m2/g)": "140",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-828f",
+              "품명": "CAB-O-SIL TG-828F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "Cyclic/HMDZ",
+                "BET Surface Area(m2/g)": "230",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-820f",
+              "품명": "CAB-O-SIL TG-820F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "Cyclic/HMDZ",
+                "BET Surface Area(m2/g)": "210",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-3155f",
+              "품명": "CAB-O-SIL TG-3155F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ/PDMS",
+                "BET Surface Area(m2/g)": "135",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-308f",
+              "품명": "CAB-O-SIL TG-308F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "PDMS",
+                "BET Surface Area(m2/g)": "120",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-7180",
+              "품명": "CAB-O-SIL TG-7180",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "PDMS",
+                "BET Surface Area(m2/g)": "110",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-709f",
+              "품명": "CAB-O-SIL TG-709F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "DiMeDi",
+                "BET Surface Area(m2/g)": "130",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-7120",
+              "품명": "CAB-O-SIL TG-7120",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "Cyclic/HMDZ",
+                "BET Surface Area(m2/g)": "110",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-6110g",
+              "품명": "CAB-O-SIL TG-6110G",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "85",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-6120f",
+              "품명": "CAB-O-SIL TG-6120F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "Cyclic/HMDZ",
+                "BET Surface Area(m2/g)": "75",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-5110",
+              "품명": "CAB-O-SIL TG-5110",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "60",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-5115f",
+              "품명": "CAB-O-SIL TG-5115F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "60",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-5180",
+              "품명": "CAB-O-SIL TG-5180",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "PDMS",
+                "BET Surface Area(m2/g)": "30",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-5185f",
+              "품명": "CAB-O-SIL TG-5185F",
+              "용도": "Fumed silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "PDMS",
+                "BET Surface Area(m2/g)": "30",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-c413",
+              "품명": "CAB-O-SIL TG-C413",
+              "용도": "Colloidal silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "55",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-c390",
+              "품명": "CAB-O-SIL TG-C390",
+              "용도": "Colloidal silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "OTAS",
+                "BET Surface Area(m2/g)": "50",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-c243",
+              "품명": "CAB-O-SIL TG-C243",
+              "용도": "Colloidal silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "OTAS/HMDZ",
+                "BET Surface Area(m2/g)": "40",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-c110",
+              "품명": "CAB-O-SIL TG-C110",
+              "용도": "Colloidal silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "30",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-c191",
+              "품명": "CAB-O-SIL TG-C191",
+              "용도": "Colloidal silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "OTAS",
+                "BET Surface Area(m2/g)": "30"
+              }
+            },
+            {
+              "id": "cab-o-sil-tg-c6020n",
+              "품명": "CAB-O-SIL TG-C6020N",
+              "용도": "Colloidal silica based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "30"
+              }
+            },
+            {
+              "id": "cab-o-sil-atlas",
+              "품명": "CAB-O-SIL ATLAS",
+              "용도": "Silica composite based external additives in printing toners",
+              "스펙": {
+                "Surface Chemistry": "HMDZ",
+                "BET Surface Area(m2/g)": "60"
+              }
+            }
+          ]
+        },
+        {
+          "이름": "Fumed Alumina",
+          "스펙항목": [
+            "Surface Chemistry",
+            "BET Surface Area(m2/g)",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "spectral-100",
+              "품명": "SpectrAl 100",
+              "용도": "Adhesives, Coatings, Electronics",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "90~100",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "spectral-81",
+              "품명": "SpectrAl 81",
+              "용도": "Adhesives, Coatings, Electronics",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "70~90",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "spectral-51",
+              "품명": "SpectrAl 51",
+              "용도": "Adhesives, Coatings, Electronics",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "47~63",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "spectral-pc401",
+              "품명": "SpectrAl PC401",
+              "용도": "Cosmetics",
+              "스펙": {
+                "Surface Chemistry": "Un-treated",
+                "BET Surface Area(m2/g)": "45~65",
+                "형태": "Powder"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fumed-metal-oxide-dispersions",
+      "이름": "Fumed Metal Oxide Dispersions",
+      "소그룹": [
+        {
+          "이름": "Dispersions",
+          "스펙항목": [
+            "Surface charge",
+            "Loading(%)/D50",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "cab-o-sperse-1015a",
+              "품명": "CAB-O-SPERSE 1015A",
+              "용도": "Metal pretreatment, Polishing abrasives, Lighting",
+              "스펙": {
+                "Surface charge": "Anionic",
+                "Loading(%)/D50": "15",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-1015e",
+              "품명": "CAB-O-SPERSE 1015E",
+              "용도": "Coatings, Plastics, Elastomers, Polishing abrasives",
+              "스펙": {
+                "Surface charge": "Cationic",
+                "Loading(%)/D50": "15",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-1020k",
+              "품명": "CAB-O-SPERSE 1020K",
+              "용도": "Coatings, Plastics, Elastomers, Polishing abrasives",
+              "스펙": {
+                "Surface charge": "Anionic",
+                "Loading(%)/D50": "20",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-1030k",
+              "품명": "CAB-O-SPERSE 1030K",
+              "용도": "Coatings, Plastics, Elastomers, Polishing abrasives, Energy",
+              "스펙": {
+                "Surface charge": "Anionic",
+                "Loading(%)/D50": "30",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-2012a",
+              "품명": "CAB-O-SPERSE 2012A",
+              "용도": "Metal pretreatment, Lighting",
+              "스펙": {
+                "Surface charge": "Anionic",
+                "Loading(%)/D50": "12",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-2017a",
+              "품명": "CAB-O-SPERSE 2017A",
+              "용도": "Metal pretreatment, Coatings, Adhesives, Plastics, Elastomers, Energy",
+              "스펙": {
+                "Surface charge": "Anionic",
+                "Loading(%)/D50": "17",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-2020k",
+              "품명": "CAB-O-SPERSE 2020K",
+              "용도": "Coatings, Adhesives, Plastics, Elastomers, Polishing abrasives, Energy",
+              "스펙": {
+                "Surface charge": "Anionic",
+                "Loading(%)/D50": "20",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-4012k",
+              "품명": "CAB-O-SPERSE 4012K",
+              "용도": "Coatings, Adhesives, Energy",
+              "스펙": {
+                "Surface charge": "Anionic",
+                "Loading(%)/D50": "12",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-pg001",
+              "품명": "CAB-O-SPERSE PG001",
+              "용도": "Paper",
+              "스펙": {
+                "Surface charge": "Anionic",
+                "Loading(%)/D50": "30",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-pg002",
+              "품명": "CAB-O-SPERSE PG002",
+              "용도": "Paper",
+              "스펙": {
+                "Surface charge": "Anionic",
+                "Loading(%)/D50": "20",
+                "형태": "Liquid(Silica)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-pg003",
+              "품명": "CAB-O-SPERSE PG003",
+              "용도": "Metal pretreatment, Paper, Lighting",
+              "스펙": {
+                "Surface charge": "Cationic",
+                "Loading(%)/D50": "40",
+                "형태": "Liquid(Alumina)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-pg008",
+              "품명": "CAB-O-SPERSE PG008",
+              "용도": "Metal pretreatment, Paper, Lighting",
+              "스펙": {
+                "Surface charge": "Cationic",
+                "Loading(%)/D50": "40",
+                "형태": "Liquid(Alumina)"
+              }
+            },
+            {
+              "id": "cab-o-sperse-pg022",
+              "품명": "CAB-O-SPERSE PG022",
+              "용도": "Metal pretreatment, Adhesives, Plastics, Paper",
+              "스펙": {
+                "Surface charge": "Cationic",
+                "Loading(%)/D50": "20",
+                "형태": "Liquid(Silica)"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

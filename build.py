@@ -1,42 +1,55 @@
 """
-content/content.xlsx 파일의 내용을 읽어서 docs/ 폴더에 정적 HTML을 생성합니다.
+data/*.json → docs/ 정적 HTML 생성기.
 
 사용법:
-    python build.py
+    python build.py            빌드 (데이터 검사 → 오류 있으면 중단)
+    python build.py --check    검사만
 
-수정 방법:
-    1. content/content.xlsx 파일을 엑셀로 열어서 내용만 고칩니다. (구조/시트명은 바꾸지 마세요)
-    2. 저장합니다.
-    3. deploy.bat 더블클릭 → GitHub에 push → GitHub Actions가 이 파일을 실행해 사이트를 배포합니다.
-       (로컬에서 결과만 미리 보려면 이 파일을 실행하고 docs/index.html 을 브라우저로 열어보세요)
+데이터 파일 (관리자 페이지 /admin 또는 직접 수정):
+    data/company.json          회사정보 (키-값)
+    data/history.json          연혁 [{연월, 내용}]
+    data/org.json              부서 departments + 직원 people
+    data/brands.json           제조사(브랜드) 목록 — 표시 순서 = 파일 순서
+    data/products/<브랜드id>.json  제품군 → 소그룹 → 제품
 
-사이트 구조:
-    docs/index.html                          메인 페이지
-    docs/product.html                        Product 허브 (브랜드 목록)
-    docs/product/<브랜드>/index.html          브랜드 소개 + 제품군 목록
-    docs/product/<브랜드>/<제품군>/index.html  제품군 스펙표
-    docs/product/<브랜드>/<제품군>/<품명>.html 개별 제품(SKU) 페이지
-    docs/contact.html                        Contact 페이지
+URL 규칙 (id는 한 번 정하면 바꾸지 않는다 — 바꾸면 기존 링크·검색 색인이 깨짐):
+    product/<브랜드id>/index.html
+    product/<브랜드id>/<제품군id>/index.html
+    product/<브랜드id>/<제품군id>/<제품id>.html
+
+배포: main 브랜치에 push → GitHub Actions(.github/workflows/deploy.yml)가 이 파일을 실행해 Pages에 배포.
+검사에서 오류가 나면 빌드가 실패하고, 사이트는 직전 정상 버전이 그대로 유지된다.
 """
+import json
 import os
 import re
 import shutil
 import stat
+import sys
 import time
 from pathlib import Path
-from collections import OrderedDict
 
-import openpyxl
 from jinja2 import Environment, FileSystemLoader
 
 ROOT = Path(__file__).parent
-CONTENT_XLSX = ROOT / "content" / "content.xlsx"
+DATA = ROOT / "data"
 TEMPLATES_DIR = ROOT / "templates"
+STATIC_DIR = ROOT / "static"
 DOCS_DIR = ROOT / "docs"
+SITE_URL = "https://chemifriend.com"
+ID_RE = re.compile(r"^[a-z0-9가-힣]+(?:-[a-z0-9가-힣]+)*$")
+EMAIL_RE = re.compile(r"^[^@\s,]+@[^@\s,]+\.[a-z]{2,}$", re.I)
+COMPANY_REQUIRED = ["회사명", "영문명", "대표자", "주소", "전화"]
+
+
+# ---------------------------------------------------------------- 공용 유틸
+def slugify(text: str) -> str:
+    """새 id를 만들 때 쓰는 규칙 (관리자 페이지도 같은 규칙 사용)."""
+    text = re.sub(r"[^a-zA-Z0-9가-힣]+", "-", text).strip("-")
+    return text.lower() or "item"
 
 
 def _force_remove_readonly(func, path, exc_info):
-    """윈도우/OneDrive에서 읽기전용·동기화 잠금으로 삭제가 막힐 때 재시도한다."""
     try:
         os.chmod(path, stat.S_IWRITE)
         func(path)
@@ -45,7 +58,8 @@ def _force_remove_readonly(func, path, exc_info):
 
 
 def safe_rmtree(path: Path, retries: int = 5, delay: float = 0.5):
-    for attempt in range(retries):
+    """윈도우/동기화 폴더 잠금으로 삭제가 막힐 때 재시도."""
+    for _ in range(retries):
         if not path.exists():
             return
         shutil.rmtree(path, onerror=_force_remove_readonly)
@@ -54,303 +68,215 @@ def safe_rmtree(path: Path, retries: int = 5, delay: float = 0.5):
         time.sleep(delay)
 
 
-def slugify(text: str) -> str:
-    text = re.sub(r"[^a-zA-Z0-9가-힣]+", "-", text).strip("-")
-    return text.lower() or "item"
+def read_json(rel):
+    return json.loads((DATA / rel).read_text(encoding="utf-8"))
 
 
-def read_keyvalue_sheet(ws):
-    data = {}
-    for row in ws.iter_rows(min_row=2, values_only=True):
-        if not row or row[0] is None:
-            continue
-        key, value = row[0], row[1]
-        data[str(key).strip()] = "" if value is None else str(value)
-    return data
+# ---------------------------------------------------------------- 로드
+def load_data():
+    brands = read_json("brands.json")
+    for b in brands:
+        f = DATA / "products" / f"{b['id']}.json"
+        b["제품군"] = json.loads(f.read_text(encoding="utf-8"))["제품군"] if f.exists() else []
+    return {
+        "company": read_json("company.json"),
+        "history": read_json("history.json"),
+        "org": read_json("org.json"),
+        "brands": brands,
+    }
 
 
-def read_table_sheet(ws):
-    rows = list(ws.iter_rows(values_only=True))
-    headers = [str(h).strip() if h else "" for h in rows[0]]
-    result = []
-    for row in rows[1:]:
-        if not any(row):
-            continue
-        item = {headers[i]: ("" if v is None else str(v)) for i, v in enumerate(row) if i < len(headers)}
-        result.append(item)
-    return result
+# ---------------------------------------------------------------- 검사
+def validate(d):
+    """(errors, warnings) 반환. errors가 하나라도 있으면 빌드하지 않는다."""
+    E, W = [], []
+    c = d["company"]
+    for k in COMPANY_REQUIRED:
+        if not str(c.get(k, "")).strip():
+            E.append(f"회사정보: '{k}' 비어 있음")
+
+    for i, h in enumerate(d["history"], 1):
+        if not re.match(r"^\d{4}\.\d{2}$", str(h.get("연월", ""))):
+            E.append(f"연혁 {i}번째: 연월 '{h.get('연월')}' — YYYY.MM 형식이어야 함")
+        if not str(h.get("내용", "")).strip():
+            E.append(f"연혁 {i}번째: 내용 비어 있음")
+
+    dept_ids = [x["id"] for x in d["org"]["departments"]]
+    person_ids = []
+    for x in d["org"]["departments"]:
+        if not ID_RE.match(x["id"]):
+            E.append(f"부서 id '{x['id']}' — 영문 소문자·숫자·하이픈만")
+        if not x.get("이름(한글)") and not x.get("이름(영문)"):
+            E.append(f"부서 '{x['id']}': 이름 비어 있음")
+    for p in d["org"]["people"]:
+        who = p.get("이름(한글)") or p.get("id")
+        person_ids.append(p.get("id"))
+        if p.get("부서") not in dept_ids:
+            E.append(f"직원 {who}: 부서 '{p.get('부서')}'가 부서 목록에 없음")
+        if not p.get("이름(한글)"):
+            E.append(f"직원 {p.get('id')}: 한글 이름 비어 있음")
+        email = p.get("이메일(공개)", "")
+        if email and not EMAIL_RE.match(email):
+            E.append(f"직원 {who}: 이메일 형식 오류 '{email}'")
+        if re.search(r"01[0-9][-\s]?\d{3,4}[-\s]?\d{4}", json.dumps(p, ensure_ascii=False)):
+            E.append(f"직원 {who}: 휴대전화 번호로 보이는 값이 있음 — 공개 저장소이므로 입력 금지")
+    for dup in {x for x in dept_ids if dept_ids.count(x) > 1}:
+        E.append(f"부서 id 중복: {dup}")
+    for dup in {x for x in person_ids if person_ids.count(x) > 1}:
+        E.append(f"직원 id 중복: {dup}")
+
+    brand_ids = [b["id"] for b in d["brands"]]
+    for dup in {x for x in brand_ids if brand_ids.count(x) > 1}:
+        E.append(f"제조사 id 중복: {dup}")
+    for b in d["brands"]:
+        name = b.get("회사명") or b["id"]
+        if not ID_RE.match(b["id"]):
+            E.append(f"제조사 '{name}': id '{b['id']}' — 영문 소문자·숫자·하이픈만")
+        if not b.get("회사명"):
+            E.append(f"제조사 id '{b['id']}': 회사명 비어 있음")
+        if b.get("로고") and not (STATIC_DIR / "logos" / b["로고"]).exists():
+            E.append(f"제조사 {name}: 로고 파일 static/logos/{b['로고']} 없음")
+        for c_ in b.get("문의담당", []):
+            if c_.get("사람") not in person_ids:
+                E.append(f"제조사 {name}: 문의담당 '{c_.get('사람')}'가 직원 목록에 없음")
+        if b.get("노출") and not b.get("문의담당") and not b.get("문의_영업팀전체"):
+            W.append(f"제조사 {name}: 문의 담당자 없음")
+        fam_ids = [f["id"] for f in b["제품군"]]
+        for dup in {x for x in fam_ids if fam_ids.count(x) > 1}:
+            E.append(f"{name}: 제품군 id 중복 '{dup}'")
+        for f in b["제품군"]:
+            where = f"{name} > {f.get('이름') or f['id']}"
+            if not ID_RE.match(f["id"]):
+                E.append(f"{where}: 제품군 id '{f['id']}' 형식 오류")
+            if not f.get("이름"):
+                E.append(f"{where}: 제품군 이름 비어 있음")
+            item_ids = []
+            for g in f["소그룹"]:
+                cols = g.get("스펙항목", [])
+                for dup in {x for x in cols if cols.count(x) > 1}:
+                    E.append(f"{where}: 스펙항목 중복 '{dup}'")
+                for it in g["제품"]:
+                    item_ids.append(it.get("id"))
+                    if not str(it.get("품명", "")).strip():
+                        E.append(f"{where}: 품명 비어 있는 제품 (id {it.get('id')})")
+                    if not ID_RE.match(str(it.get("id", ""))):
+                        E.append(f"{where} > {it.get('품명')}: 제품 id '{it.get('id')}' 형식 오류")
+                    extra = [k for k in it.get("스펙", {}) if k not in cols]
+                    if extra:
+                        E.append(f"{where} > {it.get('품명')}: 스펙항목에 없는 값 {extra}")
+            for dup in {x for x in item_ids if item_ids.count(x) > 1}:
+                E.append(f"{where}: 제품 id 중복 '{dup}' (URL 충돌)")
+    return E, W
 
 
-def parse_spec(spec_str: str) -> "OrderedDict[str, str]":
-    """'키: 값; 키: 값' 형태의 문자열을 순서를 보존한 dict로 변환한다."""
-    result = OrderedDict()
-    if not spec_str:
-        return result
-    for part in spec_str.split(";"):
-        part = part.strip()
-        if not part:
-            continue
-        if ":" in part:
-            k, v = part.split(":", 1)
-            result[k.strip()] = v.strip()
-        else:
-            result[part] = ""
-    return result
+# ---------------------------------------------------------------- 화면용 가공
+def prepare(d):
+    people = {p["id"]: dict(p, 담당브랜드=[]) for p in d["org"]["people"]}
+    public_emails = [p["이메일(공개)"] for p in people.values() if p.get("이메일(공개)")]
 
+    brands = [b for b in d["brands"] if b.get("노출", True)]
+    for b in brands:
+        contacts = []
+        for c in b.get("문의담당", []):
+            person = people[c["사람"]]
+            contacts.append(dict(person, **{"분야(한글)": c.get("분야(한글)", ""), "분야(영문)": c.get("분야(영문)", "")}))
+            person["담당브랜드"].append(b["회사명"] + (f" · {c['분야(영문)']}" if c.get("분야(영문)") else ""))
+        if b.get("문의_영업팀전체"):
+            contacts.append({"전체": True, "이메일목록": ",".join(public_emails)})
+        b["contacts"] = contacts
+        b["요약"] = b.get("제품요약") or ", ".join(f["이름"] for f in b["제품군"])
 
-def load_content():
-    wb = openpyxl.load_workbook(CONTENT_XLSX, data_only=True)
-    company = read_keyvalue_sheet(wb["회사정보"])
-    history = read_table_sheet(wb["연혁"])
-    business_areas = read_table_sheet(wb["사업영역"])
-    area_by_slug = {a.get("슬러그", ""): a for a in business_areas}
+    departments = []
+    for dept in d["org"]["departments"]:
+        members = [p for p in people.values() if p["부서"] == dept["id"]]
+        desc = dept.get("설명", "")
+        if not desc:
+            seen = []
+            for m in members:
+                for label in m["담당브랜드"]:
+                    n = label.split(" · ")[0]
+                    if n not in seen:
+                        seen.append(n)
+            desc = " · ".join(seen)
+        departments.append(dict(dept, 설명=desc, 인원=members))
 
-    brand_intro_rows = read_table_sheet(wb["브랜드소개"]) if "브랜드소개" in wb.sheetnames else []
-    brand_intro = {b.get("슬러그", ""): b for b in brand_intro_rows}
-
-    # 조직도 + 브랜드 담당자
-    #   조직원 시트의 "이메일(공개)"에는 홈페이지에 노출할 주소만 넣는다 (공개 저장소).
-    #   브랜드담당 시트: 슬러그 / 담당자(한글이름 또는 "전체") / 분야 — 사람별 담당 브랜드와
-    #   부서 설명(담당 브랜드 목록)은 여기서 자동 계산한다.
-    dept_rows = read_table_sheet(wb["부서"])
-    people_rows = read_table_sheet(wb["조직원"])
-    person_by_name = {p.get("이름(한글)", ""): p for p in people_rows}
-    public_people = [p for p in people_rows if p.get("이메일(공개)")]
-    brand_name_of = {a.get("슬러그", ""): a.get("회사명", "") for a in business_areas}
-
-    brand_contacts = OrderedDict()  # 슬러그 -> [{이름..., 이메일, 분야, 전체}]
-    for p in people_rows:
-        p["담당브랜드"] = []
-    contact_rows = read_table_sheet(wb["브랜드담당"]) if "브랜드담당" in wb.sheetnames else []
-    for c in contact_rows:
-        slug = c.get("슬러그", "")
-        who = c.get("담당자(한글이름 또는 전체)", "").strip()
-        field_ko, field_en = c.get("분야(한글)", ""), c.get("분야(영문)", "")
-        if who == "전체":
-            brand_contacts.setdefault(slug, []).append({
-                "전체": True,
-                "이메일목록": ",".join(x["이메일(공개)"] for x in public_people),
-            })
-            continue
-        person = person_by_name.get(who)
-        if not person:
-            print(f"[경고] 브랜드담당 시트: '{who}'가 조직원 시트에 없습니다 (슬러그 {slug})")
-            continue
-        brand_contacts.setdefault(slug, []).append({**person, "분야(한글)": field_ko, "분야(영문)": field_en})
-        label = brand_name_of.get(slug, slug)
-        if field_en:
-            label += f" · {field_en}"
-        person["담당브랜드"].append(label)
-
-    org_by_dept = OrderedDict()
-    for d in dept_rows:
-        org_by_dept[d.get("부서", "")] = {"부서(한글)": d.get("부서(한글)", ""), "설명": d.get("설명", ""), "인원": []}
-    for p in people_rows:
-        dept = p.get("부서", "")
-        org_by_dept.setdefault(dept, {"부서(한글)": "", "설명": "", "인원": []})
-        org_by_dept[dept]["인원"].append(p)
-    for info in org_by_dept.values():
-        if not info["설명"]:
-            brands = []
-            for m in info["인원"]:
-                for b in m["담당브랜드"]:
-                    name = b.split(" · ")[0]
-                    if name not in brands:
-                        brands.append(name)
-            info["설명"] = " · ".join(brands)
-
-    # 제품상세 -> 카테고리 > 페이지명(제품군) > 소그룹 > 품목 리스트, 그룹별 동적 스펙 컬럼 계산
-    products_by_category = OrderedDict()
-    if "제품상세" in wb.sheetnames:
-        detail_rows = read_table_sheet(wb["제품상세"])
-        raw = OrderedDict()
-        for row in detail_rows:
-            cat = row.get("카테고리", "")
-            page = row.get("페이지명", "")
-            label = row.get("소그룹", "")
-            raw.setdefault(cat, OrderedDict())
-            raw[cat].setdefault(page, OrderedDict())
-            raw[cat][page].setdefault(label, []).append(row)
-
-        for cat, pages in raw.items():
-            products_by_category[cat] = OrderedDict()
-            for page, groups in pages.items():
-                rendered_groups = []
-                for label, items in groups.items():
-                    spec_columns = []  # 순서를 보존한 컬럼 목록
-                    rendered_items = []
-                    seen_slugs = {}
-                    for item in items:
-                        spec = parse_spec(item.get("기타스펙", ""))
-                        form = item.get("제품형태", "")
-                        if form:
-                            spec["형태"] = form
-                        for k in spec:
-                            if k not in spec_columns:
-                                spec_columns.append(k)
-                        name = item.get("품명", "")
-                        base_slug = slugify(name)
-                        n = seen_slugs.get(base_slug, 0) + 1
-                        seen_slugs[base_slug] = n
-                        sku_slug = base_slug if n == 1 else f"{base_slug}-{n}"
-                        rendered_items.append({
-                            "품명": name,
-                            "용도": item.get("용도", ""),
-                            "spec": spec,
-                            "sku_slug": sku_slug,
-                        })
-                    rendered_groups.append({
-                        "label": label,
-                        "spec_columns": spec_columns,
-                        "rows": rendered_items,
-                    })
-                products_by_category[cat][page] = rendered_groups
-
-    # 통계치 (히어로 지표) — 전부 실제 데이터에서 계산, 임의 수치 없음
-    founded_year = ""
-    iso_label = ""
-    if history:
-        founded_year = history[0].get("연월", "")[:4]
-        for h in reversed(history):
-            if "ISO 9001" in h.get("내용", ""):
-                iso_label = "ISO 9001"
-                break
-    spec_count = 0
-    if "제품상세" in wb.sheetnames:
-        spec_count = sum(1 for r in wb["제품상세"].iter_rows(min_row=2, values_only=True) if any(r))
+    history = d["history"]
+    founded_year = history[0]["연월"][:4] if history else ""
+    iso_label = "ISO 9001" if any("ISO 9001" in h["내용"] for h in history) else ""
     stats = {
         "founded_year": founded_year,
-        # Others(기타 브랜드 묶음)는 파트너사가 아니므로 제외
-        "partner_count": sum(1 for a in business_areas if a.get("슬러그", "") != "Others"),
-        "spec_count": spec_count,
+        "partner_count": sum(1 for b in brands if not b.get("기타묶음")),
+        "spec_count": sum(len(g["제품"]) for b in brands for f in b["제품군"] for g in f["소그룹"]),
         "iso_label": iso_label,
     }
-
-    return {
-        "company": company,
-        "history": history,
-        "org_by_dept": org_by_dept,
-        "stats": stats,
-        "business_areas": business_areas,
-        "area_by_slug": area_by_slug,
-        "brand_intro": brand_intro,
-        "products_by_category": products_by_category,
-        "brand_contacts": brand_contacts,
-    }
+    return {"company": d["company"], "history": history, "departments": departments, "brands": brands, "stats": stats}
 
 
+# ---------------------------------------------------------------- 렌더링
 def build():
+    d = load_data()
+    errors, warnings = validate(d)
+    for w in warnings:
+        print(f"[주의] {w}")
+    if errors:
+        print(f"\n[오류] {len(errors)}건 — 빌드를 중단합니다. (사이트는 직전 버전 유지)")
+        for e in errors:
+            print(f"  - {e}")
+        sys.exit(1)
+    if "--check" in sys.argv:
+        print("검사 통과")
+        return
+
+    v = prepare(d)
     safe_rmtree(DOCS_DIR)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(ROOT / "static", DOCS_DIR / "static", dirs_exist_ok=True)
+    shutil.copytree(STATIC_DIR, DOCS_DIR / "static", dirs_exist_ok=True)
 
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
-    data = load_content()
-
-    # 각 브랜드(사업영역)의 제품군 목록(슬러그 포함)을 미리 계산 -> 메뉴/브랜드페이지에서 공용으로 사용
-    brand_slug_of = {a["슬러그"]: slugify(a["슬러그"]) for a in data["business_areas"]}
-    family_slugs = {}  # cat -> {page_name: family_slug}
-    family_summary = {}  # cat -> "취급 제품: A, B, C"
-    for cat, pages in data["products_by_category"].items():
-        family_slugs[cat] = {page: slugify(page) for page in pages}
-        manual_summary = data["brand_intro"].get(cat, {}).get("제품요약", "")
-        family_summary[cat] = manual_summary if manual_summary else ", ".join(pages.keys())
-
     common = dict(
-        company=data["company"],
-        business_areas=data["business_areas"],
-        area_by_slug=data["area_by_slug"],
-        products_by_category=data["products_by_category"],
-        brand_intro=data["brand_intro"],
-        brand_slug_of=brand_slug_of,
-        family_slugs=family_slugs,
-        family_summary=family_summary,
-        stats=data["stats"],
-        brand_contacts=data["brand_contacts"],
-        slugify=slugify,
+        company=v["company"], brands=v["brands"], stats=v["stats"],
         meta_keywords="케미프렌드,Chemifriend,Cabot,Carbon black,Synthomer,Arkema,Syensqo,화학원료 유통",
     )
+    sitemap_urls = []
 
-    def render(template_name, out_path: Path, base_path: str, active: str, title: str, description: str, **extra):
-        template = env.get_template(template_name)
-        rel_path = out_path.relative_to(DOCS_DIR).as_posix()
-        html = template.render(
-            base_path=base_path,
-            active=active,
-            page_title=title,
-            meta_description=description,
-            canonical_url=f"{SITE_URL}/{rel_path}",
-            **common,
-            **extra,
+    def render(template_name, rel_path, base_path, active, title, description, **extra):
+        html = env.get_template(template_name).render(
+            base_path=base_path, active=active, page_title=title, meta_description=description,
+            canonical_url=f"{SITE_URL}/{rel_path}", **common, **extra,
         )
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        out_path.write_text(html, encoding="utf-8")
+        out = DOCS_DIR / rel_path
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(html, encoding="utf-8")
         sitemap_urls.append(rel_path)
 
-    sitemap_urls = []
-    SITE_URL = "https://chemifriend.com"
+    c = v["company"]
+    render("index.html", "index.html", "", "main", "Main",
+           f"{c.get('회사명', '')} 공식 홈페이지. {c.get('슬로건', '')}",
+           history=v["history"], departments=v["departments"])
+    render("product_hub.html", "product.html", "", "product", "Product", "케미프렌드 취급 브랜드 안내")
 
-    # 1) 메인
-    render("index.html", DOCS_DIR / "index.html", "", "main", "Main",
-           f"{data['company'].get('회사명','')} 공식 홈페이지. {data['company'].get('슬로건','')}",
-           history=data["history"], org_by_dept=data["org_by_dept"])
+    for b in v["brands"]:
+        render("brand.html", f"product/{b['id']}/index.html", "../../", "product",
+               b["회사명"], f"{b['회사명']} 취급 제품군 안내", brand=b)
+        for f in b["제품군"]:
+            render("product_family.html", f"product/{b['id']}/{f['id']}/index.html", "../../../", "product",
+                   f"{f['이름']} — {b['회사명']}", f"{b['회사명']} {f['이름']} 제품 스펙", brand=b, family=f)
+            for g in f["소그룹"]:
+                for it in g["제품"]:
+                    render("product_sku.html", f"product/{b['id']}/{f['id']}/{it['id']}.html", "../../../", "product",
+                           f"{it['품명']} — {b['회사명']} {f['이름']}", f"{it['품명']} 스펙 — {b['회사명']} {f['이름']}",
+                           brand=b, family=f, group=g, item=it)
 
-    # 2) Product 허브
-    render("product_hub.html", DOCS_DIR / "product.html", "", "product", "Product",
-           "케미프렌드 취급 브랜드 안내")
-
-    # 3) 브랜드별 페이지 + 제품군별 개별 페이지
-    for area in data["business_areas"]:
-        slug = area["슬러그"]
-        bslug = brand_slug_of[slug]
-        pages = data["products_by_category"].get(slug, OrderedDict())
-        intro = data["brand_intro"].get(slug, {})
-
-        render(
-            "brand.html", DOCS_DIR / "product" / bslug / "index.html", "../../", "product",
-            area["회사명"],
-            f"{area['회사명']} 취급 제품군 안내",
-            area=area, intro=intro, pages=pages, fam_slugs=family_slugs.get(slug, {}),
-        )
-
-        for page_name, groups in pages.items():
-            fslug = family_slugs[slug][page_name]
-            render(
-                "product_family.html", DOCS_DIR / "product" / bslug / fslug / "index.html", "../../../", "product",
-                f"{page_name} — {area['회사명']}",
-                f"{area['회사명']} {page_name} 제품 스펙",
-                area=area, page_name=page_name, groups=groups, fslug=fslug,
-            )
-            for group in groups:
-                for item in group["rows"]:
-                    render(
-                        "product_sku.html", DOCS_DIR / "product" / bslug / fslug / f"{item['sku_slug']}.html", "../../../", "product",
-                        f"{item['품명']} — {area['회사명']} {page_name}",
-                        f"{item['품명']} 스펙 — {area['회사명']} {page_name}",
-                        area=area, page_name=page_name, fslug=fslug, group=group, item=item,
-                    )
-
-    # 4) Contact
-    render("contact.html", DOCS_DIR / "contact.html", "", "contact", "Contact",
-           "케미프렌드 오시는 길 및 문의처 안내")
+    render("contact.html", "contact.html", "", "contact", "Contact", "케미프렌드 오시는 길 및 문의처 안내")
 
     (DOCS_DIR / "CNAME").write_text("chemifriend.com\n", encoding="utf-8")
-
-    # SEO: sitemap.xml + robots.txt 자동 생성
-    sitemap_entries = "\n".join(
-        f'  <url><loc>{SITE_URL}/{u}</loc></url>' for u in sitemap_urls
-    )
-    sitemap_xml = (
+    entries = "\n".join(f"  <url><loc>{SITE_URL}/{u}</loc></url>" for u in sitemap_urls)
+    (DOCS_DIR / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        f"{sitemap_entries}\n"
-        "</urlset>\n"
-    )
-    (DOCS_DIR / "sitemap.xml").write_text(sitemap_xml, encoding="utf-8")
+        f"{entries}\n</urlset>\n", encoding="utf-8")
     (DOCS_DIR / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8"
-    )
-
+        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
     print(f"빌드 완료 → {DOCS_DIR} (페이지 {len(sitemap_urls)}개, sitemap.xml 포함)")
 
 

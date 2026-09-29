@@ -1,0 +1,460 @@
+{
+  "제품군": [
+    {
+      "id": "uv-hals-ao",
+      "이름": "UV/HALS/AO",
+      "소그룹": [
+        {
+          "이름": "PV: / PF:",
+          "스펙항목": [
+            "Function",
+            "Chemistry",
+            "형태"
+          ],
+          "제품": [
+            {
+              "id": "cyanox-1790",
+              "품명": "CYANOX 1790",
+              "용도": "PF/BC/INJ/AUT/AGR",
+              "스펙": {
+                "Function": "Antioxidant",
+                "Chemistry": "Hindered Phenolic",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyanox-2246",
+              "품명": "CYANOX 2246",
+              "용도": "Other",
+              "스펙": {
+                "Function": "Antioxidant",
+                "Chemistry": "Hindered Phenolic",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyanox-2777",
+              "품명": "CYANOX 2777",
+              "용도": "PF/BC/INJ/AUT/AGR",
+              "스펙": {
+                "Function": "Antioxidant",
+                "Chemistry": "Hindered Phenolic/Phosphite",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyanox-425",
+              "품명": "CYANOX 425",
+              "용도": "Other",
+              "스펙": {
+                "Function": "Antioxidant",
+                "Chemistry": "Hindered Phenolic",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-a400",
+              "품명": "CYASORB CYNERGY SOLUTIONS A400",
+              "용도": "AGR",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Granules"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-a430",
+              "품명": "CYASORB CYNERGY SOLUTIONS A430",
+              "용도": "AGR",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Granules"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-a440p",
+              "품명": "CYASORB CYNERGY SOLUTIONS A440P",
+              "용도": "AGR",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-b877",
+              "품명": "CYASORB CYNERGY SOLUTIONS B877",
+              "용도": "BC",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-l143-50x",
+              "품명": "CYASORB CYNERGY SOLUTIONS L143-50X",
+              "용도": "Coatings",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Liquid"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-r300",
+              "품명": "CYASORB CYNERGY SOLUTIONS R300",
+              "용도": "ROTO",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Granules"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-r315",
+              "품명": "CYASORB CYNERGY SOLUTIONS R315",
+              "용도": "ROTO",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Granules"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-r333",
+              "품명": "CYASORB CYNERGY SOLUTIONS R333",
+              "용도": "ROTO",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-r350",
+              "품명": "CYASORB CYNERGY SOLUTIONS R350",
+              "용도": "ROTO",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Granules"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-s138",
+              "품명": "CYASORB CYNERGY SOLUTIONS S138",
+              "용도": "PV",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Granules"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-v703",
+              "품명": "CYASORB CYNERGY SOLUTIONS V703",
+              "용도": "AUT/INJ",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-v9900",
+              "품명": "CYASORB CYNERGY SOLUTIONS V9900",
+              "용도": "AUT/INJ",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "cyasorb-cynergy-solutions-m528",
+              "품명": "CYASORB CYNERGY SOLUTIONS M528",
+              "용도": "INJ/BLOW MOLDING",
+              "스펙": {
+                "Function": "CYNERGY",
+                "Chemistry": "Proprietary",
+                "형태": "Granules"
+              }
+            },
+            {
+              "id": "cyasorb-tht-4611",
+              "품명": "CYASORB THT 4611",
+              "용도": "INJ/ROTO/PIPE/BLOW MOLDING",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "Proprietary",
+                "형태": "Pastilles"
+              }
+            },
+            {
+              "id": "cyasorb-tht-4801",
+              "품명": "CYASORB THT 4801",
+              "용도": "INJ/ROTO/PIPE/BLOW MOLDING",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "Proprietary",
+                "형태": "Pastilles"
+              }
+            },
+            {
+              "id": "cyasorb-tht-6435",
+              "품명": "CYASORB THT 6435",
+              "용도": "INJ/ROTO",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "Proprietary",
+                "형태": "Pastilles"
+              }
+            },
+            {
+              "id": "cyasorb-tht-6460",
+              "품명": "CYASORB THT 6460",
+              "용도": "AGR",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "Proprietary",
+                "형태": "Pastilles"
+              }
+            },
+            {
+              "id": "cyasorb-tht-7001ef",
+              "품명": "CYASORB THT 7001EF",
+              "용도": "INJ/BC",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "Proprietary",
+                "형태": "Granules"
+              }
+            },
+            {
+              "id": "cyasorb-uv-1164",
+              "품명": "CYASORB UV-1164",
+              "용도": "ALL",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "Triazine Technology",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyasorb-uv-1164g",
+              "품명": "CYASORB UV-1164G",
+              "용도": "Coatings, Other",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "Triazine Technology",
+                "형태": "Wax"
+              }
+            },
+            {
+              "id": "cyasorb-uv-1164l",
+              "품명": "CYASORB UV-1164L",
+              "용도": "Coatings, Other",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "Triazine Technology",
+                "형태": "Liquid"
+              }
+            },
+            {
+              "id": "cyasorb-uv-2126",
+              "품명": "CYASORB UV-2126",
+              "용도": "Other",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "BZP",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyasorb-uv-24",
+              "품명": "CYASORB UV-24",
+              "용도": "ALL",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "BZP",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyasorb-uv-2908",
+              "품명": "CYASORB UV-2908",
+              "용도": "ALL",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "Hindered Benzoate",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyasorb-uv-3346",
+              "품명": "CYASORB UV-3346",
+              "용도": "ALL",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "HALS",
+                "형태": "Pastilles"
+              }
+            },
+            {
+              "id": "cyasorb-uv-3529",
+              "품명": "CYASORB UV-3529",
+              "용도": "ALL",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "HALS",
+                "형태": "Pastilles"
+              }
+            },
+            {
+              "id": "cyasorb-uv-3638f",
+              "품명": "CYASORB UV-3638F",
+              "용도": "PET Fibers, Bottles, Films and PC",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "Other",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyasorb-uv-3808pp5",
+              "품명": "CYASORB UV-3808PP5",
+              "용도": "INJ/AUT",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "Proprietary",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "cyasorb-uv-3853",
+              "품명": "CYASORB UV-3853",
+              "용도": "INJ/AUT",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "HALS",
+                "형태": "Wax"
+              }
+            },
+            {
+              "id": "cyasorb-uv-3853pe5",
+              "품명": "CYASORB UV-3853PE5",
+              "용도": "INJ/AUT",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "HALS",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "cyasorb-uv-3853pp4",
+              "품명": "CYASORB UV-3853PP4",
+              "용도": "INJ/AUT",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "HALS",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "cyasorb-uv-3853pp5",
+              "품명": "CYASORB UV-3853PP5",
+              "용도": "INJ/AUT",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "HALS",
+                "형태": "Pellets"
+              }
+            },
+            {
+              "id": "cyasorb-uv-3853s",
+              "품명": "CYASORB UV-3853S",
+              "용도": "INJ/AUT",
+              "스펙": {
+                "Function": "UV Stabilizer",
+                "Chemistry": "HALS",
+                "형태": "Granules"
+              }
+            },
+            {
+              "id": "cyasorb-uv-416",
+              "품명": "CYASORB UV-416",
+              "용도": "Other",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "BZP",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyasorb-uv-531",
+              "품명": "CYASORB UV-531",
+              "용도": "ALL",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "BZP",
+                "형태": "Flake"
+              }
+            },
+            {
+              "id": "cyasorb-uv-5411",
+              "품명": "CYASORB UV-5411",
+              "용도": "ALL",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "BZT",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyasorb-uv-9",
+              "품명": "CYASORB UV-9",
+              "용도": "ALL",
+              "스펙": {
+                "Function": "Light Absorber",
+                "Chemistry": "BZP",
+                "형태": "Powder"
+              }
+            },
+            {
+              "id": "cyastat-609",
+              "품명": "CYASTAT 609",
+              "용도": "Plastics, Coatings",
+              "스펙": {
+                "Function": "Antistatic Agent",
+                "Chemistry": "Ammonium Salt",
+                "형태": "Liquid"
+              }
+            },
+            {
+              "id": "cyastat-sn",
+              "품명": "CYASTAT SN",
+              "용도": "Plastics, Coatings",
+              "스펙": {
+                "Function": "Antistatic Agent",
+                "Chemistry": "Ammonium Salt",
+                "형태": "Liquid"
+              }
+            },
+            {
+              "id": "syastat-sp",
+              "품명": "SYASTAT SP",
+              "용도": "Plastics, Coatings",
+              "스펙": {
+                "Function": "Antistatic Agent",
+                "Chemistry": "Ammonium Salt",
+                "형태": "Liquid"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

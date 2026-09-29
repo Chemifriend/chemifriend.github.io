@@ -1,0 +1,173 @@
+{
+  "departments": [
+    {
+      "id": "management",
+      "이름(영문)": "Management",
+      "이름(한글)": "경영진",
+      "설명": ""
+    },
+    {
+      "id": "sales-team-1",
+      "이름(영문)": "Sales Team 1",
+      "이름(한글)": "영업1팀",
+      "설명": ""
+    },
+    {
+      "id": "sales-team-2",
+      "이름(영문)": "Sales Team 2",
+      "이름(한글)": "영업2팀",
+      "설명": ""
+    },
+    {
+      "id": "administration",
+      "이름(영문)": "Administration",
+      "이름(한글)": "경영지원팀",
+      "설명": "Financial, General affairs"
+    }
+  ],
+  "people": [
+    {
+      "id": "jong-won-jung",
+      "부서": "management",
+      "이름(한글)": "정종원",
+      "이름(영문)": "Jong Won JUNG",
+      "직급": "대표이사",
+      "직급(영문)": "CEO",
+      "구분": "",
+      "담당분야": "",
+      "이메일(공개)": ""
+    },
+    {
+      "id": "jong-jin-jang",
+      "부서": "management",
+      "이름(한글)": "장종진",
+      "이름(영문)": "Jong Jin JANG",
+      "직급": "부사장",
+      "직급(영문)": "Vice President",
+      "구분": "",
+      "담당분야": "",
+      "이메일(공개)": ""
+    },
+    {
+      "id": "jae-pil-wi",
+      "부서": "sales-team-1",
+      "이름(한글)": "위재필",
+      "이름(영문)": "Jae Pil WI",
+      "직급": "부장",
+      "직급(영문)": "General Manager",
+      "구분": "",
+      "담당분야": "",
+      "이메일(공개)": "jpwi@chemifriend.com"
+    },
+    {
+      "id": "gyo-seok-choo",
+      "부서": "sales-team-1",
+      "이름(한글)": "추교석",
+      "이름(영문)": "Gyo Seok CHOO",
+      "직급": "차장",
+      "직급(영문)": "Deputy General Manager",
+      "구분": "",
+      "담당분야": "",
+      "이메일(공개)": "gschoo@chemifriend.com"
+    },
+    {
+      "id": "seung-hun-baek",
+      "부서": "sales-team-1",
+      "이름(한글)": "백승헌",
+      "이름(영문)": "Seung Hun BAEK",
+      "직급": "과장",
+      "직급(영문)": "Manager",
+      "구분": "",
+      "담당분야": "",
+      "이메일(공개)": "shbaek@chemifriend.com"
+    },
+    {
+      "id": "bit-na-oh",
+      "부서": "sales-team-1",
+      "이름(한글)": "오빛나",
+      "이름(영문)": "Bit Na OH",
+      "직급": "차장",
+      "직급(영문)": "Deputy General Manager",
+      "구분": "CS",
+      "담당분야": "",
+      "이메일(공개)": ""
+    },
+    {
+      "id": "yu-jeong-kim",
+      "부서": "sales-team-1",
+      "이름(한글)": "김유정",
+      "이름(영문)": "Yu Jeong KIM",
+      "직급": "대리",
+      "직급(영문)": "Assistant Manager",
+      "구분": "CS",
+      "담당분야": "",
+      "이메일(공개)": ""
+    },
+    {
+      "id": "soon-yong-bae",
+      "부서": "sales-team-2",
+      "이름(한글)": "배순용",
+      "이름(영문)": "Soon Yong BAE",
+      "직급": "이사",
+      "직급(영문)": "Director",
+      "구분": "",
+      "담당분야": "Henkel · Adhesives, Home care",
+      "이메일(공개)": "sybae@chemifriend.com"
+    },
+    {
+      "id": "ju-young-lee",
+      "부서": "sales-team-2",
+      "이름(한글)": "이주영",
+      "이름(영문)": "Ju Young LEE",
+      "직급": "부장",
+      "직급(영문)": "General Manager",
+      "구분": "",
+      "담당분야": "Adhesives, Coatings",
+      "이메일(공개)": ""
+    },
+    {
+      "id": "young-wook-lee",
+      "부서": "sales-team-2",
+      "이름(한글)": "이영욱",
+      "이름(영문)": "Young Wook LEE",
+      "직급": "과장",
+      "직급(영문)": "Manager",
+      "구분": "",
+      "담당분야": "",
+      "이메일(공개)": "ywlee@chemifriend.com"
+    },
+    {
+      "id": "jeong-eun-moon",
+      "부서": "sales-team-2",
+      "이름(한글)": "문정은",
+      "이름(영문)": "Jeong Eun MOON",
+      "직급": "대리",
+      "직급(영문)": "Assistant Manager",
+      "구분": "",
+      "담당분야": "",
+      "이메일(공개)": ""
+    },
+    {
+      "id": "min-ok-seo",
+      "부서": "sales-team-2",
+      "이름(한글)": "서민옥",
+      "이름(영문)": "Min Ok SEO",
+      "직급": "과장",
+      "직급(영문)": "Manager",
+      "구분": "CS",
+      "담당분야": "",
+      "이메일(공개)": ""
+    },
+    {
+      "id": "ji-young-seo",
+      "부서": "administration",
+      "이름(한글)": "서지영",
+      "이름(영문)": "Ji Young SEO",
+      "직급": "부장",
+      "직급(영문)": "General Manager",
+      "구분": "",
+      "담당분야": "Financial, General affairs",
+      "이메일(공개)": ""
+    }
+  ]
+}
