@@ -75,8 +75,8 @@
         <div class="org-members">
           {% for m in dept.인원 %}
           <div class="org-person">
-            <div class="person-name">{{ m['이름(한글)'] }} <span class="person-name-en">{{ m['이름(영문)'] }}</span></div>
-            <div class="person-title">{{ m['직급'] }} <span>{{ m['직급(영문)'] }}</span>{% if m['구분'] %} <em class="person-tag">{{ m['구분'] }}</em>{% endif %}</div>
+            <div class="person-name">{{ m['이름(한글)'] }} <span class="person-title">{{ m['직급'] }}</span>{% if m['구분'] %} <em class="person-tag">{{ m['구분'] }}</em>{% endif %}</div>
+            <div class="person-en">{{ m['이름(영문)'] }}{% if m['직급(영문)'] %} · {{ m['직급(영문)'] }}{% endif %}</div>
             {% for b in m['담당브랜드'] %}<div class="person-role">{{ b }}</div>{% endfor %}
             {% if m['담당분야'] %}<div class="person-role">{{ m['담당분야'] }}</div>{% endif %}
             {% if m['이메일(공개)'] %}<a class="person-mail" href="mailto:{{ m['이메일(공개)'] }}">{{ m['이메일(공개)'] }}</a>{% endif %}

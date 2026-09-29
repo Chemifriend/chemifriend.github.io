@@ -74,7 +74,7 @@ img { max-width: 100%; }
 .mega-col { min-width: 150px; padding: 2px 18px; border-right: 1px solid var(--line); }
 .mega-col:last-child { border-right: none; }
 .mega-brand { display: flex; align-items: center; height: 28px; margin-bottom: 16px; font-weight: 800; color: var(--navy); }
-.mega-brand img { max-height: 100%; max-width: 130px; object-fit: contain; }
+.mega-brand img { height: calc(var(--lh, 48) * 0.5px); max-height: 30px; width: auto; max-width: 140px; object-fit: contain; }
 .mega-list { list-style: none; margin: 0; padding: 0; }
 .mega-list li { margin-bottom: 8px; line-height: 1.4; }
 .mega-list a { font-size: 0.87rem; font-weight: 500; color: var(--muted); }
@@ -169,8 +169,8 @@ img { max-width: 100%; }
 }
 .brand-card:hover::after { transform: scaleX(1); }
 .brand-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; min-height: 72px; margin-bottom: 30px; }
-.brand-card-logo { max-height: 64px; max-width: 220px; object-fit: contain; object-position: left center; }
-.brand-card:nth-child(1) .brand-card-logo, .brand-card:nth-child(2) .brand-card-logo { max-height: 72px; max-width: 260px; }
+.brand-card-logo { height: calc(var(--lh, 48) * 1px); width: auto; max-width: 100%; object-fit: contain; object-position: left center; }
+.brand-card:nth-child(1) .brand-card-logo, .brand-card:nth-child(2) .brand-card-logo { height: calc(var(--lh, 48) * 1.15px); }
 .brand-card-icon { display: none; }
 .brand-card-badge { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; padding-top: 6px; }
 .brand-card-wordmark { font-size: 2rem; font-weight: 800; color: var(--ink); letter-spacing: -0.03em; line-height: 1.2; }
@@ -213,9 +213,8 @@ img { max-width: 100%; }
 .org-person { border-left: 2px solid var(--green); padding-left: 16px; }
 .person-avatar { display: none; }
 .person-name { font-size: 1.12rem; font-weight: 800; color: var(--ink); line-height: 1.4; }
-.person-name-en { margin-left: 6px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); }
-.person-title { font-size: 0.9rem; color: var(--text); margin-top: 3px; }
-.person-title span { color: var(--muted); font-size: 0.82rem; margin-left: 2px; }
+.person-name .person-title { margin-left: 4px; font-size: 0.92rem; font-weight: 600; color: var(--text); }
+.person-en { margin-top: 2px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.02em; color: var(--muted); }
 .person-tag { font-style: normal; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; color: var(--navy); border: 1px solid var(--line); padding: 1px 6px; margin-left: 6px; vertical-align: 1px; }
 .person-role { font-size: 0.86rem; color: var(--green-text); font-weight: 600; margin-top: 6px; }
 .person-role + .person-role { margin-top: 2px; }
@@ -226,17 +225,20 @@ img { max-width: 100%; }
 .brand-contact { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); }
 .brand-contact-label { margin: 0 0 14px; font-size: 0.82rem; font-weight: 800; color: var(--ink); }
 .brand-contact-label span { margin-left: 4px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.brand-contact-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 18px 44px; }
-.bc-name { font-size: 1.02rem; font-weight: 800; color: var(--ink); }
-.bc-name span { margin-left: 5px; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.04em; color: var(--muted); }
-.bc-meta { font-size: 0.86rem; color: var(--muted); margin-top: 2px; }
+.brand-contact-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px 40px; }
+.bc-name { font-size: 1.02rem; font-weight: 800; color: var(--ink); line-height: 1.4; }
+.bc-name span { margin-left: 4px; font-size: 0.9rem; font-weight: 600; color: var(--text); }
+.bc-en { margin-top: 1px; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.02em; }
+.bc-meta { margin-top: 4px; font-size: 0.84rem; font-weight: 600; color: var(--green-text); }
 .bc-mail { display: inline-block; margin-top: 6px; font-size: 0.88rem; font-weight: 600; color: var(--navy); border-bottom: 1px solid var(--line); }
 .bc-mail:hover { color: var(--green-text); border-bottom-color: var(--green); }
 .product-detail .brand-contact, .sku-detail .brand-contact { margin-top: 56px; max-width: 900px; }
 .contact-brand-list { border-top: 2px solid var(--ink); }
-.contact-brand-row { display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: start; padding: 36px 0; border-bottom: 1px solid var(--line); }
-.contact-brand-name img { max-height: 44px; max-width: 180px; object-fit: contain; }
+.contact-brand-row { display: grid; grid-template-columns: 240px 1fr; gap: 40px; align-items: center; padding: 32px 0; border-bottom: 1px solid var(--line); }
+.contact-brand-name { display: flex; align-items: center; min-height: 56px; }
+.contact-brand-name img { height: calc(var(--lh, 48) * 0.8px); width: auto; max-width: 200px; object-fit: contain; }
 .contact-brand-name span { font-size: 1.5rem; font-weight: 800; color: var(--ink); }
+.contact-brand-row .brand-contact-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .contact-brand-row .brand-contact { margin: 0; padding: 0; border: 0; }
 .contact-brand-row .brand-contact-label { display: none; }
 
@@ -270,7 +272,7 @@ img { max-width: 100%; }
   flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
   background: #fff; border-top: 4px solid var(--green); padding: 48px; min-width: 320px; min-height: 200px;
 }
-.brand-hero-logo img { max-height: 110px; max-width: 300px; object-fit: contain; }
+.brand-hero-logo img { height: calc(var(--lh, 48) * 1.6px); width: auto; max-width: 300px; object-fit: contain; }
 .brand-hero-logo .brand-card-icon { display: none; }
 .brand-hero-text { flex: 1; min-width: 300px; }
 .brand-hero-text .brand-card-badge { display: block; padding: 0; margin-bottom: 14px; }
@@ -364,6 +366,7 @@ img { max-width: 100%; }
   .brand-card, .brand-card:nth-child(n) { grid-column: auto; min-height: 0; padding: 32px 0; border-right: none; }
   .org-card { grid-template-columns: 1fr; gap: 20px; padding: 32px 0; }
   .contact-brand-row { grid-template-columns: 1fr; gap: 16px; }
+  .contact-brand-row .brand-contact-list { grid-template-columns: 1fr 1fr; }
   .timeline-content { grid-template-columns: 96px 1fr; gap: 12px; padding: 20px 0; }
   .timeline-date { font-size: 1rem; }
   .timeline-text { font-size: 0.98rem; }

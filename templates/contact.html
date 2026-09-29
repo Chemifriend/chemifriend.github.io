@@ -34,7 +34,7 @@
       {% for b in brands %}
       <div class="contact-brand-row">
         <div class="contact-brand-name">
-          {% if b.로고 %}<img src="{{ base_path }}static/logos/{{ b.로고 }}" alt="{{ b.회사명 }}">{% else %}<span>{{ b.회사명 }}</span>{% endif %}
+          {% if b.로고 %}<img style="--lh:{{ b.로고h }}" src="{{ base_path }}static/logos/{{ b.로고 }}" alt="{{ b.회사명 }}">{% else %}<span>{{ b.회사명 }}</span>{% endif %}
         </div>
         {% set cb = b %}{% include "_brand_contact.html" %}
       </div>

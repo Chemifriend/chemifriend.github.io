@@ -68,6 +68,42 @@ def safe_rmtree(path: Path, retries: int = 5, delay: float = 0.5):
         time.sleep(delay)
 
 
+def image_size(path: Path):
+    """PNG/JPEG 가로·세로 (외부 라이브러리 없이). 모르면 None."""
+    try:
+        data = path.read_bytes()
+    except OSError:
+        return None
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")
+    if data[:2] == b"\xff\xd8":
+        i = 2
+        while i < len(data) - 9:
+            if data[i] != 0xFF:
+                i += 1
+                continue
+            marker, seg = data[i + 1], int.from_bytes(data[i + 2:i + 4], "big")
+            if 0xC0 <= marker <= 0xCF and marker not in (0xC4, 0xC8, 0xCC):
+                return int.from_bytes(data[i + 7:i + 9], "big"), int.from_bytes(data[i + 5:i + 7], "big")
+            i += 2 + seg
+    return None
+
+
+LOGO_AREA, LOGO_MAX_W = 8000, 250  # 로고 면적을 비슷하게 맞춰 가로로 긴 로고/짧은 로고의 무게감을 통일
+
+
+def logo_height(filename: str) -> int:
+    """로고 표시 높이(px, 기준 크기). 템플릿에서 --lh 변수로 쓰고 위치별로 배율을 곱한다."""
+    size = image_size(STATIC_DIR / "logos" / filename) if filename else None
+    if not size or not size[1]:
+        return 48
+    aspect = size[0] / size[1]
+    h = (LOGO_AREA / aspect) ** 0.5
+    if h * aspect > LOGO_MAX_W:
+        h = LOGO_MAX_W / aspect
+    return round(h)
+
+
 def read_json(rel):
     return json.loads((DATA / rel).read_text(encoding="utf-8"))
 
@@ -185,6 +221,7 @@ def prepare(d):
             contacts.append({"전체": True, "이메일목록": ",".join(public_emails)})
         b["contacts"] = contacts
         b["요약"] = b.get("제품요약") or ", ".join(f["이름"] for f in b["제품군"])
+        b["로고h"] = logo_height(b.get("로고", ""))
 
     departments = []
     for dept in d["org"]["departments"]:

@@ -32,7 +32,7 @@
           {% for b in brands %}
           <div class="mega-col">
             <a class="mega-brand" href="{{ base_path }}product/{{ b.id }}/index.html">
-              {% if b.로고 %}<img src="{{ base_path }}static/logos/{{ b.로고 }}" alt="{{ b.회사명 }}">{% else %}{{ b.회사명 }}{% endif %}
+              {% if b.로고 %}<img style="--lh:{{ b.로고h }}" src="{{ base_path }}static/logos/{{ b.로고 }}" alt="{{ b.회사명 }}">{% else %}{{ b.회사명 }}{% endif %}
             </a>
             {% if b.제품군 %}
             <ul class="mega-list">

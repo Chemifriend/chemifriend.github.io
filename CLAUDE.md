@@ -110,7 +110,6 @@ docs/                  빌드 결과물 (.gitignore)
 
 ## 알려진 이슈 / 확인 필요
 
-- 이주영 부장(Synthomer 담당) 이메일 비노출 상태 — 노출 원하면 org.json에 추가
 - 히어로 아래 영문 슬로건 "With futurism, Environmentally, friendly chemical company"는 회사 공식 문구라 유지 중이지만 문법이 어색함. 변경은 사용자 결정
 - 문의 폼 없음 (현재 mailto 링크만)
 - Others > "Global Trading Partner & Other Supplier" 표: 스크래핑 때 열이 밀림 (이름 없는 열, 첫 행에 섹션명+데이터 섞임). 사용자 확인 후 정리 필요 — 관리자 검사에서는 "주의"로만 표시
@@ -143,6 +142,8 @@ docs/                  빌드 결과물 (.gitignore)
 - 섹션마다 표현 방식 다르게: 히어로(네이비 단색, 큰 타이포, 지표는 선 띠) / 파트너(2+3 에디토리얼 그리드) /
   CEO(2단, 첫 문단 크게) / 조직도(부서별 행 리스트) / 연혁(날짜|내용 2열) / Contact(네이비 면 + 흑백 지도)
 - 폰트: Pretendard Variable (jsDelivr, 버전 고정 v1.3.9) — base.html
+- 로고: 투명 여백 없이 트리밍된 PNG. 표시 크기는 build.py logo_height()가 가로세로비로 계산(면적 통일) → 템플릿 style="--lh:N", CSS에서 위치별 배율. 흰 배경 박힌 로고는 투명 처리 필요(Syensqo 사례)
+- 사람 표기: 1줄 한글(이름 + 직급), 2줄 영문(Name · Title)
 - 이전 CSS는 루트의 `style.old.css`에 백업 (확정되면 삭제)
 
 ## 작업 원칙 (누가 요청하든)

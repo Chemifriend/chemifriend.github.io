@@ -4,7 +4,7 @@
     <div>
       <div class="brand-card-header">
         {% if b.로고 %}
-        <img class="brand-card-logo" src="{{ base_path }}static/logos/{{ b.로고 }}" alt="{{ b.회사명 }}">
+        <img class="brand-card-logo" style="--lh:{{ b.로고h }}" src="{{ base_path }}static/logos/{{ b.로고 }}" alt="{{ b.회사명 }}">
         {% else %}
         <span class="brand-card-wordmark">{{ b.회사명 }}</span>
         {% endif %}
