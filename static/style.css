@@ -1,0 +1,352 @@
+/* =========================================================
+   Chemifriend — style.css
+   원칙: 카드 박스 대신 선·여백·타이포그래피로 구분.
+   색은 로고 초록(--green) + 네이비 두 가지만. 둥근 모서리·그림자·그라디언트 없음.
+   ========================================================= */
+:root {
+  --navy: #0f2b48;
+  --navy-dark: #0a192f;
+  --ink: #0f1c2e;
+  --text: #2a3646;
+  --muted: #667385;
+  --line: #dde3ea;
+  --line-dark: rgba(255,255,255,0.16);
+  --bg: #ffffff;
+  --bg-soft: #f5f7f9;
+  --green: #6aac00;        /* 로고 초록 — 면·선·어두운 배경 위 글자 */
+  --green-text: #4c8200;   /* 흰 배경 위 작은 글자용 (대비 확보) */
+  --green-bright: #8fd400; /* 네이비 배경 위 강조 */
+  --green-soft: #eef5e3;
+  --wrap: 1240px;
+  --gutter: 32px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  font-size: 17px;
+  line-height: 1.75;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.25; }
+img { max-width: 100%; }
+
+/* ============ Header & Mega Menu ============ */
+.site-header {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(255,255,255,0.97);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  max-width: var(--wrap); margin: 0 auto; padding: 18px var(--gutter);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.logo { display: flex; align-items: center; gap: 16px; }
+.logo-icon { height: 60px; width: 60px; object-fit: contain; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.3; }
+.logo-title { font-size: 1.55rem; font-weight: 800; color: var(--navy); letter-spacing: -0.03em; }
+.logo-subtitle { font-size: 0.78rem; color: var(--muted); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+.main-nav { display: flex; gap: 40px; align-items: center; font-size: 1rem; font-weight: 700; }
+.main-nav > a, .nav-dropdown > a {
+  display: inline-block; color: #334155; padding: 10px 0;
+  border-bottom: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+.main-nav > a:hover, .nav-dropdown:hover > a { color: var(--navy); }
+.main-nav > a.active, .nav-dropdown > a.active { color: var(--navy); border-bottom-color: var(--green); }
+.lang-toggle { font-size: 0.85rem; letter-spacing: 0.08em; }
+
+.nav-dropdown { position: relative; }
+.mega-menu {
+  position: absolute; top: 100%; right: -40px;
+  background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--green);
+  box-shadow: 0 18px 40px rgba(15,28,46,0.10);
+  display: flex; padding: 26px 10px;
+  opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: opacity .15s, transform .15s;
+  min-width: 780px; max-width: 90vw; z-index: 50;
+}
+.nav-dropdown:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.mega-col { min-width: 150px; padding: 2px 18px; border-right: 1px solid var(--line); }
+.mega-col:last-child { border-right: none; }
+.mega-brand { display: flex; align-items: center; height: 28px; margin-bottom: 16px; font-weight: 800; color: var(--navy); }
+.mega-brand img { max-height: 100%; max-width: 130px; object-fit: contain; }
+.mega-list { list-style: none; margin: 0; padding: 0; }
+.mega-list li { margin-bottom: 8px; line-height: 1.4; }
+.mega-list a { font-size: 0.87rem; font-weight: 500; color: var(--muted); }
+.mega-list a:hover { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ============ Breadcrumb ============ */
+.breadcrumb { max-width: var(--wrap); margin: 28px auto 0; padding: 0 var(--gutter); font-size: 0.88rem; color: var(--muted); }
+.breadcrumb a { color: var(--navy); font-weight: 600; }
+.breadcrumb a:hover { color: var(--green-text); }
+.breadcrumb span { margin: 0 8px; }
+
+/* ============ Buttons ============ */
+.btn-primary, .btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 56px; padding: 0 30px;
+  font-size: 1rem; font-weight: 700; border-radius: 0;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.btn-primary { background: var(--green); color: #fff !important; border: 1px solid var(--green); }
+.btn-primary:hover { background: #5a9400; border-color: #5a9400; }
+.btn-secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+.btn-secondary:hover { border-color: #fff; }
+
+/* ============ Hero — 네이비 단색 + 큰 타이포 ============ */
+.hero { position: relative; background: var(--navy-dark); color: #fff; padding: 0 var(--gutter); }
+.hero-pattern { display: none; }
+.hero-inner { position: relative; max-width: var(--wrap); margin: 0 auto; padding: 128px 0 0; }
+.hero-tag {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green-bright); margin-bottom: 34px;
+}
+.hero-tag span { width: 40px; height: 2px; background: var(--green-bright); }
+.hero h1 {
+  font-size: clamp(2.6rem, 5.6vw, 4.75rem); line-height: 1.14; font-weight: 800;
+  letter-spacing: -0.045em; max-width: 1120px; margin-bottom: 30px;
+}
+.hero h1 .highlight { color: var(--green-bright); white-space: nowrap; }
+.hero-slogan-small { font-size: 1rem; color: #8b9bb0; font-style: italic; margin: 0 0 22px; letter-spacing: 0.01em; }
+.hero-desc { font-size: 1.2rem; color: #c3cedb; max-width: 720px; line-height: 1.8; margin: 0 0 48px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 110px; }
+/* 지표: 박스 대신 상단 선 + 4열 정보 띠 */
+.metrics-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line-dark);
+}
+.metric-item { padding: 34px 28px 44px 0; border-right: 1px solid var(--line-dark); }
+.metric-item + .metric-item { padding-left: 28px; }
+.metric-item:last-child { border-right: none; }
+.metric-num { font-size: clamp(2.2rem, 3.4vw, 3.1rem); font-weight: 800; color: #fff; line-height: 1; letter-spacing: -0.03em; margin-bottom: 14px; }
+.metric-num span { color: var(--green-bright); font-size: 0.5em; margin-left: 4px; font-weight: 700; }
+.metric-label { font-size: 0.9rem; color: #8b9bb0; font-weight: 500; }
+
+/* ============ Sections ============ */
+.section { padding: 136px var(--gutter); }
+.section-inner { max-width: var(--wrap); margin: 0 auto; }
+.section-bg-light { background: var(--bg-soft); }
+/* 섹션 제목: 왼쪽 정렬, 태그 — 제목 — 설명 */
+.section-header { max-width: 820px; margin: 0 0 72px; }
+.section-tag {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--green-text); margin-bottom: 20px;
+}
+.section-tag::before { content: ""; width: 28px; height: 2px; background: var(--green); }
+.section-title { font-size: clamp(2rem, 3.6vw, 3.1rem); font-weight: 800; color: var(--ink); letter-spacing: -0.04em; line-height: 1.2; }
+.section-desc { font-size: 1.08rem; color: var(--muted); line-height: 1.8; margin: 22px 0 0; max-width: 680px; }
+.section-eyebrow { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--green-text); font-weight: 700; margin: 0 0 16px; }
+.page-header { padding-top: 56px; padding-bottom: 0; }
+.page-header h1 { font-size: clamp(2.2rem, 4.2vw, 3.4rem); color: var(--ink); letter-spacing: -0.04em; margin: 0 0 16px; }
+.page-lead { color: var(--muted); font-size: 1.1rem; max-width: 700px; }
+
+/* ============ 브랜드 — 에디토리얼 그리드 (2 + 3) ============ */
+.brand-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  border-top: 2px solid var(--ink);
+}
+.brand-card {
+  grid-column: span 2;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 290px; padding: 40px 36px 36px;
+  border-bottom: 1px solid var(--line); border-right: 1px solid var(--line);
+  position: relative; transition: background .2s;
+}
+.brand-card:nth-child(1), .brand-card:nth-child(2) { grid-column: span 3; min-height: 300px; }
+.brand-card:nth-child(2), .brand-card:nth-child(5) { border-right: none; }
+.brand-card:nth-child(1) { padding-left: 0; }
+.brand-card:nth-child(3) { padding-left: 0; }
+.brand-card::after {
+  content: ""; position: absolute; left: 0; right: 0; top: -2px; height: 4px;
+  background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform .25s;
+}
+.brand-card:hover::after { transform: scaleX(1); }
+.brand-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; min-height: 72px; margin-bottom: 30px; }
+.brand-card-logo { max-height: 64px; max-width: 220px; object-fit: contain; object-position: left center; }
+.brand-card:nth-child(1) .brand-card-logo, .brand-card:nth-child(2) .brand-card-logo { max-height: 72px; max-width: 260px; }
+.brand-card-icon { display: none; }
+.brand-card-badge { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; padding-top: 6px; }
+.brand-card-wordmark { font-size: 2rem; font-weight: 800; color: var(--ink); letter-spacing: -0.03em; line-height: 1.2; }
+.brand-card-slogan { font-size: 1.1rem; font-weight: 600; color: var(--ink); margin: 0 0 12px; letter-spacing: -0.01em; }
+.brand-card-summary { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin: 0 0 28px; }
+.brand-card-cta { font-size: 0.92rem; font-weight: 700; color: var(--navy); display: inline-flex; gap: 6px; }
+.brand-card:hover .brand-card-cta { color: var(--green-text); }
+
+/* ============ CEO 인사말 — 박스 없이 2단 ============ */
+.greeting-box {
+  display: grid; grid-template-columns: 5fr 7fr; gap: 96px;
+  border-top: 2px solid var(--ink); padding-top: 64px;
+}
+.greeting-aside { display: flex; flex-direction: column; justify-content: space-between; gap: 48px; }
+.greeting-aside > div:first-child { position: sticky; top: 140px; }
+.greeting-aside-tag {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green-text); margin-bottom: 22px;
+}
+.greeting-aside-tag::before { content: ""; width: 28px; height: 2px; background: var(--green); }
+.greeting-aside h3 { font-size: clamp(1.8rem, 2.8vw, 2.5rem); font-weight: 800; line-height: 1.3; letter-spacing: -0.04em; color: var(--ink); }
+.greeting-leader { border-top: 1px solid var(--line); padding-top: 24px; }
+.leader-title { font-size: 0.85rem; color: var(--muted); }
+.leader-name { font-size: 1.5rem; font-weight: 800; color: var(--ink); letter-spacing: 0.04em; margin-top: 4px; }
+.greeting-content p { font-size: 1.05rem; color: #4a5667; line-height: 2; margin: 0 0 26px; }
+.greeting-content p:first-child { font-size: 1.4rem; line-height: 1.75; color: var(--ink); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 34px; }
+.greeting-content p:last-child { margin: 0; font-weight: 700; color: var(--navy); }
+
+/* ============ 조직도 — 부서별 행 리스트 ============ */
+.org-grid { border-top: 2px solid var(--ink); }
+.org-card {
+  display: grid; grid-template-columns: 340px 1fr; gap: 48px;
+  padding: 40px 0; border-bottom: 1px solid var(--line);
+}
+.org-card-header { padding-top: 4px; }
+.org-dept-title { font-size: 1.35rem; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+.org-dept-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.6; margin: 8px 0 0; }
+.org-card-lead .org-dept-title { color: var(--green-text); }
+.org-members { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 22px 32px; }
+.org-person { display: flex; align-items: flex-start; gap: 14px; }
+.person-avatar { display: none; }
+.person-name { font-size: 1.05rem; font-weight: 700; color: var(--ink); line-height: 1.4; }
+.person-role { font-size: 0.88rem; color: var(--muted); margin-top: 2px; }
+.org-person { border-left: 2px solid var(--green); padding-left: 16px; }
+
+/* ============ 연혁 — 날짜 | 내용 2열 리스트 ============ */
+.history-timeline { border-top: 2px solid var(--ink); }
+.timeline-row { border-bottom: 1px solid var(--line); transition: background .15s; }
+.timeline-row:hover { background: var(--bg-soft); }
+.timeline-content { display: grid; grid-template-columns: 220px 1fr; align-items: baseline; padding: 26px 0; }
+.timeline-date { font-size: 1.3rem; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.timeline-text { font-size: 1.08rem; font-weight: 500; color: var(--text); }
+.timeline-badge-center { display: none; }
+
+/* ============ Contact — 마지막은 네이비 면으로 무게감 ============ */
+.contact-strip {
+  display: grid; grid-template-columns: 5fr 7fr;
+  background: var(--navy-dark); color: #fff;
+}
+.contact-info-block { padding: 64px 56px; }
+.contact-info-block h3 { font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; margin-bottom: 20px; }
+.contact-info-block p { color: #aab6c5; font-size: 1rem; line-height: 1.8; margin: 0 0 32px; }
+.contact-meta-list { border-top: 1px solid var(--line-dark); }
+.contact-meta-item { display: flex; align-items: center; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--line-dark); font-size: 1.05rem; color: #e2e8f0; }
+.contact-meta-item strong { color: var(--green-bright); width: 44px; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.location-map { min-height: 440px; }
+.location-map iframe { display: block; width: 100%; height: 100% !important; min-height: 440px; border: 0; filter: grayscale(1) contrast(1.05); }
+
+/* ============ Product hub / 브랜드 페이지 ============ */
+.brand-hero { background: var(--bg-soft); padding-top: 72px; padding-bottom: 88px; }
+.brand-hero-inner { display: flex; align-items: center; gap: 72px; flex-wrap: wrap; }
+.brand-hero-logo {
+  flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
+  background: #fff; border-top: 4px solid var(--green); padding: 48px; min-width: 320px; min-height: 200px;
+}
+.brand-hero-logo img { max-height: 110px; max-width: 300px; object-fit: contain; }
+.brand-hero-logo .brand-card-icon { display: none; }
+.brand-hero-text { flex: 1; min-width: 300px; }
+.brand-hero-text .brand-card-badge { display: block; padding: 0; margin-bottom: 14px; }
+.brand-hero-text h1 { font-size: clamp(2.4rem, 4.6vw, 3.8rem); color: var(--ink); letter-spacing: -0.04em; margin-bottom: 14px; }
+.brand-slogan { font-size: 1.2rem; font-weight: 600; color: var(--green-text); margin: 0 0 18px; }
+.brand-desc { font-size: 1.05rem; color: var(--text); max-width: 660px; line-height: 1.85; }
+
+.family-list { padding-top: 96px; }
+.family-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); border-top: 2px solid var(--ink); }
+.family-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 92px; padding: 24px 28px 24px 0; border-bottom: 1px solid var(--line);
+  transition: padding .15s, color .15s;
+}
+.family-card::after { content: "→"; color: var(--muted); font-weight: 700; transition: color .15s; }
+.family-card:hover { padding-left: 12px; }
+.family-card:hover h3, .family-card:hover::after { color: var(--green-text); }
+.family-card h3 { font-size: 1.12rem; font-weight: 700; color: var(--ink); line-height: 1.4; }
+.area-placeholder { color: var(--muted); }
+
+/* ============ 스펙표 ============ */
+.product-detail { padding-top: 56px; }
+.product-detail .product-group { margin-bottom: 64px; }
+.product-group-label {
+  font-size: 1.1rem; font-weight: 800; color: var(--ink);
+  border-left: 3px solid var(--green); padding: 2px 0 2px 14px; margin-bottom: 18px;
+}
+.table-scroll { overflow-x: auto; border-top: 2px solid var(--ink); }
+.spec-table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+.spec-table th, .spec-table td { padding: 15px 20px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.spec-table thead th { background: var(--bg-soft); color: var(--ink); font-weight: 700; font-size: 0.85rem; white-space: nowrap; }
+.spec-table th:not(.col-name):not(.col-app), .spec-table td:not(.col-name):not(.col-app) { white-space: nowrap; }
+.spec-table th.col-name, .spec-table td.col-name { width: 220px; min-width: 220px; max-width: 220px; white-space: normal; font-weight: 700; }
+.spec-table td.col-name a { color: var(--navy); }
+.spec-table td.col-name a:hover { color: var(--green-text); text-decoration: underline; text-underline-offset: 3px; }
+.spec-table th.col-app, .spec-table td.col-app { width: 260px; min-width: 260px; max-width: 260px; white-space: normal; word-break: keep-all; }
+.spec-table tbody tr:hover { background: var(--green-soft); }
+
+/* ============ SKU 상세 ============ */
+.sku-detail { padding-top: 56px; }
+.sku-spec-list { max-width: 760px; border-top: 2px solid var(--ink); }
+.sku-spec-row { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.sku-spec-key { width: 220px; flex-shrink: 0; font-weight: 700; color: var(--ink); }
+.sku-spec-value { color: var(--text); }
+
+/* ============ Footer ============ */
+.site-footer { background: #060d17; color: #7c8898; padding: 64px var(--gutter) 48px; font-size: 0.88rem; }
+.footer-inner { max-width: var(--wrap); margin: 0 auto; }
+.footer-company { color: #fff; font-weight: 800; margin: 0 0 18px; font-size: 1.15rem; }
+.footer-meta { list-style: none; padding: 0; margin: 0 0 36px; display: flex; flex-wrap: wrap; gap: 6px 28px; }
+.footer-copy { margin: 0; padding-top: 22px; border-top: 1px solid #1a2433; font-size: 0.8rem; color: #566273; }
+
+/* ============ Responsive ============ */
+@media (max-width: 1080px) {
+  .brand-grid { grid-template-columns: repeat(2, 1fr); }
+  .brand-card, .brand-card:nth-child(1), .brand-card:nth-child(2) { grid-column: span 1; padding: 36px 28px; border-right: 1px solid var(--line); }
+  .brand-card:nth-child(odd) { padding-left: 0; }
+  .brand-card:nth-child(even) { border-right: none; }
+  .brand-card:nth-child(5) { border-right: 1px solid var(--line); }
+  .greeting-box { grid-template-columns: 1fr; gap: 48px; }
+  .greeting-aside > div:first-child { position: static; }
+  .org-card { grid-template-columns: 260px 1fr; gap: 32px; }
+  .contact-strip { grid-template-columns: 1fr; }
+  .location-map, .location-map iframe { min-height: 320px; }
+}
+@media (max-width: 900px) {
+  .mega-menu { display: none; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .metric-item:nth-child(2) { border-right: none; }
+  .metric-item:nth-child(3) { padding-left: 0; border-top: 1px solid var(--line-dark); }
+  .metric-item:nth-child(4) { border-top: 1px solid var(--line-dark); }
+}
+@media (max-width: 720px) {
+  :root { --gutter: 20px; }
+  body { font-size: 16px; }
+  .header-inner { flex-wrap: wrap; padding-top: 14px; padding-bottom: 0; gap: 6px; }
+  .logo-icon { width: 46px; height: 46px; }
+  .logo-title { font-size: 1.3rem; }
+  .logo-subtitle { font-size: 0.68rem; }
+  .main-nav { width: 100%; gap: 28px; font-size: 0.95rem; border-top: 1px solid var(--line); margin-top: 8px; }
+  .hero-inner { padding-top: 72px; }
+  .hero-desc { font-size: 1.05rem; }
+  .hero-actions { margin-bottom: 64px; }
+  .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+  .metric-item { padding: 26px 16px 30px 0; }
+  .metric-item + .metric-item { padding-left: 16px; }
+  .metric-item:nth-child(3) { padding-left: 0; }
+  .section { padding: 88px var(--gutter); }
+  .section-header { margin-bottom: 48px; }
+  .brand-grid { grid-template-columns: 1fr; }
+  .brand-card, .brand-card:nth-child(n) { grid-column: auto; min-height: 0; padding: 32px 0; border-right: none; }
+  .org-card { grid-template-columns: 1fr; gap: 20px; padding: 32px 0; }
+  .timeline-content { grid-template-columns: 96px 1fr; gap: 12px; padding: 20px 0; }
+  .timeline-date { font-size: 1rem; }
+  .timeline-text { font-size: 0.98rem; }
+  .contact-info-block { padding: 44px 24px; }
+  .brand-hero-inner { gap: 32px; }
+  .brand-hero-logo { min-width: 0; width: 100%; }
+  .spec-table th.col-name, .spec-table td.col-name,
+  .spec-table th.col-app, .spec-table td.col-app { width: 160px; min-width: 160px; max-width: 160px; }
+  .sku-spec-key { width: 130px; }
+}

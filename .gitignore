@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+~$*.xlsx
+# 빌드 결과물 — GitHub Actions가 매번 새로 만든다
+docs/
+# 디자인 리뉴얼 전 CSS 백업 (로컬 전용)
+style.old.css

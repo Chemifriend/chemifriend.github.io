@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="breadcrumb">
+  <a href="{{ base_path }}product.html">Product</a> <span>/</span> <span>{{ area.회사명 }}</span>
+</nav>
+
+<section class="section brand-hero">
+  <div class="section-inner brand-hero-inner">
+    <div class="brand-hero-logo">
+      {% if area.로고파일 %}
+        <img src="{{ base_path }}static/logos/{{ area.로고파일.split(',')[0].strip() }}" alt="{{ area.회사명 }}">
+      {% else %}
+        <span class="brand-card-icon" style="width:60px;height:60px;border-radius:16px;">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M9 2h6M10 2v6.2L4.8 17a2 2 0 0 0 1.7 3h11a2 2 0 0 0 1.7-3L14 8.2V2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.5 14.5h9" stroke-linecap="round"/>
+          </svg>
+        </span>
+      {% endif %}
+    </div>
+    <div class="brand-hero-text">
+      {% if intro.국가 and intro.설립연도 %}<span class="brand-card-badge">{{ intro.국가 }} · {{ intro.설립연도 }}</span>{% endif %}
+      <h1>{{ area.회사명 }}</h1>
+      {% if intro.영문슬로건 %}<p class="brand-slogan">"{{ intro.영문슬로건 }}"</p>{% endif %}
+      {% if intro.한국어소개 %}<p class="brand-desc">{{ intro.한국어소개 }}</p>{% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section family-list">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:left; margin:0 0 36px;">
+      <span class="section-tag">Product Lines</span>
+      <h2 class="section-title">취급 제품군</h2>
+    </div>
+    {% if pages %}
+    <div class="family-grid">
+      {% for page_name, groups in pages.items() %}
+      <a class="family-card" href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/{{ fam_slugs[page_name] }}/index.html">
+        <h3>{{ page_name }}</h3>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="area-placeholder">아직 등록된 제품군이 없습니다.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

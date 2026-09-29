@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="breadcrumb">
+  <a href="{{ base_path }}product.html">Product</a> <span>/</span>
+  <a href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/index.html">{{ area.회사명 }}</a> <span>/</span>
+  <a href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/{{ fslug }}/index.html">{{ page_name }}</a> <span>/</span>
+  <span>{{ item.품명 }}</span>
+</nav>
+
+<section class="section page-header">
+  <div class="section-inner">
+    <p class="section-eyebrow">{{ area.회사명 }} · {{ page_name }}{% if group.label %} · {{ group.label }}{% endif %}</p>
+    <h1>{{ item.품명 }}</h1>
+  </div>
+</section>
+
+<section class="section sku-detail">
+  <div class="section-inner">
+    <div class="sku-spec-list">
+      <div class="sku-spec-row">
+        <span class="sku-spec-key">Application</span>
+        <span class="sku-spec-value">{{ item.용도 if item.용도 else "—" }}</span>
+      </div>
+      {% for key, value in item.spec.items() %}
+      <div class="sku-spec-row">
+        <span class="sku-spec-key">{{ key }}</span>
+        <span class="sku-spec-value">{{ value if value else "—" }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

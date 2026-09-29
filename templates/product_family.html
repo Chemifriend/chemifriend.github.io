@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="breadcrumb">
+  <a href="{{ base_path }}product.html">Product</a> <span>/</span>
+  <a href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/index.html">{{ area.회사명 }}</a> <span>/</span>
+  <span>{{ page_name }}</span>
+</nav>
+
+<section class="section page-header">
+  <div class="section-inner">
+    <p class="section-eyebrow">{{ area.회사명 }}</p>
+    <h1>{{ page_name }}</h1>
+  </div>
+</section>
+
+<section class="section product-detail">
+  <div class="section-inner">
+    {% for group in groups %}
+    <div class="product-group">
+      {% if group.label %}<h3 class="product-group-label">{{ group.label }}</h3>{% endif %}
+      <div class="table-scroll">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th class="col-name">품명</th>
+              <th class="col-app">Application</th>
+              {% for col in group.spec_columns %}<th>{{ col }}</th>{% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in group.rows %}
+            <tr>
+              <td class="col-name"><a href="{{ base_path }}product/{{ brand_slug_of[area.슬러그] }}/{{ fslug }}/{{ item.sku_slug }}.html">{{ item.품명 }}</a></td>
+              <td class="col-app">{{ item.용도 }}</td>
+              {% for col in group.spec_columns %}<td>{{ item.spec.get(col, '') }}</td>{% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
