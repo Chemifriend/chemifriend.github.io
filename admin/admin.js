@@ -7,7 +7,7 @@
    - 토큰: 이 저장소 전용 fine-grained 토큰 (Contents 쓰기, Actions 읽기). 이 PC 브라우저에만 저장
    - 검사 규칙은 build.py validate()와 같게 유지할 것 (최종 판정은 build.py)
    - 섹션: 1 설정/유틸  2 GitHub API  3 데이터 로드·상태  4 id·검사·변경요약
-           5 화면(홈/회사정보/연혁/조직도/제조사/제품/버전기록)  6 반영·복구·배포상태  7 시작
+           5 화면(홈/회사정보/연혁/조직도/제조사/제품/버전기록)  5-1 엑셀  6 반영·복구·배포상태  7 시작
    ===================================================================== */
 'use strict';
 
@@ -339,7 +339,8 @@ const VIEWS = {
           h('button', { class: 'btn', onclick: () => go('products') }, '제품 추가·수정'),
           h('button', { class: 'btn', onclick: () => go('org') }, '직원 변경'),
           h('button', { class: 'btn', onclick: () => go('company') }, '전화·주소 변경'),
-          h('button', { class: 'btn', onclick: () => go('versions') }, '잘못 반영했을 때 되돌리기'))),
+          h('button', { class: 'btn', onclick: () => go('versions') }, '잘못 반영했을 때 되돌리기'),
+          h('button', { class: 'btn', onclick: exportBackup }, '⬇ 전체 백업 (엑셀)'))),
     ];
   },
 
@@ -446,7 +447,7 @@ const VIEWS = {
     if (!list.some(f => f.id === S.sel.family)) S.sel.family = list[0] && list[0].id;
     const f = list.find(x => x.id === S.sel.family);
     return [h('h1', {}, '제품'),
-      h('p', { class: 'lead' }, '엑셀처럼 칸을 눌러 고치면 됩니다. 엑셀에서 여러 칸을 복사해 붙여넣을 수도 있습니다 (행이 모자라면 자동으로 늘어남). 초록 행 = 새 제품, 노란 행 = 수정됨'),
+      h('p', { class: 'lead' }, '엑셀처럼 칸을 눌러 고치면 됩니다. 엑셀에서 여러 칸을 복사해 붙여넣거나, [엑셀로 내려받기]로 받아 고친 뒤 [엑셀 불러오기]로 올려도 됩니다. 초록 행 = 새 제품, 노란 행 = 수정됨'),
       h('div', { class: 'row', style: 'margin-bottom:18px' }, h('b', {}, '제조사'),
         bs.map(x => h('button', { class: 'btn' + (x.id === b.id ? ' primary' : ''), onclick: () => { S.sel.brand = x.id; S.sel.family = null; render(); } }, x.회사명, x.노출 ? '' : ' (숨김)'))),
       h('div', { class: 'tabs' }, list.map(x => h('button', { class: x.id === S.sel.family ? 'on' : '', onclick: () => { S.sel.family = x.id; render(); } }, x.이름 || '(이름 없음)')),
@@ -466,6 +467,7 @@ const VIEWS = {
     return [h('h1', {}, '버전 기록 · 복구'),
       h('p', { class: 'lead' }, '사이트 내용이 바뀐 기록입니다. 잘못 반영했다면 이전 시점으로 되돌릴 수 있습니다. 되돌리기도 기록에 남으므로 다시 원래대로 돌아올 수 있습니다.'),
       h('div', { class: 'panel' }, box),
+      h('p', {}, h('button', { class: 'btn', onclick: exportBackup }, '⬇ 현재 내용 전체를 엑셀로 백업')),
       h('p', { class: 'muted' }, '사이트 빌드 기록: ', h('a', { href: `https://github.com/${CFG.owner}/${CFG.repo}/actions`, target: '_blank' }, 'GitHub Actions ↗'))];
   },
 };
@@ -571,6 +573,7 @@ async function addFamily(b) {
 
 function familyEditor(b, f) {
   const list = fams(b.id), fi = list.indexOf(f), redraw = () => { render(); touch(); };
+  const xin = h('input', { type: 'file', accept: '.xlsx,.xls', style: 'display:none', onchange: e => { const fl = e.target.files[0]; e.target.value = ''; if (fl) importFamily(b, f, fl); } });
   const baseFile = S.base[P.products(b.id)] ? JSON.parse(S.base[P.products(b.id)]) : { 제품군: [] };
   const baseItems = new Map();
   for (const bf of baseFile.제품군) for (const g of bf.소그룹) for (const it of g.제품) baseItems.set(`${bf.id}/${it.id}`, JSON.stringify(it));
@@ -581,6 +584,8 @@ function familyEditor(b, f) {
       h('button', { class: 'btn sm', onclick: () => move(list, fi, -1) && redraw() }, '◀ 순서 앞으로'),
       h('button', { class: 'btn sm', onclick: () => move(list, fi, 1) && redraw() }, '순서 뒤로 ▶'),
       h('span', { class: 'top-spacer' }),
+      h('button', { class: 'btn sm', onclick: () => exportFamily(b, f) }, '⬇ 엑셀로 내려받기'),
+      h('button', { class: 'btn sm', onclick: () => xin.click() }, '⬆ 엑셀 불러오기'), xin,
       h('button', { class: 'btn sm danger', onclick: async () => {
         const n = f.소그룹.reduce((t, g) => t + g.제품.length, 0);
         if (await ask({ title: '제품군 삭제', body: `<b>${esc(f.이름)}</b>과(와) 제품 ${n}개를 삭제할까요? 반영 후에도 [버전 기록]에서 되돌릴 수 있습니다.`, ok: '삭제', danger: true })) {
@@ -681,6 +686,177 @@ function groupEditor(f, g, gi, baseItems) {
     h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' },
       h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, '품명'), h('th', {}, 'Application'), g.스펙항목.map(colHead), h('th', { class: 'act' }))),
       tbody)));
+}
+
+/* ---------- 5-1. 엑셀 내려받기 / 불러오기 / 전체 백업 ----------
+   SheetJS(admin/vendor/xlsx.full.min.js, Apache-2.0)를 처음 쓸 때만 불러온다.
+   제품군 파일 규칙: 시트 1개 = 사이트의 표(소그룹) 1개, 1행 = 품명 | Application | 스펙 항목… | ID(수정금지)
+   불러오기는 바로 적용하지 않고 미리보기(추가/변경/그대로/엑셀에 없음/오류) 후 적용 → [변경 확인·반영]으로 사이트 반영 */
+let xlsxLoading = null;
+function loadXLSX() {
+  if (window.XLSX) return Promise.resolve(window.XLSX);
+  xlsxLoading = xlsxLoading || new Promise((ok, no) => {
+    const s = document.createElement('script');
+    s.src = 'vendor/xlsx.full.min.js';
+    s.onload = () => ok(window.XLSX);
+    s.onerror = () => { xlsxLoading = null; no(new Error('엑셀 모듈을 불러오지 못했습니다')); };
+    document.head.append(s);
+  });
+  return xlsxLoading;
+}
+const ID_COL = 'ID(수정금지)';
+const stamp = () => new Date().toISOString().slice(0, 10).replace(/-/g, '');
+const safeFile = s => s.replace(/[\\/:*?"<>|]/g, ' ');
+function sheetName(name, used) {  // 엑셀 시트 이름 규칙(31자, 특수문자 금지)에 맞추고 중복 방지
+  const n = String(name || '표').replace(/[[\]:*?/\\]/g, ' ').trim().slice(0, 31) || '표';
+  let k = n, i = 2;
+  while (used.has(k)) k = `${n.slice(0, 27)}_${i++}`;
+  used.add(k); return k;
+}
+function textSheet(X, aoa, widths) {  // 모든 칸을 '텍스트' 형식으로 → 엑셀이 "1-2"를 날짜로 바꾸는 것 방지
+  const ws = X.utils.aoa_to_sheet(aoa);
+  for (const k of Object.keys(ws)) if (k[0] !== '!') { ws[k].t = 's'; ws[k].v = String(ws[k].v ?? ''); ws[k].z = '@'; }
+  ws['!cols'] = widths.map(w => ({ wch: w }));
+  return ws;
+}
+const groupSheetNames = f => { const used = new Set(['안내']); return f.소그룹.map((g, i) => sheetName(g.이름 || `표${i + 1}`, used)); };
+
+async function exportFamily(b, f) {
+  let X; try { X = await loadXLSX(); } catch (e) { return toast(e.message); }
+  const wb = X.utils.book_new(), names = groupSheetNames(f);
+  const guide = [
+    [`케미프렌드 홈페이지 — ${b.회사명} > ${f.이름} 스펙표 (${new Date().toLocaleDateString('ko-KR')} 내려받음)`], [''],
+    ['· 시트 하나 = 사이트의 표 하나 (시트 이름 = 표 위 소제목). 시트를 새로 만들면 표가 추가됩니다'],
+    ['· 1행은 열 제목: "품명", "Application"은 고정. 나머지는 스펙 항목 — 열 추가·이름 변경 가능'],
+    ['· 행 추가 = 제품 추가, 칸 수정 = 수정. 품명이 같은 제품이 두 번 있으면 안 됩니다'],
+    ['· 맨 오른쪽 "ID(수정금지)" 열은 그대로 두세요 (새 제품은 비워두기). 품명을 바꿔도 이 ID로 같은 제품임을 알아봅니다'],
+    ['· 행을 지워도 바로 삭제되지 않습니다 — 불러올 때 삭제할지 고를 수 있습니다'],
+    ['· 다 고쳤으면 저장 → 관리자 페이지 [엑셀 불러오기] → 미리보기 확인 → 적용 → 오른쪽 위 [변경 확인·반영]'],
+    ['· 이 "안내" 시트는 불러올 때 무시됩니다'],
+  ];
+  X.utils.book_append_sheet(wb, textSheet(X, guide, [110]), '안내');
+  f.소그룹.forEach((g, i) => {
+    const head = ['품명', 'Application', ...g.스펙항목, ID_COL];
+    const rows = g.제품.map(it => [it.품명, it.용도 || '', ...g.스펙항목.map(c => (it.스펙 || {})[c] || ''), it.id]);
+    for (let k = 0; k < 50; k++) rows.push(head.map(() => ''));  // 빈 행도 텍스트 형식으로 미리 준비
+    X.utils.book_append_sheet(wb, textSheet(X, [head, ...rows], [28, 38, ...g.스펙항목.map(() => 16), 22]), names[i]);
+  });
+  X.writeFile(wb, safeFile(`${b.회사명}_${f.이름}_${stamp()}.xlsx`));
+}
+
+const canon = it => JSON.stringify([String(it.품명 || ''), String(it.용도 || ''), Object.entries(it.스펙 || {}).filter(([, v]) => v).sort()]);
+async function importFamily(b, f, file) {
+  let X; try { X = await loadXLSX(); } catch (e) { return toast(e.message); }
+  let wb; try { wb = X.read(await file.arrayBuffer(), { type: 'array' }); } catch (e) { return toast('엑셀 파일을 읽을 수 없습니다'); }
+  const errs = [], warns = [], groups = [], seenName = new Map(), link = new Map();
+  const oldItems = []; f.소그룹.forEach(g => g.제품.forEach(it => oldItems.push({ it, g })));
+  const byId = new Map(oldItems.map(o => [o.it.id, o]));
+  const byName = new Map(oldItems.map(o => [String(o.it.품명).trim().toLowerCase(), o]));
+  const nameOfSheet = new Map(groupSheetNames(f).map((n, i) => [n, f.소그룹[i].이름]));
+  const colLetter = i => (i >= 26 ? String.fromCharCode(64 + Math.floor(i / 26)) : '') + String.fromCharCode(65 + (i % 26));
+  for (const sn of wb.SheetNames) {
+    if (sn === '안내') continue;
+    const rows = X.utils.sheet_to_json(wb.Sheets[sn], { header: 1, defval: '', raw: false, blankrows: false });
+    if (!rows.length) continue;
+    const head = rows[0].map(x => String(x ?? '').trim());
+    if (head[0] !== '품명' || !['Application', '용도'].includes(head[1])) { errs.push(`[${sn}] 1행이 "품명", "Application"으로 시작해야 합니다`); continue; }
+    const idc = head.indexOf(ID_COL), specIdx = [], cols = [];
+    head.forEach((name, i) => {
+      if (i < 2 || i === idc) return;
+      if (!name) { if (rows.slice(1).some(r => String(r[i] ?? '').trim())) errs.push(`[${sn}] ${colLetter(i)}열: 제목 없는 열에 값이 있습니다`); return; }
+      if (cols.includes(name)) return errs.push(`[${sn}] 열 제목 중복: ${name}`);
+      cols.push(name); specIdx.push(i);
+    });
+    const g = { 이름: nameOfSheet.has(sn) ? nameOfSheet.get(sn) : sn, 스펙항목: cols, 제품: [] };
+    rows.slice(1).forEach((r, ri) => {
+      const c = head.map((_, i) => String(r[i] ?? '').trim());
+      if (!r.some(x => String(x ?? '').trim())) return;
+      const line = `[${sn}] ${ri + 2}행`, name = c[0];
+      if (!name) return errs.push(`${line}: 품명이 비어 있습니다`);
+      const key = name.toLowerCase();
+      if (seenName.has(key)) return errs.push(`${line}: 품명 '${name}'이(가) ${seenName.get(key)}와 중복`);
+      seenName.set(key, line);
+      if (PHONE_RE.test(c.join(' '))) warns.push(`${line}: 전화번호 같은 값이 있습니다 — 확인하세요`);
+      const idv = idc >= 0 ? c[idc] : '';
+      const old = (idv && byId.get(idv)) || byName.get(key);
+      if (idv && !byId.has(idv)) warns.push(`${line}: ID '${idv}'가 이 제품군에 없어 새 제품으로 처리합니다`);
+      const spec = {}; specIdx.forEach(i => { if (c[i]) spec[head[i]] = c[i]; });
+      const it = { id: old ? old.it.id : '', 품명: name, 용도: c[1], 스펙: spec };
+      g.제품.push(it); link.set(it, old);
+    });
+    groups.push(g);
+  }
+  if (!groups.length && !errs.length) errs.push('읽을 수 있는 시트가 없습니다 (내려받은 양식을 사용하세요)');
+
+  const add = [], mod = [], matched = new Set(); let same = 0;
+  for (const g of groups) for (const it of g.제품) {
+    const o = link.get(it);
+    if (!o) { add.push(it.품명); continue; }
+    if (matched.has(o.it)) { errs.push(`'${it.품명}': 같은 기존 제품에 두 행이 연결됨 (ID 열 확인)`); continue; }
+    matched.add(o.it);
+    (canon(o.it) === canon(it) && o.g.이름 === g.이름) ? same++ : mod.push(it.품명);
+  }
+  const missing = oldItems.filter(o => !matched.has(o.it));
+  if (oldItems.length && !matched.size) warns.push('기존 제품과 하나도 일치하지 않습니다 — 다른 제품군의 파일이 아닌지 확인하세요');
+  const colsChanged = JSON.stringify(f.소그룹.map(g => [g.이름, g.스펙항목])) !== JSON.stringify(groups.map(g => [g.이름, g.스펙항목]));
+
+  const list = (arr, cls) => arr.length ? h('div', { class: 'muted', style: 'margin:4px 0 10px' }, cls ? h(cls, {}, arr.slice(0, 40).join(', ')) : arr.slice(0, 40).join(', '), arr.length > 40 ? ` 외 ${arr.length - 40}` : '') : null;
+  const delBox = h('input', { type: 'checkbox' });
+  const body = h('div', {},
+    h('p', { class: 'muted' }, `${file.name} → ${b.회사명} > ${f.이름}`),
+    errs.length ? h('div', { class: 'msg err' }, h('b', {}, `오류 ${errs.length}건 — 엑셀을 고친 뒤 다시 불러오세요`), h('ul', {}, errs.slice(0, 30).map(e => h('li', {}, e)))) : null,
+    warns.length ? h('div', { class: 'msg warn' }, h('ul', {}, warns.slice(0, 20).map(e => h('li', {}, e)))) : null,
+    h('div', { class: 'stats', style: 'margin-bottom:14px' },
+      h('div', { class: 'stat' }, h('b', {}, add.length), h('span', {}, '추가')),
+      h('div', { class: 'stat' }, h('b', {}, mod.length), h('span', {}, '변경')),
+      h('div', { class: 'stat' }, h('b', {}, same), h('span', {}, '그대로')),
+      h('div', { class: 'stat' }, h('b', {}, missing.length), h('span', {}, '엑셀에 없는 기존 제품'))),
+    add.length ? h('div', {}, h('b', {}, '추가'), list(add, 'ins')) : null,
+    mod.length ? h('div', {}, h('b', {}, '변경'), list(mod)) : null,
+    colsChanged ? h('p', { class: 'muted' }, '표 구성(시트·열 제목)도 바뀝니다.') : null,
+    missing.length ? h('div', { class: 'msg warn' },
+      h('div', {}, h('b', {}, `엑셀에 없는 기존 제품 ${missing.length}개`), ' — 기본은 그대로 유지합니다.'),
+      list(missing.map(o => o.it.품명)),
+      h('label', { class: 'check' }, delBox, '이 제품들을 삭제')) : null);
+  const shade = h('div', { class: 'shade' });
+  const apply = h('button', { class: 'btn primary', disabled: errs.length > 0, onclick: () => {
+    if (!delBox.checked) for (const o of missing) {  // 유지: 원래 표로 돌려놓기
+      let g = groups.find(x => x.이름 === o.g.이름);
+      if (!g) { g = { 이름: o.g.이름, 스펙항목: [...o.g.스펙항목], 제품: [] }; groups.push(g); }
+      for (const k of Object.keys(o.it.스펙 || {})) if (!g.스펙항목.includes(k)) g.스펙항목.push(k);
+      g.제품.splice(Math.min(o.g.제품.indexOf(o.it), g.제품.length), 0, o.it);  // 원래 자리에 유지
+    }
+    f.소그룹 = groups; shade.remove(); render(); touch();
+    toast(`엑셀 내용을 적용했습니다 (추가 ${add.length} · 변경 ${mod.length}${delBox.checked ? ` · 삭제 ${missing.length}` : ''}). 오른쪽 위 [변경 확인·반영]을 눌러야 사이트에 반영됩니다.`, 6000);
+  } }, '적용');
+  shade.append(h('div', { class: 'modal' }, h('h3', {}, '엑셀 불러오기 미리보기'), body,
+    h('div', { class: 'actions' }, h('button', { class: 'btn', onclick: () => shade.remove() }, '취소'), apply)));
+  document.body.append(shade);
+}
+
+async function exportBackup() {  // 현재 화면 기준 전체 내용을 엑셀 한 파일로 (보관용)
+  let X; try { X = await loadXLSX(); } catch (e) { return toast(e.message); }
+  const wb = X.utils.book_new(), used = new Set();
+  const add = (name, aoa, w) => X.utils.book_append_sheet(wb, textSheet(X, aoa, w), sheetName(name, used));
+  add('회사정보', [['항목', '내용'], ...Object.entries(company())], [22, 90]);
+  add('연혁', [['연월', '내용'], ...historyList().map(x => [x.연월, x.내용])], [12, 70]);
+  const dn = Object.fromEntries(org().departments.map(d => [d.id, d['이름(한글)'] || d['이름(영문)']]));
+  add('조직도', [['부서', '이름', '영문 이름', '직급', '직급(영문)', '구분', '담당분야', '이메일(공개)'],
+    ...org().people.map(p => [dn[p.부서] || p.부서, p['이름(한글)'], p['이름(영문)'], p.직급, p['직급(영문)'], p.구분, p.담당분야, p['이메일(공개)']])],
+    [14, 10, 18, 8, 22, 6, 30, 28]);
+  add('제조사', [['id', '회사명', '표시', '국가', '설립연도', '영문 슬로건', '한국어 소개', '제품 요약', '로고', '문의 담당'],
+    ...brands().map(b => [b.id, b.회사명, b.노출 ? '표시' : '숨김', b.국가, b.설립연도, b.영문슬로건, b.한국어소개, b.제품요약, b.로고,
+      (b.문의담당 || []).map(c => personName(c.사람) + (c['분야(한글)'] ? `(${c['분야(한글)']})` : '')).join(', ') + (b.문의_영업팀전체 ? ' + 영업팀 전체' : '')])],
+    [18, 14, 6, 10, 8, 30, 60, 40, 16, 40]);
+  for (const b of brands()) {
+    const keys = [];
+    fams(b.id).forEach(f => f.소그룹.forEach(g => g.스펙항목.forEach(k => { if (!keys.includes(k)) keys.push(k); })));
+    const rows = [];
+    fams(b.id).forEach(f => f.소그룹.forEach(g => g.제품.forEach(it => rows.push([f.이름, g.이름, it.품명, it.용도 || '', ...keys.map(k => (it.스펙 || {})[k] || '')]))));
+    add(`제품-${b.회사명}`, [['제품군', '소그룹', '품명', 'Application', ...keys], ...rows], [24, 26, 26, 34, ...keys.map(() => 14)]);
+  }
+  X.writeFile(wb, `케미프렌드_홈페이지_백업_${stamp()}.xlsx`);
+  toast('전체 백업 파일을 내려받았습니다');
 }
 
 /* ---------- 6. 반영 · 복구 · 배포 상태 ---------- */

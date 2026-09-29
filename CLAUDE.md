@@ -23,7 +23,7 @@
 
 **아직 안 한 것 (= 다음 작업):**
 1. GitHub Pages 배포 — 저장소·워크플로우 준비 완료, 사용자 push 대기 (아래 "배포 구조")
-2. 관리자 페이지 2차: xlsx 양식 내려받기/불러오기(미리보기), 전체 백업 xlsx (1차 완료: 회사정보·연혁·조직도·제조사·제품 편집, 로고 업로드+트리밍, 변경요약, 검사, 반영, 버전 복구, 배포 상태)
+2. ~~관리자 페이지~~ 완료 (편집·로고 트리밍·변경요약·검사·반영·버전 복구·배포 상태·제품군 엑셀 내려받기/불러오기·전체 백업). 실사용 피드백 반영 단계
 3. 도메인 DNS 전환 → 확인 후 기존 호스팅 해지
 4. Google Search Console 등록 + sitemap 제출
 
@@ -39,6 +39,9 @@ data/                  콘텐츠 원본 (JSON) — 관리자 페이지가 이 �
 admin/                 관리자 페이지 (vanilla JS, 빌드 도구 없음) → build.py가 docs/admin/으로 복사
   admin.js             GitHub API로 data/*.json·static/logos/ 를 한 커밋으로 저장 (Git Data API: blobs→tree→commit→ref)
                        검사 규칙은 build.py validate()와 맞출 것. 복구 = 과거 커밋의 data/ 트리로 새 커밋
+  vendor/xlsx.full.min.js  SheetJS 0.18.5 (Apache-2.0, 저장소에 포함 — CDN 의존 없음). 엑셀 기능 처음 쓸 때만 로드
+                       제품군 엑셀: 시트=소그룹, 1행=품명|Application|스펙…|ID(수정금지). 모든 칸 텍스트 형식(날짜 자동변환 방지)
+                       불러오기 매칭: ID → 품명 순. 엑셀에 없는 기존 제품은 기본 유지(원래 자리), 체크 시 삭제
 templates/             Jinja2 템플릿
 static/                style.css, logos/
 build.py               검사(validate) → 가공(prepare) → docs/ 생성. `--check`는 검사만
