@@ -5,7 +5,7 @@ data/*.json → docs/ 정적 HTML 생성기.
     python build.py            빌드 (데이터 검사 → 오류 있으면 중단)
     python build.py --check    검사만
 
-데이터 파일 (관리자 페이지 /admin 또는 직접 수정):
+데이터 파일 (관리자 페이지 /admin/ 에서 수정 — admin/admin.js):
     data/company.json          회사정보 (키-값)
     data/history.json          연혁 [{연월, 내용}]
     data/org.json              부서 departments + 직원 people
@@ -231,6 +231,7 @@ def build():
     safe_rmtree(DOCS_DIR)
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     shutil.copytree(STATIC_DIR, DOCS_DIR / "static", dirs_exist_ok=True)
+    shutil.copytree(ROOT / "admin", DOCS_DIR / "admin", dirs_exist_ok=True)  # 관리자 페이지 /admin/ (noindex, sitemap 제외)
 
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
     common = dict(
@@ -276,7 +277,7 @@ def build():
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         f"{entries}\n</urlset>\n", encoding="utf-8")
     (DOCS_DIR / "robots.txt").write_text(
-        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
+        f"User-agent: *\nAllow: /\nDisallow: /admin/\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
     print(f"빌드 완료 → {DOCS_DIR} (페이지 {len(sitemap_urls)}개, sitemap.xml 포함)")
 
 

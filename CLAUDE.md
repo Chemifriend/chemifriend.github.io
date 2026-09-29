@@ -23,7 +23,7 @@
 
 **아직 안 한 것 (= 다음 작업):**
 1. GitHub Pages 배포 — 저장소·워크플로우 준비 완료, 사용자 push 대기 (아래 "배포 구조")
-2. 관리자 페이지 제작 (데이터 JSON 전환·검사는 완료. 아래 "확정된 다음 방향" 참고)
+2. 관리자 페이지 2차: xlsx 양식 내려받기/불러오기(미리보기), 전체 백업 xlsx (1차 완료: 회사정보·연혁·조직도·제조사·제품 편집, 로고 업로드+트리밍, 변경요약, 검사, 반영, 버전 복구, 배포 상태)
 3. 도메인 DNS 전환 → 확인 후 기존 호스팅 해지
 4. Google Search Console 등록 + sitemap 제출
 
@@ -36,6 +36,9 @@ data/                  콘텐츠 원본 (JSON) — 관리자 페이지가 이 �
   org.json             departments[{id, 이름(영문), 이름(한글), 설명}] + people[{id, 부서, 이름(한글/영문), 직급(/영문), 구분, 담당분야, 이메일(공개)}]
   brands.json          제조사 [{id, 회사명, 로고, 노출, 기타묶음, 국가, 설립연도, 영문슬로건, 한국어소개, 제품요약, 문의_영업팀전체, 문의담당[{사람, 분야(한글), 분야(영문)}]}]
   products/<브랜드id>.json  {제품군: [{id, 이름, 소그룹: [{이름, 스펙항목[], 제품: [{id, 품명, 용도, 스펙{항목: 값}}]}]}]}
+admin/                 관리자 페이지 (vanilla JS, 빌드 도구 없음) → build.py가 docs/admin/으로 복사
+  admin.js             GitHub API로 data/*.json·static/logos/ 를 한 커밋으로 저장 (Git Data API: blobs→tree→commit→ref)
+                       검사 규칙은 build.py validate()와 맞출 것. 복구 = 과거 커밋의 data/ 트리로 새 커밋
 templates/             Jinja2 템플릿
 static/                style.css, logos/
 build.py               검사(validate) → 가공(prepare) → docs/ 생성. `--check`는 검사만
@@ -106,6 +109,7 @@ docs/                  빌드 결과물 (.gitignore)
 - 이주영 부장(Synthomer 담당) 이메일 비노출 상태 — 노출 원하면 org.json에 추가
 - 히어로 아래 영문 슬로건 "With futurism, Environmentally, friendly chemical company"는 회사 공식 문구라 유지 중이지만 문법이 어색함. 변경은 사용자 결정
 - 문의 폼 없음 (현재 mailto 링크만)
+- Others > "Global Trading Partner & Other Supplier" 표: 스크래핑 때 열이 밀림 (이름 없는 열, 첫 행에 섹션명+데이터 섞임). 사용자 확인 후 정리 필요 — 관리자 검사에서는 "주의"로만 표시
 - CEO 인사말 본문에 "SYNTHOMER(Eastman)", "SOLVAY" 표기가 남아 있음 (사이트 다른 곳은 Synthomer/Syensqo). 대표 명의 문구라 수정은 사용자 결정
 
 ### 해결됨 (2026-09-29)

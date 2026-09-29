@@ -5,12 +5,28 @@ GitHub Pages로 무료 운영하며, 내용은 `data/` 폴더의 JSON 파일에 
 
 ## 내용 수정 (담당자용)
 
-**관리자 페이지 `/admin`** 에서 수정하는 것이 기본입니다. (제작 중 — 완성되면 이 항목에 사용법 추가)
+### 관리자 페이지: https://chemifriend.github.io/admin/
+(도메인 연결 후에는 https://chemifriend.com/admin/)
 
-관리자 페이지 준비 전까지는:
-- GitHub 저장소에서 `data/` 안의 파일을 열고 연필 아이콘으로 수정 → **Commit changes**
-- 1~2분 뒤 자동 반영. 진행상황은 저장소 **Actions** 탭 (초록 체크 = 성공)
-- 입력 오류가 있으면 빌드가 실패하고 **사이트는 직전 정상 버전 그대로** 유지됩니다. Actions 로그에 어느 파일 몇 번째 항목이 문제인지 나옵니다.
+1. 처음 한 번: 접속 키(토큰) 입력 — 발급 방법은 로그인 화면에 나옵니다
+2. 왼쪽 메뉴(회사정보·연혁·조직도·제조사·제품)에서 수정
+   - 제품 표는 엑셀처럼 칸을 눌러 수정. 엑셀에서 여러 칸을 복사해 붙여넣기 가능
+3. 오른쪽 위 **[변경 확인·반영]** → 바뀐 내용 확인 → **[사이트에 반영]**
+4. 1~2분 뒤 사이트에 반영 (상단에 진행 상태 표시)
+
+- 입력 오류(필수값 누락, 휴대폰 번호 입력 등)가 있으면 반영 버튼이 잠깁니다
+- 잘못 반영했다면 **[버전 기록 · 복구]** 에서 이전 시점으로 되돌리기
+- 반영 전이면 **[변경 취소]** 로 전부 되돌리기
+- 담당자가 바뀌면: 로그아웃 → GitHub에서 기존 토큰 삭제 → 새 담당자가 새 토큰 발급
+
+### 토큰 발급 (관리 담당자, 1년에 한 번)
+GitHub `Chemifriend` 계정 로그인 → https://github.com/settings/personal-access-tokens/new
+- Repository access: **Only select repositories** → `chemifriend.github.io`
+- Permissions: **Contents: Read and write**, **Actions: Read-only**
+- Expiration: 최대 1년 → 만료되면 관리자 페이지가 새 토큰을 요구함
+
+### 관리자 페이지 없이 고칠 때
+GitHub 저장소에서 `data/` 파일을 열어 연필 아이콘으로 수정 → Commit changes. 오류가 있으면 빌드가 실패하고 사이트는 직전 버전 유지 (Actions 탭 로그에 원인 표시)
 
 | 파일 | 내용 |
 |---|---|
@@ -26,6 +42,7 @@ GitHub Pages로 무료 운영하며, 내용은 `data/` 폴더의 JSON 파일에 
 
 ```
 data/          콘텐츠 원본 (JSON)
+admin/         관리자 페이지 (index.html + admin.js + admin.css, 프레임워크 없음) → /admin/ 로 배포
 templates/     화면 틀 (Jinja2)
 static/        style.css, logos/
 build.py       데이터 검사 → docs/ 에 HTML 생성
