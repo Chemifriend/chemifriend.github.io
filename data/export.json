@@ -1,0 +1,48 @@
+{
+  "히어로_태그": "Chemical Sourcing Partner in Korea",
+  "히어로_제목": "Your gateway to Korea's chemical industry.",
+  "히어로_강조": "Korea's chemical industry",
+  "히어로_설명": "Since 2002, Chemifriend has served as the Korean distribution partner of global leaders such as Cabot, Synthomer, Arkema and Syensqo. Building on this network, we help overseas buyers source reliable chemicals and materials from Korean manufacturers.",
+  "서비스_제목": "How we help overseas buyers",
+  "서비스": [
+    {
+      "제목": "Supplier sourcing",
+      "설명": "Share your product, specification and target volume. We identify qualified Korean manufacturers and shortlist the best fit."
+    },
+    {
+      "제목": "Samples & documents",
+      "설명": "We coordinate samples and technical documents such as TDS, SDS and COA so you can evaluate quickly."
+    },
+    {
+      "제목": "Quotation & logistics",
+      "설명": "We handle quotations and coordinate export shipping with Korean suppliers."
+    },
+    {
+      "제목": "One point of contact",
+      "설명": "Clear English communication and follow-up on quality and delivery, from the first inquiry to repeat orders."
+    }
+  ],
+  "네트워크_제목": "Our Korean chemical network",
+  "네트워크_설명": "Over two decades of distributing specialty chemicals in Korea have given us close relationships with manufacturers, distributors and end users across the Korean chemical industry.",
+  "네트워크": [
+    "Carbon black & fumed silica",
+    "Carbon nanotubes (CNT)",
+    "Hydrocarbon resins, rosin & adhesive raw materials",
+    "Additives, waxes & pigments",
+    "UV stabilizers & antioxidants",
+    "Monomers, solvents & surfactants",
+    "Rubber compounding materials"
+  ],
+  "산업_제목": "Industries we serve",
+  "산업": [
+    "Electronics",
+    "Coatings & inks",
+    "Toners",
+    "Adhesives",
+    "Plastics & masterbatch",
+    "Rubber compounding",
+    "Wire & cable"
+  ],
+  "문의_이메일": "",
+  "문의_안내": "Tell us the product, specification, quantity and destination. We will get back to you with suitable options."
+}

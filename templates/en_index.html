@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{# 영문 메인 = 해외 바이어 대상 수출·소싱 안내. 문구: data/export.json, 회사 소개: company.json "(영문)" 키 #}
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><span></span> {{ ex.히어로_태그 }}</div>
+    {% set title = ex.히어로_제목 %}{% set mk = ex.히어로_강조 %}
+    {% if mk and mk in title %}{% set parts = title.split(mk) %}
+    <h1>{{ parts[0] }}<span class="highlight">{{ mk }}</span>{{ parts[1:]|join(mk) }}</h1>
+    {% else %}<h1>{{ title }}</h1>{% endif %}
+    <p class="hero-desc">{{ ex.히어로_설명 }}</p>
+    <div class="hero-actions-en">
+      <a class="btn-primary" href="mailto:{{ ex._mail }}?subject=Sourcing%20inquiry">Send a sourcing inquiry →</a>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-item"><div class="metric-num">{{ stats.founded_year }}<span>~</span></div><div class="metric-label">In business since</div></div>
+      <div class="metric-item"><div class="metric-num">{{ stats.partner_count }}</div><div class="metric-label">Global principals in Korea</div></div>
+      <div class="metric-item"><div class="metric-num">{{ stats.spec_count }}<span>+</span></div><div class="metric-label">Grades handled in Korea</div></div>
+      <div class="metric-item"><div class="metric-num">{{ stats.iso_label }}</div><div class="metric-label">Quality management system</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sourcing">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Sourcing</span>
+      <h2 class="section-title">{{ ex.서비스_제목 }}</h2>
+    </div>
+    <ol class="service-list">
+      {% for sv in ex.서비스 %}
+      <li><span class="service-num">{{ '%02d' % loop.index }}</span><h3>{{ sv.제목 }}</h3><p>{{ sv.설명 }}</p></li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section-bg-light">
+  <div class="section-inner network-grid">
+    <div>
+      <div class="section-header">
+        <span class="section-tag">Network</span>
+        <h2 class="section-title">{{ ex.네트워크_제목 }}</h2>
+        <p class="section-desc">{{ ex.네트워크_설명 }}</p>
+      </div>
+    </div>
+    <div>
+      <ul class="network-list">{% for n in ex.네트워크 %}<li>{{ n }}</li>{% endfor %}</ul>
+      {% if ex.산업 %}
+      <p class="industry-label">{{ ex.산업_제목 }}</p>
+      <ul class="industry-list">{% for n in ex.산업 %}<li>{{ n }}</li>{% endfor %}</ul>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="partners">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Track record</span>
+      <h2 class="section-title">Our partners in Korea</h2>
+      <p class="section-desc">We are the Korean distributor for these global chemical companies. The product lines below show what we handle for the Korean market every day.</p>
+    </div>
+    {% include "_brand_tiles.html" %}
+  </div>
+</section>
+
+<section class="section section-bg-light" id="about">
+  <div class="section-inner">
+    <div class="greeting-box">
+      <div class="greeting-aside">
+        <div>
+          <div class="greeting-aside-tag">About Chemifriend</div>
+          <h3>{{ company._title }}</h3>
+        </div>
+        <div class="greeting-leader">
+          <div class="leader-title">CEO</div>
+          <div class="leader-name">{{ company._ceo }}</div>
+        </div>
+      </div>
+      <div class="greeting-content">
+        {% for para in company._body.split('\n\n') %}<p>{{ para }}</p>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="history">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">History</span>
+      <h2 class="section-title">{{ t.history_title }}</h2>
+      <p class="section-desc">{{ t.history_desc.format(year=stats.founded_year) }}</p>
+    </div>
+    <div class="history-timeline">
+      {% for h in history %}
+      <div class="timeline-row"><div class="timeline-content"><div class="timeline-date">{{ h.연월 }}</div><div class="timeline-text">{{ h._text }}</div></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg-light">
+  <div class="section-inner">
+    <div class="contact-strip">
+      <div class="contact-info-block">
+        <h3>Start a sourcing inquiry</h3>
+        <p>{{ ex.문의_안내 }}</p>
+        <div class="contact-meta-list">
+          <div class="contact-meta-item"><strong>Tel</strong>{{ company._tel }}</div>
+          <div class="contact-meta-item"><strong>Fax</strong>{{ company._fax }}</div>
+          <div class="contact-meta-item"><strong>Addr</strong>{{ company._addr }}</div>
+        </div>
+        <a class="btn-primary" style="margin-top:28px;" href="mailto:{{ ex._mail }}?subject=Sourcing%20inquiry">Email us →</a>
+      </div>
+      <div class="location-map"><iframe src="{{ company.구글맵_임베드_URL }}" width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

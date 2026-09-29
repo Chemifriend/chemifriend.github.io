@@ -377,3 +377,29 @@ img { max-width: 100%; }
   .spec-table th.col-app, .spec-table td.col-app { width: 160px; min-width: 160px; max-width: 160px; }
   .sku-spec-key { width: 130px; }
 }
+
+/* ============ 영문(수출·소싱) 페이지 ============ */
+.hero-actions-en { margin: -64px 0 104px; }
+.service-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); border-top: 2px solid var(--ink); }
+.service-list li { padding: 36px 40px 40px 0; border-bottom: 1px solid var(--line); }
+.service-list li:nth-child(even) { padding-left: 40px; padding-right: 0; border-left: 1px solid var(--line); }
+.service-num { display: block; font-size: 2.4rem; font-weight: 800; color: var(--green); letter-spacing: -0.03em; line-height: 1; margin-bottom: 18px; }
+.service-list h3 { font-size: 1.35rem; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 10px; }
+.service-list p { margin: 0; color: var(--muted); font-size: 1.02rem; line-height: 1.75; max-width: 520px; }
+.network-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: start; }
+.network-grid .section-header { margin: 0; }
+.network-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.network-list li { padding: 18px 0 18px 30px; border-bottom: 1px solid var(--line); font-size: 1.12rem; font-weight: 700; color: var(--ink); position: relative; }
+.network-list li::before { content: ""; position: absolute; left: 0; top: 50%; width: 14px; height: 2px; background: var(--green); }
+.industry-label { margin: 40px 0 14px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-text); }
+.industry-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.industry-list li { padding: 8px 16px; border: 1px solid var(--line); background: #fff; font-weight: 600; font-size: 0.95rem; color: var(--text); }
+.brand-card-static::after { display: none; }
+.brand-card-lines { list-style: none; margin: 0; padding: 18px 0 0; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.brand-card-lines li { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+@media (max-width: 900px) {
+  .service-list { grid-template-columns: 1fr; }
+  .service-list li, .service-list li:nth-child(even) { padding: 28px 0; border-left: 0; }
+  .network-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hero-actions-en { margin: -40px 0 64px; }
+}

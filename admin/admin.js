@@ -15,7 +15,7 @@
 const CFG = { owner: 'Chemifriend', repo: 'chemifriend.github.io', branch: 'main', api: 'https://api.github.com' };
 const TOKEN_KEY = 'cf_admin_token';
 const P = {  // 데이터 파일 경로
-  company: 'data/company.json', history: 'data/history.json', org: 'data/org.json', brands: 'data/brands.json',
+  company: 'data/company.json', history: 'data/history.json', org: 'data/org.json', brands: 'data/brands.json', export: 'data/export.json',
   products: id => `data/products/${id}.json`,
 };
 const TITLE_EN = { '대표이사': 'CEO', '부사장': 'Vice President', '전무': 'Senior Managing Director', '상무': 'Managing Director',
@@ -174,6 +174,9 @@ function validate() {  // build.py validate()와 같은 규칙 → {E: 오류, W
     if (x.내용 && !x['내용(영문)']) W.push(`연혁 ${x.연월 || i + 1}: 영문 내용 없음 (영문 사이트에 한국어로 표시됨)`);
     if (!String(x.내용 || '').trim()) E.push(`연혁 ${i + 1}번째: 내용 비어 있음`);
   });
+  const ex = S.data[P.export] || {};
+  if (ex.문의_이메일 && !EMAIL_RE.test(ex.문의_이메일)) E.push('영문 수출 페이지: 문의 이메일 형식 오류');
+  (ex.서비스 || []).forEach((sv, i) => { if (!String(sv.제목 || '').trim()) E.push(`영문 수출 페이지: 서비스 ${i + 1}번째 제목 비어 있음`); });
   const deptIds = org().departments.map(d => d.id);
   for (const d of org().departments) if (!d['이름(한글)'] && !d['이름(영문)']) E.push('부서: 이름 없는 부서가 있음');
   const pIds = [];
@@ -193,7 +196,6 @@ function validate() {  // build.py validate()와 같은 규칙 → {E: 오류, W
     if (!b.회사명) E.push(`제조사 ${b.id}: 회사명 비어 있음`);
     if (b.로고 && !S.logos.includes(b.로고) && !S.binary[`static/logos/${b.로고}`]) E.push(`제조사 ${name}: 로고 파일 없음 (${b.로고})`);
     if (!b.로고 && !b.기타묶음) W.push(`제조사 ${name}: 로고 없음`);
-    if (b.노출 && b.한국어소개 && !b['소개(영문)']) W.push(`제조사 ${name}: 영문 소개 없음`);
     for (const c2 of b.문의담당 || []) if (!pIds.includes(c2.사람)) E.push(`제조사 ${name}: 문의담당 '${c2.사람}'이(가) 직원 목록에 없음`);
     if (b.노출 && !(b.문의담당 || []).length && !b.문의_영업팀전체) W.push(`제조사 ${name}: 문의 담당자 없음`);
     dupes(fams(b.id).map(f => f.id)).forEach(x => E.push(`${name}: 제품군 id 중복 '${x}'`));
@@ -265,6 +267,9 @@ function summary() {  // 변경사항을 사람이 읽을 수 있게 → [{title
       if (del.length) L.push(`제품 삭제 ${del.length}: <del>${names(del, A)}</del>`);
       if (!L.length) L.push('순서·스펙 항목 변경');
       out.push({ title: `제품 — ${bn}`, lines: L });
+    } else if (p === P.export) {
+      for (const k of new Set([...Object.keys(old || {}), ...Object.keys(now)])) if (JSON.stringify((old || {})[k]) !== JSON.stringify(now[k])) L.push(`${esc(k)} 수정`);
+      out.push({ title: '영문 수출 페이지', lines: L.length ? L : ['변경'] });
     } else if (p.startsWith('static/logos/')) {
       out.push({ title: '로고 파일', lines: [`업로드: ${esc(p.slice(13))}`] });
     } else out.push({ title: p, lines: ['변경'] });
@@ -306,7 +311,8 @@ function refreshChrome() {
   $('#nav').replaceChildren(
     item('home', '홈'), item('company', '회사정보', has(P.company)), item('history', '연혁', has(P.history)),
     item('org', '조직도', has(P.org)), item('brands', '제조사', has(P.brands) || has('static/logos/')),
-    item('products', '제품', has('data/products/')), h('hr'),
+    item('products', '제품', has('data/products/')),
+    item('export', '영문 수출 페이지', has(P.export)), h('hr'),
     item('versions', '버전 기록 · 복구'),
     h('button', { onclick: () => window.open(`https://github.com/${CFG.owner}/${CFG.repo}/blob/${CFG.branch}/%EC%9A%B4%EC%98%81%EC%84%A4%EB%AA%85%EC%84%9C.md`, '_blank') }, '운영설명서 ↗'),
     h('button', { onclick: logout }, '로그아웃'));
@@ -461,6 +467,39 @@ const VIEWS = {
       f ? familyEditor(b, f) : h('p', { class: 'muted' }, '제품군이 없습니다. [+ 제품군]으로 추가하세요.')];
   },
 
+  export() {  // 영문 사이트(/en/) = 해외 바이어 대상 수출·소싱 안내 페이지. 데이터: data/export.json
+    if (!S.data[P.export]) S.data[P.export] = { 서비스: [], 네트워크: [], 산업: [] };
+    const x = S.data[P.export], base = S.base[P.export] ? JSON.parse(S.base[P.export]) : {}, redraw = () => { render(); touch(); };
+    const F = (label, key, opt = {}) => h('div', { class: 'field' }, h('label', {}, label, opt.help ? h('span', { class: 'help' }, opt.help) : null),
+      inp(x, key, { area: opt.area, base: base[key] ?? '', ph: opt.ph || '' }));
+    const lines = (label, key, help) => {  // 한 줄에 하나씩 입력 → 배열
+      const el = h('textarea', { class: 'inp', value: (x[key] || []).join('\n') });
+      el.addEventListener('input', () => { x[key] = el.value.split('\n').map(v => v.trim()).filter(Boolean); touch(); });
+      return h('div', { class: 'field' }, h('label', {}, label, h('span', { class: 'help' }, help)), el);
+    };
+    x.서비스 = x.서비스 || [];
+    return [h('h1', {}, '영문 수출 페이지'),
+      h('p', { class: 'lead' }, '영문 사이트(/en/) 첫 화면 문구입니다. 해외 바이어에게 한국 화학제품 소싱을 안내하는 용도입니다. 모두 영어로 입력하세요.'),
+      h('div', { class: 'row', style: 'margin-bottom:16px' }, h('a', { class: 'btn', href: '../en/', target: '_blank' }, '영문 사이트 보기 ↗')),
+      h('div', { class: 'panel' }, h('h2', {}, '첫 화면'),
+        F('작은 제목', '히어로_태그'), F('큰 제목', '히어로_제목'), F('강조할 부분', '히어로_강조', { help: '큰 제목 중 초록색으로 표시할 글자 (큰 제목에 그대로 들어 있어야 함)' }),
+        F('소개 문장', '히어로_설명', { area: true })),
+      h('div', { class: 'panel' }, h('h2', {}, '소싱 서비스'), F('섹션 제목', '서비스_제목'),
+        h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' },
+          h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, '제목'), h('th', {}, '설명'), h('th', { class: 'act' }))),
+          h('tbody', {}, x.서비스.map((sv, i) => h('tr', {}, h('td', { class: 'num' }, String(i + 1).padStart(2, '0')),
+            h('td', { style: 'width:240px' }, inp(sv, '제목', { cls: '' })), h('td', {}, inp(sv, '설명', { cls: '' })),
+            act(ib('↑', '위로', () => move(x.서비스, i, -1) && redraw()), ib('↓', '아래로', () => move(x.서비스, i, 1) && redraw()),
+              ib('✕', '삭제', () => { x.서비스.splice(i, 1); redraw(); }, 'x'))))))),
+        h('button', { class: 'btn', style: 'margin-top:12px', onclick: () => { x.서비스.push({ 제목: '', 설명: '' }); redraw(); } }, '+ 서비스 추가')),
+      h('div', { class: 'panel' }, h('h2', {}, '한국 케미컬 네트워크'), F('섹션 제목', '네트워크_제목'), F('설명', '네트워크_설명', { area: true }),
+        lines('취급 분야', '네트워크', '한 줄에 하나씩. 실제로 소싱 가능한 분야만'),
+        F('산업 제목', '산업_제목'), lines('공급 산업', '산업', '한 줄에 하나씩')),
+      h('div', { class: 'panel' }, h('h2', {}, '문의'),
+        F('문의 이메일', '문의_이메일', { help: '비우면 이메일이 공개된 영업 직원 전원에게 발송', ph: '예: export@chemifriend.com' }),
+        F('문의 안내 문장', '문의_안내', { area: true }))];
+  },
+
   versions() {
     const box = h('div', { class: 'hist' }, h('p', { class: 'muted' }, '불러오는 중…'));
     gh(`${R}/commits?sha=${CFG.branch}&path=data&per_page=25`).then(list => {
@@ -517,9 +556,8 @@ function brandEditor(b) {
       h('div', {}, h('label', { class: 'check' }, h('input', { type: 'checkbox', checked: !!b.노출, onchange: e => { b.노출 = e.target.checked; redraw(); } }), '표시'),
         h('span', { class: 'help' }, '끄면 사이트에서 숨겨지고 제품 데이터는 그대로 보관됩니다 (다시 켜면 복구)'))),
     F('회사명 *', '회사명'), F('국가', '국가', { help: '예: USA' }), F('설립연도', '설립연도'), F('영문 슬로건', '영문슬로건'),
-    F('한국어 소개', '한국어소개', { area: true }), F('영문 소개', '소개(영문)', { area: true, help: '영문 사이트용' }),
+    F('한국어 소개', '한국어소개', { area: true }),
     F('제품 요약', '제품요약', { help: '카드에 "취급 제품: …"으로 표시. 비우면 제품군 이름이 자동으로 나열됨' }),
-    F('제품 요약 (영문)', '제품요약(영문)', { help: '영문 사이트 카드용. 비우면 제품군 이름 자동' }),
     h('div', { class: 'field' }, h('label', {}, '로고'), drop),
     h('div', { class: 'field' }, h('label', {}, '문의 담당', h('span', { class: 'help' }, '브랜드·제품 페이지와 Contact 페이지에 표시')), contacts),
     h('div', { class: 'field' }, h('label', {}, '기타 묶음'),

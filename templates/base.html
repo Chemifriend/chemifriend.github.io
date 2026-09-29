@@ -11,8 +11,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ company._name }}">
 {% if canonical_url %}<link rel="canonical" href="{{ canonical_url }}">{% endif %}
-<link rel="alternate" hreflang="ko" href="{{ hreflang.ko }}">
-<link rel="alternate" hreflang="en" href="{{ hreflang.en }}">
+{% if hreflang %}<link rel="alternate" hreflang="ko" href="{{ hreflang.ko }}">
+<link rel="alternate" hreflang="en" href="{{ hreflang.en }}">{% endif %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="{{ base_path }}static/style.css">
 </head>
@@ -27,6 +27,11 @@
       </span>
     </a>
     <nav class="main-nav">
+      {% if lang == 'en' %}
+      <a href="{{ pb }}index.html" class="{{ 'active' if active == 'main' }}">Home</a>
+      <a href="{{ pb }}index.html#sourcing">Sourcing</a>
+      <a href="{{ pb }}index.html#partners">Partners</a>
+      {% else %}
       <a href="{{ pb }}index.html" class="{{ 'active' if active == 'main' }}">Main</a>
       <div class="nav-dropdown">
         <a href="{{ pb }}product.html" class="{{ 'active' if active == 'product' }}">Product</a>
@@ -47,6 +52,7 @@
           {% endfor %}
         </div>
       </div>
+      {% endif %}
       <a href="{{ pb }}contact.html" class="{{ 'active' if active == 'contact' }}">Contact</a>
       <a href="{{ alt_url }}" class="lang-toggle" hreflang="{{ 'en' if lang == 'ko' else 'ko' }}">{{ t.lang_toggle }}</a>
     </nav>
@@ -64,8 +70,8 @@
       <li>{{ t.f_ceo }} : {{ company._ceo }}</li>
       <li>{{ t.f_bizno }} : {{ company.사업자등록번호 }}</li>
       <li>{{ t.f_addr }} : {{ company._addr }}</li>
-      <li>{{ t.f_tel }} : {{ company.전화 }}</li>
-      <li>{{ t.f_fax }} : {{ company.팩스 }}</li>
+      <li>{{ t.f_tel }} : {{ company._tel }}</li>
+      <li>{{ t.f_fax }} : {{ company._fax }}</li>
     </ul>
     <p class="footer-copy">Copyright {{ company._name }}. All rights reserved.</p>
   </div>

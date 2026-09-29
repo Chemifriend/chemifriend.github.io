@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="section page-header">
+  <div class="section-inner">
+    <p class="section-eyebrow">Contact</p>
+    <h1>Contact Us</h1>
+    <p class="page-lead">{{ ex.문의_안내 }}</p>
+  </div>
+</section>
+
+<section class="section section-bg-light">
+  <div class="section-inner">
+    <div class="contact-strip">
+      <div class="contact-info-block">
+        <h3>{{ company._name }}</h3>
+        <p>{{ company._addr }}</p>
+        <div class="contact-meta-list">
+          <div class="contact-meta-item"><strong>Tel</strong>{{ company._tel }}</div>
+          <div class="contact-meta-item"><strong>Fax</strong>{{ company._fax }}</div>
+        </div>
+        <a class="btn-primary" style="margin-top:28px;" href="mailto:{{ ex._mail }}?subject=Sourcing%20inquiry">Send a sourcing inquiry →</a>
+      </div>
+      <div class="location-map"><iframe src="{{ company.구글맵_임베드_URL }}" width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

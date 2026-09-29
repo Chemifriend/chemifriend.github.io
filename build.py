@@ -12,7 +12,7 @@ data/*.json → docs/ 정적 HTML 생성기.
     data/brands.json           제조사(브랜드) 목록 — 표시 순서 = 파일 순서
     data/products/<브랜드id>.json  제품군 → 소그룹 → 제품
 
-영문 사이트: 같은 구조로 en/ 아래에 생성 (화면 문구는 아래 UI 사전, 데이터는 "(영문)" 키).
+영문 사이트(en/): 수출·소싱 안내용 메인 + Contact 2페이지 (data/export.json + "(영문)" 키). 제품 스펙표는 한국어에만.
 
 URL 규칙 (id는 한 번 정하면 바꾸지 않는다 — 바꾸면 기존 링크·검색 색인이 깨짐):
     product/<브랜드id>/index.html
@@ -121,6 +121,7 @@ def load_data():
         "history": read_json("history.json"),
         "org": read_json("org.json"),
         "brands": brands,
+        "export": read_json("export.json") if (DATA / "export.json").exists() else {},
     }
 
 
@@ -168,6 +169,13 @@ def validate(d):
     for dup in {x for x in person_ids if person_ids.count(x) > 1}:
         E.append(f"직원 id 중복: {dup}")
 
+    ex = d.get("export", {})
+    if ex.get("문의_이메일") and not EMAIL_RE.match(ex["문의_이메일"]):
+        E.append(f"수출 페이지: 문의 이메일 형식 오류 '{ex['문의_이메일']}'")
+    for i, sv in enumerate(ex.get("서비스", []), 1):
+        if not str(sv.get("제목", "")).strip():
+            E.append(f"수출 페이지: 서비스 {i}번째 제목 비어 있음")
+
     brand_ids = [b["id"] for b in d["brands"]]
     for dup in {x for x in brand_ids if brand_ids.count(x) > 1}:
         E.append(f"제조사 id 중복: {dup}")
@@ -182,8 +190,6 @@ def validate(d):
         for c_ in b.get("문의담당", []):
             if c_.get("사람") not in person_ids:
                 E.append(f"제조사 {name}: 문의담당 '{c_.get('사람')}'가 직원 목록에 없음")
-        if b.get("노출") and b.get("한국어소개") and not b.get("소개(영문)"):
-            W.append(f"제조사 {name}: 영문 소개 없음 (영문 사이트에 소개 문구가 빠짐)")
         if b.get("노출") and not b.get("문의담당") and not b.get("문의_영업팀전체"):
             W.append(f"제조사 {name}: 문의 담당자 없음")
         fam_ids = [f["id"] for f in b["제품군"]]
@@ -255,7 +261,9 @@ def prepare(d):
         "spec_count": sum(len(g["제품"]) for b in brands for f in b["제품군"] for g in f["소그룹"]),
         "iso_label": iso_label,
     }
-    return {"company": d["company"], "history": history, "departments": departments, "brands": brands, "stats": stats}
+    ex = dict(d.get("export", {}))
+    ex["_mail"] = ex.get("문의_이메일") or ",".join(public_emails)  # 비어 있으면 이메일 공개 직원 전원
+    return {"company": d["company"], "history": history, "departments": departments, "brands": brands, "stats": stats, "export": ex}
 
 
 # ---------------------------------------------------------------- 다국어 (한국어 / 영어)
@@ -319,6 +327,8 @@ def localize(v, lang):
     c["_title"] = en_or(c, "CEO_인사말_제목") if en else c.get("CEO_인사말_제목", "")
     c["_body"] = en_or(c, "CEO_인사말_본문") if en else c.get("CEO_인사말_본문", "")
     c["_marker"] = "Chemifriend" if en else c.get("회사명", "")
+    intl = lambda n: ("+82-" + n[1:]) if en and n.startswith("0") else n  # 영문: 국제전화 표기
+    c["_tel"], c["_fax"] = intl(c.get("전화", "")), intl(c.get("팩스", ""))
     for h in v["history"]:
         h["_text"] = en_or(h, "내용") if en else h["내용"]
 
@@ -382,15 +392,16 @@ def build():
             meta_keywords="케미프렌드,Chemifriend,Cabot,Carbon black,Synthomer,Arkema,Syensqo,화학원료 유통,specialty chemicals distributor Korea",
         )
 
-        def render(template_name, rel, active, title, description, **extra):
+        def render(template_name, rel, active, title, description, pair=None, **extra):
+            """pair: 다른 언어에서 대응하는 페이지 경로 (없으면 그 언어의 첫 화면으로 연결)"""
             depth = (prefix + rel).count("/")
             base_path = "../" * depth                  # 사이트 최상위(정적 파일) 기준
             html = env.get_template(template_name).render(
                 base_path=base_path, pb=base_path + prefix,  # pb = 같은 언어 페이지 기준
-                alt_url=base_path + other + rel,             # 다른 언어의 같은 페이지
+                alt_url=base_path + other + (pair or "index.html"),
                 active=active, page_title=title, meta_description=description,
                 canonical_url=f"{SITE_URL}/{prefix}{rel}",
-                hreflang={"ko": f"{SITE_URL}/{rel}", "en": f"{SITE_URL}/en/{rel}"},
+                hreflang={"ko": f"{SITE_URL}/{rel}", "en": f"{SITE_URL}/en/{rel}"} if pair == rel else None,
                 **common, **extra,
             )
             out = DOCS_DIR / prefix / rel
@@ -398,8 +409,18 @@ def build():
             out.write_text(html, encoding="utf-8")
             sitemap_urls.append(prefix + rel)
 
+        if lang == "en":
+            # 영문 사이트 = 수출·소싱 안내용. 제품 그레이드 스펙표는 한국어 사이트에만 (해외 판매권 없음)
+            render("en_index.html", "index.html", "main", "Chemical Sourcing Partner in Korea",
+                   v["export"].get("히어로_설명", "")[:150], pair="index.html",
+                   history=v["history"], ex=v["export"])
+            render("en_contact.html", "contact.html", "contact", "Contact",
+                   "Sourcing inquiries and contact information for Chemifriend Corp., Seoul, Korea", pair="contact.html",
+                   ex=v["export"])
+            continue
+
         render("index.html", "index.html", "main", "Main",
-               t["d_main"].format(name=c["_name"], slogan=c.get("슬로건", "")),
+               t["d_main"].format(name=c["_name"], slogan=c.get("슬로건", "")), pair="index.html",
                history=v["history"], departments=v["departments"])
         render("product_hub.html", "product.html", "product", "Product", t["d_hub"])
         for b in v["brands"]:
@@ -415,7 +436,7 @@ def build():
                                f"{it['품명']} — {b['회사명']} {f['이름']}",
                                t["d_sku"].format(item=it["품명"], brand=b["회사명"], family=f["이름"]),
                                brand=b, family=f, group=g, item=it)
-        render("contact.html", "contact.html", "contact", "Contact", t["d_contact"])
+        render("contact.html", "contact.html", "contact", "Contact", t["d_contact"], pair="contact.html")
 
     (DOCS_DIR / "CNAME").write_text("chemifriend.com\n", encoding="utf-8")
     entries = "\n".join(f"  <url><loc>{SITE_URL}/{u}</loc></url>" for u in sitemap_urls)
