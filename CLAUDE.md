@@ -161,4 +161,4 @@ docs/                  빌드 결과물 (.gitignore)
 - 작업을 브랜치에 올린 뒤에는 반영 방법을 단계별로 안내: ① Create PR ② GitHub에서 초록 [Merge pull request] → [Confirm merge] ③ Actions 탭 초록 체크 확인 ④ 1~2분 후 사이트 새로고침
 - data/ JSON의 id는 URL이므로 절대 변경 금지. 전화번호·비공개 이메일 입력 금지 (공개 저장소)
 - 비밀번호·토큰을 달라고 하지 말 것 (필요 없음)
-- 기능을 바꾸면 `운영설명서.md`와 이 파일도 함께 갱신
+- 기능을 바꾸면 `운영설명서.md`와 이 파일도 함께 갱신. 설명서를 고쳤으면 인쇄용 `운영설명서.pdf`도 `python tools/make_manual_pdf.py 운영설명서.md 운영설명서.pdf`로 다시 생성
