@@ -16,7 +16,21 @@ echo ============================================
 git add -A
 git commit -m "콘텐츠 업데이트 %date% %time%"
 if errorlevel 1 echo (커밋할 변경사항이 없습니다)
+echo 관리자 페이지에서 바뀐 내용 먼저 받아오는 중...
+git pull --rebase
+if errorlevel 1 (
+    echo.
+    echo [오류] 관리자 페이지 수정과 PC 수정이 같은 곳에서 겹쳤습니다.
+    echo        이 창 내용을 Claude에게 보여주고 도움을 받으세요. 올리지 않았습니다.
+    git rebase --abort 2>nul
+    pause & exit /b 1
+)
 git push
+if errorlevel 1 (
+    echo.
+    echo [오류] GitHub에 올리지 못했습니다. 위 메시지를 Claude에게 보여주세요.
+    pause & exit /b 1
+)
 
 echo.
 echo ============================================
