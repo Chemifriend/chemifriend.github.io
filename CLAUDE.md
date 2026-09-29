@@ -111,7 +111,7 @@ docs/                  빌드 결과물 (.gitignore)
 ## 알려진 이슈 / 확인 필요
 
 - 히어로 아래 영문 슬로건 "With futurism, Environmentally, friendly chemical company"는 회사 공식 문구라 유지 중이지만 문법이 어색함. 변경은 사용자 결정
-- 문의 폼 없음 (현재 mailto 링크만)
+- 문의 폼: Web3Forms 키 미입력 상태면 메일 앱 방식으로 동작 — 회사 공용 메일로 가입 후 키 입력 필요
 - Others > "Global Trading Partner & Other Supplier" 표: 스크래핑 때 열이 밀림 (이름 없는 열, 첫 행에 섹션명+데이터 섞임). 사용자 확인 후 정리 필요 — 관리자 검사에서는 "주의"로만 표시
 - CEO 인사말 본문에 "SYNTHOMER(Eastman)", "SOLVAY" 표기가 남아 있음 (사이트 다른 곳은 Synthomer/Syensqo). 대표 명의 문구라 수정은 사용자 결정
 
@@ -145,11 +145,20 @@ docs/                  빌드 결과물 (.gitignore)
 - 로고: 투명 여백 없이 트리밍된 PNG. 표시 크기는 build.py logo_height()가 가로세로비로 계산(면적 통일) → 템플릿 style="--lh:N", CSS에서 위치별 배율. 흰 배경 박힌 로고는 투명 처리 필요(Syensqo 사례)
 - 사람 표기: 1줄 한글(이름 + 직급), 2줄 영문(Name · Title). 영문 사이트는 순서 반대
 
+## 문의 폼
+
+- 한국어 contact.html(#form) + 영문 en/index.html·contact.html(#rfq 견적 요청). 템플릿 `_inquiry_form.html`, 전송 `static/form.js`
+- Web3Forms(무료 월 250건) API로 전송. 키 = company.json `문의폼_키` (공개돼도 되는 키, 받는 주소는 Web3Forms 가입 메일). 사용자가 특정인 구글폼은 싫다고 함
+- 키 없음/전송 실패 → 작성 내용이 채워진 mailto로 대체 (한국어: 이메일 공개 영업직 전원, 영문: export.json 문의_이메일 또는 전원)
+- 스팸: botcheck 함정 칸 + 3초 이내 제출 차단. 한국어 폼은 개인정보 수집·이용 동의(필수) 체크
+- 폼 필드 name = 받은 메일의 항목명 (email 필드는 회신 주소)
+
 ## 영문 사이트 (/en/) — 수출·소싱 안내용
 
 - 사용자 결정(2026-09-29): 해외 판매권이 대부분 한국 한정 → 영문에는 **그레이드 스펙표를 두지 않음**.
   대신 해외 바이어 대상 "한국 화학 소싱 파트너" 페이지로 신규 수출 기회 모색. 한국에서 맡는 파트너사·제품군은 신뢰 확보용으로 표시(링크 없음)
 - 페이지: en/index.html(en_index.html) + en/contact.html(en_contact.html) 2개뿐. 한국어 제품 페이지의 ENG 버튼은 en/index.html로
+- 구성: 히어로(Request a quote) → Why Korea(export.json 장점) → 서비스 → 네트워크·산업 → 파트너 → 견적 요청 폼 → 회사 소개·연혁 → 연락처. 우하단 고정 Request a quote 버튼
 - 문구: data/export.json (히어로, 서비스 목록, 네트워크 분야, 공급 산업, 문의 이메일·안내). 관리자 메뉴 "영문 수출 페이지"
   - 문의_이메일 비면 이메일 공개 영업직 전원 mailto
   - 국내 제조사 이름은 사용자가 확인한 곳만 넣을 것 (현재 분야만 표기). 약속성 문구(응답 기한 등) 임의 추가 금지

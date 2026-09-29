@@ -10,7 +10,7 @@
     {% else %}<h1>{{ title }}</h1>{% endif %}
     <p class="hero-desc">{{ ex.히어로_설명 }}</p>
     <div class="hero-actions-en">
-      <a class="btn-primary" href="mailto:{{ ex._mail }}?subject=Sourcing%20inquiry">Send a sourcing inquiry →</a>
+      <a class="btn-primary" href="#rfq">Request a quote →</a>
     </div>
     <div class="metrics-grid">
       <div class="metric-item"><div class="metric-num">{{ stats.founded_year }}<span>~</span></div><div class="metric-label">In business since</div></div>
@@ -21,7 +21,19 @@
   </div>
 </section>
 
-<section class="section" id="sourcing">
+{% if ex.장점 %}
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Why Korea</span>
+      <h2 class="section-title">{{ ex.장점_제목 }}</h2>
+    </div>
+    <ul class="why-list">{% for w in ex.장점 %}<li><h3>{{ w.제목 }}</h3><p>{{ w.설명 }}</p></li>{% endfor %}</ul>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section-bg-light" id="sourcing">
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag">Sourcing</span>
@@ -35,7 +47,7 @@
   </div>
 </section>
 
-<section class="section section-bg-light">
+<section class="section">
   <div class="section-inner network-grid">
     <div>
       <div class="section-header">
@@ -54,7 +66,7 @@
   </div>
 </section>
 
-<section class="section" id="partners">
+<section class="section section-bg-light" id="partners">
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag">Track record</span>
@@ -62,6 +74,24 @@
       <p class="section-desc">We are the Korean distributor for these global chemical companies. The product lines below show what we handle for the Korean market every day.</p>
     </div>
     {% include "_brand_tiles.html" %}
+  </div>
+</section>
+
+<section class="section" id="request">
+  <div class="section-inner form-section">
+    <div>
+      <div class="section-header">
+        <span class="section-tag">Request a quote</span>
+        <h2 class="section-title">Tell us what you need.</h2>
+        <p class="section-desc">{{ ex.문의_안내 }}</p>
+      </div>
+      <div class="contact-meta-list" style="margin-top:28px">
+        <div class="contact-meta-item"><strong>Tel</strong>{{ company._tel }}</div>
+        <div class="contact-meta-item"><strong>Fax</strong>{{ company._fax }}</div>
+        <div class="contact-meta-item"><strong>Mail</strong><a href="mailto:{{ ex._mail }}">Email us directly</a></div>
+      </div>
+    </div>
+    {% include "_inquiry_form.html" %}
   </div>
 </section>
 
@@ -100,21 +130,21 @@
   </div>
 </section>
 
-<section class="section section-bg-light">
+<section class="section">
   <div class="section-inner">
     <div class="contact-strip">
       <div class="contact-info-block">
-        <h3>Start a sourcing inquiry</h3>
-        <p>{{ ex.문의_안내 }}</p>
+        <h3>{{ company._name }}</h3>
+        <p>{{ company._addr }}</p>
         <div class="contact-meta-list">
           <div class="contact-meta-item"><strong>Tel</strong>{{ company._tel }}</div>
           <div class="contact-meta-item"><strong>Fax</strong>{{ company._fax }}</div>
-          <div class="contact-meta-item"><strong>Addr</strong>{{ company._addr }}</div>
         </div>
-        <a class="btn-primary" style="margin-top:28px;" href="mailto:{{ ex._mail }}?subject=Sourcing%20inquiry">Email us →</a>
+        <a class="btn-primary" style="margin-top:28px;" href="#rfq">Request a quote →</a>
       </div>
       <div class="location-map"><iframe src="{{ company.구글맵_임베드_URL }}" width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
     </div>
   </div>
 </section>
+<a class="btn-primary float-cta" href="#rfq">Request a quote</a>
 {% endblock %}

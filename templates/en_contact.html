@@ -18,10 +18,19 @@
           <div class="contact-meta-item"><strong>Tel</strong>{{ company._tel }}</div>
           <div class="contact-meta-item"><strong>Fax</strong>{{ company._fax }}</div>
         </div>
-        <a class="btn-primary" style="margin-top:28px;" href="mailto:{{ ex._mail }}?subject=Sourcing%20inquiry">Send a sourcing inquiry →</a>
       </div>
       <div class="location-map"><iframe src="{{ company.구글맵_임베드_URL }}" width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
     </div>
+  </div>
+</section>
+<section class="section">
+  <div class="section-inner form-section">
+    <div class="section-header">
+      <span class="section-tag">Request a quote</span>
+      <h2 class="section-title">Tell us what you need.</h2>
+      <p class="section-desc">Prefer email? <a href="mailto:{{ ex._mail }}">Write to us directly.</a></p>
+    </div>
+    {% include "_inquiry_form.html" %}
   </div>
 </section>
 {% endblock %}

@@ -36,6 +36,7 @@ const COMPANY_FIELDS = [  // 회사정보 입력 화면 정의 — 항목 추가
   { key: 'CEO_인사말_제목(영문)', label: 'CEO 인사말 제목 (영문)', help: '영문 사이트 첫 화면 큰 제목. "Chemifriend" 글자는 초록색으로 강조됨' },
   { key: 'CEO_인사말_본문(영문)', label: 'CEO 인사말 본문 (영문)', type: 'textarea', help: '영문 사이트용. 문단 사이에 빈 줄 한 줄' },
   { key: '구글맵_임베드_URL', label: '구글 지도 주소', help: '구글지도 → 공유 → 지도 퍼가기 → src="…" 안의 주소' },
+  { key: '문의폼_키', label: '문의 폼 키 (Web3Forms)', help: '홈페이지 문의 폼이 메일을 보낼 때 쓰는 키. 받는 메일 주소는 web3forms.com 가입 메일. 비우면 폼이 메일 앱을 여는 방식으로 동작 (운영설명서 참고)' },
 ];
 const ID_RE = /^[a-z0-9가-힣]+(?:-[a-z0-9가-힣]+)*$/;
 const EMAIL_RE = /^[^@\s,]+@[^@\s,]+\.[a-z]{2,}$/i;
@@ -478,12 +479,24 @@ const VIEWS = {
       return h('div', { class: 'field' }, h('label', {}, label, h('span', { class: 'help' }, help)), el);
     };
     x.서비스 = x.서비스 || [];
+    const itemTable = (title, titleKey, key) => {  // 제목·설명 목록 편집 표
+      x[key] = x[key] || [];
+      return h('div', { class: 'panel' }, h('h2', {}, title), F('섹션 제목', titleKey),
+        h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' },
+          h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, '제목'), h('th', {}, '설명'), h('th', { class: 'act' }))),
+          h('tbody', {}, x[key].map((it, i) => h('tr', {}, h('td', { class: 'num' }, i + 1),
+            h('td', { style: 'width:240px' }, inp(it, '제목', { cls: '' })), h('td', {}, inp(it, '설명', { cls: '' })),
+            act(ib('↑', '위로', () => move(x[key], i, -1) && redraw()), ib('↓', '아래로', () => move(x[key], i, 1) && redraw()),
+              ib('✕', '삭제', () => { x[key].splice(i, 1); redraw(); }, 'x'))))))),
+        h('button', { class: 'btn', style: 'margin-top:12px', onclick: () => { x[key].push({ 제목: '', 설명: '' }); redraw(); } }, '+ 추가'));
+    };
     return [h('h1', {}, '영문 수출 페이지'),
       h('p', { class: 'lead' }, '영문 사이트(/en/) 첫 화면 문구입니다. 해외 바이어에게 한국 화학제품 소싱을 안내하는 용도입니다. 모두 영어로 입력하세요.'),
       h('div', { class: 'row', style: 'margin-bottom:16px' }, h('a', { class: 'btn', href: '../en/', target: '_blank' }, '영문 사이트 보기 ↗')),
       h('div', { class: 'panel' }, h('h2', {}, '첫 화면'),
         F('작은 제목', '히어로_태그'), F('큰 제목', '히어로_제목'), F('강조할 부분', '히어로_강조', { help: '큰 제목 중 초록색으로 표시할 글자 (큰 제목에 그대로 들어 있어야 함)' }),
         F('소개 문장', '히어로_설명', { area: true })),
+      itemTable('한국 소싱의 장점 (Why Korea)', '장점_제목', '장점'),
       h('div', { class: 'panel' }, h('h2', {}, '소싱 서비스'), F('섹션 제목', '서비스_제목'),
         h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' },
           h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, '제목'), h('th', {}, '설명'), h('th', { class: 'act' }))),

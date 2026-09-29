@@ -169,6 +169,11 @@ def validate(d):
     for dup in {x for x in person_ids if person_ids.count(x) > 1}:
         E.append(f"직원 id 중복: {dup}")
 
+    key = str(c.get("문의폼_키", "")).strip()
+    if key and not re.match(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", key):
+        E.append("회사정보: 문의폼_키 형식 오류 (Web3Forms Access Key는 xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 형태)")
+    if not key:
+        W.append("회사정보: 문의폼_키 없음 — 문의 폼이 메일 앱을 여는 방식으로 동작")
     ex = d.get("export", {})
     if ex.get("문의_이메일") and not EMAIL_RE.match(ex["문의_이메일"]):
         E.append(f"수출 페이지: 문의 이메일 형식 오류 '{ex['문의_이메일']}'")
@@ -263,7 +268,10 @@ def prepare(d):
     }
     ex = dict(d.get("export", {}))
     ex["_mail"] = ex.get("문의_이메일") or ",".join(public_emails)  # 비어 있으면 이메일 공개 직원 전원
-    return {"company": d["company"], "history": history, "departments": departments, "brands": brands, "stats": stats, "export": ex}
+    for sv in ex.get("장점", []):
+        sv.setdefault("설명", "")
+    return {"company": d["company"], "history": history, "departments": departments, "brands": brands, "stats": stats, "export": ex,
+            "inquiry_ko": ",".join(public_emails)}
 
 
 # ---------------------------------------------------------------- 다국어 (한국어 / 영어)
@@ -389,6 +397,7 @@ def build():
         c = v["company"]
         common = dict(
             company=c, brands=v["brands"], stats=v["stats"], t=t, lang=lang,
+            inquiry_mail=v["export"]["_mail"] if lang == "en" else v["inquiry_ko"],  # 문의 폼 실패 시 대체 메일 주소
             meta_keywords="케미프렌드,Chemifriend,Cabot,Carbon black,Synthomer,Arkema,Syensqo,화학원료 유통,specialty chemicals distributor Korea",
         )
 

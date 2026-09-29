@@ -3,6 +3,25 @@
   "히어로_제목": "Your gateway to Korea's chemical industry.",
   "히어로_강조": "Korea's chemical industry",
   "히어로_설명": "Since 2002, Chemifriend has served as the Korean distribution partner of global leaders such as Cabot, Synthomer, Arkema and Syensqo. Building on this network, we help overseas buyers source reliable chemicals and materials from Korean manufacturers.",
+  "장점_제목": "Why source from Korea",
+  "장점": [
+    {
+      "제목": "Advanced chemical industry",
+      "설명": "Korea is home to world-class petrochemical, specialty chemical and advanced materials producers serving global electronics, battery and automotive supply chains."
+    },
+    {
+      "제목": "Consistent quality",
+      "설명": "Korean manufacturers work under strict quality systems and provide complete technical documentation for every grade."
+    },
+    {
+      "제목": "Efficient logistics",
+      "설명": "Major container ports such as Busan offer frequent sailings to Asia, the Middle East, Europe and the Americas."
+    },
+    {
+      "제목": "A partner on the ground",
+      "설명": "We visit suppliers, follow up on quality and delivery, and communicate with you in English."
+    }
+  ],
   "서비스_제목": "How we help overseas buyers",
   "서비스": [
     {
