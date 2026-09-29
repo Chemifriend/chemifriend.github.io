@@ -3,6 +3,8 @@
 (주)케미프렌드 공식 홈페이지 — https://chemifriend.com
 GitHub Pages로 무료 운영하며, 내용은 `data/` 폴더의 JSON 파일에 들어 있습니다.
 
+> **처음 맡으신 분은 [운영설명서](운영설명서.md)부터 읽어 주세요.** 도메인·호스팅 개념, 관리자 페이지 사용법, Claude(AI)로 수정하는 방법, 문제 해결, 연간 할 일이 정리되어 있습니다.
+
 ## 내용 수정 (담당자용)
 
 ### 관리자 페이지: https://chemifriend.github.io/admin/

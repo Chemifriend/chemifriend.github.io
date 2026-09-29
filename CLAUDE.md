@@ -9,7 +9,7 @@
   Cabot / Synthomer / Arkema / Syensqo 등의 한국 대리점
 - 목표: 기존 chemifriend.com(그누보드 기반, 유료 호스팅 연 20~30만원)을
   **GitHub Pages 무료 정적 사이트**로 교체
-- 사용자: 승헌 (영업1팀 과장). 비개발자 담당자들도 쉽게 수정할 수 있어야 하고,
+- 최초 제작: 백승헌 (영업1팀 과장). 비개발자 담당자들도 쉽게 수정할 수 있어야 하고,
   후임자가 이해하기 쉬운 구조여야 함
 
 ## 현재 상태 (2026-09 기준)
@@ -79,7 +79,8 @@ docs/                  빌드 결과물 (.gitignore)
   - 2026-02 Bootstrap 프로토타입은 `Chemifriend/chemifriend-prototype-2026`으로 이름 변경해 분리 보관. 이 저장소는 새 이력으로 시작
 - main push → GitHub Actions(`deploy.yml`)가 build.py 실행 → Pages 배포. docs/는 커밋 안 함
 - Pages Source는 저장소 설정에서 **GitHub Actions**로 지정해야 함 (Actions 배포 시 docs/CNAME 파일은 무시됨 → 커스텀 도메인은 설정 화면에서 입력)
-- DNS 전환 전까지는 https://chemifriend.github.io 로 확인. chemifriend.com은 아직 기존 호스팅(112.175.184.61)
+- DNS 전환 전까지는 https://chemifriend.github.io 로 확인. chemifriend.com은 아직 기존 닷홈 호스팅(112.175.184.61) — 2026-09 기준 닷홈 안내 페이지만 뜸(호스팅 끊김 추정)
+- 도메인: 등록기관 닷네임코리아(닷홈), 만료 2027-07-12, 네임서버 ns1~3.dothome.co.kr → DNS 변경은 닷홈 관리 화면에서
 - 계정 리스크: GitHub 계정 이메일이 shbaek@chemifriend.com (개인 업무메일) → 공용 메일로 변경 + 2FA 복구코드 회사 보관 필요
 - 줄바꿈: .gitattributes로 LF 고정, .bat만 CRLF
 
@@ -128,7 +129,7 @@ docs/                  빌드 결과물 (.gitignore)
 
 ## 개발 환경 / 주의사항
 
-- 사용자 PC: Windows, PowerShell, Python 3.14 (`py` 명령 사용. `pip`는 PATH에 없어서 `py -m pip`)
+- 최초 제작자 PC: Windows, PowerShell, Python 3.14 (`py` 명령 사용. `pip`는 PATH에 없어서 `py -m pip`). claude.ai/code 클라우드에서는 `python` 사용
 - **클라우드 동기화 폴더(OneDrive, Google Drive)에서 작업 금지** — 빌드 시 docs/ 삭제가 동기화 잠금과 충돌해 PermissionError 발생했었음. build.py에 재시도 로직은 있음
 - Jinja2에서 dict 키 이름으로 `items` 쓰지 말 것 (dict.items 메서드와 충돌 → 이미 `rows`로 바꿈)
 - 디자인 변경 후에는 헤드리스 브라우저로 실제 렌더링을 캡처해서 확인할 것.
@@ -144,8 +145,19 @@ docs/                  빌드 결과물 (.gitignore)
 - 폰트: Pretendard Variable (jsDelivr, 버전 고정 v1.3.9) — base.html
 - 이전 CSS는 루트의 `style.old.css`에 백업 (확정되면 삭제)
 
-## 사용자 선호
+## 작업 원칙 (누가 요청하든)
 
 - 한국어, 짧고 직접적인 답변. 설명보다 바로 적용
-- 디자인은 과감하고 큼직하게. 로고·회사명 크게. 밋밋하거나 관공서 같은 느낌 싫어함
-- 회사 업무 중 멀티태스킹하며 작업함 → 확인 요청은 모아서
+- 디자인은 과감하고 큼직하게. 로고·회사명 크게. 밋밋하거나 관공서 같은 느낌 지양 (현재 디자인 원칙 섹션 유지)
+- 확인 요청은 여러 개를 모아서 한 번에
+
+## 비개발자 담당자와 작업할 때 (claude.ai/code 등)
+
+최초 제작자(백승헌 과장) 이후 담당자는 GitHub·코딩을 모를 수 있음. 사람용 설명서는 `운영설명서.md`.
+- 용어는 쉽게 풀어서 설명 (커밋→저장, PR→변경 요청서, merge→합치기)
+- **내용 수정(전화번호·직원·제품·제조사)은 관리자 페이지(/admin/)가 더 빠르고 안전하다고 먼저 안내.** 코드 수정은 디자인·기능·구조 변경일 때만
+- 변경 후 반드시 `python build.py`로 빌드·검사 통과 확인. 디자인 변경이면 헤드리스 브라우저로 데스크톱·모바일 캡처 확인
+- 작업을 브랜치에 올린 뒤에는 반영 방법을 단계별로 안내: ① Create PR ② GitHub에서 초록 [Merge pull request] → [Confirm merge] ③ Actions 탭 초록 체크 확인 ④ 1~2분 후 사이트 새로고침
+- data/ JSON의 id는 URL이므로 절대 변경 금지. 전화번호·비공개 이메일 입력 금지 (공개 저장소)
+- 비밀번호·토큰을 달라고 하지 말 것 (필요 없음)
+- 기능을 바꾸면 `운영설명서.md`와 이 파일도 함께 갱신

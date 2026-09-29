@@ -303,6 +303,7 @@ function refreshChrome() {
     item('org', '조직도', has(P.org)), item('brands', '제조사', has(P.brands) || has('static/logos/')),
     item('products', '제품', has('data/products/')), h('hr'),
     item('versions', '버전 기록 · 복구'),
+    h('button', { onclick: () => window.open(`https://github.com/${CFG.owner}/${CFG.repo}/blob/${CFG.branch}/%EC%9A%B4%EC%98%81%EC%84%A4%EB%AA%85%EC%84%9C.md`, '_blank') }, '운영설명서 ↗'),
     h('button', { onclick: logout }, '로그아웃'));
 }
 function inp(obj, key, { cls = 'inp', ph = '', area = false, base, onchange } = {}) {  // obj[key]를 바로 수정하는 입력칸
