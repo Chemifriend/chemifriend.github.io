@@ -114,7 +114,7 @@ img { max-width: 100%; }
 }
 .hero h1 .highlight { color: var(--green-bright); white-space: nowrap; }
 .hero-slogan-small { font-size: 1rem; color: #8b9bb0; font-style: italic; margin: 0 0 22px; letter-spacing: 0.01em; }
-.hero-desc { font-size: 1.2rem; color: #c3cedb; max-width: 720px; line-height: 1.8; margin: 0 0 48px; }
+.hero-desc { font-size: 1.2rem; color: #c3cedb; max-width: 720px; line-height: 1.8; margin: 0 0 104px; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 110px; }
 /* 지표: 박스 대신 상단 선 + 4열 정보 띠 */
 .metrics-grid {
@@ -352,7 +352,7 @@ img { max-width: 100%; }
   .logo-subtitle { font-size: 0.68rem; }
   .main-nav { width: 100%; gap: 28px; font-size: 0.95rem; border-top: 1px solid var(--line); margin-top: 8px; }
   .hero-inner { padding-top: 72px; }
-  .hero-desc { font-size: 1.05rem; }
+  .hero-desc { font-size: 1.05rem; margin-bottom: 64px; }
   .hero-actions { margin-bottom: 64px; }
   .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
   .metric-item { padding: 26px 16px 30px 0; }
