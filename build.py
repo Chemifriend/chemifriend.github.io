@@ -108,15 +108,56 @@ def load_content():
     brand_intro_rows = read_table_sheet(wb["브랜드소개"]) if "브랜드소개" in wb.sheetnames else []
     brand_intro = {b.get("슬러그", ""): b for b in brand_intro_rows}
 
+    # 조직도 + 브랜드 담당자
+    #   조직원 시트의 "이메일(공개)"에는 홈페이지에 노출할 주소만 넣는다 (공개 저장소).
+    #   브랜드담당 시트: 슬러그 / 담당자(한글이름 또는 "전체") / 분야 — 사람별 담당 브랜드와
+    #   부서 설명(담당 브랜드 목록)은 여기서 자동 계산한다.
     dept_rows = read_table_sheet(wb["부서"])
     people_rows = read_table_sheet(wb["조직원"])
+    person_by_name = {p.get("이름(한글)", ""): p for p in people_rows}
+    public_people = [p for p in people_rows if p.get("이메일(공개)")]
+    brand_name_of = {a.get("슬러그", ""): a.get("회사명", "") for a in business_areas}
+
+    brand_contacts = OrderedDict()  # 슬러그 -> [{이름..., 이메일, 분야, 전체}]
+    for p in people_rows:
+        p["담당브랜드"] = []
+    contact_rows = read_table_sheet(wb["브랜드담당"]) if "브랜드담당" in wb.sheetnames else []
+    for c in contact_rows:
+        slug = c.get("슬러그", "")
+        who = c.get("담당자(한글이름 또는 전체)", "").strip()
+        field_ko, field_en = c.get("분야(한글)", ""), c.get("분야(영문)", "")
+        if who == "전체":
+            brand_contacts.setdefault(slug, []).append({
+                "전체": True,
+                "이메일목록": ",".join(x["이메일(공개)"] for x in public_people),
+            })
+            continue
+        person = person_by_name.get(who)
+        if not person:
+            print(f"[경고] 브랜드담당 시트: '{who}'가 조직원 시트에 없습니다 (슬러그 {slug})")
+            continue
+        brand_contacts.setdefault(slug, []).append({**person, "분야(한글)": field_ko, "분야(영문)": field_en})
+        label = brand_name_of.get(slug, slug)
+        if field_en:
+            label += f" · {field_en}"
+        person["담당브랜드"].append(label)
+
     org_by_dept = OrderedDict()
     for d in dept_rows:
-        org_by_dept[d.get("부서", "")] = {"설명": d.get("설명", ""), "인원": []}
+        org_by_dept[d.get("부서", "")] = {"부서(한글)": d.get("부서(한글)", ""), "설명": d.get("설명", ""), "인원": []}
     for p in people_rows:
         dept = p.get("부서", "")
-        org_by_dept.setdefault(dept, {"설명": "", "인원": []})
+        org_by_dept.setdefault(dept, {"부서(한글)": "", "설명": "", "인원": []})
         org_by_dept[dept]["인원"].append(p)
+    for info in org_by_dept.values():
+        if not info["설명"]:
+            brands = []
+            for m in info["인원"]:
+                for b in m["담당브랜드"]:
+                    name = b.split(" · ")[0]
+                    if name not in brands:
+                        brands.append(name)
+            info["설명"] = " · ".join(brands)
 
     # 제품상세 -> 카테고리 > 페이지명(제품군) > 소그룹 > 품목 리스트, 그룹별 동적 스펙 컬럼 계산
     products_by_category = OrderedDict()
@@ -194,6 +235,7 @@ def load_content():
         "area_by_slug": area_by_slug,
         "brand_intro": brand_intro,
         "products_by_category": products_by_category,
+        "brand_contacts": brand_contacts,
     }
 
 
@@ -224,6 +266,7 @@ def build():
         family_slugs=family_slugs,
         family_summary=family_summary,
         stats=data["stats"],
+        brand_contacts=data["brand_contacts"],
         slugify=slugify,
         meta_keywords="케미프렌드,Chemifriend,Cabot,Carbon black,Synthomer,Arkema,Syensqo,화학원료 유통",
     )

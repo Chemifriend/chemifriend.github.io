@@ -23,6 +23,7 @@
       <h1>{{ area.회사명 }}</h1>
       {% if intro.영문슬로건 %}<p class="brand-slogan">"{{ intro.영문슬로건 }}"</p>{% endif %}
       {% if intro.한국어소개 %}<p class="brand-desc">{{ intro.한국어소개 }}</p>{% endif %}
+      {% set slug = area.슬러그 %}{% include "_brand_contact.html" %}
     </div>
   </div>
 </section>

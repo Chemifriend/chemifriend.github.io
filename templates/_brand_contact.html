@@ -1,0 +1,23 @@
+{# 브랜드 문의 담당자. 사용 전 slug 변수 지정: {% set slug = area.슬러그 %} — 데이터는 content.xlsx "브랜드담당" 시트 #}
+{% set contacts = brand_contacts.get(slug, []) %}
+{% if contacts %}
+<div class="brand-contact">
+  <p class="brand-contact-label">문의 담당 <span>Contact</span></p>
+  <ul class="brand-contact-list">
+    {% for c in contacts %}
+    {% if c.전체 %}
+    <li>
+      <div class="bc-name">영업팀 <span>Sales Team</span></div>
+      <a class="bc-mail" href="mailto:{{ c.이메일목록 }}">이메일 문의 →</a>
+    </li>
+    {% else %}
+    <li>
+      <div class="bc-name">{{ c['이름(한글)'] }} <span>{{ c['이름(영문)'] }}</span></div>
+      <div class="bc-meta">{{ c['직급'] }} {{ c['직급(영문)'] }}{% if c['분야(한글)'] %} — {{ c['분야(한글)'] }} {{ c['분야(영문)'] }}{% endif %}</div>
+      {% if c['이메일(공개)'] %}<a class="bc-mail" href="mailto:{{ c['이메일(공개)'] }}">{{ c['이메일(공개)'] }}</a>{% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

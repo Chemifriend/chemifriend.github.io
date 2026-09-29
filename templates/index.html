@@ -70,19 +70,20 @@
     </div>
     <div class="org-grid">
       {% for dept, info in org_by_dept.items() %}
-      <div class="org-card{{ ' org-card-lead' if dept == 'President' }}">
+      <div class="org-card{{ ' org-card-lead' if loop.first }}">
         <div class="org-card-header">
-          <h3 class="org-dept-title">{{ dept }}</h3>
+          <p class="org-dept-en">{{ dept }}</p>
+          <h3 class="org-dept-title">{{ info['부서(한글)'] or dept }}</h3>
           {% if info.설명 %}<p class="org-dept-desc">{{ info.설명 }}</p>{% endif %}
         </div>
         <div class="org-members">
           {% for m in info.인원 %}
           <div class="org-person">
-            <span class="person-avatar">{{ m.이름[0] if m.이름 else "?" }}</span>
-            <div>
-              <div class="person-name">{{ m.이름 }}</div>
-              {% if m.담당분야 %}<div class="person-role">{{ m.담당분야 }}</div>{% endif %}
-            </div>
+            <div class="person-name">{{ m['이름(한글)'] }} <span class="person-name-en">{{ m['이름(영문)'] }}</span></div>
+            <div class="person-title">{{ m['직급'] }} <span>{{ m['직급(영문)'] }}</span>{% if m['구분'] %} <em class="person-tag">{{ m['구분'] }}</em>{% endif %}</div>
+            {% for b in m['담당브랜드'] %}<div class="person-role">{{ b }}</div>{% endfor %}
+            {% if m['담당분야'] %}<div class="person-role">{{ m['담당분야'] }}</div>{% endif %}
+            {% if m['이메일(공개)'] %}<a class="person-mail" href="mailto:{{ m['이메일(공개)'] }}">{{ m['이메일(공개)'] }}</a>{% endif %}
           </div>
           {% endfor %}
         </div>
@@ -123,7 +124,7 @@
           <div class="contact-meta-item"><strong>Tel</strong>{{ company.전화 }}</div>
           <div class="contact-meta-item"><strong>Fax</strong>{{ company.팩스 }}</div>
         </div>
-        <a class="btn-primary" style="margin-top:28px;" href="{{ base_path }}contact.html">문의하기 →</a>
+        <a class="btn-primary" style="margin-top:28px;" href="{{ base_path }}contact.html">제품별 문의 담당 →</a>
       </div>
       <div class="location-map"><iframe src="{{ company.구글맵_임베드_URL }}" width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
     </div>
