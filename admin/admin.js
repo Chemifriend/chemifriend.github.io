@@ -24,6 +24,7 @@ const COMPANY_FIELDS = [  // 회사정보 입력 화면 정의 — 항목 추가
   { key: '회사명', label: '회사명', help: '사이트 상단·하단에 표시', req: true },
   { key: '영문명', label: '영문 회사명', req: true },
   { key: '대표자', label: '대표자', req: true },
+  { key: '대표자(영문)', label: '대표자 (영문)', help: '영문 사이트용 (예: Jong Won JUNG)' },
   { key: '사업자등록번호', label: '사업자등록번호' },
   { key: '주소', label: '주소', req: true },
   { key: '영문주소', label: '영문 주소' },
@@ -32,6 +33,8 @@ const COMPANY_FIELDS = [  // 회사정보 입력 화면 정의 — 항목 추가
   { key: '슬로건', label: '영문 슬로건', help: '메인 첫 화면 제목 아래 작은 글씨' },
   { key: 'CEO_인사말_제목', label: 'CEO 인사말 제목', help: '메인 첫 화면 큰 제목으로도 쓰임' },
   { key: 'CEO_인사말_본문', label: 'CEO 인사말 본문', type: 'textarea', help: '문단 사이에 빈 줄 한 줄. 첫 문단은 크게 표시됩니다' },
+  { key: 'CEO_인사말_제목(영문)', label: 'CEO 인사말 제목 (영문)', help: '영문 사이트 첫 화면 큰 제목. "Chemifriend" 글자는 초록색으로 강조됨' },
+  { key: 'CEO_인사말_본문(영문)', label: 'CEO 인사말 본문 (영문)', type: 'textarea', help: '영문 사이트용. 문단 사이에 빈 줄 한 줄' },
   { key: '구글맵_임베드_URL', label: '구글 지도 주소', help: '구글지도 → 공유 → 지도 퍼가기 → src="…" 안의 주소' },
 ];
 const ID_RE = /^[a-z0-9가-힣]+(?:-[a-z0-9가-힣]+)*$/;
@@ -168,6 +171,7 @@ function validate() {  // build.py validate()와 같은 규칙 → {E: 오류, W
   for (const f of COMPANY_FIELDS) if (f.req && !String(c[f.key] || '').trim()) E.push(`회사정보: '${f.label}' 비어 있음`);
   historyList().forEach((x, i) => {
     if (!/^\d{4}\.\d{2}$/.test(x.연월 || '')) E.push(`연혁 ${i + 1}번째: 연월 '${x.연월 || ''}' — 2024.05 형식`);
+    if (x.내용 && !x['내용(영문)']) W.push(`연혁 ${x.연월 || i + 1}: 영문 내용 없음 (영문 사이트에 한국어로 표시됨)`);
     if (!String(x.내용 || '').trim()) E.push(`연혁 ${i + 1}번째: 내용 비어 있음`);
   });
   const deptIds = org().departments.map(d => d.id);
@@ -189,6 +193,7 @@ function validate() {  // build.py validate()와 같은 규칙 → {E: 오류, W
     if (!b.회사명) E.push(`제조사 ${b.id}: 회사명 비어 있음`);
     if (b.로고 && !S.logos.includes(b.로고) && !S.binary[`static/logos/${b.로고}`]) E.push(`제조사 ${name}: 로고 파일 없음 (${b.로고})`);
     if (!b.로고 && !b.기타묶음) W.push(`제조사 ${name}: 로고 없음`);
+    if (b.노출 && b.한국어소개 && !b['소개(영문)']) W.push(`제조사 ${name}: 영문 소개 없음`);
     for (const c2 of b.문의담당 || []) if (!pIds.includes(c2.사람)) E.push(`제조사 ${name}: 문의담당 '${c2.사람}'이(가) 직원 목록에 없음`);
     if (b.노출 && !(b.문의담당 || []).length && !b.문의_영업팀전체) W.push(`제조사 ${name}: 문의 담당자 없음`);
     dupes(fams(b.id).map(f => f.id)).forEach(x => E.push(`${name}: 제품군 id 중복 '${x}'`));
@@ -291,7 +296,7 @@ function refreshChrome() {
     h('div', { class: 'top-status' }, h('i', { class: 'dot ' + ({ ok: 'ok', run: 'run', fail: 'fail' }[dep.state] || '') }),
       dep.url ? h('a', { href: dep.url, target: '_blank', style: 'color:inherit' }, dep.text) : dep.text),
     h('div', { class: 'top-spacer' }),
-    h('a', { class: 'site', href: '../', target: '_blank' }, '사이트 보기 ↗'),
+    h('a', { class: 'site', href: '../', target: '_blank' }, '사이트 ↗'), h('a', { class: 'site', href: '../en/', target: '_blank' }, 'English ↗'),
     n ? h('div', { class: 'pending' },
       h('button', { class: 'btn', onclick: discardAll }, '변경 취소'),
       h('button', { class: 'btn primary', onclick: openReview }, '변경 확인·반영 ', h('span', { class: 'badge' }, n)))
@@ -350,7 +355,7 @@ const VIEWS = {
     const known = COMPANY_FIELDS.map(f => f.key), extra = Object.keys(c).filter(k => !known.includes(k));
     const row = f => h('div', { class: 'field' },
       h('label', {}, f.label, f.req ? ' *' : '', f.help ? h('span', { class: 'help' }, f.help) : null),
-      inp(c, f.key, { area: f.type === 'textarea', cls: 'inp' + (f.key === 'CEO_인사말_본문' ? ' tall' : ''), base: base[f.key] }));
+      inp(c, f.key, { area: f.type === 'textarea', cls: 'inp' + (f.key.startsWith('CEO_인사말_본문') ? ' tall' : ''), base: base[f.key] }));
     return [h('h1', {}, '회사정보'), h('p', { class: 'lead' }, '사이트 상단·하단, 메인, 문의 페이지에 쓰이는 기본 정보입니다. 노란 칸 = 수정됨'),
       h('div', { class: 'panel' }, COMPANY_FIELDS.map(row), extra.map(k => row({ key: k, label: k, help: '기타 항목' })))];
   },
@@ -360,13 +365,13 @@ const VIEWS = {
     const redraw = () => { render(); touch(); };
     return [h('h1', {}, '연혁'), h('p', { class: 'lead' }, '메인 페이지 연혁에 위에서부터 순서대로 표시됩니다. 연월은 2024.05 형식.'),
       h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' },
-        h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, '연월'), h('th', {}, '내용'), h('th', { class: 'act' }))),
+        h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, '연월'), h('th', {}, '내용'), h('th', {}, '내용 (영문)'), h('th', { class: 'act' }))),
         h('tbody', {}, list.map((x, i) => h('tr', {},
-          h('td', { class: 'num' }, i + 1), h('td', { style: 'width:130px' }, inp(x, '연월', { cls: '', ph: '2024.05' })), h('td', {}, inp(x, '내용', { cls: '' })),
+          h('td', { class: 'num' }, i + 1), h('td', { style: 'width:130px' }, inp(x, '연월', { cls: '', ph: '2024.05' })), h('td', {}, inp(x, '내용', { cls: '' })), h('td', {}, inp(x, '내용(영문)', { cls: '', ph: '영문 사이트용' })),
           act(ib('↑', '위로', () => move(list, i, -1) && redraw()), ib('↓', '아래로', () => move(list, i, 1) && redraw()),
             ib('✕', '삭제', () => { list.splice(i, 1); redraw(); }, 'x'))))))),
       h('div', { class: 'row', style: 'margin-top:14px' },
-        h('button', { class: 'btn', onclick: () => { list.push({ 연월: '', 내용: '' }); redraw(); } }, '+ 연혁 추가'),
+        h('button', { class: 'btn', onclick: () => { list.push({ 연월: '', 내용: '', '내용(영문)': '' }); redraw(); } }, '+ 연혁 추가'),
         h('button', { class: 'btn ghost', onclick: () => { list.sort((a, b) => a.연월.localeCompare(b.연월)); redraw(); } }, '연월순 정렬'))];
   },
 
@@ -512,8 +517,9 @@ function brandEditor(b) {
       h('div', {}, h('label', { class: 'check' }, h('input', { type: 'checkbox', checked: !!b.노출, onchange: e => { b.노출 = e.target.checked; redraw(); } }), '표시'),
         h('span', { class: 'help' }, '끄면 사이트에서 숨겨지고 제품 데이터는 그대로 보관됩니다 (다시 켜면 복구)'))),
     F('회사명 *', '회사명'), F('국가', '국가', { help: '예: USA' }), F('설립연도', '설립연도'), F('영문 슬로건', '영문슬로건'),
-    F('한국어 소개', '한국어소개', { area: true }),
+    F('한국어 소개', '한국어소개', { area: true }), F('영문 소개', '소개(영문)', { area: true, help: '영문 사이트용' }),
     F('제품 요약', '제품요약', { help: '카드에 "취급 제품: …"으로 표시. 비우면 제품군 이름이 자동으로 나열됨' }),
+    F('제품 요약 (영문)', '제품요약(영문)', { help: '영문 사이트 카드용. 비우면 제품군 이름 자동' }),
     h('div', { class: 'field' }, h('label', {}, '로고'), drop),
     h('div', { class: 'field' }, h('label', {}, '문의 담당', h('span', { class: 'help' }, '브랜드·제품 페이지와 Contact 페이지에 표시')), contacts),
     h('div', { class: 'field' }, h('label', {}, '기타 묶음'),
@@ -525,7 +531,7 @@ async function addBrand() {
   const name = await ask({ title: '제조사 추가', body: '회사명을 입력하세요. (영문 권장 — 페이지 주소가 이 이름으로 만들어집니다)', input: { placeholder: '예: BASF' }, ok: '추가' });
   if (!name) return;
   const id = uniqueId(slugify(name), new Set(brands().map(b => b.id)));
-  brands().push({ id, 회사명: name, 로고: '', 노출: true, 기타묶음: false, 국가: '', 설립연도: '', 영문슬로건: '', 한국어소개: '', 제품요약: '', 문의_영업팀전체: false, 문의담당: [] });
+  brands().push({ id, 회사명: name, 로고: '', 노출: true, 기타묶음: false, 국가: '', 설립연도: '', 영문슬로건: '', 한국어소개: '', '소개(영문)': '', 제품요약: '', '제품요약(영문)': '', 문의_영업팀전체: false, 문의담당: [] });
   S.sel.brand = id; render(); touch();
 }
 async function deleteBrand(b) {
@@ -840,15 +846,15 @@ async function exportBackup() {  // 현재 화면 기준 전체 내용을 엑셀
   const wb = X.utils.book_new(), used = new Set();
   const add = (name, aoa, w) => X.utils.book_append_sheet(wb, textSheet(X, aoa, w), sheetName(name, used));
   add('회사정보', [['항목', '내용'], ...Object.entries(company())], [22, 90]);
-  add('연혁', [['연월', '내용'], ...historyList().map(x => [x.연월, x.내용])], [12, 70]);
+  add('연혁', [['연월', '내용', '내용(영문)'], ...historyList().map(x => [x.연월, x.내용, x['내용(영문)'] || ''])], [12, 60, 60]);
   const dn = Object.fromEntries(org().departments.map(d => [d.id, d['이름(한글)'] || d['이름(영문)']]));
   add('조직도', [['부서', '이름', '영문 이름', '직급', '직급(영문)', '구분', '담당분야', '이메일(공개)'],
     ...org().people.map(p => [dn[p.부서] || p.부서, p['이름(한글)'], p['이름(영문)'], p.직급, p['직급(영문)'], p.구분, p.담당분야, p['이메일(공개)']])],
     [14, 10, 18, 8, 22, 6, 30, 28]);
-  add('제조사', [['id', '회사명', '표시', '국가', '설립연도', '영문 슬로건', '한국어 소개', '제품 요약', '로고', '문의 담당'],
-    ...brands().map(b => [b.id, b.회사명, b.노출 ? '표시' : '숨김', b.국가, b.설립연도, b.영문슬로건, b.한국어소개, b.제품요약, b.로고,
+  add('제조사', [['id', '회사명', '표시', '국가', '설립연도', '영문 슬로건', '한국어 소개', '영문 소개', '제품 요약', '제품 요약(영문)', '로고', '문의 담당'],
+    ...brands().map(b => [b.id, b.회사명, b.노출 ? '표시' : '숨김', b.국가, b.설립연도, b.영문슬로건, b.한국어소개, b['소개(영문)'] || '', b.제품요약, b['제품요약(영문)'] || '', b.로고,
       (b.문의담당 || []).map(c => personName(c.사람) + (c['분야(한글)'] ? `(${c['분야(한글)']})` : '')).join(', ') + (b.문의_영업팀전체 ? ' + 영업팀 전체' : '')])],
-    [18, 14, 6, 10, 8, 30, 60, 40, 16, 40]);
+    [18, 14, 6, 10, 8, 30, 60, 60, 40, 40, 16, 40]);
   for (const b of brands()) {
     const keys = [];
     fams(b.id).forEach(f => f.소그룹.forEach(g => g.스펙항목.forEach(k => { if (!keys.includes(k)) keys.push(k); })));

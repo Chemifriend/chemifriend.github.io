@@ -3,8 +3,8 @@
 <section class="section page-header">
   <div class="section-inner">
     <p class="section-eyebrow">Contact</p>
-    <h1>문의하기</h1>
-    <p class="page-lead">궁금하신 사항은 아래 연락처로 문의해 주세요.</p>
+    <h1>{{ t.contact_title }}</h1>
+    <p class="page-lead">{{ t.contact_lead }}</p>
   </div>
 </section>
 
@@ -12,8 +12,8 @@
   <div class="section-inner">
     <div class="contact-strip">
       <div class="contact-info-block">
-        <h3>{{ company.회사명 }}</h3>
-        <p>{{ company.주소 }}<br>{{ company.영문주소 }}</p>
+        <h3>{{ company._name }}</h3>
+        <p>{{ company._addr }}<br>{{ company._addr2 }}</p>
         <div class="contact-meta-list">
           <div class="contact-meta-item"><strong>Tel</strong>{{ company.전화 }}</div>
           <div class="contact-meta-item"><strong>Fax</strong>{{ company.팩스 }}</div>
@@ -28,7 +28,7 @@
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag">Contact by Brand</span>
-      <h2 class="section-title">제품별 문의 담당</h2>
+      <h2 class="section-title">{{ t.contact_by_brand }}</h2>
     </div>
     <div class="contact-brand-list">
       {% for b in brands %}

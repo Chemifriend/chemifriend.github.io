@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <nav class="breadcrumb">
-  <a href="{{ base_path }}product.html">Product</a> <span>/</span>
-  <a href="{{ base_path }}product/{{ brand.id }}/index.html">{{ brand.회사명 }}</a> <span>/</span>
-  <a href="{{ base_path }}product/{{ brand.id }}/{{ family.id }}/index.html">{{ family.이름 }}</a> <span>/</span>
+  <a href="{{ pb }}product.html">Product</a> <span>/</span>
+  <a href="{{ pb }}product/{{ brand.id }}/index.html">{{ brand.회사명 }}</a> <span>/</span>
+  <a href="{{ pb }}product/{{ brand.id }}/{{ family.id }}/index.html">{{ family.이름 }}</a> <span>/</span>
   <span>{{ item.품명 }}</span>
 </nav>
 

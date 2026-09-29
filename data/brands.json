@@ -9,7 +9,9 @@
     "설립연도": "1882",
     "영문슬로건": "Creating for Tomorrow",
     "한국어소개": "1882년 미국 보스턴에서 설립된 글로벌 스페셜티 케미칼 기업으로, 카본블랙과 흄드실리카 등 초미세 입자 소재 분야에서 140년 넘게 앞선 기술력을 쌓아왔습니다.",
+    "소개(영문)": "Founded in Boston, USA in 1882, Cabot is a global specialty chemicals company with more than 140 years of technological leadership in ultra-fine particle materials such as carbon black and fumed silica.",
     "제품요약": "카본블랙, 흄드메탈옥사이드, 흄드메탈옥사이드 분산액",
+    "제품요약(영문)": "Carbon black, fumed metal oxides, fumed metal oxide dispersions",
     "문의_영업팀전체": false,
     "문의담당": [
       {
@@ -34,7 +36,9 @@
     "설립연도": "1863",
     "영문슬로건": "Products that bind the world together",
     "한국어소개": "1863년 영국 런던에서 설립된 스페셜티 케미칼 기업으로, 접착·코팅·건설용 고성능 폴리머를 전문으로 합니다. 2022년 Eastman의 접착수지 사업부를 인수해 하이드로카본 레진, APAO, 로진 등의 제품군을 이어받았습니다.",
+    "소개(영문)": "Founded in London, UK in 1863, Synthomer is a specialty chemicals company focused on high-performance polymers for adhesives, coatings and construction.",
     "제품요약": "하이드로카본 레진, APAO(비정질 폴리올레핀), 로진",
+    "제품요약(영문)": "Hydrocarbon resins, APAO (amorphous polyolefins), rosin",
     "문의_영업팀전체": false,
     "문의담당": [
       {
@@ -59,7 +63,9 @@
     "설립연도": "2004",
     "영문슬로건": "Innovative Chemistry",
     "한국어소개": "2004년 프랑스에서 설립된 스페셜티 소재 기업으로, 첨단 폴리머와 기능성 소재 분야에서 혁신적인 화학 솔루션을 제공합니다.",
+    "소개(영문)": "Founded in France in 2004, Arkema is a specialty materials company providing innovative chemical solutions in advanced polymers and functional materials.",
     "제품요약": "첨가제·왁스, 레진, 증점제(Coatex), 나노스트렝스, 피에조테크",
+    "제품요약(영문)": "Additives & waxes, resins, thickeners (Coatex), Nanostrength, Piezotech",
     "문의_영업팀전체": false,
     "문의담당": [
       {
@@ -79,7 +85,9 @@
     "설립연도": "2023",
     "영문슬로건": "Reinvent Progress",
     "한국어소개": "2023년 Solvay에서 분사된 벨기에 브뤼셀 소재의 첨단소재·스페셜티 케미칼 기업으로, 스페셜티 폴리머와 컴포지트 분야를 이끌고 있습니다.",
+    "소개(영문)": "Spun off from Solvay in 2023 and headquartered in Brussels, Belgium, Syensqo is an advanced materials and specialty chemicals company leading in specialty polymers and composites.",
     "제품요약": "UV 안정제·HALS·산화방지제",
+    "제품요약(영문)": "UV stabilizers, HALS, antioxidants",
     "문의_영업팀전체": false,
     "문의담당": [
       {
@@ -99,7 +107,9 @@
     "설립연도": "",
     "영문슬로건": "",
     "한국어소개": "",
+    "소개(영문)": "",
     "제품요약": "첨가제, 안료, 용제·수지, 단량체, 글로벌 소싱, 계면활성제",
+    "제품요약(영문)": "Additives, pigments, solvents & resins, monomers, global sourcing, surfactants",
     "문의_영업팀전체": true,
     "문의담당": []
   }

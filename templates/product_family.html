@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <nav class="breadcrumb">
-  <a href="{{ base_path }}product.html">Product</a> <span>/</span>
-  <a href="{{ base_path }}product/{{ brand.id }}/index.html">{{ brand.회사명 }}</a> <span>/</span>
+  <a href="{{ pb }}product.html">Product</a> <span>/</span>
+  <a href="{{ pb }}product/{{ brand.id }}/index.html">{{ brand.회사명 }}</a> <span>/</span>
   <span>{{ family.이름 }}</span>
 </nav>
 
@@ -22,7 +22,7 @@
         <table class="spec-table">
           <thead>
             <tr>
-              <th class="col-name">품명</th>
+              <th class="col-name">{{ t.col_name }}</th>
               <th class="col-app">Application</th>
               {% for col in group.스펙항목 %}<th>{{ col }}</th>{% endfor %}
             </tr>
@@ -30,7 +30,7 @@
           <tbody>
             {% for item in group.제품 %}
             <tr>
-              <td class="col-name"><a href="{{ base_path }}product/{{ brand.id }}/{{ family.id }}/{{ item.id }}.html">{{ item.품명 }}</a></td>
+              <td class="col-name"><a href="{{ pb }}product/{{ brand.id }}/{{ family.id }}/{{ item.id }}.html">{{ item.품명 }}</a></td>
               <td class="col-app">{{ item.용도 }}</td>
               {% for col in group.스펙항목 %}<td>{{ item.스펙.get(col, '') }}</td>{% endfor %}
             </tr>

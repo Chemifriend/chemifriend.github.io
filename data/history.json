@@ -1,54 +1,67 @@
 [
   {
     "연월": "2002.03",
-    "내용": "케미프렌드 설립"
+    "내용": "케미프렌드 설립",
+    "내용(영문)": "Chemifriend founded"
   },
   {
     "연월": "2003.06",
-    "내용": "한국로디아 폴리아미드와 대리점 계약 체결"
+    "내용": "한국로디아 폴리아미드와 대리점 계약 체결",
+    "내용(영문)": "Distribution agreement with Rhodia Polyamide Korea"
   },
   {
     "연월": "2006.02",
-    "내용": "스페인 OMICRON 社와 대리점 계약 체결"
+    "내용": "스페인 OMICRON 社와 대리점 계약 체결",
+    "내용(영문)": "Distribution agreement with OMICRON (Spain)"
   },
   {
     "연월": "2008.02",
-    "내용": "미국 CABOT 社 와 대리점 계약 체결"
+    "내용": "미국 CABOT 社 와 대리점 계약 체결",
+    "내용(영문)": "Distribution agreement with CABOT (USA)"
   },
   {
     "연월": "2008.06",
-    "내용": "프랑스 ARKEMA 社 와 대리점 계약 체결"
+    "내용": "프랑스 ARKEMA 社 와 대리점 계약 체결",
+    "내용(영문)": "Distribution agreement with ARKEMA (France)"
   },
   {
     "연월": "2009.09",
-    "내용": "미국 EASTMAN 社 와 대리점 계약 체결"
+    "내용": "미국 EASTMAN 社 와 대리점 계약 체결",
+    "내용(영문)": "Distribution agreement with EASTMAN (USA)"
   },
   {
     "연월": "2010.09",
-    "내용": "독일 HENKEL 社 와 구매 대행 업무 계약 체결"
+    "내용": "독일 HENKEL 社 와 구매 대행 업무 계약 체결",
+    "내용(영문)": "Purchasing agency agreement with HENKEL (Germany)"
   },
   {
     "연월": "2014.09",
-    "내용": "미국 FLOW POLYMERS 사와 대리점 계약 체결 (USA)"
+    "내용": "미국 FLOW POLYMERS 사와 대리점 계약 체결 (USA)",
+    "내용(영문)": "Distribution agreement with FLOW POLYMERS (USA)"
   },
   {
     "연월": "2015.05",
-    "내용": "ISO 9001 : 2008 인증"
+    "내용": "ISO 9001 : 2008 인증",
+    "내용(영문)": "ISO 9001:2008 certified"
   },
   {
     "연월": "2018.02",
-    "내용": "중국 WANHUA 社 와 대리점 계약 체결"
+    "내용": "중국 WANHUA 社 와 대리점 계약 체결",
+    "내용(영문)": "Distribution agreement with WANHUA (China)"
   },
   {
     "연월": "2018.05",
-    "내용": "ISO 9001 : 2015 인증 개정"
+    "내용": "ISO 9001 : 2015 인증 개정",
+    "내용(영문)": "ISO 9001:2015 certification renewed"
   },
   {
     "연월": "2020.01",
-    "내용": "벨기에 Solvay Cytec Logistics partner 계약 체결"
+    "내용": "벨기에 Solvay Cytec Logistics partner 계약 체결",
+    "내용(영문)": "Logistics partner agreement with Solvay Cytec (Belgium)"
   },
   {
     "연월": "2022.04",
-    "내용": "Distributor agreement with SYNTHOMER (UK)"
+    "내용": "Distributor agreement with SYNTHOMER (UK)",
+    "내용(영문)": "Distribution agreement with SYNTHOMER (UK)"
   }
 ]

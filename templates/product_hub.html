@@ -4,8 +4,8 @@
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag">Product</span>
-      <h2 class="section-title">취급 브랜드</h2>
-      <p class="section-desc">{{ company.회사명 }}가 파트너십을 맺고 있는 글로벌 화학소재 기업들입니다. 브랜드를 선택하면 취급 제품군을 확인할 수 있습니다.</p>
+      <h2 class="section-title">{{ t.hub_title }}</h2>
+      <p class="section-desc">{{ t.hub_desc.format(name=company._name) }}</p>
     </div>
     {% include "_brand_tiles.html" %}
   </div>

@@ -1,6 +1,6 @@
 <div class="brand-grid">
   {% for b in brands %}
-  <a class="brand-card" href="{{ base_path }}product/{{ b.id }}/index.html">
+  <a class="brand-card" href="{{ pb }}product/{{ b.id }}/index.html">
     <div>
       <div class="brand-card-header">
         {% if b.로고 %}
@@ -15,9 +15,9 @@
         {% endif %}
       </div>
       {% if b.영문슬로건 %}<p class="brand-card-slogan">"{{ b.영문슬로건 }}"</p>{% endif %}
-      {% if b.요약 %}<p class="brand-card-summary">취급 제품: {{ b.요약 }}</p>{% endif %}
+      {% if b._summary %}<p class="brand-card-summary">{{ t.products_label }}: {{ b._summary }}</p>{% endif %}
     </div>
-    <span class="brand-card-cta">제품군 스펙 보기 →</span>
+    <span class="brand-card-cta">{{ t.view_specs }}</span>
   </a>
   {% endfor %}
 </div>

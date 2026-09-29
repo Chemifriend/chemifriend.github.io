@@ -5,21 +5,21 @@
   <div class="hero-pattern"></div>
   <div class="hero-inner">
     <div class="hero-tag"><span></span> Global Specialty Chemicals Distributor</div>
-    {% set title = company.CEO_인사말_제목 %}
-    {% set marker = company.회사명 %}
-    {% if marker in title %}
+    {% set title = company._title %}
+    {% set marker = company._marker %}
+    {% if marker and marker in title %}
     {% set parts = title.split(marker) %}
     <h1>{{ parts[0] }}<span class="highlight">{{ marker }}</span>{{ parts[1:]|join(marker) }}</h1>
     {% else %}
     <h1>{{ title }}</h1>
     {% endif %}
     <p class="hero-slogan-small">{{ company.슬로건 }}</p>
-    <p class="hero-desc">세계 유수의 글로벌 화학소재 기업들과의 공식 대리점 계약을 바탕으로, 전자·코팅·접착·플라스틱 등 첨단 산업 분야에 검증된 원료를 안정적으로 공급합니다.</p>
+    <p class="hero-desc">{{ t.hero_desc }}</p>
     <div class="metrics-grid">
-      <div class="metric-item"><div class="metric-num">{{ stats.founded_year }}<span>~</span></div><div class="metric-label">설립 연도</div></div>
-      <div class="metric-item"><div class="metric-num">{{ stats.partner_count }}<span>대</span></div><div class="metric-label">글로벌 파트너십</div></div>
-      <div class="metric-item"><div class="metric-num">{{ stats.spec_count }}<span>+</span></div><div class="metric-label">보유 제품 스펙</div></div>
-      <div class="metric-item"><div class="metric-num">{{ stats.iso_label }}</div><div class="metric-label">품질경영시스템 인증</div></div>
+      <div class="metric-item"><div class="metric-num">{{ stats.founded_year }}<span>~</span></div><div class="metric-label">{{ t.m_founded }}</div></div>
+      <div class="metric-item"><div class="metric-num">{{ stats.partner_count }}{% if t.m_partner_unit %}<span>{{ t.m_partner_unit }}</span>{% endif %}</div><div class="metric-label">{{ t.m_partner }}</div></div>
+      <div class="metric-item"><div class="metric-num">{{ stats.spec_count }}<span>+</span></div><div class="metric-label">{{ t.m_specs }}</div></div>
+      <div class="metric-item"><div class="metric-num">{{ stats.iso_label }}</div><div class="metric-label">{{ t.m_iso }}</div></div>
     </div>
   </div>
 </section>
@@ -28,8 +28,8 @@
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag">Global Partners</span>
-      <h2 class="section-title">글로벌 파트너십 &amp; 사업 영역</h2>
-      <p class="section-desc">세계적인 화학소재 기업들과 함께 검증된 정밀 화학소재를 국내 시장에 안정적으로 공급합니다.</p>
+      <h2 class="section-title">{{ t.partners_title }}</h2>
+      <p class="section-desc">{{ t.partners_desc }}</p>
     </div>
     {% include "_brand_tiles.html" %}
   </div>
@@ -41,15 +41,15 @@
       <div class="greeting-aside">
         <div>
           <div class="greeting-aside-tag">CEO Message</div>
-          <h3>{{ company.CEO_인사말_제목 }}</h3>
+          <h3>{{ company._title }}</h3>
         </div>
         <div class="greeting-leader">
-          <div class="leader-title">대표이사</div>
-          <div class="leader-name">{{ company.대표자 }}</div>
+          <div class="leader-title">{{ t.ceo_label }}</div>
+          <div class="leader-name">{{ company._ceo }}</div>
         </div>
       </div>
       <div class="greeting-content">
-        {% for para in company.CEO_인사말_본문.split('\n\n') %}
+        {% for para in company._body.split('\n\n') %}
         <p>{{ para }}</p>
         {% endfor %}
       </div>
@@ -61,22 +61,22 @@
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag">Organization</span>
-      <h2 class="section-title">조직도</h2>
-      <p class="section-desc">산업별 전문 지식을 갖춘 영업팀이 고객사의 애플리케이션에 맞는 원료를 제안합니다.</p>
+      <h2 class="section-title">{{ t.org_title }}</h2>
+      <p class="section-desc">{{ t.org_desc }}</p>
     </div>
     <div class="org-grid">
       {% for dept in departments %}
       <div class="org-card{{ ' org-card-lead' if loop.first }}">
         <div class="org-card-header">
-          <p class="org-dept-en">{{ dept['이름(영문)'] }}</p>
-          <h3 class="org-dept-title">{{ dept['이름(한글)'] or dept['이름(영문)'] }}</h3>
+          <p class="org-dept-en">{{ dept._sub }}</p>
+          <h3 class="org-dept-title">{{ dept._title }}</h3>
           {% if dept.설명 %}<p class="org-dept-desc">{{ dept.설명 }}</p>{% endif %}
         </div>
         <div class="org-members">
           {% for m in dept.인원 %}
           <div class="org-person">
-            <div class="person-name">{{ m['이름(한글)'] }} <span class="person-title">{{ m['직급'] }}</span>{% if m['구분'] %} <em class="person-tag">{{ m['구분'] }}</em>{% endif %}</div>
-            <div class="person-en">{{ m['이름(영문)'] }}{% if m['직급(영문)'] %} · {{ m['직급(영문)'] }}{% endif %}</div>
+            <div class="person-name">{{ m._n1 }} <span class="person-title">{{ m._t1 }}</span>{% if m['구분'] %} <em class="person-tag">{{ m['구분'] }}</em>{% endif %}</div>
+            <div class="person-en">{{ m._n2 }}{% if m._t2 %} · {{ m._t2 }}{% endif %}</div>
             {% for b in m['담당브랜드'] %}<div class="person-role">{{ b }}</div>{% endfor %}
             {% if m['담당분야'] %}<div class="person-role">{{ m['담당분야'] }}</div>{% endif %}
             {% if m['이메일(공개)'] %}<a class="person-mail" href="mailto:{{ m['이메일(공개)'] }}">{{ m['이메일(공개)'] }}</a>{% endif %}
@@ -93,15 +93,15 @@
   <div class="section-inner">
     <div class="section-header">
       <span class="section-tag">History</span>
-      <h2 class="section-title">케미프렌드의 발자취</h2>
-      <p class="section-desc">{{ stats.founded_year }}년 설립 이후의 주요 연혁입니다.</p>
+      <h2 class="section-title">{{ t.history_title }}</h2>
+      <p class="section-desc">{{ t.history_desc.format(year=stats.founded_year) }}</p>
     </div>
     <div class="history-timeline">
       {% for h in history %}
       <div class="timeline-row">
         <div class="timeline-content">
           <div class="timeline-date">{{ h.연월 }}</div>
-          <div class="timeline-text">{{ h.내용 }}</div>
+          <div class="timeline-text">{{ h._text }}</div>
         </div>
         <div class="timeline-badge-center"></div>
       </div>
@@ -114,13 +114,13 @@
   <div class="section-inner">
     <div class="contact-strip">
       <div class="contact-info-block">
-        <h3>찾아오시는 길</h3>
-        <p>{{ company.주소 }}<br>{{ company.영문주소 }}</p>
+        <h3>{{ t.visit_title }}</h3>
+        <p>{{ company._addr }}<br>{{ company._addr2 }}</p>
         <div class="contact-meta-list">
           <div class="contact-meta-item"><strong>Tel</strong>{{ company.전화 }}</div>
           <div class="contact-meta-item"><strong>Fax</strong>{{ company.팩스 }}</div>
         </div>
-        <a class="btn-primary" style="margin-top:28px;" href="{{ base_path }}contact.html">제품별 문의 담당 →</a>
+        <a class="btn-primary" style="margin-top:28px;" href="{{ pb }}contact.html">{{ t.contact_cta }}</a>
       </div>
       <div class="location-map"><iframe src="{{ company.구글맵_임베드_URL }}" width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
     </div>
