@@ -54,7 +54,10 @@
       </div>
       {% endif %}
       <a href="{{ pb }}contact.html" class="{{ 'active' if active == 'contact' }}">Contact</a>
-      <a href="{{ alt_url }}" class="lang-toggle" hreflang="{{ 'en' if lang == 'ko' else 'ko' }}">{{ t.lang_toggle }}</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        {% if lang == 'ko' %}<span class="on" aria-current="true">KOR</span><a href="{{ alt_url }}" hreflang="en">ENG</a>
+        {% else %}<a href="{{ alt_url }}" hreflang="ko">KOR</a><span class="on" aria-current="true">ENG</span>{% endif %}
+      </div>
     </nav>
   </div>
 </header>

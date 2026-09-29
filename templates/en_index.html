@@ -147,4 +147,6 @@
   </div>
 </section>
 <a class="btn-primary float-cta" href="#rfq">Request a quote</a>
+<script>/* 첫 화면을 지나면 고정 버튼 표시, 견적 폼이 보이면 숨김 */
+(function(){var b=document.querySelector('.float-cta'),f=document.getElementById('request');function u(){var r=f.getBoundingClientRect();b.classList.toggle('show',scrollY>innerHeight*0.8&&!(r.top<innerHeight&&r.bottom>0));}addEventListener('scroll',u,{passive:true});u();})();</script>
 {% endblock %}
