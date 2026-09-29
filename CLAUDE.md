@@ -160,7 +160,9 @@ docs/                  빌드 결과물 (.gitignore)
 - 페이지: en/index.html(en_index.html) + en/contact.html(en_contact.html) 2개뿐. 한국어 제품 페이지의 ENG 버튼은 en/index.html로
 - 구성: 히어로(Request a quote) → Why Korea(export.json 장점) → 서비스 → 네트워크·산업 → 파트너 → 견적 요청 폼 → 회사 소개·연혁 → 연락처. 우하단 고정 Request a quote 버튼
 - 문구: data/export.json (히어로, 서비스 목록, 네트워크 분야, 공급 산업, 문의 이메일·안내). 관리자 메뉴 "영문 수출 페이지"
-  - 문의_이메일 비면 이메일 공개 영업직 전원 mailto
+  - 문의_이메일 비면 company.json `문의_받는메일`(쉼표 목록, 현재 triplej·shbaek·sybae) → 그것도 비면 이메일 공개 영업직 전원
+  - 사진: Unsplash 무료 라이선스 사진을 images.unsplash.com 주소로 핫링크 (build.py `img()`가 크기 파라미터 부착). 산업 = [{이름, 설명, 사진}] 8개, 히어로_사진/물류_사진/네트워크_사진
+  - Web3Forms 무료는 CC 불가 → 가입 메일(shbaek@)에서 메일 전달 규칙으로 triplej@/sybae@에 전달
   - 국내 제조사 이름은 사용자가 확인한 곳만 넣을 것 (현재 분야만 표기). 약속성 문구(응답 기한 등) 임의 추가 금지
 - 회사 소개·연혁 영문: company `대표자(영문)`·`CEO_인사말_제목(영문)`·`CEO_인사말_본문(영문)`, history `내용(영문)`. 전화·팩스는 영문에서 +82 표기
 - build.py `UI` 사전(ko/en) + `localize()`가 언어별 `_` 키 부여. `pb`=같은 언어 페이지 기준, `alt_url`=다른 언어 대응 페이지, hreflang은 짝 있는 페이지만

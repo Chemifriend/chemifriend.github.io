@@ -106,6 +106,17 @@ def logo_height(filename: str) -> int:
     return round(h)
 
 
+def img_url(url, width, base_path=""):
+    """사진 주소 → 화면용 주소. Unsplash는 크기 지정, 저장소 안 파일(static/...)은 상대경로."""
+    if not url:
+        return ""
+    if "images.unsplash.com" in url:
+        return f"{url.split('?')[0]}?w={width}&q=75&auto=format&fit=crop"
+    if url.startswith("http"):
+        return url
+    return base_path + url.lstrip("/")
+
+
 def read_json(rel):
     return json.loads((DATA / rel).read_text(encoding="utf-8"))
 
@@ -174,9 +185,14 @@ def validate(d):
         E.append("회사정보: 문의폼_키 형식 오류 (Web3Forms Access Key는 xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 형태)")
     if not key:
         W.append("회사정보: 문의폼_키 없음 — 문의 폼이 메일 앱을 여는 방식으로 동작")
+    for k in ("문의_받는메일",):
+        for m in [x.strip() for x in str(c.get(k, "")).split(",") if x.strip()]:
+            if not EMAIL_RE.match(m):
+                E.append(f"회사정보: {k} 형식 오류 '{m}' (여러 개는 쉼표로 구분)")
     ex = d.get("export", {})
-    if ex.get("문의_이메일") and not EMAIL_RE.match(ex["문의_이메일"]):
-        E.append(f"수출 페이지: 문의 이메일 형식 오류 '{ex['문의_이메일']}'")
+    for m in [x.strip() for x in str(ex.get("문의_이메일", "")).split(",") if x.strip()]:
+        if not EMAIL_RE.match(m):
+            E.append(f"수출 페이지: 문의 이메일 형식 오류 '{m}'")
     for i, sv in enumerate(ex.get("서비스", []), 1):
         if not str(sv.get("제목", "")).strip():
             E.append(f"수출 페이지: 서비스 {i}번째 제목 비어 있음")
@@ -267,11 +283,12 @@ def prepare(d):
         "iso_label": iso_label,
     }
     ex = dict(d.get("export", {}))
-    ex["_mail"] = ex.get("문의_이메일") or ",".join(public_emails)  # 비어 있으면 이메일 공개 직원 전원
+    inbox = d["company"].get("문의_받는메일") or ",".join(public_emails)  # 문의 받는 메일 (비면 이메일 공개 직원 전원)
+    ex["_mail"] = ex.get("문의_이메일") or inbox
     for sv in ex.get("장점", []):
         sv.setdefault("설명", "")
     return {"company": d["company"], "history": history, "departments": departments, "brands": brands, "stats": stats, "export": ex,
-            "inquiry_ko": ",".join(public_emails)}
+            "inquiry_ko": inbox}
 
 
 # ---------------------------------------------------------------- 다국어 (한국어 / 영어)
@@ -387,6 +404,7 @@ def build():
     shutil.copytree(ROOT / "admin", DOCS_DIR / "admin", dirs_exist_ok=True)  # 관리자 페이지 /admin/ (noindex, sitemap 제외)
 
     env = Environment(loader=FileSystemLoader(TEMPLATES_DIR))
+    env.globals["img"] = img_url
     sitemap_urls = []
 
     for lang in LANGS:

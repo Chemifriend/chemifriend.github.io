@@ -36,7 +36,8 @@ const COMPANY_FIELDS = [  // 회사정보 입력 화면 정의 — 항목 추가
   { key: 'CEO_인사말_제목(영문)', label: 'CEO 인사말 제목 (영문)', help: '영문 사이트 첫 화면 큰 제목. "Chemifriend" 글자는 초록색으로 강조됨' },
   { key: 'CEO_인사말_본문(영문)', label: 'CEO 인사말 본문 (영문)', type: 'textarea', help: '영문 사이트용. 문단 사이에 빈 줄 한 줄' },
   { key: '구글맵_임베드_URL', label: '구글 지도 주소', help: '구글지도 → 공유 → 지도 퍼가기 → src="…" 안의 주소' },
-  { key: '문의폼_키', label: '문의 폼 키 (Web3Forms)', help: '홈페이지 문의 폼이 메일을 보낼 때 쓰는 키. 받는 메일 주소는 web3forms.com 가입 메일. 비우면 폼이 메일 앱을 여는 방식으로 동작 (운영설명서 참고)' },
+  { key: '문의폼_키', label: '문의 폼 키 (Web3Forms)', help: '홈페이지 문의 폼이 메일을 보낼 때 쓰는 키. 폼 내용은 web3forms.com 가입 메일로 도착. 비우면 폼이 메일 앱을 여는 방식으로 동작 (운영설명서 참고)' },
+  { key: '문의_받는메일', label: '문의 받는 메일', help: '쉼표로 여러 개. 메일 앱 방식 문의·"이메일 보내기" 링크가 이 주소들로 감. 비우면 이메일 공개 직원 전원' },
 ];
 const ID_RE = /^[a-z0-9가-힣]+(?:-[a-z0-9가-힣]+)*$/;
 const EMAIL_RE = /^[^@\s,]+@[^@\s,]+\.[a-z]{2,}$/i;
@@ -176,7 +177,10 @@ function validate() {  // build.py validate()와 같은 규칙 → {E: 오류, W
     if (!String(x.내용 || '').trim()) E.push(`연혁 ${i + 1}번째: 내용 비어 있음`);
   });
   const ex = S.data[P.export] || {};
-  if (ex.문의_이메일 && !EMAIL_RE.test(ex.문의_이메일)) E.push('영문 수출 페이지: 문의 이메일 형식 오류');
+  const badList = v => String(v || '').split(',').map(t => t.trim()).filter(Boolean).some(t => !EMAIL_RE.test(t));
+  if (badList(ex.문의_이메일)) E.push('영문 수출 페이지: 문의 이메일 형식 오류 (여러 개는 쉼표로 구분)');
+  if (badList(c.문의_받는메일)) E.push('회사정보: 문의 받는 메일 형식 오류 (여러 개는 쉼표로 구분)');
+  (ex.산업 || []).forEach((n, i) => { if (typeof n === 'object' && !String(n.이름 || '').trim()) E.push(`영문 수출 페이지: 산업 ${i + 1}번째 이름 비어 있음`); });
   (ex.서비스 || []).forEach((sv, i) => { if (!String(sv.제목 || '').trim()) E.push(`영문 수출 페이지: 서비스 ${i + 1}번째 제목 비어 있음`); });
   const deptIds = org().departments.map(d => d.id);
   for (const d of org().departments) if (!d['이름(한글)'] && !d['이름(영문)']) E.push('부서: 이름 없는 부서가 있음');
@@ -479,6 +483,10 @@ const VIEWS = {
       return h('div', { class: 'field' }, h('label', {}, label, h('span', { class: 'help' }, help)), el);
     };
     x.서비스 = x.서비스 || [];
+    x.산업 = (x.산업 || []).map(n => typeof n === 'string' ? { 이름: n, 설명: '', 사진: '' } : n);
+    const PHOTO_HELP = '사진 주소. unsplash.com 무료 사진 → 사진 우클릭 "이미지 주소 복사" (images.unsplash.com/photo-… 부분까지). 출처 불명 사진 금지';
+    const thumb = u => u ? h('img', { src: /images\.unsplash\.com/.test(u) ? u.split('?')[0] + '?w=240&q=60&auto=format&fit=crop' : u, style: 'width:120px;height:72px;object-fit:cover;display:block;margin-top:6px;border-radius:4px', alt: '' }) : null;
+    const P_ = (label, key) => h('div', {}, F(label, key, { help: PHOTO_HELP }), thumb(x[key]));
     const itemTable = (title, titleKey, key) => {  // 제목·설명 목록 편집 표
       x[key] = x[key] || [];
       return h('div', { class: 'panel' }, h('h2', {}, title), F('섹션 제목', titleKey),
@@ -495,7 +503,7 @@ const VIEWS = {
       h('div', { class: 'row', style: 'margin-bottom:16px' }, h('a', { class: 'btn', href: '../en/', target: '_blank' }, '영문 사이트 보기 ↗')),
       h('div', { class: 'panel' }, h('h2', {}, '첫 화면'),
         F('작은 제목', '히어로_태그'), F('큰 제목', '히어로_제목'), F('강조할 부분', '히어로_강조', { help: '큰 제목 중 초록색으로 표시할 글자 (큰 제목에 그대로 들어 있어야 함)' }),
-        F('소개 문장', '히어로_설명', { area: true })),
+        F('소개 문장', '히어로_설명', { area: true }), P_('배경 사진', '히어로_사진')),
       itemTable('한국 소싱의 장점 (Why Korea)', '장점_제목', '장점'),
       h('div', { class: 'panel' }, h('h2', {}, '소싱 서비스'), F('섹션 제목', '서비스_제목'),
         h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' },
@@ -505,11 +513,21 @@ const VIEWS = {
             act(ib('↑', '위로', () => move(x.서비스, i, -1) && redraw()), ib('↓', '아래로', () => move(x.서비스, i, 1) && redraw()),
               ib('✕', '삭제', () => { x.서비스.splice(i, 1); redraw(); }, 'x'))))))),
         h('button', { class: 'btn', style: 'margin-top:12px', onclick: () => { x.서비스.push({ 제목: '', 설명: '' }); redraw(); } }, '+ 서비스 추가')),
+      h('div', { class: 'panel' }, h('h2', {}, '공급 산업 (사진 카드)'), F('섹션 제목', '산업_제목'), F('설명', '산업_설명', { area: true }),
+        h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' },
+          h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, '산업 이름'), h('th', {}, '설명'), h('th', {}, '사진 주소'), h('th', { class: 'act' }))),
+          h('tbody', {}, x.산업.map((n, i) => h('tr', {}, h('td', { class: 'num' }, i + 1),
+            h('td', { style: 'width:200px' }, inp(n, '이름', { cls: '' })), h('td', {}, inp(n, '설명', { cls: '' })),
+            h('td', { style: 'width:260px' }, inp(n, '사진', { cls: '' }), thumb(n.사진)),
+            act(ib('↑', '위로', () => move(x.산업, i, -1) && redraw()), ib('↓', '아래로', () => move(x.산업, i, 1) && redraw()),
+              ib('✕', '삭제', () => { x.산업.splice(i, 1); redraw(); }, 'x'))))))),
+        h('p', { class: 'muted' }, PHOTO_HELP),
+        h('button', { class: 'btn', style: 'margin-top:12px', onclick: () => { x.산업.push({ 이름: '', 설명: '', 사진: '' }); redraw(); } }, '+ 산업 추가')),
+      h('div', { class: 'panel' }, h('h2', {}, '물류·수출 (사진 띠)'), F('제목', '물류_제목'), F('설명', '물류_설명', { area: true }), P_('사진', '물류_사진')),
       h('div', { class: 'panel' }, h('h2', {}, '한국 케미컬 네트워크'), F('섹션 제목', '네트워크_제목'), F('설명', '네트워크_설명', { area: true }),
-        lines('취급 분야', '네트워크', '한 줄에 하나씩. 실제로 소싱 가능한 분야만'),
-        F('산업 제목', '산업_제목'), lines('공급 산업', '산업', '한 줄에 하나씩')),
+        lines('취급 분야', '네트워크', '한 줄에 하나씩. 실제로 소싱 가능한 분야만'), P_('사진', '네트워크_사진')),
       h('div', { class: 'panel' }, h('h2', {}, '문의'),
-        F('문의 이메일', '문의_이메일', { help: '비우면 이메일이 공개된 영업 직원 전원에게 발송', ph: '예: export@chemifriend.com' }),
+        F('문의 이메일', '문의_이메일', { help: '영문 페이지 전용. 쉼표로 여러 개. 비우면 회사정보의 "문의 받는 메일" 사용', ph: '예: export@chemifriend.com' }),
         F('문의 안내 문장', '문의_안내', { area: true }))];
   },
 

@@ -1,67 +1,107 @@
 {
   "히어로_태그": "Chemical Sourcing Partner in Korea",
-  "히어로_제목": "Your gateway to Korea's chemical industry.",
-  "히어로_강조": "Korea's chemical industry",
-  "히어로_설명": "Since 2002, Chemifriend has served as the Korean distribution partner of global leaders such as Cabot, Synthomer, Arkema and Syensqo. Building on this network, we help overseas buyers source reliable chemicals and materials from Korean manufacturers.",
-  "장점_제목": "Why source from Korea",
+  "히어로_제목": "Your direct line to Korea's leading chemical makers.",
+  "히어로_강조": "Korea's leading chemical makers",
+  "히어로_설명": "For over two decades Chemifriend has worked inside Korea's chemical industry, side by side with the country's top manufacturers of coatings, inks, paints, adhesives, plastic compounds and masterbatch. We put that network and our export logistics experience to work for buyers worldwide.",
+  "히어로_사진": "https://images.unsplash.com/photo-1768128834406-f5b1b962af9d",
+  "장점_제목": "Why buyers work with Chemifriend",
   "장점": [
     {
-      "제목": "Advanced chemical industry",
-      "설명": "Korea is home to world-class petrochemical, specialty chemical and advanced materials producers serving global electronics, battery and automotive supply chains."
+      "제목": "A tight network of top Korean makers",
+      "설명": "Close, long-standing relationships with leading Korean manufacturers across every major chemical industry. Not a directory, a network we work with every day."
     },
     {
-      "제목": "Consistent quality",
-      "설명": "Korean manufacturers work under strict quality systems and provide complete technical documentation for every grade."
+      "제목": "We speak your formulator's language",
+      "설명": "Our team works daily with coatings, ink, adhesive, plastics and rubber producers, so we understand what your specification really needs."
     },
     {
-      "제목": "Efficient logistics",
-      "설명": "Major container ports such as Busan offer frequent sailings to Asia, the Middle East, Europe and the Americas."
+      "제목": "Export logistics, handled",
+      "설명": "Extensive export experience and a reliable logistics network, from documents and packing to delivery at your port."
     },
     {
-      "제목": "A partner on the ground",
-      "설명": "We visit suppliers, follow up on quality and delivery, and communicate with you in English."
+      "제목": "Trusted by global leaders",
+      "설명": "Korean distribution partner of Cabot, Synthomer, Arkema and Syensqo, with an ISO 9001 certified quality system."
     }
   ],
-  "서비스_제목": "How we help overseas buyers",
+  "산업_제목": "Industries we connect you with",
+  "산업_설명": "Whatever you make, we know the Korean suppliers behind it, from base materials to performance additives.",
+  "산업": [
+    {
+      "이름": "Coatings & Paints",
+      "설명": "Resins, pigments, carbon black, fumed silica and performance additives.",
+      "사진": "https://images.unsplash.com/photo-1525909002-1b05e0c869d8"
+    },
+    {
+      "이름": "Printing Inks",
+      "설명": "Pigment blacks, resins, waxes and dispersing agents.",
+      "사진": "https://images.unsplash.com/photo-1703950104186-aeb81511cfd2"
+    },
+    {
+      "이름": "Adhesives & Sealants",
+      "설명": "Hydrocarbon resins, rosin, APAO and tackifiers.",
+      "사진": "https://images.unsplash.com/photo-1536786724684-63545518d243"
+    },
+    {
+      "이름": "Plastic Compounds",
+      "설명": "Fillers, conductive and UV additives, antioxidants and processing aids.",
+      "사진": "https://images.unsplash.com/photo-1751629663077-67876b0fb818"
+    },
+    {
+      "이름": "Masterbatch & Colorants",
+      "설명": "Carbon black, pigments and carrier resins for color and additive masterbatch.",
+      "사진": "https://images.unsplash.com/photo-1751606802084-674e8e692e2d"
+    },
+    {
+      "이름": "Rubber & Tires",
+      "설명": "Reinforcing carbon black, natural rubber and compounding materials.",
+      "사진": "https://images.unsplash.com/photo-1571335746824-742511d49bce"
+    },
+    {
+      "이름": "Wire & Cable",
+      "설명": "Conductive and jacketing compounds, carbon black and flame retardants.",
+      "사진": "https://images.unsplash.com/photo-1518181835702-6eef8b4b2113"
+    },
+    {
+      "이름": "Batteries & Electronics",
+      "설명": "Conductive carbons, carbon nanotubes (CNT) and specialty materials.",
+      "사진": "https://images.unsplash.com/photo-1742899273038-67ff67477663"
+    }
+  ],
+  "물류_제목": "From Korea to your port.",
+  "물류_설명": "Busan is one of the world's busiest container ports, with direct sailings to every major market. We coordinate packing, export documents and shipping with our Korean suppliers so your order arrives as specified.",
+  "물류_사진": "https://images.unsplash.com/photo-1678182451047-196f22a4143e",
+  "서비스_제목": "How we work with you",
   "서비스": [
     {
-      "제목": "Supplier sourcing",
-      "설명": "Share your product, specification and target volume. We identify qualified Korean manufacturers and shortlist the best fit."
+      "제목": "Tell us what you need",
+      "설명": "Product name or CAS No., specification, quantity and destination. A rough idea is enough to start."
+    },
+    {
+      "제목": "We shortlist Korean makers",
+      "설명": "We match your request with qualified manufacturers in our network and compare options for you."
     },
     {
       "제목": "Samples & documents",
-      "설명": "We coordinate samples and technical documents such as TDS, SDS and COA so you can evaluate quickly."
+      "설명": "We arrange samples and technical documents such as TDS, SDS and COA so you can evaluate quickly."
     },
     {
-      "제목": "Quotation & logistics",
-      "설명": "We handle quotations and coordinate export shipping with Korean suppliers."
-    },
-    {
-      "제목": "One point of contact",
-      "설명": "Clear English communication and follow-up on quality and delivery, from the first inquiry to repeat orders."
+      "제목": "Quotation, order & shipment",
+      "설명": "Clear quotation, then we follow production, export documents and delivery through to your port."
     }
   ],
   "네트워크_제목": "Our Korean chemical network",
-  "네트워크_설명": "Over two decades of distributing specialty chemicals in Korea have given us close relationships with manufacturers, distributors and end users across the Korean chemical industry.",
+  "네트워크_설명": "Two decades of distribution in Korea have given us close relationships with manufacturers, distributors and end users across the Korean chemical industry.",
+  "네트워크_사진": "https://images.unsplash.com/photo-1786532852011-443cba5dc9fe",
   "네트워크": [
     "Carbon black & fumed silica",
     "Carbon nanotubes (CNT)",
-    "Hydrocarbon resins, rosin & adhesive raw materials",
+    "Hydrocarbon resins, rosin & tackifiers",
     "Additives, waxes & pigments",
-    "UV stabilizers & antioxidants",
+    "UV stabilizers, HALS & antioxidants",
     "Monomers, solvents & surfactants",
-    "Rubber compounding materials"
-  ],
-  "산업_제목": "Industries we serve",
-  "산업": [
-    "Electronics",
-    "Coatings & inks",
-    "Toners",
-    "Adhesives",
-    "Plastics & masterbatch",
-    "Rubber compounding",
-    "Wire & cable"
+    "Flame retardants & plasticizers",
+    "Natural & synthetic rubber compounding materials"
   ],
   "문의_이메일": "",
-  "문의_안내": "Tell us the product, specification, quantity and destination. We will get back to you with suitable options."
+  "문의_안내": "Tell us the product, specification, quantity and destination. We will come back with suitable Korean options."
 }
