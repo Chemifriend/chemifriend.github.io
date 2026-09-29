@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{# 영문 소싱 페이지: 강점 → 산업(사진) → 물류 → 진행 절차 → 네트워크. 문구·사진: data/export.json #}
+{% block content %}
+{% set hero_tag = "Sourcing from Korea" %}{% set hero_title = ex.산업_제목 %}
+{% set hero_lead = ex.산업_설명 %}{% set hero_photo = ex.히어로_사진 %}
+{% include "_en_page_hero.html" %}
+
+{% if ex.장점 %}
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Why Chemifriend</span>
+      <h2 class="section-title">{{ ex.장점_제목 }}</h2>
+    </div>
+    <ul class="why-list">{% for w in ex.장점 %}<li><h3>{{ w.제목 }}</h3><p>{{ w.설명 }}</p></li>{% endfor %}</ul>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section-bg-light" id="industries">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Industries</span>
+      <h2 class="section-title">Where our network reaches</h2>
+    </div>
+    <div class="ind-grid">
+      {% for n in ex.산업 %}
+      <a class="ind-card" href="{{ pb }}contact.html#rfq">
+        {% if n.사진 %}<div class="ind-photo"><img src="{{ img(n.사진, 700, base_path) }}" alt="{{ n.이름 }}" loading="lazy"></div>{% endif %}
+        <div class="ind-body"><h3>{{ n.이름 }}</h3><p>{{ n.설명 }}</p><span>Request a quote →</span></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if ex.물류_제목 %}
+<section class="photo-band" id="logistics" style="--photo:url('{{ img(ex.물류_사진, 2000, base_path) }}')">
+  <div class="section-inner">
+    <span class="section-tag">Export logistics</span>
+    <h2>{{ ex.물류_제목 }}</h2>
+    <p>{{ ex.물류_설명 }}</p>
+  </div>
+</section>
+{% endif %}
+
+<section class="section" id="process">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">Process</span>
+      <h2 class="section-title">{{ ex.서비스_제목 }}</h2>
+    </div>
+    <ol class="service-list">
+      {% for sv in ex.서비스 %}
+      <li><span class="service-num">{{ '%02d' % loop.index }}</span><h3>{{ sv.제목 }}</h3><p>{{ sv.설명 }}</p></li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section-bg-light">
+  <div class="section-inner network-grid">
+    <div>
+      <div class="section-header">
+        <span class="section-tag">Network</span>
+        <h2 class="section-title">{{ ex.네트워크_제목 }}</h2>
+        <p class="section-desc">{{ ex.네트워크_설명 }}</p>
+      </div>
+      {% if ex.네트워크_사진 %}<div class="network-photo"><img src="{{ img(ex.네트워크_사진, 1000, base_path) }}" alt="Korean chemical industry" loading="lazy"></div>{% endif %}
+    </div>
+    <ul class="network-list">{% for n in ex.네트워크 %}<li>{{ n }}</li>{% endfor %}</ul>
+  </div>
+</section>
+
+{% include "_en_cta.html" %}
+{% endblock %}

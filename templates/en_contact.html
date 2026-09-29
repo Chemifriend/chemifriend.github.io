@@ -1,14 +1,29 @@
 {% extends "base.html" %}
+{# 영문 문의 페이지: 견적 요청 폼(Web3Forms) + 연락처·지도 #}
 {% block content %}
-<section class="section page-header">
-  <div class="section-inner">
-    <p class="section-eyebrow">Contact</p>
-    <h1>Contact Us</h1>
-    <p class="page-lead">{{ ex.문의_안내 }}</p>
+{% set hero_tag = "Contact" %}{% set hero_title = "Tell us what you need." %}
+{% set hero_lead = ex.문의_안내 %}{% set hero_photo = ex.물류_사진 %}
+{% include "_en_page_hero.html" %}
+
+<section class="section section-dark" id="request">
+  <div class="section-inner form-section">
+    <div>
+      <div class="section-header">
+        <span class="section-tag">Request a quote</span>
+        <h2 class="section-title">Sourcing request</h2>
+        <p class="section-desc">Product name or CAS No., specification, quantity and destination. A rough idea is enough to start.</p>
+      </div>
+      <div class="contact-meta-list" style="margin-top:28px">
+        <div class="contact-meta-item"><strong>Tel</strong>{{ company._tel }}</div>
+        <div class="contact-meta-item"><strong>Fax</strong>{{ company._fax }}</div>
+        <div class="contact-meta-item"><strong>Mail</strong><a href="mailto:{{ ex._mail }}?subject=Sourcing%20inquiry">Email us directly</a></div>
+      </div>
+    </div>
+    {% include "_inquiry_form.html" %}
   </div>
 </section>
 
-<section class="section section-bg-light">
+<section class="section">
   <div class="section-inner">
     <div class="contact-strip">
       <div class="contact-info-block">
@@ -21,16 +36,6 @@
       </div>
       <div class="location-map"><iframe src="{{ company.구글맵_임베드_URL }}" width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
     </div>
-  </div>
-</section>
-<section class="section">
-  <div class="section-inner form-section">
-    <div class="section-header">
-      <span class="section-tag">Request a quote</span>
-      <h2 class="section-title">Tell us what you need.</h2>
-      <p class="section-desc">Prefer email? <a href="mailto:{{ ex._mail }}">Write to us directly.</a></p>
-    </div>
-    {% include "_inquiry_form.html" %}
   </div>
 </section>
 {% endblock %}

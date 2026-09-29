@@ -29,8 +29,9 @@
     <nav class="main-nav">
       {% if lang == 'en' %}
       <a href="{{ pb }}index.html" class="{{ 'active' if active == 'main' }}">Home</a>
-      <a href="{{ pb }}index.html#sourcing">Sourcing</a>
-      <a href="{{ pb }}index.html#partners">Partners</a>
+      <a href="{{ pb }}partners.html" class="{{ 'active' if active == 'partners' }}">Partners</a>
+      <a href="{{ pb }}sourcing.html" class="{{ 'active' if active == 'sourcing' }}">Sourcing</a>
+      <a href="{{ pb }}about.html" class="{{ 'active' if active == 'about' }}">About</a>
       {% else %}
       <a href="{{ pb }}index.html" class="{{ 'active' if active == 'main' }}">Main</a>
       <div class="nav-dropdown">
@@ -54,10 +55,8 @@
       </div>
       {% endif %}
       <a href="{{ pb }}contact.html" class="{{ 'active' if active == 'contact' }}">Contact</a>
-      <div class="lang-switch" role="group" aria-label="Language">
-        {% if lang == 'ko' %}<span class="on" aria-current="true">KOR</span><a href="{{ alt_url }}" hreflang="en">ENG</a>
-        {% else %}<a href="{{ alt_url }}" hreflang="ko">KOR</a><span class="on" aria-current="true">ENG</span>{% endif %}
-      </div>
+      {% if lang == 'ko' %}<a class="lang-switch" href="{{ alt_url }}" hreflang="en" lang="en" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="uk-s"><path d="M0,0v30h60V0z"/></clipPath><clipPath id="uk-t"><path d="M30,15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#uk-s)"><path d="M0,0v30h60V0z" fill="#012169"/><path d="M0,0 60,30M60,0 0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 60,30M60,0 0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0v30M0,15h60" stroke="#fff" stroke-width="10"/><path d="M30,0v30M0,15h60" stroke="#C8102E" stroke-width="6"/></g></svg>ENG</a>
+      {% else %}<a class="lang-switch" href="{{ alt_url }}" hreflang="ko" lang="ko" title="한국어"><svg viewBox="-36 -24 72 48" aria-hidden="true"><path d="M-36-24h72v48h-72z" fill="#fff"/><g transform="rotate(-56.31)"><g id="kr-b2"><path id="kr-b" d="M-6-26H6v2H-6zm0 3H6v2H-6zm0 3H6v2H-6z"/><use href="#kr-b" y="44"/></g><path stroke="#fff" d="M0,17v10"/><circle fill="#cd2e3a" r="12"/><path fill="#0047a0" d="M0-12A6 6 0 0 0 0 0a6 6 0 0 1 0 12 12 12 0 0 1 0-24z"/></g><g transform="rotate(-123.69)"><use href="#kr-b2"/><path stroke="#fff" d="M0-23.5v3M0,17v3.5M0,23.5v3"/></g></svg>KOR</a>{% endif %}
     </nav>
   </div>
 </header>
@@ -76,6 +75,7 @@
       <li>{{ t.f_tel }} : {{ company._tel }}</li>
       <li>{{ t.f_fax }} : {{ company._fax }}</li>
     </ul>
+    {% if lang == 'en' %}<p class="photo-credit">Photos: Unsplash</p>{% endif %}
     <p class="footer-copy">Copyright {{ company._name }}. All rights reserved.</p>
   </div>
 </footer>

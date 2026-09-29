@@ -158,7 +158,8 @@ docs/                  빌드 결과물 (.gitignore)
 - 사용자 결정(2026-09-29): 해외 판매권이 대부분 한국 한정 → 영문에는 **그레이드 스펙표를 두지 않음**.
   대신 해외 바이어 대상 "한국 화학 소싱 파트너" 페이지로 신규 수출 기회 모색. 한국에서 맡는 파트너사·제품군은 신뢰 확보용으로 표시(링크 없음)
 - 페이지: en/index.html(en_index.html) + en/contact.html(en_contact.html) 2개뿐. 한국어 제품 페이지의 ENG 버튼은 en/index.html로
-- 구성: 히어로(Request a quote) → Why Korea(export.json 장점) → 서비스 → 네트워크·산업 → 파트너 → 견적 요청 폼 → 회사 소개·연혁 → 연락처. 우하단 고정 Request a quote 버튼
+- 구성(5페이지, 사용자 요청: 한 페이지짜리는 싸구려처럼 보임 / Partners 우선): en/index(히어로 → 파트너 브랜드 → 소싱·물류·회사 안내 카드 → 산업 목록) · en/partners(브랜드별 소개(영문)+제품군) · en/sourcing(강점·산업 사진·물류·절차·네트워크) · en/about(CEO·연혁·위치) · en/contact(견적 폼). 각 페이지 하단 _en_cta.html(견적 띠+고정 버튼)
+- 언어 전환: 한 버튼만 — 한국어 페이지엔 영국 국기+ENG, 영문 페이지엔 태극기+KOR (base.html 인라인 SVG). 한국어 제품 페이지 ↔ en/partners.html#브랜드id
 - 문구: data/export.json (히어로, 서비스 목록, 네트워크 분야, 공급 산업, 문의 이메일·안내). 관리자 메뉴 "영문 수출 페이지"
   - 문의_이메일 비면 company.json `문의_받는메일`(쉼표 목록, 현재 triplej·shbaek·sybae) → 그것도 비면 이메일 공개 영업직 전원
   - 사진: Unsplash 무료 라이선스 사진을 images.unsplash.com 주소로 핫링크 (build.py `img()`가 크기 파라미터 부착). 산업 = [{이름, 설명, 사진}] 8개, 히어로_사진/물류_사진/네트워크_사진

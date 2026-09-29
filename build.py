@@ -323,7 +323,7 @@ UI = {
         history_title="Our History", history_desc="Key milestones since our founding in {year}.",
         visit_title="Location", contact_cta="Contacts by brand →",
         hub_title="Our Brands", hub_desc="Global chemical companies that {name} partners with. Select a brand to see its product lines.",
-        products_label="Products", view_specs="View product specs →", families_title="Product Lines", no_families="No product lines registered yet.",
+        products_label="Products", view_specs="Learn more →", families_title="Product Lines", no_families="No product lines registered yet.",
         col_name="Product", contact_label="Contact", sales_team="Sales Team", sales_team_sub="영업팀", email_inquiry="Send an email →",
         contact_title="Contact Us", contact_lead="Please reach out to us using the contacts below.", contact_by_brand="Contacts by Brand",
         f_ceo="CEO", f_bizno="Business Reg. No.", f_addr="Address", f_tel="Tel", f_fax="Fax",
@@ -441,6 +441,14 @@ def build():
             render("en_index.html", "index.html", "main", "Chemical Sourcing Partner in Korea",
                    v["export"].get("히어로_설명", "")[:150], pair="index.html",
                    history=v["history"], ex=v["export"])
+            render("en_partners.html", "partners.html", "partners", "Our Partners",
+                   "Chemifriend is the Korean distribution partner of Cabot, Synthomer, Arkema and Syensqo.", pair="product.html",
+                   ex=v["export"])
+            render("en_sourcing.html", "sourcing.html", "sourcing", "Sourcing from Korea",
+                   (v["export"].get("산업_설명") or "Chemical sourcing from Korean manufacturers")[:150], ex=v["export"])
+            render("en_about.html", "about.html", "about", "About Us",
+                   "Chemifriend Corp., Seoul, Korea — CEO message and history.", pair="index.html#greeting",
+                   history=v["history"], ex=v["export"])
             render("en_contact.html", "contact.html", "contact", "Contact",
                    "Sourcing inquiries and contact information for Chemifriend Corp., Seoul, Korea", pair="contact.html",
                    ex=v["export"])
@@ -449,20 +457,20 @@ def build():
         render("index.html", "index.html", "main", "Main",
                t["d_main"].format(name=c["_name"], slogan=c.get("슬로건", "")), pair="index.html",
                history=v["history"], departments=v["departments"])
-        render("product_hub.html", "product.html", "product", "Product", t["d_hub"])
+        render("product_hub.html", "product.html", "product", "Product", t["d_hub"], pair="partners.html")
         for b in v["brands"]:
             render("brand.html", f"product/{b['id']}/index.html", "product",
-                   b["회사명"], t["d_brand"].format(brand=b["회사명"]), brand=b)
+                   b["회사명"], t["d_brand"].format(brand=b["회사명"]), brand=b, pair=f"partners.html#{b['id']}")
             for f in b["제품군"]:
                 render("product_family.html", f"product/{b['id']}/{f['id']}/index.html", "product",
                        f"{f['이름']} — {b['회사명']}", t["d_family"].format(brand=b["회사명"], family=f["이름"]),
-                       brand=b, family=f)
+                       brand=b, family=f, pair=f"partners.html#{b['id']}")
                 for g in f["소그룹"]:
                     for it in g["제품"]:
                         render("product_sku.html", f"product/{b['id']}/{f['id']}/{it['id']}.html", "product",
                                f"{it['품명']} — {b['회사명']} {f['이름']}",
                                t["d_sku"].format(item=it["품명"], brand=b["회사명"], family=f["이름"]),
-                               brand=b, family=f, group=g, item=it)
+                               brand=b, family=f, group=g, item=it, pair=f"partners.html#{b['id']}")
         render("contact.html", "contact.html", "contact", "Contact", t["d_contact"], pair="contact.html")
 
     (DOCS_DIR / "CNAME").write_text("chemifriend.com\n", encoding="utf-8")

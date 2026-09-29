@@ -1,0 +1,8 @@
+{# 영문 하위 페이지 머리: hero_tag, hero_title, hero_lead, hero_photo 변수 사용 #}
+<section class="page-hero{% if hero_photo %} has-photo{% endif %}"{% if hero_photo %} style="--photo:url('{{ img(hero_photo, 2000, base_path) }}')"{% endif %}>
+  <div class="section-inner">
+    <div class="hero-tag"><span></span> {{ hero_tag }}</div>
+    <h1>{{ hero_title }}</h1>
+    {% if hero_lead %}<p>{{ hero_lead }}</p>{% endif %}
+  </div>
+</section>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{# 영문 메인 = 해외 바이어 대상 수출·소싱 안내. 문구·사진: data/export.json (관리자 > 영문 수출 페이지) #}
+{# 영문 첫 화면 = 파트너 브랜드 우선 + 소싱·회사 소개로 안내. 문구·사진: data/export.json (관리자 > 영문 수출 페이지) #}
 {% block content %}
-<section class="hero hero-photo" style="--bg:url('{{ img(ex.히어로_사진, 2000, base_path) }}')">
+<section class="hero hero-photo" style="--photo:url('{{ img(ex.히어로_사진, 2000, base_path) }}')">
   <div class="hero-inner">
     <div class="hero-tag"><span></span> {{ ex.히어로_태그 }}</div>
     {% set title = ex.히어로_제목 %}{% set mk = ex.히어로_강조 %}
@@ -10,169 +10,67 @@
     {% else %}<h1>{{ title }}</h1>{% endif %}
     <p class="hero-desc">{{ ex.히어로_설명 }}</p>
     <div class="hero-actions-en">
-      <a class="btn-primary" href="#rfq">Request a quote →</a>
-      <a class="btn-secondary" href="#industries">See industries</a>
+      <a class="btn-primary" href="{{ pb }}partners.html">Our partners →</a>
+      <a class="btn-secondary" href="{{ pb }}contact.html#rfq">Request a quote</a>
     </div>
     <div class="metrics-grid">
       <div class="metric-item"><div class="metric-num">{{ stats.founded_year }}<span>~</span></div><div class="metric-label">In Korea's chemical industry since</div></div>
-      <div class="metric-item"><div class="metric-num">{{ ex.산업|length }}</div><div class="metric-label">Industries served</div></div>
+      <div class="metric-item"><div class="metric-num">{{ stats.partner_count }}</div><div class="metric-label">Global partner brands</div></div>
       <div class="metric-item"><div class="metric-num">{{ stats.spec_count }}<span>+</span></div><div class="metric-label">Grades handled in Korea</div></div>
       <div class="metric-item"><div class="metric-num">{{ stats.iso_label }}</div><div class="metric-label">Quality management system</div></div>
     </div>
   </div>
 </section>
 
-{% if ex.장점 %}
-<section class="section">
-  <div class="section-inner">
-    <div class="section-header">
-      <span class="section-tag">Why Chemifriend</span>
-      <h2 class="section-title">{{ ex.장점_제목 }}</h2>
-    </div>
-    <ul class="why-list">{% for w in ex.장점 %}<li><h3>{{ w.제목 }}</h3><p>{{ w.설명 }}</p></li>{% endfor %}</ul>
-  </div>
-</section>
-{% endif %}
-
-<section class="section section-bg-light" id="industries">
-  <div class="section-inner">
-    <div class="section-header">
-      <span class="section-tag">Industries</span>
-      <h2 class="section-title">{{ ex.산업_제목 }}</h2>
-      {% if ex.산업_설명 %}<p class="section-desc">{{ ex.산업_설명 }}</p>{% endif %}
-    </div>
-    <div class="ind-grid">
-      {% for n in ex.산업 %}
-      <a class="ind-card" href="#rfq">
-        {% if n.사진 %}<div class="ind-photo"><img src="{{ img(n.사진, 700, base_path) }}" alt="{{ n.이름 }}" loading="lazy"></div>{% endif %}
-        <div class="ind-body"><h3>{{ n.이름 }}</h3><p>{{ n.설명 }}</p><span>Request a quote →</span></div>
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-{% if ex.물류_제목 %}
-<section class="photo-band" style="--bg:url('{{ img(ex.물류_사진, 2000, base_path) }}')">
-  <div class="section-inner">
-    <span class="section-tag">Export logistics</span>
-    <h2>{{ ex.물류_제목 }}</h2>
-    <p>{{ ex.물류_설명 }}</p>
-    <a class="btn-primary" href="#rfq">Start a sourcing request →</a>
-  </div>
-</section>
-{% endif %}
-
-<section class="section" id="sourcing">
-  <div class="section-inner">
-    <div class="section-header">
-      <span class="section-tag">Process</span>
-      <h2 class="section-title">{{ ex.서비스_제목 }}</h2>
-    </div>
-    <ol class="service-list">
-      {% for sv in ex.서비스 %}
-      <li><span class="service-num">{{ '%02d' % loop.index }}</span><h3>{{ sv.제목 }}</h3><p>{{ sv.설명 }}</p></li>
-      {% endfor %}
-    </ol>
-  </div>
-</section>
-
-<section class="section section-bg-light">
-  <div class="section-inner network-grid">
-    <div>
-      <div class="section-header">
-        <span class="section-tag">Network</span>
-        <h2 class="section-title">{{ ex.네트워크_제목 }}</h2>
-        <p class="section-desc">{{ ex.네트워크_설명 }}</p>
-      </div>
-      {% if ex.네트워크_사진 %}<div class="network-photo"><img src="{{ img(ex.네트워크_사진, 1000, base_path) }}" alt="Korean chemical industry" loading="lazy"></div>{% endif %}
-    </div>
-    <ul class="network-list">{% for n in ex.네트워크 %}<li>{{ n }}</li>{% endfor %}</ul>
-  </div>
-</section>
-
 <section class="section" id="partners">
   <div class="section-inner">
-    <div class="section-header">
-      <span class="section-tag">Track record</span>
-      <h2 class="section-title">Trusted by global leaders in Korea</h2>
-      <p class="section-desc">We are the Korean distribution partner for these global chemical companies. The product lines below are what we handle for Korean manufacturers every day.</p>
+    <div class="section-header section-header-row">
+      <div>
+        <span class="section-tag">Our partners</span>
+        <h2 class="section-title">Trusted by global leaders in Korea</h2>
+        <p class="section-desc">Chemifriend is the Korean distribution partner of these global chemical companies, serving Korean manufacturers every day.</p>
+      </div>
+      <a class="text-link" href="{{ pb }}partners.html">All partners →</a>
     </div>
     {% include "_brand_tiles.html" %}
   </div>
 </section>
 
-<section class="section section-dark" id="request">
-  <div class="section-inner form-section">
-    <div>
-      <div class="section-header">
-        <span class="section-tag">Request a quote</span>
-        <h2 class="section-title">Tell us what you need.</h2>
-        <p class="section-desc">{{ ex.문의_안내 }}</p>
-      </div>
-      <div class="contact-meta-list" style="margin-top:28px">
-        <div class="contact-meta-item"><strong>Tel</strong>{{ company._tel }}</div>
-        <div class="contact-meta-item"><strong>Fax</strong>{{ company._fax }}</div>
-        <div class="contact-meta-item"><strong>Mail</strong><a href="mailto:{{ ex._mail }}?subject=Sourcing%20inquiry">Email us directly</a></div>
-      </div>
-    </div>
-    {% include "_inquiry_form.html" %}
-  </div>
-</section>
-
-<section class="section" id="about">
-  <div class="section-inner">
-    <div class="greeting-box">
-      <div class="greeting-aside">
-        <div>
-          <div class="greeting-aside-tag">About Chemifriend</div>
-          <h3>{{ company._title }}</h3>
-        </div>
-        <div class="greeting-leader">
-          <div class="leader-title">CEO</div>
-          <div class="leader-name">{{ company._ceo }}</div>
-        </div>
-      </div>
-      <div class="greeting-content">
-        {% for para in company._body.split('\n\n') %}<p>{{ para }}</p>{% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-bg-light" id="history">
+<section class="section section-bg-light">
   <div class="section-inner">
     <div class="section-header">
-      <span class="section-tag">History</span>
-      <h2 class="section-title">{{ t.history_title }}</h2>
-      <p class="section-desc">{{ t.history_desc.format(year=stats.founded_year) }}</p>
+      <span class="section-tag">What we do</span>
+      <h2 class="section-title">{{ ex.장점_제목 }}</h2>
     </div>
-    <div class="history-timeline">
-      {% for h in history %}
-      <div class="timeline-row"><div class="timeline-content"><div class="timeline-date">{{ h.연월 }}</div><div class="timeline-text">{{ h._text }}</div></div></div>
-      {% endfor %}
+    <div class="gate-grid">
+      <a class="gate-card" href="{{ pb }}sourcing.html">
+        <div class="gate-photo"><img src="{{ img(ex.네트워크_사진, 900, base_path) }}" alt="" loading="lazy"></div>
+        <div class="gate-body"><span class="gate-num">01</span><h3>Sourcing from Korea</h3><p>{{ ex.산업|length }} industries, one network of Korean manufacturers.</p><span class="gate-link">Sourcing →</span></div>
+      </a>
+      <a class="gate-card" href="{{ pb }}sourcing.html#logistics">
+        <div class="gate-photo"><img src="{{ img(ex.물류_사진, 900, base_path) }}" alt="" loading="lazy"></div>
+        <div class="gate-body"><span class="gate-num">02</span><h3>Export logistics</h3><p>{{ ex.물류_제목 }}</p><span class="gate-link">How we ship →</span></div>
+      </a>
+      <a class="gate-card" href="{{ pb }}about.html">
+        <div class="gate-photo"><img src="{{ img(ex.히어로_사진, 900, base_path) }}" alt="" loading="lazy"></div>
+        <div class="gate-body"><span class="gate-num">03</span><h3>About Chemifriend</h3><p>Since {{ stats.founded_year }}, Seoul, Korea.</p><span class="gate-link">Our story →</span></div>
+      </a>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="section-inner">
-    <div class="contact-strip">
-      <div class="contact-info-block">
-        <h3>{{ company._name }}</h3>
-        <p>{{ company._addr }}</p>
-        <div class="contact-meta-list">
-          <div class="contact-meta-item"><strong>Tel</strong>{{ company._tel }}</div>
-          <div class="contact-meta-item"><strong>Fax</strong>{{ company._fax }}</div>
-        </div>
-        <a class="btn-primary" style="margin-top:28px;" href="#rfq">Request a quote →</a>
+    <div class="section-header section-header-row">
+      <div>
+        <span class="section-tag">Industries</span>
+        <h2 class="section-title">{{ ex.산업_제목 }}</h2>
       </div>
-      <div class="location-map"><iframe src="{{ company.구글맵_임베드_URL }}" width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
+      <a class="text-link" href="{{ pb }}sourcing.html#industries">See all industries →</a>
     </div>
-    <p class="photo-credit">Photos: Unsplash</p>
+    <ul class="ind-chips">{% for n in ex.산업 %}<li><a href="{{ pb }}sourcing.html#industries">{{ n.이름 }}</a></li>{% endfor %}</ul>
   </div>
 </section>
-<a class="btn-primary float-cta" href="#rfq">Request a quote</a>
-<script>/* 첫 화면을 지나면 고정 버튼 표시, 견적 폼이 보이면 숨김 */
-(function(){var b=document.querySelector('.float-cta'),f=document.getElementById('request');function u(){var r=f.getBoundingClientRect();b.classList.toggle('show',scrollY>innerHeight*0.8&&!(r.top<innerHeight&&r.bottom>0));}addEventListener('scroll',u,{passive:true});u();})();</script>
+
+{% include "_en_cta.html" %}
 {% endblock %}

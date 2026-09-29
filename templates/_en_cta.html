@@ -1,0 +1,14 @@
+{# 영문 페이지 하단 공통: 견적 요청 띠 + 우하단 고정 버튼 #}
+<section class="cta-band">
+  <div class="section-inner cta-band-inner">
+    <div>
+      <span class="section-tag">Request a quote</span>
+      <h2>Looking for a reliable supplier in Korea?</h2>
+      <p>Tell us the product, specification and destination. We will come back with suitable Korean options.</p>
+    </div>
+    <a class="btn-primary" href="{{ pb }}contact.html#rfq">Start a sourcing request →</a>
+  </div>
+</section>
+<a class="btn-primary float-cta" href="{{ pb }}contact.html#rfq">Request a quote</a>
+<script>/* 첫 화면을 지나면 고정 버튼 표시 */
+(function(){var b=document.querySelector('.float-cta');function u(){b.classList.toggle('show',scrollY>innerHeight*0.8);}addEventListener('scroll',u,{passive:true});u();})();</script>

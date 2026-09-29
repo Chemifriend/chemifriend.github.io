@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{# 영문 파트너 페이지. 소개 문장 = brands.json 소개(영문), 제품 = 제품요약(영문)/제품군 이름. 스펙표는 한국어 사이트에만 #}
+{% block content %}
+{% set hero_tag = "Our partners" %}{% set hero_title = "Global chemical leaders, represented in Korea." %}
+{% set hero_lead = "Chemifriend is the Korean distribution partner of world-class chemical companies. Their materials reach Korean manufacturers of coatings, inks, adhesives, plastics and rubber through our team." %}
+{% set hero_photo = ex.네트워크_사진 %}
+{% include "_en_page_hero.html" %}
+
+<section class="section partner-section">
+  <div class="section-inner">
+    {% for b in brands %}
+    <article class="partner-row" id="{{ b.id }}">
+      <div class="partner-id">
+        {% if b.로고 %}<img class="partner-logo" style="--lh:{{ b.로고h }}" src="{{ base_path }}static/logos/{{ b.로고 }}" alt="{{ b.회사명 }}">
+        {% else %}<span class="brand-card-wordmark">{{ b.회사명 }}</span>{% endif %}
+        <span class="brand-card-badge">{% if b.국가 and b.설립연도 %}{{ b.국가 }} · Since {{ b.설립연도 }}{% else %}Global sourcing{% endif %}</span>
+        {% if b.영문슬로건 %}<p class="brand-card-slogan">"{{ b.영문슬로건 }}"</p>{% endif %}
+      </div>
+      <div class="partner-body">
+        {% if b._intro %}<p class="partner-intro">{{ b._intro }}</p>{% endif %}
+        {% if b.제품군 %}
+        <h3>Product lines we handle</h3>
+        <ul class="brand-card-lines">{% for f in b.제품군 %}<li>{{ f.이름 }}</li>{% endfor %}</ul>
+        {% endif %}
+        <a class="text-link" href="{{ pb }}contact.html#rfq">Ask about {{ b.회사명 if b.로고 else 'other products' }} →</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% include "_en_cta.html" %}
+{% endblock %}

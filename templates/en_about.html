@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{# 영문 회사 소개: CEO 인사말(회사정보 영문) + 연혁(내용(영문)) + 위치 #}
+{% block content %}
+{% set hero_tag = "About Chemifriend" %}{% set hero_title = company._title %}
+{% set hero_lead = "" %}{% set hero_photo = ex.물류_사진 %}
+{% include "_en_page_hero.html" %}
+
+<section class="section" id="message">
+  <div class="section-inner">
+    <div class="greeting-box">
+      <div class="greeting-aside">
+        <div>
+          <div class="greeting-aside-tag">CEO Message</div>
+          <h3>Since {{ stats.founded_year }}, a partner to Korea's chemical industry.</h3>
+        </div>
+        <div class="greeting-leader">
+          <div class="leader-title">CEO</div>
+          <div class="leader-name">{{ company._ceo }}</div>
+        </div>
+      </div>
+      <div class="greeting-content">
+        {% for para in company._body.split('\n\n') %}<p>{{ para }}</p>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg-light" id="history">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-tag">History</span>
+      <h2 class="section-title">{{ t.history_title }}</h2>
+      <p class="section-desc">{{ t.history_desc.format(year=stats.founded_year) }}</p>
+    </div>
+    <div class="history-timeline">
+      {% for h in history %}
+      <div class="timeline-row"><div class="timeline-content"><div class="timeline-date">{{ h.연월 }}</div><div class="timeline-text">{{ h._text }}</div></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="contact-strip">
+      <div class="contact-info-block">
+        <h3>{{ company._name }}</h3>
+        <p>{{ company._addr }}</p>
+        <div class="contact-meta-list">
+          <div class="contact-meta-item"><strong>Tel</strong>{{ company._tel }}</div>
+          <div class="contact-meta-item"><strong>Fax</strong>{{ company._fax }}</div>
+        </div>
+      </div>
+      <div class="location-map"><iframe src="{{ company.구글맵_임베드_URL }}" width="100%" height="280" style="border:0;" allowfullscreen loading="lazy"></iframe></div>
+    </div>
+  </div>
+</section>
+
+{% include "_en_cta.html" %}
+{% endblock %}
