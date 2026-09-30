@@ -676,14 +676,15 @@ function normalizeSpec(g) {  // 스펙 값의 순서를 열 순서에 맞추고 
 }
 function groupEditor(f, g, gi, baseItems) {
   const redraw = () => { render(); touch(); };
-  const cols = () => ['품명', '용도', ...g.스펙항목];
+  const NB = 3;  // 기본 칸: 품명·특징·용도 (그 뒤는 스펙)
+  const cols = () => ['품명', '특징', '용도', ...g.스펙항목];
   const newItem = () => ({ id: '', 품명: '', 용도: '', 스펙: {} });
   let tbody;
   const cell = (it, ri, ci) => {
     const key = cols()[ci];
-    const el = h('input', { value: (ci < 2 ? it[key] : (it.스펙 || {})[key]) || '', 'data-r': ri, 'data-c': ci });
+    const el = h('input', { value: (ci < NB ? it[key] : (it.스펙 || {})[key]) || '', 'data-r': ri, 'data-c': ci });
     el.addEventListener('input', () => {
-      if (ci < 2) it[key] = el.value;
+      if (ci < NB) { if (el.value || key !== '특징') it[key] = el.value; else delete it[key]; }
       else { it.스펙 = it.스펙 || {}; if (el.value) it.스펙[key] = el.value; else delete it.스펙[key]; }
       touch();
     });
@@ -705,7 +706,7 @@ function groupEditor(f, g, gi, baseItems) {
         const t = g.제품[r];
         vals.forEach((v, dc) => {
           const k = c[ci + dc]; if (!k) return; v = v.trim();
-          if (ci + dc < 2) t[k] = v; else { t.스펙 = t.스펙 || {}; if (v) t.스펙[k] = v; else delete t.스펙[k]; }
+          if (ci + dc < NB) { if (v || k !== '특징') t[k] = v; else delete t[k]; } else { t.스펙 = t.스펙 || {}; if (v) t.스펙[k] = v; else delete t.스펙[k]; }
         });
       });
       const over = Math.max(...rows.map(r => r.length)) - (c.length - ci);
@@ -736,14 +737,16 @@ function groupEditor(f, g, gi, baseItems) {
     const cls = !it.id || !bk ? 'new' : (bk !== JSON.stringify(it) ? 'mod' : '');
     return h('tr', { class: cls },
       h('td', { class: 'num' }, ri + 1),
-      h('td', { class: 'w-name' }, cell(it, ri, 0)), h('td', { class: 'w-app' }, cell(it, ri, 1)),
-      g.스펙항목.map((_, ci) => h('td', {}, cell(it, ri, ci + 2))),
+      h('td', { class: 'w-name' }, cell(it, ri, 0)), h('td', { class: 'w-app' }, cell(it, ri, 1)), h('td', { class: 'w-app' }, cell(it, ri, 2)),
+      g.스펙항목.map((_, ci) => h('td', {}, cell(it, ri, ci + NB))),
       act(ib('↑', '위로', () => move(g.제품, ri, -1) && redraw()), ib('↓', '아래로', () => move(g.제품, ri, 1) && redraw()),
         ib('✕', '행 삭제', () => { g.제품.splice(ri, 1); redraw(); toast(`'${it.품명 || '빈 행'}' 삭제됨 — 반영 전이면 [변경 취소]로 되돌릴 수 있습니다`); }, 'x')));
   }));
   return h('div', { class: 'group' },
     h('div', { class: 'group-head' },
       inp(g, '이름', { cls: '', ph: '소그룹 이름 (표 위 소제목 — 없으면 비움)' }),
+      (() => { const c = h('input', { type: 'checkbox' }); c.checked = !!g.접기; c.addEventListener('change', () => { if (c.checked) g.접기 = true; else delete g.접기; touch(); });
+        return h('label', { class: 'check', title: '사이트에서 맨 아래로 내리고 접어 둠 (눌러야 펼쳐짐)' }, c, '접어두기'); })(),
       h('button', { class: 'btn sm', onclick: () => { g.제품.push(newItem()); redraw(); } }, '+ 행'),
       h('button', { class: 'btn sm', onclick: async () => {
         const n = await ask({ title: '스펙 항목(열) 추가', body: '표에 새 열을 추가합니다. (예: 점도, BET, pH)', input: { placeholder: '항목 이름' }, ok: '추가' });
@@ -759,8 +762,9 @@ function groupEditor(f, g, gi, baseItems) {
         if (g.제품.length && !await ask({ title: '표 삭제', body: `이 표와 제품 ${g.제품.length}개를 삭제할까요?`, ok: '삭제', danger: true })) return;
         f.소그룹.splice(gi, 1); redraw();
       } }, '표 삭제')),
+    h('div', { class: 'field', style: 'margin:8px 0' }, inp(g, '설명', { cls: '', ph: '표 위 설명 한두 줄 (선택)' })),
     h('div', { class: 'tbl-wrap' }, h('table', { class: 'tbl' },
-      h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, '품명'), h('th', {}, 'Application'), g.스펙항목.map(colHead), h('th', { class: 'act' }))),
+      h('thead', {}, h('tr', {}, h('th', {}, '#'), h('th', {}, '품명'), h('th', {}, '특징 (선택)'), h('th', {}, 'Application'), g.스펙항목.map(colHead), h('th', { class: 'act' }))),
       tbody)));
 }
 
@@ -843,7 +847,8 @@ async function importFamily(b, f, file) {
       if (cols.includes(name)) return errs.push(`[${sn}] 열 제목 중복: ${name}`);
       cols.push(name); specIdx.push(i);
     });
-    const g = { 이름: nameOfSheet.has(sn) ? nameOfSheet.get(sn) : sn, 스펙항목: cols, 제품: [] };
+    const gname = nameOfSheet.has(sn) ? nameOfSheet.get(sn) : sn, og = f.소그룹.find(x => x.이름 === gname) || {};
+    const g = { 이름: gname, ...(og.설명 ? { 설명: og.설명 } : {}), ...(og.접기 ? { 접기: true } : {}), 스펙항목: cols, 제품: [] };  // 설명·접기는 엑셀에 없으므로 유지
     rows.slice(1).forEach((r, ri) => {
       const c = head.map((_, i) => String(r[i] ?? '').trim());
       if (!r.some(x => String(x ?? '').trim())) return;
@@ -857,7 +862,7 @@ async function importFamily(b, f, file) {
       const old = (idv && byId.get(idv)) || byName.get(key);
       if (idv && !byId.has(idv)) warns.push(`${line}: ID '${idv}'가 이 제품군에 없어 새 제품으로 처리합니다`);
       const spec = {}; specIdx.forEach(i => { if (c[i]) spec[head[i]] = c[i]; });
-      const it = { id: old ? old.it.id : '', 품명: name, 용도: c[1], 스펙: spec };
+      const it = { id: old ? old.it.id : '', 품명: name, ...(old && old.it.특징 ? { 특징: old.it.특징 } : {}), 용도: c[1], 스펙: spec };  // 특징은 엑셀에 없으므로 유지
       g.제품.push(it); link.set(it, old);
     });
     groups.push(g);

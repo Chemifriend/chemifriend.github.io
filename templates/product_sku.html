@@ -11,12 +11,19 @@
   <div class="section-inner">
     <p class="section-eyebrow">{{ brand.회사명 }} · {{ family.이름 }}{% if group.이름 %} · {{ group.이름 }}{% endif %}</p>
     <h1>{{ item.품명 }}</h1>
+    {% if group.설명 %}<p class="page-lead">{{ group.설명 }}</p>{% endif %}
   </div>
 </section>
 
 <section class="section sku-detail">
   <div class="section-inner">
     <div class="sku-spec-list">
+      {% if item.특징 %}
+      <div class="sku-spec-row">
+        <span class="sku-spec-key">특징</span>
+        <span class="sku-spec-value">{{ item.특징 }}</span>
+      </div>
+      {% endif %}
       <div class="sku-spec-row">
         <span class="sku-spec-key">Application</span>
         <span class="sku-spec-value">{{ item.용도 if item.용도 else "—" }}</span>
