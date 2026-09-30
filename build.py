@@ -382,53 +382,6 @@ def localize(v, lang):
     return v
 
 
-# ---------------------------------------------------------------- 카본블랙 그레이드 지도 (제품군에 "지도": true 일 때)
-# 가로 = OAN(구조), 세로 = I2No.(입자 작을수록 위, 로그 눈금). 점 색 = 소그룹(펼쳐진 표만). 수치 없는 등급은 빠짐.
-MAP_COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#4a3aa7", "#e34948"]  # 색각이상 검사 통과한 순서 (순서 고정)
-
-
-def _mid(v):
-    import re
-    nums = [float(x) for x in re.findall(r"\d+(?:\.\d+)?", str(v or ""))]
-    return sum(nums[:2]) / len(nums[:2]) if nums else None
-
-
-def grade_map(fam, base):
-    """SVG 문자열과 범례를 돌려준다. base = 제품 페이지 링크 기준 경로"""
-    import math
-    from markupsafe import escape
-    W, H, L, R, T, B = 960, 470, 88, 20, 20, 56
-    x0, x1, y0, y1 = 20, 380, math.log10(15), math.log10(2500)
-    sx = lambda v: L + (v - x0) / (x1 - x0) * (W - L - R)
-    sy = lambda v: T + (1 - (math.log10(v) - y0) / (y1 - y0)) * (H - T - B)
-    out, legend = [], []
-    grid = ['<g class="gm-grid">']
-    for v in (50, 100, 150, 200, 250, 300, 350):
-        grid.append(f'<line x1="{sx(v):.1f}" x2="{sx(v):.1f}" y1="{T}" y2="{H-B}"/><text x="{sx(v):.1f}" y="{H-B+20}" text-anchor="middle">{v}</text>')
-    for v in (20, 50, 100, 200, 500, 1000, 2000):
-        grid.append(f'<line x1="{L}" x2="{W-R}" y1="{sy(v):.1f}" y2="{sy(v):.1f}"/><text x="{L-10}" y="{sy(v)+4:.1f}" text-anchor="end">{v}</text>')
-    grid.append('</g>')
-    grid.append(f'<text class="gm-axis" x="{(L+W-R)/2}" y="{H-12}" text-anchor="middle">OAN (구조) — 오른쪽일수록 분산 쉬움 · 전도성↑</text>')
-    grid.append(f'<text class="gm-axis" transform="translate(22 {(T+H-B)/2}) rotate(-90)" text-anchor="middle">I2No. (입자 크기) — 위일수록 입자 작음 · 흑색↑</text>')
-    ci = 0
-    for g in fam["소그룹"]:
-        if g.get("접기"):
-            continue
-        color = MAP_COLORS[ci % len(MAP_COLORS)]; ci += 1
-        n = 0
-        for it in g["제품"]:
-            o, i = _mid(it["스펙"].get("OAN")), _mid(it["스펙"].get("I2No."))
-            if not o or not i:
-                continue
-            n += 1
-            tip = f'{it["품명"]}|{g["이름"].split(" —")[0]}|OAN {it["스펙"].get("OAN")}|I2No. {it["스펙"].get("I2No.")}'
-            out.append(f'<a href="{base}{it["id"]}.html"><circle cx="{sx(o):.1f}" cy="{sy(i):.1f}" r="6" fill="{color}" data-tip="{escape(tip)}"><title>{escape(it["품명"])}</title></circle></a>')
-        legend.append({"이름": g["이름"].split(" —")[0], "색": color, "수": n})
-    svg = (f'<svg class="grade-map-svg" viewBox="0 0 {W} {H}" role="img" aria-label="OAN과 I2No.로 본 카본블랙 등급 분포">'
-           + "".join(grid) + '<g class="gm-dots">' + "".join(out) + "</g></svg>")
-    return {"svg": svg, "legend": legend}
-
-
 # ---------------------------------------------------------------- 렌더링
 def build():
     d = load_data()
@@ -511,8 +464,7 @@ def build():
             for f in b["제품군"]:
                 render("product_family.html", f"product/{b['id']}/{f['id']}/index.html", "product",
                        f"{f['이름']} — {b['회사명']}", t["d_family"].format(brand=b["회사명"], family=f["이름"]),
-                       brand=b, family=f, pair=f"partners.html#{b['id']}",
-                       gmap=grade_map(f, "") if f.get("지도") else None)
+                       brand=b, family=f, pair=f"partners.html#{b['id']}")
                 for g in f["소그룹"]:
                     for it in g["제품"]:
                         render("product_sku.html", f"product/{b['id']}/{f['id']}/{it['id']}.html", "product",

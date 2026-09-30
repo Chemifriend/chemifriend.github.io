@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{# 제품군 페이지. 선택 항목: family.안내(기초 설명·계열 안내), family.지도(그레이드 지도), 소그룹.설명, 소그룹.접기(맨 아래 접힌 표), 제품.특징 #}
+{# 제품군 페이지. 선택 항목: family.표_안내(표 읽는 법 한 줄), family.가이드(어플리케이션별 추천 그레이드), 소그룹.설명, 소그룹.접기(맨 아래 접힌 표), 제품.특징 #}
 {% block content %}
 <nav class="breadcrumb">
   <a href="{{ pb }}product.html">Product</a> <span>/</span>
@@ -14,12 +14,13 @@
   <div class="section-inner">
     <p class="section-eyebrow">{{ brand.회사명 }}</p>
     <h1>{{ family.이름 }}</h1>
-    {% if family.소그룹|length > 2 %}
+    {% if family.소그룹|length > 2 or family.가이드 %}
     <ul class="group-jump">
-      {% for group in g_open if group.이름 %}<li><a href="#g{{ loop.index }}">{{ group.이름.split(' —')[0] }}</a></li>{% endfor %}
-      {% if family.안내 %}<li class="guide-link"><a href="#guide">카본블랙 기초 · 그레이드 지도</a></li>{% endif %}
+      {% for group in g_open if group.이름 %}<li><a href="#g{{ loop.index }}">{{ group.이름 }}</a></li>{% endfor %}
+      {% if family.가이드 %}<li class="guide-link"><a href="#guide">{{ family.가이드.제목 }}</a></li>{% endif %}
     </ul>
     {% endif %}
+    {% if family.표_안내 %}<p class="table-note">{{ family.표_안내 }}</p>{% endif %}
   </div>
 </section>
 
@@ -30,18 +31,18 @@
       <thead>
         <tr>
           <th class="col-name">{{ t.col_name }}</th>
+          {% for col in group.스펙항목 %}<th class="col-spec">{{ col }}</th>{% endfor %}
+          <th class="col-app">용도</th>
           {% if has_feat %}<th class="col-feat">특징</th>{% endif %}
-          <th class="col-app">Application</th>
-          {% for col in group.스펙항목 %}<th>{{ col }}</th>{% endfor %}
         </tr>
       </thead>
       <tbody>
         {% for item in group.제품 %}
         <tr>
           <td class="col-name"><a href="{{ pb }}product/{{ brand.id }}/{{ family.id }}/{{ item.id }}.html">{{ item.품명 }}</a></td>
-          {% if has_feat %}<td class="col-feat">{{ item.특징 or '' }}</td>{% endif %}
+          {% for col in group.스펙항목 %}<td class="col-spec">{{ item.스펙.get(col, '') }}</td>{% endfor %}
           <td class="col-app">{{ item.용도 }}</td>
-          {% for col in group.스펙항목 %}<td>{{ item.스펙.get(col, '') }}</td>{% endfor %}
+          {% if has_feat %}<td class="col-feat">{{ item.특징 or '' }}</td>{% endif %}
         </tr>
         {% endfor %}
       </tbody>
@@ -59,38 +60,28 @@
     </div>
     {% endfor %}
 
-    {% if family.안내 %}{% set gd = family.안내 %}
-    <div class="cb-guide" id="guide">
-      <span class="section-tag">Carbon black basics</span>
+    {% if family.가이드 %}{% set gd = family.가이드 %}
+    {% set ids = {} %}{% for g in family.소그룹 %}{% for it in g.제품 %}{% set _ = ids.update({it.품명|lower: it.id}) %}{% endfor %}{% endfor %}
+    <div class="app-guide" id="guide">
       <h2>{{ gd.제목 }}</h2>
-      <p class="cb-guide-lead">{{ gd.소개 }}</p>
-      <div class="cb-guide-grid">
-        {% for a in gd.항목 %}
-        <div class="cb-card">
-          <h3>{{ a.제목 }}</h3>
-          {% if a.단위 %}<p class="cb-unit">{{ a.단위 }}</p>{% endif %}
-          <p>{{ a.설명 }}</p>
-          <dl>{% for k, v in a.목록 %}<dt>{{ k }}</dt><dd>{{ v }}</dd>{% endfor %}</dl>
-        </div>
-        {% endfor %}
-      </div>
-      {% if gmap %}
-      <div class="grade-map">
-        <h3>그레이드 지도 <span>점에 마우스를 올리면 등급명, 누르면 상세로 이동</span></h3>
-        <ul class="gm-legend">{% for l in gmap.legend if l.수 %}<li><i style="background:{{ l.색 }}"></i>{{ l.이름 }}</li>{% endfor %}</ul>
-        <div class="gm-wrap">{{ gmap.svg|safe }}<div class="gm-tip" hidden></div></div>
-        <p class="gm-note">OAN·I2No.는 규격 범위의 중간값입니다. 수치를 공개하지 않는 등급(EMPEROR 등)은 표시하지 않았습니다.</p>
-      </div>
-      {% endif %}
-      {% if gd.계열 %}
-      <h3 class="cb-series-title">{{ gd.계열제목 }}</h3>
+      {% if gd.설명 %}<p class="app-guide-lead">{{ gd.설명 }}</p>{% endif %}
+      {% for f in gd.분야 %}
+      <h3 class="product-group-label">{{ f.이름 }}</h3>
       <div class="table-scroll">
-        <table class="spec-table cb-series">
-          <thead><tr><th class="col-name">계열</th><th>형태</th><th>특징</th></tr></thead>
-          <tbody>{% for s in gd.계열 %}<tr><td class="col-name">{{ s.이름 }}</td><td>{{ s.형태 }}</td><td>{{ s.설명 }}</td></tr>{% endfor %}</tbody>
+        <table class="spec-table app-table">
+          <thead><tr><th class="col-name">용도</th><th>요구 물성</th><th>추천 그레이드</th></tr></thead>
+          <tbody>
+            {% for use, req, grades in f.항목 %}
+            <tr>
+              <td class="col-name">{{ use }}</td>
+              <td>{{ req }}</td>
+              <td class="app-grades">{% for gname in grades %}{% set gid = ids.get(gname|lower) %}{% if gid %}<a href="{{ pb }}product/{{ brand.id }}/{{ family.id }}/{{ gid }}.html">{{ gname }}</a>{% else %}<span>{{ gname }}</span>{% endif %}{% endfor %}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
         </table>
       </div>
-      {% endif %}
+      {% endfor %}
     </div>
     {% endif %}
 
@@ -105,13 +96,4 @@
     {% set cb = brand %}{% include "_brand_contact.html" %}
   </div>
 </section>
-{% if gmap %}
-<script>/* 그레이드 지도 툴팁 */
-(function(){var w=document.querySelector('.gm-wrap');if(!w)return;var tip=w.querySelector('.gm-tip');
-w.addEventListener('mouseover',function(e){var c=e.target.closest('circle');if(!c)return;var p=c.dataset.tip.split('|');
-tip.innerHTML='<b>'+p[0]+'</b><span>'+p[1]+'</span><span>'+p[2]+' · '+p[3]+'</span>';tip.hidden=false;
-var r=w.getBoundingClientRect(),b=c.getBoundingClientRect();
-tip.style.left=Math.min(Math.max(b.left-r.left+b.width/2,100),r.width-100)+'px';tip.style.top=(b.top-r.top)+'px';});
-w.addEventListener('mouseout',function(e){if(e.target.closest('circle'))tip.hidden=true;});})();</script>
-{% endif %}
 {% endblock %}
