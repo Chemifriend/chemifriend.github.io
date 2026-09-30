@@ -6,836 +6,825 @@
       "소그룹": [
         {
           "이름": "BLACK PEARLS®",
-          "설명": "펠릿(Pellet) 타입 스페셜티 카본블랙. 플라스틱 착색·UV, 코팅, 잉크까지 가장 넓게 쓰이는 라인입니다.",
+          "설명": "Pelletized specialty carbon blacks for plastics coloration and UV protection, coatings and inks.",
           "스펙항목": [
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
               "id": "black-pearls-1400",
               "품명": "Black Pearls 1400",
-              "용도": "코팅",
+              "용도": "Coatings",
               "스펙": {
                 "Class": "High Color",
                 "I2 No. (mg/g)": "600 - 682",
                 "OAN (cc/100g)": "76 - 88",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
               "id": "black-pearls-1300",
               "품명": "Black Pearls 1300",
-              "용도": "수성·용제형 코팅, 분체도료, 자동차·목공·전자기기 코팅",
+              "용도": "Liquid and powder coatings; automotive, wood and electronics coatings",
               "스펙": {
                 "Class": "High Color",
                 "I2 No. (mg/g)": "615 - 715",
                 "OAN (cc/100g)": "87 - 99",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "High Jetness. 수성·용제형 모두 사용"
+              "특징": "High jetness pigment for both water and solvent based formulations"
             },
             {
               "id": "black-pearls-1000",
               "품명": "Black Pearls 1000",
-              "용도": "자동차·산업·건축용 액상 코팅",
+              "용도": "Automotive, industrial and architectural liquid coatings",
               "스펙": {
                 "Class": "Medium Color",
                 "I2 No. (mg/g)": "472 - 556",
                 "OAN (cc/100g)": "100 - 120",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "표면처리된 미세 입자. Jet masstone과 높은 착색력(Tint)"
+              "특징": "Small particle treated grade; excellent jet masstone with strong tinting strength"
             },
             {
               "id": "black-pearls-900",
               "품명": "Black Pearls 900",
-              "용도": "가전, 전자제품, 자동차 내장",
+              "용도": "Consumer electronics, automotive interiors, home appliances",
               "스펙": {
                 "Class": "Medium Color",
                 "I2 No. (mg/g)": "238 - 278",
                 "OAN (cc/100g)": "58 - 70",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "Cabot 플라스틱용 그레이드 중 가장 높은 Jetness"
+              "특징": "Highest jetness in Cabot's specialty carbon black portfolio for plastics"
             },
             {
               "id": "black-pearls-880",
               "품명": "Black Pearls 880",
-              "용도": "가전, 전자제품, 자동차 내·외장 (ABS, PC 블렌드, PA, POM, PP, TPO)",
+              "용도": "Consumer electronics, automotive interiors and exteriors, appliances (ABS, PC blends, PA, POM, PP, TPO)",
               "스펙": {
                 "Class": "Medium Color",
                 "I2 No. (mg/g)": "238 - 278",
                 "OAN (cc/100g)": "98 - 112",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "매우 높은 Jetness, 우수한 표면 품질, 수지 기계적 물성 유지"
+              "특징": "Very high jetness with excellent surface quality and retention of mechanical properties"
             },
             {
               "id": "black-pearls-800",
               "품명": "Black Pearls 800",
-              "용도": "자동차 내장, 전자제품, 가전",
+              "용도": "Automotive interiors, consumer electronics, home appliances",
               "스펙": {
                 "Class": "Medium Color",
                 "I2 No. (mg/g)": "238 - 278",
                 "OAN (cc/100g)": "62 - 74",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "고급 외관 플라스틱 착색의 업계 표준 High Jetness 그레이드"
+              "특징": "Industry standard for high jetness coloration of aesthetic plastic parts"
             },
             {
               "id": "black-pearls-717",
               "품명": "Black Pearls 717",
-              "용도": "가전, 생활용품, 레저·완구, 포장용기, 일부 자동차·전자 부품",
+              "용도": "Appliances, housewares, toys, packaging, some automotive and electronics parts",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "173 - 193",
                 "OAN (cc/100g)": "47 - 63",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "중간 Jetness, Blue tone, 가공성과 표면 품질이 좋음"
+              "특징": "Medium jetness, deep blue undertone, easy processing, good surface quality"
             },
             {
               "id": "black-pearls-570",
               "품명": "Black Pearls 570",
-              "용도": "일반 성형품, 산업·분체 코팅, 건축자재",
+              "용도": "General purpose molded plastics, industrial and powder coatings, building products",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "110",
                 "OAN (cc/100g)": "114",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "범용 성형품용 착색력·은폐력"
+              "특징": "Good coloration and covering power"
             },
             {
               "id": "black-pearls-460",
               "품명": "Black Pearls 460",
-              "용도": "압출 필름, 유틸리티 파이프, 농업용 필름, 오프셋·그라비아 잉크",
+              "용도": "Extruded films, utility pipe, agricultural film, litho and gravure inks",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "77 - 87",
                 "OAN (cc/100g)": "97 - 107",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "범용 그레이드. 착색·조색·UV 용도"
+              "특징": "General purpose; tinting, coloring and UV applications"
             },
             {
               "id": "black-pearls-430",
               "품명": "Black Pearls 430",
-              "용도": "인쇄잉크, 압출 필름, 유틸리티 파이프, 마스터배치",
+              "용도": "Printing inks, extruded films, utility pipe, masterbatches",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "80",
                 "OAN (cc/100g)": "72",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "범용 그레이드. 착색·조색·UV 용도"
+              "특징": "General purpose; tinting, coloring and UV applications"
             },
             {
               "id": "black-pearls-280",
               "품명": "Black Pearls 280",
-              "용도": "필름, 성형품, UV 용도, 산업 코팅, 오프셋·그라비아 잉크",
+              "용도": "Films, molded parts, UV applications, industrial coatings, litho and gravure inks",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "38 - 48",
                 "OAN (cc/100g)": "113 - 125",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "범용 그레이드. 착색·조색·UV 용도"
+              "특징": "General purpose; tinting, coloring and UV applications"
             },
             {
               "id": "black-pearls-130",
               "품명": "Black Pearls 130",
-              "용도": "성형품, 시트, 필름",
+              "용도": "Plastic moldings, sheets, films",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "24 - 32",
                 "OAN (cc/100g)": "66 - 74",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
               "id": "black-pearls-2",
               "품명": "Black Pearls 2",
-              "용도": "성형품, 전선·케이블",
+              "용도": "Plastic moldings, wire and cable",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "39 - 47",
                 "OAN (cc/100g)": "116 - 126",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
               "id": "black-pearls-l",
               "품명": "Black Pearls L",
-              "용도": "오프셋·리퀴드 잉크, 코팅",
+              "용도": "Lithographic and liquid inks, coatings",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "158 - 198",
                 "OAN (cc/100g)": "55 - 65",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "Low structure. 고광택·High Jetness"
+              "특징": "Low structure; high gloss and high jetness"
             },
             {
               "id": "black-pearls-4350",
               "품명": "Black Pearls 4350",
-              "용도": "식품 포장·용기(경질·연질), 열성형 트레이",
+              "용도": "Rigid and flexible food packaging, thermoformed trays",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "109 - 123",
                 "OAN (cc/100g)": "66 - 74",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "FDA 식품접촉 고순도(High Purity Furnace Black)"
+              "특징": "High purity furnace black meeting U.S. FDA requirements"
             },
             {
               "id": "black-pearls-4560i",
               "품명": "Black Pearls 4560i",
-              "용도": "합성섬유 (세데니어 포함)",
+              "용도": "Synthetic fibers, including fine denier",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "120 - 130",
                 "OAN (cc/100g)": "105 - 115",
-                "형태": "Pellets"
+                "Form": "Powder"
               },
-              "특징": "매우 높은 청정도, 착색력·Blue tone"
+              "특징": "Excellent cleanliness with good color strength and blue tone"
             }
           ]
         },
         {
           "이름": "MONARCH®",
-          "설명": "Fluffy(분말) 타입. BLACK PEARLS와 번호가 같으면 물성이 비슷한 Fluffy 버전으로, 코팅·잉크·접착제 등 액상 분산에 유리합니다.",
+          "설명": "Fluffy (powder) form. Grades with the same number as BLACK PEARLS® have similar morphology; easier to disperse in liquid systems such as coatings, inks and adhesives.",
           "스펙항목": [
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
               "id": "monarch-1500",
               "품명": "Monarch 1500",
-              "용도": "코팅",
+              "용도": "Coatings",
               "스펙": {
                 "Class": "High Color",
                 "I2 No. (mg/g)": "610 - 700",
                 "OAN (cc/100g)": "81 - 96",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               }
             },
             {
               "id": "monarch-1400",
               "품명": "Monarch 1400",
-              "용도": "자동차 베이스코트, 산업용 액상·분체 코팅",
+              "용도": "Automotive basecoats, industrial liquid and powder coatings",
               "스펙": {
                 "Class": "High Color",
                 "I2 No. (mg/g)": "600 - 682",
                 "OAN (cc/100g)": "84 - 96",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "높은 Masstone Jetness"
+              "특징": "High masstone jetness"
             },
             {
               "id": "monarch-1300",
               "품명": "Monarch 1300",
-              "용도": "수성·용제형 코팅, 분체도료, 자동차·목공·전자기기 코팅",
+              "용도": "Liquid and powder coatings; automotive, wood and electronics coatings",
               "스펙": {
                 "Class": "High Color",
                 "I2 No. (mg/g)": "615 - 715",
                 "OAN (cc/100g)": "94 - 106",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "High Jetness. BLACK PEARLS 1300의 Fluffy 타입"
+              "특징": "High jetness pigment for both water and solvent based formulations"
             },
             {
               "id": "monarch-1100",
               "품명": "Monarch 1100",
-              "용도": "코팅, 잉크, 플라스틱",
+              "용도": "Coatings, inks, plastics",
               "스펙": {
                 "Class": "Medium Color",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               }
             },
             {
               "id": "monarch-1000",
               "품명": "Monarch 1000",
-              "용도": "자동차·산업·건축용 고급 코팅",
+              "용도": "Automotive, industrial and architectural coatings",
               "스펙": {
                 "Class": "Medium Color",
                 "I2 No. (mg/g)": "472 - 556",
                 "OAN (cc/100g)": "100 - 120",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "표면처리된 미세 입자. Jet masstone과 높은 착색력(Tint)"
+              "특징": "Small particle treated grade; excellent jet masstone with strong tinting strength"
             },
             {
               "id": "monarch-900",
               "품명": "Monarch 900",
-              "용도": "코팅, 잉크, 플라스틱",
+              "용도": "Coatings, inks, plastics",
               "스펙": {
                 "Class": "Medium Color",
                 "I2 No. (mg/g)": "238 - 278",
                 "OAN (cc/100g)": "64 - 76",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "BLACK PEARLS 900의 Fluffy 타입"
+              "특징": "Fluffy form of BLACK PEARLS 900"
             },
             {
               "id": "monarch-880",
               "품명": "Monarch 880",
-              "용도": "코팅, 잉크, 플라스틱",
+              "용도": "Coatings, inks, plastics",
               "스펙": {
                 "Class": "Medium Color",
                 "I2 No. (mg/g)": "238 - 278",
                 "OAN (cc/100g)": "104 - 120",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "BLACK PEARLS 880의 Fluffy 타입"
+              "특징": "Fluffy form of BLACK PEARLS 880"
             },
             {
               "id": "monarch-800",
               "품명": "Monarch 800",
-              "용도": "산업·건축 코팅, 분산액(가죽 착색 포함)",
+              "용도": "Industrial and architectural coatings, dispersions (incl. leather)",
               "스펙": {
                 "Class": "Medium Color",
                 "I2 No. (mg/g)": "238 - 278",
                 "OAN (cc/100g)": "68 - 80",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "Jetness, Blue tone, UV 내구성"
+              "특징": "Jetness, blue undertone and UV durability"
             },
             {
               "id": "monarch-717",
               "품명": "Monarch 717",
-              "용도": "코팅, 잉크, 접착제, 플라스틱",
+              "용도": "Coatings, inks, adhesives, plastics",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "173 - 193",
                 "OAN (cc/100g)": "47 - 62",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "BLACK PEARLS 717의 Fluffy 타입"
+              "특징": "Fluffy form of BLACK PEARLS 717"
             },
             {
               "id": "monarch-580a100",
               "품명": "Monarch 580A100",
-              "용도": "접착제, 코팅, 잉크, 실란트·실리콘",
+              "용도": "Adhesives, coatings, inks, sealants and silicone elastomers",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "195 - 235",
                 "OAN (cc/100g)": "110 - 130",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               }
             },
             {
               "id": "monarch-570",
               "품명": "Monarch 570",
-              "용도": "자동차용 구조 접착제, 유리 접착, 산업·분체 코팅",
+              "용도": "Structural adhesives, windshield bonding, industrial and powder coatings",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "115 - 127",
                 "OAN (cc/100g)": "109 - 119",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "High structure. 접착제·실란트·코팅용"
+              "특징": "High structure; for adhesives, sealants and coatings"
             },
             {
               "id": "monarch-460",
               "품명": "Monarch 460",
-              "용도": "오프셋(콜드셋) 잉크, 리퀴드 잉크, 접착제·실란트 분산",
+              "용도": "Web offset and coldset inks, liquid inks, adhesive and sealant dispersions",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "76 - 88",
                 "OAN (cc/100g)": "98 - 108",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "Medium structure Regular Color. 인쇄잉크용"
+              "특징": "Medium structure regular color grade for printing inks"
             },
             {
               "id": "monarch-430",
               "품명": "Monarch 430",
-              "용도": "인쇄잉크, 접착제, 실란트",
+              "용도": "Printing inks, adhesives, sealants",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "77 - 87",
                 "OAN (cc/100g)": "70 - 80",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               }
             },
             {
               "id": "monarch-280",
               "품명": "Monarch 280",
-              "용도": "인쇄잉크, 플라스틱, 코팅, 콘크리트·시멘트",
+              "용도": "Printing inks, plastics, coatings, concrete and cement",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "38 - 48",
                 "OAN (cc/100g)": "113 - 125",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "범용 그레이드. 착색·조색·UV 용도"
+              "특징": "General purpose; tinting, coloring and UV applications"
             },
             {
               "id": "monarch-120",
               "품명": "Monarch 120",
-              "용도": "인쇄잉크(오프셋·콜드셋), 일반 산업 코팅, 조색",
+              "용도": "Web offset and coldset inks, general industrial coatings, tinting",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "25 - 35",
                 "OAN (cc/100g)": "62 - 72",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "범용 Low color 그레이드. 조색(Tinting)용"
+              "특징": "General purpose low color pigment for tinting"
             },
             {
               "id": "monarch-4750",
               "품명": "Monarch 4750",
-              "용도": "식품 포장·용기(경질·연질), 열성형 트레이",
+              "용도": "Rigid and flexible food packaging, thermoformed trays",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "253 - 263",
                 "OAN (cc/100g)": "117 - 127",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               },
-              "특징": "FDA 식품접촉 고순도(High Purity Furnace Black)"
+              "특징": "High purity furnace black meeting U.S. FDA requirements"
             }
           ]
         },
         {
           "이름": "EMPEROR®",
-          "설명": "자동차·고급 코팅용 High Jetness 그레이드. 분산이 쉽고 분산제 사용량을 줄일 수 있습니다. (1200·1600 용제형, 1800·2000 수성)",
+          "설명": "High-jetness grades for automotive and high-end coatings, with easy dispersion and reduced dispersant demand. 1200/1600 for solvent-based, 1800/2000 for water-based systems.",
           "스펙항목": [
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
               "id": "emperor-2000",
               "품명": "Emperor 2000",
-              "용도": "자동차 베이스코트, 딥블랙 Masstone (수성·극성 용제형)",
+              "용도": "Automotive basecoats, deep black masstone (water-based and polar solvent)",
               "스펙": {
                 "Class": "High Color",
                 "I2 No. (mg/g)": "N/A",
                 "OAN (cc/100g)": "N/A",
-                "형태": "Soft bead"
+                "Form": "Soft bead"
               },
-              "특징": "수성 배합용 Cabot 최고 Color 그레이드"
+              "특징": "Highest color offering for water-based formulations"
             },
             {
               "id": "emperor-1800",
               "품명": "Emperor 1800",
-              "용도": "자동차 베이스코트, 딥블랙 Masstone (수성)",
+              "용도": "Automotive basecoats, deep black masstone (water-based)",
               "스펙": {
                 "Class": "High Color",
                 "I2 No. (mg/g)": "N/A",
                 "OAN (cc/100g)": "N/A",
-                "형태": "Soft bead"
+                "Form": "Soft bead"
               },
-              "특징": "Very High Jetness, 쉬운 분산"
+              "특징": "Very high jetness with transformational ease of use"
             },
             {
               "id": "emperor-1600",
               "품명": "Emperor 1600",
-              "용도": "자동차·코일·전자기기·고급 산업용 용제형 코팅",
+              "용도": "Solvent-based automotive, coil, electronics and high-end industrial coatings",
               "스펙": {
                 "Class": "High Color",
                 "I2 No. (mg/g)": "N/A",
                 "OAN (cc/100g)": "N/A",
-                "형태": "Soft bead"
+                "Form": "Soft bead"
               },
-              "특징": "High Jetness, Blue tone, 우수한 가공성 (Softbead)"
+              "특징": "Deep black with blue undertone; superior processability (Softbead)"
             },
             {
               "id": "emperor-1200",
               "품명": "Emperor 1200",
-              "용도": "자동차·코일·전자기기·산업용 용제형 코팅, 분체도료",
+              "용도": "Solvent-based automotive, coil, electronics and industrial coatings; powder coatings",
               "스펙": {
                 "Class": "High Color",
                 "I2 No. (mg/g)": "N/A",
                 "OAN (cc/100g)": "N/A",
-                "형태": "Soft bead"
+                "Form": "Soft bead"
               },
-              "특징": "High Jet masstone, Blue tone, 쉬운 분산 (Softbead)"
+              "특징": "High jet masstone, blue undertone, easy dispersion (Softbead)"
             }
           ]
         },
         {
           "이름": "REGAL®",
-          "설명": "인쇄잉크용 Low structure 피그먼트 블랙. 광택과 착색력 위주로 선택합니다.",
+          "설명": "Low structure pigment blacks for printing inks, selected for gloss and color strength.",
           "스펙항목": [
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
               "id": "regal-99r",
               "품명": "Regal 99R",
-              "용도": "잉크",
+              "용도": "Inks",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "58 - 68",
                 "OAN (cc/100g)": "61 - 69",
-                "형태": "Powder"
+                "Form": "Powder"
               }
             },
             {
               "id": "regal-250r",
               "품명": "Regal 250R",
-              "용도": "오프셋 광택잉크, 그라비아 잉크, UV 경화 잉크",
+              "용도": "Lithographic gloss inks, gravure, energy curing inks",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "62 - 74",
                 "OAN (cc/100g)": "42 - 50",
-                "형태": "Powder"
+                "Form": "Powder"
               },
-              "특징": "Low structure. 고광택, 중간 착색력, Blue tone"
-            },
-            {
-              "id": "regal-300",
-              "품명": "Regal 300",
-              "용도": "잉크",
-              "스펙": {
-                "Class": "Regular Color",
-                "I2 No. (mg/g)": "82",
-                "OAN (cc/100g)": "72",
-                "형태": "Powder"
-              }
+              "특징": "Low structure; high gloss, moderate color strength, blue tone"
             },
             {
               "id": "regal-330r",
               "품명": "Regal 330R",
-              "용도": "오프셋(Heatset·매엽) 잉크, 출판·포장 리퀴드 잉크, 토너",
+              "용도": "Heatset and sheetfed litho inks, publication and packaging liquid inks, toners",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "90 - 100",
                 "OAN (cc/100g)": "60 - 70",
-                "형태": "Powder"
+                "Form": "Powder"
               },
-              "특징": "Low structure. 우수한 착색력"
+              "특징": "Low structure; very good color strength"
             },
             {
               "id": "regal-350r",
               "품명": "Regal 350R",
-              "용도": "오프셋 광택잉크, 리퀴드 잉크, 그라비아",
+              "용도": "Lithographic gloss inks, liquid inks, gravure",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "50 - 60",
                 "OAN (cc/100g)": "42 - 50",
-                "형태": "Powder"
+                "Form": "Powder"
               },
-              "특징": "Low structure. 강한 Blue tone, 고광택"
+              "특징": "Low structure; very blue tone with good gloss"
             },
             {
               "id": "regal-400r",
               "품명": "Regal 400R",
-              "용도": "오프셋(매엽·Heatset) 잉크, 리퀴드 잉크, UV 경화 잉크, 비흡수 기재 포장잉크",
+              "용도": "Sheetfed and heatset litho inks, liquid inks, energy curing inks, packaging inks",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "111 - 139",
                 "OAN (cc/100g)": "66 - 76",
-                "형태": "Powder"
+                "Form": "Powder"
               },
-              "특징": "Low structure. 우수한 착색력"
+              "특징": "Low structure; very good color strength"
             },
             {
               "id": "regal-660r",
               "품명": "Regal 660R",
-              "용도": "리퀴드 잉크(수성·유성), 액상·분체 코팅, 가죽 착색 분산",
+              "용도": "Aqueous and non-aqueous liquid inks, liquid and powder coatings, leather dispersions",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "116 - 126",
                 "OAN (cc/100g)": "61 - 69",
-                "형태": "Powder"
+                "Form": "Powder"
               },
-              "특징": "Low structure. 고광택, High Jetness"
+              "특징": "Low structure; high gloss and high jetness"
             }
           ]
         },
         {
           "이름": "MOGUL®",
-          "설명": "코팅·잉크용 분말 그레이드.",
+          "설명": "Powder grades for coatings and inks.",
           "스펙항목": [
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
               "id": "mogul-l",
               "품명": "Mogul L",
-              "용도": "오프셋·리퀴드 잉크, 코팅",
+              "용도": "Lithographic and liquid inks, coatings",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "158 - 198",
                 "OAN (cc/100g)": "57 - 67",
-                "형태": "Powder"
+                "Form": "Powder"
               },
-              "특징": "Low structure. 고광택, High Jetness"
+              "특징": "Low structure; high gloss and high jetness"
             },
             {
               "id": "mogul-h",
               "품명": "Mogul H",
-              "용도": "코팅 및 액상 배합 전반",
+              "용도": "Coatings and other liquid systems",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "117 - 137",
                 "OAN (cc/100g)": "97 - 107",
-                "형태": "Powder"
+                "Form": "Powder"
               },
-              "특징": "High structure 표면처리 그레이드"
+              "특징": "High structure, treated grade"
             },
             {
               "id": "mogul-e",
               "품명": "Mogul E",
-              "용도": "UV 경화 잉크·코팅",
+              "용도": "UV curable inks and coatings",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "46 - 69",
                 "OAN (cc/100g)": "43 - 55",
-                "형태": "Powder"
+                "Form": "Powder"
               }
             }
           ]
         },
         {
           "이름": "ELFTEX®",
-          "설명": "P-type 그레이드. 압력관·케이블 자켓처럼 UV 성능과 청정도가 중요한 용도에 씁니다.",
+          "설명": "P-type grades for pressure pipe and cable jacketing, where UV performance and cleanliness are critical.",
           "스펙항목": [
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
               "id": "elftex-p100",
               "품명": "Elftex P100",
-              "용도": "수도·가스 압력관(ISO 4427/4437), 관개·유틸리티 파이프, 지오멤브레인",
+              "용도": "Potable water and gas pressure pipe (ISO 4427/4437), irrigation and utility pipe, geomembranes",
               "스펙": {
                 "Class": "P-type",
                 "I2 No. (mg/g)": "71 - 87",
                 "OAN (cc/100g)": "96 - 112",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "P-type (입경 25nm 미만, 황 0.1% 미만)"
+              "특징": "P-type (particle size <25 nm, sulfur <0.1%)"
             },
             {
               "id": "elftex-tp",
               "품명": "Elftex TP",
-              "용도": "압력관(수도·가스·관개), 통신·전력 케이블 자켓, 지오멤브레인",
+              "용도": "Pressure pipe, telecom and power cable jacketing, geomembranes",
               "스펙": {
                 "Class": "P-type",
                 "I2 No. (mg/g)": "92 (typ.)",
                 "OAN (cc/100g)": "98 (typ.)",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "P-type. 우수한 UV 성능과 청정도"
+              "특징": "P-type; exceptional UV performance and cleanliness"
             }
           ]
         },
         {
           "이름": "VULCAN®",
-          "설명": "UV 차단(내후성)용 그레이드.",
+          "설명": "Grades for UV protection and weatherability.",
           "스펙항목": [
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
               "id": "vulcan-9a32",
               "품명": "Vulcan 9A32",
-              "용도": "통신·전력 케이블 자켓, 농업용 필름, 박막 필름",
+              "용도": "Telecom and power cable jacketing, agricultural film, thin films",
               "스펙": {
                 "Class": "Regular Color",
                 "I2 No. (mg/g)": "130 - 142",
                 "OAN (cc/100g)": "110 - 118",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "높은 UV 차단으로 수지 열화 방지"
+              "특징": "High UV protection against polymer degradation"
             },
             {
               "id": "vulcan-p",
               "품명": "Vulcan P",
-              "용도": "전선·케이블, 성형품, 파이프",
+              "용도": "Wire and cable, molded parts, pipe",
               "스펙": {
                 "Class": "P-type",
                 "I2 No. (mg/g)": "172",
                 "OAN (cc/100g)": "116",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "P-type. 우수한 UV 성능, 물리·화학적 청정도"
+              "특징": "P-type; exceptional UV performance, physical and chemical cleanliness"
             }
           ]
         },
         {
-          "이름": "VULCAN® XC · 전도성",
-          "설명": "전도성·ESD용 그레이드. 전력케이블 반도전층, 전도성 플라스틱, ESD 포장·부품에 씁니다.",
+          "이름": "VULCAN® XC (Conductive)",
+          "설명": "Conductive grades for power cable semicon shields, conductive plastics and ESD packaging and parts.",
           "스펙항목": [
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
               "id": "vulcan-xcmax",
               "품명": "Vulcan XCmax",
-              "용도": "자동차 연료호스·주유구, ATEX·ESD 산업설비, 전자·의료기기·포장",
+              "용도": "Automotive fuel hoses and inlets, ATEX/ESD equipment, electronics, medical devices, packaging",
               "스펙": {
                 "Class": "Conductive",
                 "I2 No. (mg/g)": "1250 - 1550",
                 "OAN (cc/100g)": "280 - 360",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "기존 퍼니스 블랙 중 가장 낮은 첨가량으로 전도성 확보"
+              "특징": "Conductivity at the lowest loadings of traditional furnace blacks"
             },
             {
               "id": "vulcan-xc72",
               "품명": "Vulcan XC72",
-              "용도": "MV 전력케이블 도체·절연 차폐층, ESD용 전도성 성형·압출품",
+              "용도": "MV power cable conductor and insulation shields, ESD molded and extruded parts",
               "스펙": {
                 "Class": "Conductive",
                 "I2 No. (mg/g)": "233 - 273",
                 "OAN (cc/100g)": "164 - 184",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "XC 시리즈 대표 전도성 그레이드"
+              "특징": "Flagship conductive grade of the XC family"
             },
             {
               "id": "vulcan-xc72r",
               "품명": "Vulcan XC72R",
-              "용도": "배터리·연료전지, 전도성 종이, 전도성 분산액, 촉매 담체",
+              "용도": "Batteries and fuel cells, conductive paper, conductive dispersions, catalyst support",
               "스펙": {
                 "Class": "Conductive",
                 "I2 No. (mg/g)": "235 - 271",
                 "OAN (cc/100g)": "182 - 202",
-                "형태": "Pellets"
+                "Form": "Fluffy"
               },
-              "특징": "VULCAN XC72의 Fluffy 타입"
+              "특징": "Fluffy form of VULCAN XC72"
             },
             {
               "id": "vulcan-xc605",
               "품명": "Vulcan XC605",
-              "용도": "ESD 성형품·포장, 연료계통 부품",
+              "용도": "ESD molded parts and packaging, fuel system parts",
               "스펙": {
                 "Class": "Conductive",
                 "I2 No. (mg/g)": "90",
                 "OAN (cc/100g)": "148",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "분산성·표면 평활성·기계적 물성이 우수한 프리미엄 ESD 그레이드"
+              "특징": "Premium ESD grade with superior dispersibility, surface smoothness and mechanical properties"
             },
             {
               "id": "vulcan-xc500",
               "품명": "Vulcan XC500",
-              "용도": "MV 전력케이블 도체·절연 차폐층, HV 본디드 차폐층",
+              "용도": "MV cable conductor and insulation shields, HV bonded shields",
               "스펙": {
                 "Class": "Conductive",
                 "I2 No. (mg/g)": "68 - 80",
                 "OAN (cc/100g)": "143-153",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "XC 시리즈 주력. 전도성·청정도, 쉬운 분산"
+              "특징": "Excellent conductivity and cleanliness, disperses easily"
             },
             {
               "id": "vulcan-xc68",
               "품명": "Vulcan XC68",
-              "용도": "MV 전력케이블 도체·절연 차폐층, ESD 부품",
+              "용도": "MV power cable shields, ESD parts",
               "스펙": {
                 "Class": "Conductive",
                 "I2 No. (mg/g)": "63 - 73",
                 "OAN (cc/100g)": "118 - 128",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "전도성·청정도·품질 일관성"
+              "특징": "Conductivity, cleanliness and consistency"
             },
             {
               "id": "vulcan-xc200",
               "품명": "Vulcan XC200",
-              "용도": "MV 전력케이블 Strippable 절연 차폐층, 도체 차폐층",
+              "용도": "Strippable insulation shields and conductor shields in MV power cables",
               "스펙": {
                 "Class": "Conductive",
                 "I2 No. (mg/g)": "40 - 52",
                 "OAN (cc/100g)": "110 - 121",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "전도성·청정도·품질 일관성"
+              "특징": "Conductivity, cleanliness and consistency"
             },
             {
               "id": "vulcan-xc305",
               "품명": "Vulcan XC305",
-              "용도": "전도성, ESD, 전선·케이블",
+              "용도": "Conductive, ESD, wire and cable",
               "스펙": {
                 "Class": "Conductive",
                 "I2 No. (mg/g)": "72",
                 "OAN (cc/100g)": "131",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
               "id": "black-pearls-2000",
               "품명": "Black Pearls 2000",
-              "용도": "대전방지·전도성 고무 컴파운드, 컨베이어 벨트, 호스, 케이블 차폐",
+              "용도": "Antistatic and conductive rubber, belts, hoses, cable screening",
               "스펙": {
                 "Class": "Conductive",
                 "I2 No. (mg/g)": "1330 - 1494",
                 "OAN (cc/100g)": "300 - 360",
-                "형태": "Pellets"
+                "Form": "Pellets"
               },
-              "특징": "초미립자·초고비표면적·Extremely high structure"
+              "특징": "Very fine particle, super high surface area, extremely high structure"
             }
           ]
         },
         {
-          "이름": "TPK · 고저항",
-          "설명": "디스플레이용 고저항 그레이드.",
+          "이름": "TPK (High Resistivity)",
+          "설명": "High resistivity grades for display applications.",
           "스펙항목": [
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
               "id": "tpk1099r",
               "품명": "TPK1099R",
-              "용도": "디스플레이 (고저항)",
+              "용도": "Display (high resistivity)",
               "스펙": {
                 "Class": "High Resistivity",
                 "I2 No. (mg/g)": "57",
                 "OAN (cc/100g)": "37",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               }
             },
             {
               "id": "tpk1104r",
               "품명": "TPK1104R",
-              "용도": "디스플레이 (고저항)",
+              "용도": "Display (high resistivity)",
               "스펙": {
                 "Class": "High Resistivity",
                 "I2 No. (mg/g)": "57",
                 "OAN (cc/100g)": "37",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               }
             },
             {
               "id": "tpk1227r",
               "품명": "TPK1227R",
-              "용도": "디스플레이 (고저항)",
+              "용도": "Display (high resistivity)",
               "스펙": {
                 "Class": "High Resistivity",
                 "I2 No. (mg/g)": "N/A",
                 "OAN (cc/100g)": "N/A",
-                "형태": "Fluffy"
+                "Form": "Fluffy"
               }
             }
           ]
@@ -846,7 +835,7 @@
             "Class",
             "I2 No. (mg/g)",
             "OAN (cc/100g)",
-            "형태"
+            "Form"
           ],
           "제품": [
             {
@@ -856,7 +845,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "43",
                 "OAN (cc/100g)": "121",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -866,7 +855,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "43",
                 "OAN (cc/100g)": "121",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -876,7 +865,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "43",
                 "OAN (cc/100g)": "111",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -886,7 +875,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "56",
                 "OAN (cc/100g)": "129",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -896,7 +885,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "31",
                 "OAN (cc/100g)": "51",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -906,7 +895,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "31",
                 "OAN (cc/100g)": "65",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -916,7 +905,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "27",
                 "OAN (cc/100g)": "120",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -926,7 +915,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "20",
                 "OAN (cc/100g)": "92",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -936,7 +925,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "16",
                 "OAN (cc/100g)": "95",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -946,7 +935,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "27",
                 "OAN (cc/100g)": "120",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -956,7 +945,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "20",
                 "OAN (cc/100g)": "92",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -966,7 +955,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "16",
                 "OAN (cc/100g)": "95",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -976,7 +965,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "29",
                 "OAN (cc/100g)": "72",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -986,7 +975,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "43",
                 "OAN (cc/100g)": "121",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -996,7 +985,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "43",
                 "OAN (cc/100g)": "111",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1006,7 +995,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "36",
                 "OAN (cc/100g)": "90",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1016,7 +1005,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "36",
                 "OAN (cc/100g)": "122",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1026,7 +1015,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "35",
                 "OAN (cc/100g)": "133",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1036,7 +1025,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "21",
                 "OAN (cc/100g)": "35",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1046,7 +1035,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "30",
                 "OAN (cc/100g)": "65",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1056,7 +1045,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "90",
                 "OAN (cc/100g)": "114",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1066,7 +1055,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "90",
                 "OAN (cc/100g)": "120",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1076,7 +1065,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "90",
                 "OAN (cc/100g)": "124",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1086,7 +1075,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "120",
                 "OAN (cc/100g)": "125",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1096,7 +1085,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "142",
                 "OAN (cc/100g)": "127",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1106,7 +1095,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "82",
                 "OAN (cc/100g)": "102",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1116,7 +1105,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "121",
                 "OAN (cc/100g)": "114",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1126,7 +1115,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "124",
                 "OAN (cc/100g)": "110",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1136,7 +1125,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "76",
                 "OAN (cc/100g)": "143",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1146,7 +1135,7 @@
               "스펙": {
                 "I2 No. (mg/g)": "202",
                 "OAN (cc/100g)": "134",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             },
             {
@@ -1156,24 +1145,24 @@
               "스펙": {
                 "I2 No. (mg/g)": "97",
                 "OAN (cc/100g)": "143",
-                "형태": "Pellets"
+                "Form": "Pellets"
               }
             }
           ],
           "접기": true,
-          "설명": "고무용 카본블랙 (참고)"
+          "설명": "Rubber grades (for reference)."
         }
       ],
       "가이드": {
-        "제목": "어플리케이션별 추천 그레이드",
-        "설명": "Cabot 공개 자료(Global Selection Guide, Specialty Carbon Blacks for Plastics 2023) 기준입니다. 밑줄 친 그레이드는 위 표에서 스펙을 볼 수 있고, 그 외 그레이드도 케미프렌드로 문의하실 수 있습니다.",
+        "제목": "Application Guide",
+        "설명": "Based on Cabot public literature (Global Selection Guide; Specialty Carbon Blacks for Plastics, 2023). Underlined grades have specifications in the tables above; please contact us for other grades.",
         "분야": [
           {
-            "이름": "플라스틱",
+            "이름": "Plastics",
             "항목": [
               [
-                "필름·시트",
-                "착색·은폐력, 표면 평활성, UV 내후성, 분산성",
+                "Film and sheet",
+                "Color/opacity, surface smoothness, UV/weatherability, dispersibility",
                 [
                   "Vulcan 9A32",
                   "Black Pearls 4040",
@@ -1181,8 +1170,8 @@
                 ]
               ],
               [
-                "농업용 필름·관개 파이프",
-                "UV 내후성, 미세 분산, 기계적 강도",
+                "Agricultural film and irrigation pipe",
+                "UV/weatherability, microdispersion, mechanical strength",
                 [
                   "Vulcan 9A32",
                   "Black Pearls 4040",
@@ -1190,8 +1179,8 @@
                 ]
               ],
               [
-                "지오멤브레인·토목섬유",
-                "UV 내후성, 착색·은폐력, 분산성",
+                "Geosynthetics",
+                "UV/weatherability, color/opacity, dispersibility",
                 [
                   "Elftex TP",
                   "Black Pearls 4040",
@@ -1199,16 +1188,16 @@
                 ]
               ],
               [
-                "압력관 (수도·가스)",
-                "UV 내후성, 물리·화학적 청정도(Ash·황), 분산성",
+                "Pressure pipe",
+                "UV/weatherability, physical and chemical cleanliness, dispersibility",
                 [
                   "Elftex P100",
                   "Elftex TP"
                 ]
               ],
               [
-                "비규격 파이프",
-                "UV 내후성, 착색, 분산성",
+                "Non-regulated and other pipe",
+                "UV/weatherability, color, dispersibility",
                 [
                   "Black Pearls 4040",
                   "Black Pearls 280",
@@ -1216,8 +1205,8 @@
                 ]
               ],
               [
-                "성형품 (생활·산업용)",
-                "착색, 표면 평활성, 분산성",
+                "Molded parts (consumer and industrial)",
+                "Color, surface smoothness, dispersibility",
                 [
                   "Black Pearls 800",
                   "Black Pearls 450A111",
@@ -1227,8 +1216,8 @@
                 ]
               ],
               [
-                "자동차 내·외장",
-                "착색, UV 내후성, 표면 품질, 기계적 강도, 분산성",
+                "Automotive interior and exterior",
+                "Color, UV/weatherability, surface quality, mechanical strength, dispersibility",
                 [
                   "Black Pearls 900",
                   "Black Pearls 800",
@@ -1240,8 +1229,8 @@
                 ]
               ],
               [
-                "자동차 언더후드",
-                "고온 환경 성능",
+                "Automotive under the hood",
+                "Performance in thermal environments",
                 [
                   "Black Pearls 1300",
                   "Black Pearls 800",
@@ -1249,8 +1238,8 @@
                 ]
               ],
               [
-                "자동차 연료계통 (전도성·ESD)",
-                "전도성",
+                "Automotive fuel systems (conductive/ESD)",
+                "Conductivity",
                 [
                   "Vulcan XCmax",
                   "Vulcan XC72",
@@ -1258,8 +1247,8 @@
                 ]
               ],
               [
-                "식품접촉 (FDA)",
-                "PAH 함량, 물리·화학적 청정도, 착색·은폐력",
+                "Food contact (U.S. FDA)",
+                "PAH levels, physical and chemical cleanliness, color/opacity",
                 [
                   "Black Pearls 4350",
                   "Black Pearls 4750",
@@ -1267,8 +1256,8 @@
                 ]
               ],
               [
-                "합성섬유 (PET·PA·PP)",
-                "청정도, 착색, 분산성, 방사성(여과성)",
+                "Synthetic fiber (PET, PA, PP)",
+                "Physical cleanliness, color, dispersibility, filterability",
                 [
                   "Black Pearls 5560",
                   "Black Pearls 5160",
@@ -1277,29 +1266,30 @@
                 ]
               ],
               [
-                "전도성·ESD 포장·부품",
-                "전도성, 기계적 강도, 분산성, 화학적 청정도",
+                "Conductive and ESD packaging and parts",
+                "Conductivity, mechanical strength, dispersibility, chemical cleanliness",
                 [
                   "Vulcan XCmax",
                   "Vulcan XC72",
                   "Vulcan XC605"
                 ]
               ]
-            ]
+            ],
+            "사진": "https://images.unsplash.com/photo-1766651897083-62a5379b3d7d"
           },
           {
-            "이름": "전선·케이블",
+            "이름": "Wire and Cable",
             "항목": [
               [
-                "HV 반도전층",
-                "전도성, 표면 평활성, 물리·화학적 청정도",
+                "HV semiconductive",
+                "Conductivity, surface smoothness, physical and chemical cleanliness",
                 [
                   "Vulcan XC500"
                 ]
               ],
               [
-                "MV 반도전층",
-                "전도성, 표면 평활성, 청정도",
+                "MV semiconductive",
+                "Conductivity, surface smoothness, cleanliness",
                 [
                   "Vulcan XC72",
                   "Vulcan XC68",
@@ -1307,29 +1297,30 @@
                 ]
               ],
               [
-                "전도성 자켓",
-                "전도성",
+                "Conductive jacketing",
+                "Conductivity",
                 [
                   "Vulcan XCmax"
                 ]
               ],
               [
-                "UV 자켓",
-                "UV 내후성, 착색, 분산성",
+                "UV jacketing",
+                "UV/weatherability, color, dispersibility",
                 [
                   "Vulcan 9A32",
                   "Elftex TP",
                   "Elftex 570"
                 ]
               ]
-            ]
+            ],
+            "사진": "https://images.unsplash.com/photo-1687038520579-8d8f24721267"
           },
           {
-            "이름": "코팅",
+            "이름": "Coatings",
             "항목": [
               [
-                "자동차 외장 (수성)",
-                "High Jetness",
+                "Automotive exterior, water-based",
+                "High jetness",
                 [
                   "Emperor 2000",
                   "Emperor 1800",
@@ -1337,16 +1328,16 @@
                 ]
               ],
               [
-                "자동차 외장 (용제형)",
-                "High Jetness",
+                "Automotive exterior, solvent-based",
+                "High jetness",
                 [
                   "Emperor 1600",
                   "Monarch 1300"
                 ]
               ],
               [
-                "UV 경화 코팅",
-                "Jetness, 적은 광개시제, 경화성, 저점도",
+                "Energy cure (UV)",
+                "Good jetness, low photoinitiator, ease of curing, low viscosity",
                 [
                   "Mogul E",
                   "Regal 400R",
@@ -1354,24 +1345,24 @@
                 ]
               ],
               [
-                "분체도료",
-                "Medium Color, 분산성",
+                "Powder coatings",
+                "Medium color and dispersibility",
                 [
                   "Black Pearls 800",
                   "Regal 660"
                 ]
               ],
               [
-                "산업·일반용 (저점도)",
-                "저점도 블랙",
+                "Industrial and general purpose (low viscosity)",
+                "Black color with low viscosity",
                 [
                   "Mogul L",
                   "Regal 400R"
                 ]
               ],
               [
-                "조색 (Tinting)",
-                "Blue tone, 착색력",
+                "Tinting",
+                "Blue undertone and tinting strength",
                 [
                   "Monarch 280",
                   "Monarch 120",
@@ -1379,21 +1370,22 @@
                 ]
               ],
               [
-                "전도성 코팅",
-                "전도성",
+                "Conductive",
+                "Conductivity",
                 [
                   "Vulcan XC72R",
                   "Vulcan XC605"
                 ]
               ]
-            ]
+            ],
+            "사진": "https://images.unsplash.com/photo-1653227174943-2908ffc48237"
           },
           {
-            "이름": "인쇄잉크",
+            "이름": "Printing Inks",
             "항목": [
               [
-                "UV 경화 잉크",
-                "낮은 경화 에너지, 점도 안정성, Blue tone",
+                "UV cured inks",
+                "Low cure energy, viscosity stability, blue tone",
                 [
                   "Mogul E",
                   "Regal 250R",
@@ -1401,8 +1393,8 @@
                 ]
               ],
               [
-                "오프셋 (Heatset·매엽)",
-                "고광택, Jetness",
+                "Web offset heatset / sheetfed offset",
+                "High gloss, good jetness",
                 [
                   "Regal 350A120",
                   "Regal 250R",
@@ -1413,8 +1405,8 @@
                 ]
               ],
               [
-                "오프셋 (Coldset·신문)",
-                "Low structure, 내마찰성",
+                "Web offset coldset",
+                "Lower structure, rub-off resistance",
                 [
                   "Black Pearls 430",
                   "Regal 99I",
@@ -1423,8 +1415,8 @@
                 ]
               ],
               [
-                "출판 플렉소 (수성 신문잉크)",
-                "은폐력, 높은 광학농도(OD)",
+                "Publication flexo (aqueous newsink)",
+                "Good coverage, high optical density",
                 [
                   "Black Pearls 450A111",
                   "Black Pearls 430",
@@ -1432,8 +1424,8 @@
                 ]
               ],
               [
-                "출판 그라비아",
-                "High Jetness, 광택, Blue tone",
+                "Publication gravure",
+                "High jetness, gloss and blue tone",
                 [
                   "Black Pearls 450A111",
                   "Regal 330R",
@@ -1441,19 +1433,21 @@
                 ]
               ],
               [
-                "포장 플렉소",
-                "광택, Jetness",
+                "Flexo packaging",
+                "Gloss and jetness",
                 [
                   "Black Pearls 800",
                   "Black Pearls 450A111",
                   "Regal 400"
                 ]
               ]
-            ]
+            ],
+            "사진": "https://images.unsplash.com/photo-1778690133450-ddb08af48d76"
           }
         ]
       },
-      "표_안내": "I2 No.는 입자 크기 지표로, 클수록 입자가 작고 Jetness가 높습니다. OAN은 Structure 지표로, 클수록 분산이 쉽고 전도성이 높아집니다. 범위로 적힌 값은 규격, (typ.)는 Cabot 대표값입니다."
+      "표_안내": "I2 No. indicates particle size: higher means smaller particles and higher jetness. OAN indicates structure: higher means easier dispersion and higher conductivity. Ranges are specifications; (typ.) values are Cabot typical values.",
+      "사진": "https://images.unsplash.com/photo-1716893822986-578efcdae419"
     },
     {
       "id": "fumed-metal-oxide",

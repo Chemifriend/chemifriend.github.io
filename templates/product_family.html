@@ -10,7 +10,7 @@
 {% set g_open = family.소그룹|rejectattr('접기')|list %}
 {% set g_fold = family.소그룹|selectattr('접기')|list %}
 
-<section class="section page-header">
+<section class="section page-header{% if family.사진 %} family-hero{% endif %}"{% if family.사진 %} style="--photo:url('{{ img(family.사진, 2000, base_path) }}')"{% endif %}>
   <div class="section-inner">
     <p class="section-eyebrow">{{ brand.회사명 }}</p>
     <h1>{{ family.이름 }}</h1>
@@ -32,8 +32,8 @@
         <tr>
           <th class="col-name">{{ t.col_name }}</th>
           {% for col in group.스펙항목 %}<th class="col-spec">{{ col }}</th>{% endfor %}
-          <th class="col-app">용도</th>
-          {% if has_feat %}<th class="col-feat">특징</th>{% endif %}
+          <th class="col-app">Application</th>
+          {% if has_feat %}<th class="col-feat">Features</th>{% endif %}
         </tr>
       </thead>
       <tbody>
@@ -66,10 +66,13 @@
       <h2>{{ gd.제목 }}</h2>
       {% if gd.설명 %}<p class="app-guide-lead">{{ gd.설명 }}</p>{% endif %}
       {% for f in gd.분야 %}
+      <div class="app-sector">
+      {% if f.사진 %}<div class="app-photo"><img src="{{ img(f.사진, 900, base_path) }}" alt="{{ f.이름 }}" loading="lazy"><span>{{ f.이름 }}</span></div>{% endif %}
+      <div class="app-body">
       <h3 class="product-group-label">{{ f.이름 }}</h3>
       <div class="table-scroll">
         <table class="spec-table app-table">
-          <thead><tr><th class="col-name">용도</th><th>요구 물성</th><th>추천 그레이드</th></tr></thead>
+          <thead><tr><th class="col-name">Application</th><th>Key requirements</th><th>Suggested grades</th></tr></thead>
           <tbody>
             {% for use, req, grades in f.항목 %}
             <tr>
@@ -81,13 +84,15 @@
           </tbody>
         </table>
       </div>
+      </div>
+      </div>
       {% endfor %}
     </div>
     {% endif %}
 
     {% for group in g_fold %}
     <details class="product-group product-group-fold">
-      <summary><span class="product-group-label">{{ group.이름 }}</span><span class="fold-count">{{ group.제품|length }}개 · 펼쳐 보기</span></summary>
+      <summary><span class="product-group-label">{{ group.이름 }}</span><span class="fold-count">{{ group.제품|length }} grades · Show</span></summary>
       {% if group.설명 %}<p class="product-group-desc">{{ group.설명 }}</p>{% endif %}
       {{ group_table(group) }}
     </details>

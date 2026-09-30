@@ -307,7 +307,7 @@ UI = {
         visit_title="찾아오시는 길", contact_cta="제품별 문의 담당 →",
         hub_title="취급 브랜드", hub_desc="{name}가 파트너십을 맺고 있는 글로벌 화학소재 기업들입니다. 브랜드를 선택하면 취급 제품군을 확인할 수 있습니다.",
         products_label="취급 제품", view_specs="제품군 스펙 보기 →", families_title="취급 제품군", no_families="아직 등록된 제품군이 없습니다.",
-        col_name="품명", contact_label="문의 담당", sales_team="영업팀", sales_team_sub="Sales Team", email_inquiry="이메일 문의 →",
+        col_name="Product", contact_label="문의 담당", sales_team="영업팀", sales_team_sub="Sales Team", email_inquiry="이메일 문의 →",
         contact_title="문의하기", contact_lead="궁금하신 사항은 아래 연락처로 문의해 주세요.", contact_by_brand="제품별 문의 담당",
         f_ceo="대표", f_bizno="사업자등록번호", f_addr="주소", f_tel="대표전화", f_fax="팩스번호",
         d_main="{name} 공식 홈페이지. {slogan}", d_hub="케미프렌드 취급 브랜드 안내", d_brand="{brand} 취급 제품군 안내",

@@ -302,7 +302,7 @@ img { max-width: 100%; }
 .spec-table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
 .spec-table th, .spec-table td { padding: 15px 20px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 .spec-table thead th { background: var(--bg-soft); color: var(--ink); font-weight: 700; font-size: 0.85rem; white-space: nowrap; }
-.spec-table th:not(.col-name):not(.col-app), .spec-table td:not(.col-name):not(.col-app) { white-space: nowrap; }
+.spec-table th:not(.col-name):not(.col-app):not(.col-feat), .spec-table td:not(.col-name):not(.col-app):not(.col-feat) { white-space: nowrap; }
 .spec-table th.col-name, .spec-table td.col-name { width: 220px; min-width: 220px; max-width: 220px; white-space: normal; font-weight: 700; }
 .spec-table td.col-name a { color: var(--navy); }
 .spec-table td.col-name a:hover { color: var(--green-text); text-decoration: underline; text-underline-offset: 3px; }
@@ -594,4 +594,23 @@ img { max-width: 100%; }
 .app-grades span { color: var(--muted); }
 @media (max-width: 720px) {
   .group-jump a { padding: 6px 10px; font-size: 0.8rem; }
+}
+
+/* 제품군 머리 사진 · 어플리케이션 분야 사진 */
+.family-hero { background: linear-gradient(100deg, rgba(10,25,47,.94) 0%, rgba(10,25,47,.78) 55%, rgba(10,25,47,.5) 100%), var(--photo) center / cover no-repeat, var(--navy-dark); padding-top: 72px; padding-bottom: 64px; margin-top: 24px; }
+.family-hero h1 { color: #fff; }
+.family-hero .section-eyebrow { color: var(--green-bright); }
+.family-hero .table-note { color: #c3cedb; }
+.family-hero .group-jump a { color: #fff; border-color: rgba(255,255,255,.35); }
+.family-hero .group-jump a:hover { background: rgba(255,255,255,.1); border-color: #fff; }
+.family-hero .group-jump .guide-link a { background: var(--green); border-color: var(--green); }
+.app-sector { display: grid; grid-template-columns: 320px 1fr; gap: 40px; padding: 40px 0; border-bottom: 1px solid var(--line); }
+.app-sector .product-group-label { margin-top: 0; }
+.app-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #111; align-self: start; }
+.app-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.app-photo span { position: absolute; left: 0; bottom: 0; padding: 10px 14px; background: rgba(10,25,47,.85); color: #fff; font-weight: 800; letter-spacing: .02em; }
+.app-body { min-width: 0; }
+@media (max-width: 900px) {
+  .app-sector { grid-template-columns: 1fr; gap: 18px; }
+  .app-photo { aspect-ratio: 16 / 7; }
 }
